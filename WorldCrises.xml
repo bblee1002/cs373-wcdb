@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+
+<!-- World Crises XML using schema (WorldCrises.xsd) -->
+
+<WorldCrises>
+    <Crises Team="The A Team">
+        <CrisisID>CRI_NSAWT</CrisisID>
+    </Crises>
+
+    <Crisis ID="CRI_NRINFL" Name="NSA Wiretapping">
+        <People>
+            <PersonID>PER_SNWDN</PersonID>
+            <PersonID>PER_CRR</PersonID>
+        </People>
+        <Organizations>
+            <OrgID>ORG_NSA</OrgID>
+        </Organizations>
+        <PlaceID>PLA_WPH</PlaceID>
+        <PlaceID>PLA_HNGKNG</PlaceID>
+        <PlaceID>PLA_MSCW</PlaceID>
+        <PlaceID>PLA_ECDR</PlaceID>
+        <Year>2013</Year>
+        <!-- More elements here -->
+    </Crisis>
+ 
+    <Person ID="PER_SNWDN" Name="Edward Snowden">
+        <Born>1983</Born>
+        <!-- More elements here -->
+    </Person>
+
+    <Person ID="PER_CRR" Name="Rafael Correa">
+        <Born>1963</Born>
+        <Office>President, Ecuador</Office>
+        <!-- More elements here -->
+    </Person>
+
+    <Place ID="PLA_WPH" Name="Waipahu, Oahu, Hawaii, United States" />
+    <Place ID="PLA_HNGKNG" Name="Hong Kong" />
+    <Place ID="PLA_MSCW" Name="Moscow, Russia" />
+    <Place ID="PLA_ECDR" Name="Ecuador" />
+    <Organization ID="ORG_NSA" Name="National Security Agency">
+        <!-- More elements here -->
+    </Organization>
+</WorldCrises>
