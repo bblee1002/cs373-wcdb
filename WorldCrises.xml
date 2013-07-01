@@ -22,7 +22,18 @@
         <Year>2013</Year>
         <!-- More elements here -->
     </Crisis>
- 
+    
+    <Crisis ID="CRI_TXWLDFRS" Name="Texas Wild Fires">
+        <People>
+            <PersonID>PER_PRRY</PersonID>
+        </People>
+        <Organizations>
+            <OrgID>ORG_FEMA</OrgID>
+        </Organizations>
+        <PlaceID>PLA_BSTRP</PlaceID>
+        <Year>2011</Year>
+    </Crisis>
+    
     <Person ID="PER_SNWDN" Name="Edward Snowden">
         <Born>1983</Born>
         <!-- More elements here -->
@@ -33,12 +44,22 @@
         <Office>President, Ecuador</Office>
         <!-- More elements here -->
     </Person>
+    
+    <Person ID="PER_PRRY" Name="Rick Perry">
+        <Born>1950</Born>
+        <Office>Governor, Texas, United States</Office>
+    </Person>
 
     <Place ID="PLA_WPH" Name="Waipahu, Oahu, Hawaii, United States" />
     <Place ID="PLA_HNGKNG" Name="Hong Kong" />
     <Place ID="PLA_MSCW" Name="Moscow, Russia" />
     <Place ID="PLA_ECDR" Name="Ecuador" />
+    <Place ID="PLA_BSTRP" Name="Bastrop, Texas" />
+    
     <Organization ID="ORG_NSA" Name="National Security Agency">
         <!-- More elements here -->
+    </Organization>
+    
+    <Organization ID="ORG_FEMA" Name="Federal Emergency Management Agency">
     </Organization>
 </WorldCrises>
