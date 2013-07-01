@@ -47,7 +47,7 @@
         <!-- More elements here -->
     </Person
  
-    <Place ID="PLA_BRZL" Name="Sao Paulo, Brasilia, Brazil" </Place>
+    <Place ID="PLA_BRZL" Name="Sao Paulo, Brasilia, Brazil" />
     
     <Person ID="PER_SNWDN" Name="Edward Snowden">
         <Born>1983</Born>
