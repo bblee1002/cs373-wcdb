@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<WorldCrises>
+    <Crisis ID="CRI_NRINFL" Name="NSA Wiretapping">
+        <People>
+            <PersonID>PER_SNWDN</PersonID>
+            <PersonID>PER_CRR</PersonID>
+        </People>
+        <Organizations>
+            <OrgID>ORG_NSA</OrgID>
+        </Organizations>
+        <PlaceID>PLA_WPH</PlaceID>
+        <PlaceID>PLA_HNGKNG</PlaceID>
+        <PlaceID>PLA_MSCW</PlaceID>
+        <PlaceID>PLA_ECDR</PlaceID>
+        <Year>2013</Year>
+    </Crisis>
+</WorldCrises>
