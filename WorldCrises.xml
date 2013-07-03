@@ -4,74 +4,78 @@
 
 <WorldCrises>
     <Crises Team="The A Team">
-        <CrisisID>CRI_NSAWT</CrisisID>
+        <CrisisID>CRI_NSAWTT</CrisisID>
     </Crises>
 
     <Crisis ID="CRI_NRINFL" Name="NSA Wiretapping">
         <People>
-            <PersonID>PER_SNWDN</PersonID>
-            <PersonID>PER_CRR</PersonID>
+            <PersonID>PER_ESNWDN</PersonID>
+            <PersonID>PER_CRRRRR</PersonID>
         </People>
         <Organizations>
-            <OrgID>ORG_NSA</OrgID>
+            <OrgID>ORG_NSARRR</OrgID>
         </Organizations>
-        <PlaceID>PLA_WPH</PlaceID>
+        <PlaceID>PLA_WAIPAH</PlaceID>
         <PlaceID>PLA_HNGKNG</PlaceID>
-        <PlaceID>PLA_MSCW</PlaceID>
-        <PlaceID>PLA_ECDR</PlaceID>
+        <PlaceID>PLA_MOSCOW</PlaceID>
+        <PlaceID>PLA_ECUADR</PlaceID>
         <Year>2013</Year>
         <!-- More elements here -->
     </Crisis>
-    <Crisis ID="CRI_TXWLDFRS" Name="Texas Wild Fires">
+    <Crisis ID="CRI_TXWDFR" Name="Texas Wild Fires">
         <People>
-            <PersonID>PER_PRRY</PersonID>
+            <PersonID>PER_RPERRY</PersonID>
         </People>
         <Organizations>
-            <OrgID>ORG_FEMA</OrgID>
+            <OrgID>ORG_FEMAAA</OrgID>
         </Organizations>
-        <PlaceID>PLA_BSTRP</PlaceID>
+        <PlaceID>PLA_BASTRP</PlaceID>
         <Year>2011</Year>
     </Crisis>
     
-    <Crisis ID="CRI_BRZLPRO" Name="Brazilian Protests">
+    <Crisis ID="CRI_BRZLPR" Name="Brazilian Protests">
         <People>
-            <PersonID>PER_HPAS</PersonID>
+            <PersonID>PER_HPASSS</PersonID>
         </People>
-        <PlaceID>PLA_BRZL</PlaceID>
+		<Organizations>
+			<OrgID>ORG_BRAGOV</OrgID>
+		</Organizations>
+        <PlaceID>PLA_BRAZIL</PlaceID>
         <Year>2013</Year>
         <!-- More elements here -->
     </Crisis>
     
-    <Person ID="PER_HPAS" Name="Hildebrando Pascoal">
+    <Person ID="PER_HPASSS" Name="Hildebrando Pascoal">
         <Born>1952</Born>
         <!-- More elements here -->
-    </Person
- 
-    <Place ID="PLA_BRZL" Name="Sao Paulo, Brasilia, Brazil" />
-    
-    <Person ID="PER_SNWDN" Name="Edward Snowden">
+    </Person>
+
+    <Person ID="PER_ESNWDN" Name="Edward Snowden">
         <Born>1983</Born>
         <!-- More elements here -->
     </Person>
-    <Person ID="PER_CRR" Name="Rafael Correa">
+
+    <Person ID="PER_CRRRRR" Name="Rafael Correa">
         <Born>1963</Born>
         <Office>President, Ecuador</Office>
         <!-- More elements here -->
     </Person>
-    <Person ID="PER_PRRY" Name="Rick Perry">
+
+    <Person ID="PER_RPERRY" Name="Rick Perry">
         <Born>1950</Born>
         <Office>Governor, Texas, United States</Office>
     </Person>
-    
-    <Place ID="PLA_WPH" Name="Waipahu, Oahu, Hawaii, United States" />
+ 
+    <Place ID="PLA_BRAZIL" Name="Sao Paulo, Brasilia, Brazil" />
+    <Place ID="PLA_WAIPAH" Name="Waipahu, Oahu, Hawaii, United States" />
     <Place ID="PLA_HNGKNG" Name="Hong Kong" />
-    <Place ID="PLA_MSCW" Name="Moscow, Russia" />
-    <Place ID="PLA_ECDR" Name="Ecuador" />
-    <Place ID="PLA_BSTRP" Name="Bastrop, Texas" />
+    <Place ID="PLA_MOSCOW" Name="Moscow, Russia" />
+    <Place ID="PLA_ECUADR" Name="Ecuador" />
+    <Place ID="PLA_BASTRP" Name="Bastrop, Texas" />
     
-    <Organization ID="ORG_NSA" Name="National Security Agency">
+    <Organization ID="ORG_NSAAAA" Name="National Security Agency">
         <!-- More elements here -->
     </Organization>
-    <Organization ID="ORG_FEMA" Name="Federal Emergency Management Agency">
+    <Organization ID="ORG_FEMAAA" Name="Federal Emergency Management Agency">
     </Organization>
 </WorldCrises>
