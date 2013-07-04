@@ -61,6 +61,35 @@
         <!-- More elements here -->
     </Person>
 
+    <Person ID="PER_MADRID" Name="Mario Villanueva Madrid">
+        <Born>1948</Born>
+	<Description>Arrested former Mexican governor</Description>
+        <!-- More elements here -->
+    </Person>
+
+    <Person ID="PER_ESTRDA" Name="Nicolas Estrada">
+        <Office>Institutional Revolutionary Party (PRI) in Mexico</Office>
+	<Description>Leader of Mexican PRD party (Died on June 30, 2013)</Description>
+        <!-- More elements here -->
+    </Person>
+
+    <Person ID="PER_RPALMA" Name="Rosalia Palma">
+        <Office>Institutional Revolutionary Party (PRI) in Mexico</Office>
+	<Description>candidate of Mexican PRI party</Description>
+        <!-- More elements here -->
+    </Person>
+
+    <Person ID="PER_FCLDRN" Name="Felipe Calderón">
+        <Born>1962</Born>
+        <Office>President of Mexico 2006-2012</Office>
+        <!-- More elements here -->
+    </Person>
+
+    <Person ID="PER_LAZCAN" Name="Heriberto Lazcano Lazcano">
+	<Description>Leader of Los Zetas Cartel</Description>
+        <!-- More elements here -->
+    </Person>
+
     <Person ID="PER_RPERRY" Name="Rick Perry">
         <Born>1950</Born>
         <Office>Governor, Texas, United States</Office>
