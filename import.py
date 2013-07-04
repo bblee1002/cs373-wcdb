@@ -17,10 +17,10 @@ crisis_list = []
 #and add to a list of crisis objects created by Django
 for node in root.iter("Crisis"):
 	temp_crisis = Crisis()
-	temp_crisis.crisisID = node.get("ID")
+	temp_crisis.crisis_ID = node.get("ID")
 	temp_crisis.name= node.get("Name")
 	crisis_list.append(temp_crisis)
 
 for crisis in crisis_list:
-	print "crisis id: ", crisis.crisisID, "crisis name: ", crisis.name
+	print "crisis id: ", crisis.crisis_ID, "crisis name: ", crisis.name
 

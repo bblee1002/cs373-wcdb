@@ -55,7 +55,7 @@
         <!-- More elements here -->
     </Person>
 
-    <Person ID="PER_CRRRRR" Name="Rafael Correa">
+    <Person ID="PER_RFLCRR" Name="Rafael Correa">
         <Born>1963</Born>
         <Office>President, Ecuador</Office>
         <!-- More elements here -->
