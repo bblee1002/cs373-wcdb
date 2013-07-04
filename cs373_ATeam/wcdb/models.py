@@ -28,27 +28,21 @@ class Person(models.Model) :
     name              =    models.CharField(max_length=200)
     born              = models.IntegerField(max_length=200)
     office            =    models.CharField(max_length=200)
-    crisis_list       = []
     organization_list = []
 
-    def add_crisis(self, person_id) :
-        crisis_list.append(crisis_id)
 
     def add_org(self, org_id) :
         org_list.append(org_id)
 
 class Org(models.Model) :
-    head_ID     = models.CharField(max_length=200)
     org_ID      = models.CharField(max_length=200)
+    head_ID     = models.CharField(max_length=200)
     name        = models.CharField(max_length=200)
-    crisis_list = []
     person_list = []
 
     def add_person(self, person_id) :
         person_list.append(crisis_id)
 
-    def add_crisis(self, org_id) :
-        crisis_list.append(org_id)
 
 class Place(models.Model):
     place_ID = models.CharField(max_length=200)
