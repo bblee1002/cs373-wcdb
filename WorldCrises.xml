@@ -44,6 +44,23 @@
         <Year>2013</Year>
         <!-- More elements here -->
     </Crisis>
+
+    <Crisis ID="CRI_MEXDRG" Name="Mexican Drug War">
+        <People>
+            <PersonID>PER_FCLDRN</PersonID>
+            <PersonID>PER_LAZCAN</PersonID>
+            <PersonID>PER_GUZMAN</PersonID>
+        </People>
+        <Organizations>
+            <OrgID>ORG_SINCAR</OrgID>
+            <OrgID>ORG_LOSZTA</OrgID>
+            <OrgID>ORG_GULFCA</OrgID>
+            <OrgID>ORG_MEXGOV</OrgID>
+        </Organizations>
+        <PlaceID>PLA_MEXICO</PlaceID>
+        <Year>2006-</Year>
+        <!-- More elements here -->
+    </Crisis>
     
     <Person ID="PER_HPASSS" Name="Hildebrando Pascoal">
         <Born>1952</Born>
@@ -61,6 +78,42 @@
         <!-- More elements here -->
     </Person>
 
+    <Person ID="PER_MADRID" Name="Mario Villanueva Madrid">
+        <Born>1948</Born>
+	<Description>Arrested former Mexican governor</Description>
+        <!-- More elements here -->
+    </Person>
+
+    <Person ID="PER_ESTRDA" Name="Nicolas Estrada">
+        <Office>Institutional Revolutionary Party (PRI) in Mexico</Office>
+	<Description>Leader of Mexican PRD party (Died on June 30, 2013)</Description>
+        <!-- More elements here -->
+    </Person>
+
+    <Person ID="PER_RPALMA" Name="Rosalia Palma">
+        <Office>Institutional Revolutionary Party (PRI) in Mexico</Office>
+	<Description>candidate of Mexican PRI party</Description>
+        <!-- More elements here -->
+    </Person>
+
+    <Person ID="PER_FCLDRN" Name="Felipe Calderon">
+        <Born>1962</Born>
+        <Office>President of Mexico</Office>
+        <!-- More elements here -->
+    </Person>
+
+    <Person ID="PER_GUZMAN" Name="Joaquin Guzman Loera">
+        <Born>1954</Born>
+        <Office>Leader of Sinaloa Cartel</Office>
+        <!-- More elements here -->
+    </Person>
+
+    <Person ID="PER_LAZCAN" Name="Heriberto Lazcano Lazcano">
+        <Born>1974</Born>
+        <Office>Leader of Los Zetas Cartel</Office>
+        <!-- More elements here -->
+    </Person>
+
     <Person ID="PER_RPERRY" Name="Rick Perry">
         <Born>1950</Born>
         <Office>Governor, Texas, United States</Office>
@@ -72,19 +125,22 @@
     <Place ID="PLA_MOSCOW" Name="Moscow, Russia" />
     <Place ID="PLA_ECUADR" Name="Ecuador" />
     <Place ID="PLA_BASTRP" Name="Bastrop, Texas" />
+    <Place ID="PLA_MEXICO" Name="Mexico"/>
+
     
     <Organization ID="ORG_NSAAAA" Name="National Security Agency">
         <!-- More elements here -->
     </Organization>
     <Organization ID="ORG_FEMAAA" Name="Federal Emergency Management Agency"></Organization>
     <Organization ID="ORG_FIFAAA" Name="Federation Internationale de Football Association"></Organization>
-    <Organization ID="ORG_EPAAAA" Name="Environmental Protection Agnecy"></Organization>
-    <Organization ID="ORG_LOSZTA" Name="Los Zetas"></Organization>
+    <Organization ID="ORG_EPAAAA" Name="Environmental Protection Agency"></Organization>
+    <Organization ID="ORG_LOSZTA" Name="Los Zetas Cartel"></Organization>
     <Organization ID="ORG_SINCAR" Name="Sinaloa Cartel"></Organization>
+    <Organization ID="ORG_GULFCA" Name="Gulf Cartel"></Organization>
+    <Organization ID="ORG_MEXGOV" Name="Mexican Government"></Organization>
     <Organization ID="ORG_MATATL" Name="SOS Mata Atlantica"></Organization>
     <Organization ID="ORG_IRSSSS" Name="Internal Revenue Service"></Organization>
     <Organization ID="ORG_RLGBTN" Name="Russian LGBT Network"></Organization>
     <Organization ID="ORG_ICEEEE" Name="Immigrations and Customs Enforcement"></Organization>
     <Organization ID="ORG_FEMAAA" Name="Federal Emergency Management Service"></Organization>
-    <Organization ID="ORG_MEXGOV" Name="Mexican Government"></Organization>
 </WorldCrises> 
