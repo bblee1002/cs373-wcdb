@@ -1,3 +1,5 @@
+import os
+os.environ["DJANGO_SETTINGS_MODULE"] = "cs373_ATeam.settings"
 from django.db import models
 
 # Create your models here.
@@ -23,9 +25,9 @@ class Crisis(models.Model) :
 
 class Person(models.Model) :
     person_ID         =    models.CharField(max_length=200)
+    name              =    models.CharField(max_length=200)
     born              = models.IntegerField(max_length=200)
     office            =    models.CharField(max_length=200)
-    name              =    models.CharField(max_length=200)
     crisis_list       = []
     organization_list = []
 

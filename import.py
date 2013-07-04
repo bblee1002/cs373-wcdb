@@ -1,5 +1,3 @@
-import os
-os.environ["DJANGO_SETTINGS_MODULE"] = "cs373_ATeam.settings"
 import sys
 from django.conf import settings
 from cs373_ATeam.wcdb.models import Crisis
