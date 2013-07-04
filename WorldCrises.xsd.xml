@@ -40,8 +40,7 @@
             </xsd:element>
             <xsd:element name="PlaceID" type="PlaceIDType"  minOccurs="1" maxOccurs="unbounded" />
             <!-- There was only an option for one year here, so I augmented to allow a range of years -->
-            <xsd:element name="StartYear" type="xsd:gYear" minOccurs="1" maxOccurs="1" />
-            <xsd:element name="EndYear" type="xsd:gYear" minOccurs="1" maxOccurs="1" />
+            <xsd:element name="Year" type="xsd:gYear" minOccurs="1" maxOccurs="1" />
             <!-- More elements here -->
         </xsd:sequence>
         <xsd:attribute name="ID" type="CrisisIDType" use="required" />
