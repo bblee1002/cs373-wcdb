@@ -41,6 +41,9 @@ def importView(request):
     form = XMLUploadForm()
 
   return render(request, 'wcdb/import.html', {'form': form})
+
+def exportView(request) :
+  return render(request, 'wcdb/Export.html')
   
 class XMLUploadForm(forms.Form):
   xmlfile = forms.FileField()
