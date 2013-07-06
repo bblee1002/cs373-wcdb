@@ -33,23 +33,13 @@ class Crisis(models.Model) :
     #common
     common            = Common()
 
-    def add_person(self, person_id) :
-    	people.append(person_id)
-
-    def add_org(self, org_id) :
-    	organizations.append(org_id)
-
-    def add_place(self, place_id) :
-    	locations.append(place_id)
-
 
 class Person(models.Model) :
     person_ID         = models.CharField(max_length=200)
     name              = models.CharField(max_length=200)
-    office            = models.CharField(max_length=200)
     kind              = models.CharField(max_length=200)
     location          = models.CharField(max_length=200)
-    common            =                            Common()
+    common            =                         Common()
     crises            = []
     organizations     = []
     
@@ -69,10 +59,6 @@ class Org(models.Model) :
     common      = Common()
 
 
-class Place(models.Model):
-    place_ID = models.CharField(max_length=200)
-    name     = models.CharField(max_length=200)
-
 #class for the ListType complexType
 class Li() :
     #Li
@@ -81,7 +67,6 @@ class Li() :
     text = None
     #text not in the attributes; not Li
     floating_text = None
-
 
 #general method for adding to a list
 def list_add(list, id) :
