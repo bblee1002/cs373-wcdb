@@ -37,16 +37,16 @@ def populate_crisis(root, list) :
 		c_list.append(temp_crisis)
 
 		#populating the year
-		crisis.year = int(crisis.find("Year").txt)
+		crisis.year = int(crisis.find("Year").text)
 		#populating people
 		for person in crisis.iter("PersonID") :
-			temp_crisis.add_person(person.txt)
+			temp_crisis.add_person(person.text)
 		#populating organizations
 		for org in crisis.iter("OrgID") :
-			temp_crisis.add_org(org.txt)
+			temp_crisis.add_org(org.text)
 		#populating places
 		for place in crisis.iter("PlaceID") :
-			temp_crisis.add_place(place.txt)
+			temp_crisis.add_place(place.text)
 		#add populated crisis model to list
 		list.append(temp_crisis)
 
@@ -57,11 +57,11 @@ def populate_person(root, list) :
 		temp_person             =                     Person()
 		temp_person.person_ID   =             person.get("ID")
 		temp_person.name        =           person.get("Name")
-		temp_person.born        = int(person.find("Born").txt)
-		temp_person.office      =    person.find("Office").txt
+		temp_person.born        = int(person.find("Born").text)
+		temp_person.office      =    person.find("Office").text
 
 		for org in person.iter("OrgID") :
-				temp_person.add_org(org.txt)
+				temp_person.add_org(org.text)
 		list.append(temp_person)
 
 def populate_org(root, list) :
@@ -72,7 +72,7 @@ def populate_org(root, list) :
 		temp_org.name    =      org.get("Name")
 
 		for person in org.iter("PersonID") :
-			temp_org.add_person(person.txt)
+			temp_org.add_person(person.text)
 
 
 		list.append(temp_org)
@@ -85,6 +85,7 @@ def populate_place(root, list) :
 
 		list.append(temp_place)
 
-# for crisis in crisis_list:
-# 	print "crisis id: ", crisis.crisis_ID, "crisis name: ", crisis.name
-
+#function for validating the file
+def validate(file) :
+	name = file.name
+	if name[-4:] == ".xml"
