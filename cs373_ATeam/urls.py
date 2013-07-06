@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^crisis/(?P<crisis_id>\d)$', 'wcdb.views.crisisView'),
     url(r'^orgs/(?P<orgs_id>\d)$', 'wcdb.views.orgsView'),
     url(r'^people/(?P<people_id>\d)$', 'wcdb.views.peopleView'),
+    url(r'^export/$', 'wcdb.views.exportView'),
     # url(r'^cs373_ATeam/', include('cs373_ATeam.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
