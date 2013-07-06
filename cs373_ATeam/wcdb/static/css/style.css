@@ -1,3 +1,12 @@
 .navbar {
 	margin-top: 20px;
 }
+
+.inner-item {
+	text-align: center;
+}
+
+.inner-item img {
+	margin: 0 auto;
+	max-height: 355px;
+}
