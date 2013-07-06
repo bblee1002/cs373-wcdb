@@ -115,7 +115,7 @@
         <xsd:attribute name="Name" type="xsd:token" use="required" />
     </xsd:complexType>
     
-    <!-- Person Data Type -->
+    <!-- Organization Data Type -->
     <!-- Required: Name, ID (attributes), Crises, People (each with ID attributes) -->
     <xsd:complexType name="OrgType">
         <xsd:sequence>
