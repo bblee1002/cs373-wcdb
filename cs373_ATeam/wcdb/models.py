@@ -48,10 +48,6 @@ class Org(models.Model) :
     common      = Common()
 
 
-class Place(models.Model):
-    place_ID = models.CharField(max_length=200)
-    name     = models.CharField(max_length=200)
-
 #class for the ListType complexType
 class Li() :
     #Li
