@@ -22,23 +22,13 @@ class Crisis(models.Model) :
     #common
     common            = Common()
 
-    def add_person(self, person_id) :
-    	people.append(person_id)
-
-    def add_org(self, org_id) :
-    	organizations.append(org_id)
-
-    def add_place(self, place_id) :
-    	locations.append(place_id)
-
 
 class Person(models.Model) :
     person_ID         = models.CharField(max_length=200)
     name              = models.CharField(max_length=200)
-    office            = models.CharField(max_length=200)
     kind              = models.CharField(max_length=200)
     location          = models.CharField(max_length=200)
-    common            =                            Common()
+    common            =                         Common()
     crises            = []
     organizations     = []
     
@@ -73,12 +63,12 @@ class Li() :
 
 class Common() :
     #Li
-    citations = []
+    citations      = []
     external_links = []
-    images = []
-    videos = []
-    maps = []
-    feeds = []
+    images         = []
+    videos         = []
+    maps           = []
+    feeds          = []
     #similar to floating text
     summary
 
