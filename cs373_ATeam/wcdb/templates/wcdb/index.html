@@ -3,20 +3,27 @@
 {% block content %}
 <h1>The A Team</h1>
 <div>
-	<ul>
-		<li>Paul Carroll</li>
-		<li>Shan R. Gupta</li>
-		<li>Brandon Lee</li>
-		<li>Eduardo Saenz</li>
-		<li>Olga Saprycheva</li>
-		<li>Shaelyn Watson</li>
-	</ul>
+	<div class="row">
+		<div class="span6">
+			<ul>
+				<li>Paul Carroll</li>
+				<li>Shan R. Gupta</li>
+				<li>Brandon Lee</li>
+				<li>Eduardo Saenz</li>
+				<li>Olga Saprycheva</li>
+				<li>Shaelyn Watson</li>
+			</ul>
+		</div>
+		<div class="span6">
+		</div>
+	</div>
+
 
 	<div class="row">
 		<div class="span4">
 			<h2>Crises</h2>
 			<ul>
-				<li><a href="/static/pages/nsa.html">NSA Wiretapping</a></li>
+				<li><a href="/crisis/1">NSA Wiretapping</a></li>
 				<li><a href="#">Mexican Drug War</a></li>
 				<li><a href="#">Bee Colony Collapse</a></li>
 			</ul>
@@ -38,12 +45,6 @@
 			</ul>
 		</div>
 	</div>
-
-	<ul>
-		<li><a href="#">import</a></li>
-		<li><a href="#">export</a></li>
-		<li><a href="#">unittest</a></li>
-	</ul>
 
 </div>
 {% endblock content %}

@@ -6,7 +6,9 @@ from django.conf.urls.defaults import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^.*$', include('wcdb.urls')),
+    url(r'^$', 'wcdb.views.index'),
+    url(r'^import/$', 'wcdb.views.importView'),
+    url(r'^crisis/(?P<crisis_id>\d)$', 'wcdb.views.crisisView'),
     # url(r'^cs373_ATeam/', include('cs373_ATeam.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
