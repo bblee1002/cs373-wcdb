@@ -4,6 +4,17 @@ from django.db import models
 
 # Create your models here.
 
+class Common() :
+    #Li
+    citations = []
+    external_links = []
+    images = []
+    videos = []
+    maps = []
+    feeds = []
+    #similar to floating text
+    summary = None
+
 
 class Crisis(models.Model) :
     crisis_ID         = models.CharField(max_length=200)
@@ -51,22 +62,11 @@ class Org(models.Model) :
 #class for the ListType complexType
 class Li() :
     #Li
-    href
-    embed
-    text
+    href = None
+    embed = None
+    text = None
     #text not in the attributes; not Li
-    floating_text
-
-class Common() :
-    #Li
-    citations      = []
-    external_links = []
-    images         = []
-    videos         = []
-    maps           = []
-    feeds          = []
-    #similar to floating text
-    summary
+    floating_text = None
 
 #general method for adding to a list
 def list_add(list, id) :
