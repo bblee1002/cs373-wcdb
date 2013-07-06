@@ -13,10 +13,20 @@ def crisisView(request, crisis_id):
     return HttpResponse("no such path")
 
 def orgsView(request, orgs_id):
-  return HttpResponse('hello from orgs')
+  if orgs_id == '1' :
+    return render(request, 'wcdb/ORG_NSAAAA.html')
+  elif orgs_id == '2' :
+    return render(request, 'wcdb/ORG_SINCAR.html')
+  elif orgs_id == '3' :
+    return render(request, 'wcdb/ORG_EPAAAA.html')
+  else :
+    return HttpResponse("not such path")
 
 def peopleView(request, people_id):
-  return HttpResponse('hello from people')
+  if people_id == '1' :
+    return render(request, 'wcdb/PER_SNOWDN.html')
+  else :
+    return HttpResponse('not such path')
 
 def index(request):
   return render(request, 'wcdb/index.html')
