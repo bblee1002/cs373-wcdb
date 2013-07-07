@@ -125,6 +125,24 @@
             <Summary></Summary>
         </Common>
     </Crisis>
+
+    <Crisis ID="CRI_BEEDIE" Name="Bee Colony Collapse">
+    </Crisis>
+
+    <Crisis ID="CRI_NUCDIS" Name="Nuclear Disasters">
+    </Crisis>
+
+    <Crisis ID="CRI_EGYPT" Name="Political Unrest in Egypt">
+    </Crisis>
+
+    <Crisis ID="CRI_RUSSIA" Name="LGBT Issues in Russia">
+    </Crisis>
+
+    <Crisis ID="CRI_FWATER" Name="Fresh Water Dwindling">
+    </Crisis>
+
+    <Crisis ID="CRI_FOREST" Name="Deforestation">
+    </Crisis>
     
     <Person ID="PER_HPASSS" Name="Hildebrando Pascoal">
         <Born>1952</Born>
@@ -272,16 +290,7 @@
             <Summary></Summary>
         </Common>
     </Person>
- 
-    <Place ID="PLA_BRAZIL" Name="Sao Paulo, Brasilia, Brazil" />
-    <Place ID="PLA_WAIPAH" Name="Waipahu, Oahu, Hawaii, United States" />
-    <Place ID="PLA_HNGKNG" Name="Hong Kong" />
-    <Place ID="PLA_MOSCOW" Name="Moscow, Russia" />
-    <Place ID="PLA_ECUADR" Name="Ecuador" />
-    <Place ID="PLA_BASTRP" Name="Bastrop, Texas" />
-    <Place ID="PLA_MEXICO" Name="Mexico"/>
 
-    
     <Organization ID="ORG_NSAAAA" Name="National Security Agency">
         <!-- More elements here -->
     </Organization>
