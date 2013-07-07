@@ -13,26 +13,58 @@
             <Org ID="ORG_NSARRR" />
         </Organizations>
         <Kind></Kind>
-        <Date>2013</Date>
-        <Time></Time>
+        <Date>2013-06-06</Date>
         <Locations>
             <li></li>
             <li>Hong Kong</li>
             <li>Moscow</li>
             <li>Ecuador</li>
         </Locations>
-        <PlaceID>PLA_WAIPAH</PlaceID>
-        <HumanImpact></HumanImpact>
-        <EconomicImpact></EconomicImpact>
-        <ResourcesNeeded></ResourcesNeeded>
-        <WaysToHelp></WaysToHelp>
+        <HumanImpact>
+            <li>By conducting massive surveillance operations over hundreds of millions of Americans and millions of others overseas and insisting that it has the right to do so whenever it feels American interests may be involved, the United States Government has violated the Fourth Amendment of the United States Constitution. The willingness of Congress, the Executive Branch, and even the Courts to go along with this program bodes ill for the future of our civil liberties. While it likely can be truthfully said that this surveillance program is not currently being abused to do things like shut down political opposition, the US Government has a history of doing such things in the past, and blindly trusting that such immense power would never be abused or wielded against the interests of the American people will not end well.</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>As a result of the United States Government's decision to implement an extensive surveillance program not only on its own citizens, but also on foreign allies, there has been significant damage to the USA's relations with other countries. As a result, relations between them have become strained, resulting in countries becoming less willing to encourage economic interactions with America. In addition, fear that the US government may be spying on them has led many European businesses and entities associated with European governments to drop or consider dropping American telecommunications service providers such as Verizon and ATT.</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li>Money</li>
+            <li>Time</li>
+            <li>Effort</li>
+            <li>Passion</li>
+            <li>Awareness</li>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li href="http://www.restorethefourth.net/protests/">Restore The Fourth</li>
+            <li href="https://donate.fightforthefuture.org/donate/fftf?amount=">Donate To Fight For The Future</li>
+            <li href="https://supporters.eff.org/donate">Donate To Electronic Frontier Foundation</li>
+            <li href="http://cms.fightforthefuture.org/call-for-freedom/">Contact Your Representative Through Fight For The Future</li>
+            <li href="https://action.eff.org/o/9042/p/dia/action3/common/public/?action_KEY=9260">Contact Your Representative Through Electronic Frontier Foundation</li>
+        </WaysToHelp>
         <Common>
-            <Citations></Citations>
-            <ExternalLinks></ExternalLinks>
-            <Images></Images>
-            <Videos></Videos>
-            <Maps></Maps>
-            <Feeds></Feeds>
+            <Citations>
+                <li href="http://www.guardian.co.uk/world/2013/jul/04/european-us-internet-providers-nsa">Traynor, Ian. "European Firms 'Could Quit US Internet Providers Over NSA Scandal'". The Guardian. 4 July, 2013. Visited: 7 July, 2013.</li>
+                <li href="http://www.nytimes.com/2013/06/28/opinion/the-criminal-nsa.html?pagewanted=all&amp;_r=0">Granick, Jennifer Stisa; Sprigman, Christopher Jon. "The Criminal N.S.A.". The New York Times. 27 June, 2013. Visited: 7 July, 2013.</li>
+                <li href="http://www.huffingtonpost.com/peter-h-schuck/national-security_b_3543312.html">Schuck, Peter H. "The Courts and National Security: A False Hope". The Huffington Post. 3 July, 2013. Visited: 7 July, 2013.</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/PRISM_(surveillance_program)">Wikipedia: PRISM</li>
+                <li href="http://www.businessweek.com/news/2013-06-30/europe-shocked-as-spiegel-publishes-report-of-nsa-wiretapping">Business Week: Europe Shocked as Speigel Publishes Report of NSA Wiretapping</li>
+                <li href="http://en.wikipedia.org/wiki/NSA_warrantless_surveillance_controversy">Wikipedia: Warrantless Surveillance Controversy</li>
+                <li href="http://en.wikipedia.org/wiki/NSA_call_database">Wikipedia: NSA Call Database</li>
+                <li href="http://www.huffingtonpost.com/peter-h-schuck/national-security_b_3543312.html">Huffington Post: The Courts and National Security</li>
+                <li href="http://www.guardian.co.uk/world/2013/jun/06/nsa-phone-records-verizon-court-order">The Guardian: NSA Collecting Phone Records of Verizon Customers</li>
+                <li href="http://www.washingtonpost.com/www.washingtonpost.com/investigations/us-intelligence-mining-data-from-nine-us-internet-companies-in-broad-secret-program/2013/06/06/3a0c0da8-cebf-11e2-8845-d970ccb04497_story.html">The Washington Post: US, British Intelligence Mining Data From US Internet Companies</li>
+                <li href="https://www.eff.org/deeplinks/2012/08/ny-times-reminds-us-nsa-still-warrantlessly-wiretapping-americans-and-congress-has">EFF: NSA Warrantlessly Wiretapping</li>
+                <li href="http://www.nytimes.com/2013/06/28/opinion/the-criminal-nsa.html?pagewanted=all&amp;_r=0">New York Times: The Criminal NSA</li>
+                <li href="http://www.guardian.co.uk/world/2013/jul/04/european-us-internet-providers-nsa">The Guardian: European Businesses Drop American Providers</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://media.salon.com/2013/06/aptopix-nsa-phone-records-big-data-photo-gallery.jpeg-620x412.jpg" text="img not found">NSA Supercomputers Storing and Mining Massive Quantities of Data</li>
+                <li embed="http://news.antiwar.com/wp-content/uploads/2012/07/nsahq.jpg" text="img not found">NSA Headquarters</li>
+                <li embed="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2012/1/31/1328029813998/The-US-director-of-nation-007.jpg" text="img not found">Director of Intelligence for the United States of America James Clapper</li>
+                <li embed="http://www.thedailysheeple.com/wp-content/uploads/2013/06/snowden.jpg" text="img not found">Edward Snowden The man who leaked the details of the NSA's surveillance program being interviewed in Hong Kong</li>
+                <li embed="http://media.cagle.com/29/2013/06/07/132863_600.jpg" text="img not found">The Government's Always Listening...</li>
+            </Images>
             <Summary></Summary>
         </Common>
     </Crisis>
@@ -45,8 +77,7 @@
             <Org ID="ORG_FEMAAA" />
         </Organizations>
         <Kind></Kind>
-        <Date>2011</Date>
-        <Time></Time>
+        <Date>2011-10-16</Date>
         <Locations>
             <li>Bastrop</li>
         </Locations>
@@ -124,6 +155,24 @@
             <Feeds></Feeds>
             <Summary></Summary>
         </Common>
+    </Crisis>
+
+    <Crisis ID="CRI_BEEDIE" Name="Bee Colony Collapse">
+    </Crisis>
+
+    <Crisis ID="CRI_NUCDIS" Name="Nuclear Disasters">
+    </Crisis>
+
+    <Crisis ID="CRI_EGYPT" Name="Political Unrest in Egypt">
+    </Crisis>
+
+    <Crisis ID="CRI_RUSSIA" Name="LGBT Issues in Russia">
+    </Crisis>
+
+    <Crisis ID="CRI_FWATER" Name="Fresh Water Dwindling">
+    </Crisis>
+
+    <Crisis ID="CRI_FOREST" Name="Deforestation">
     </Crisis>
     
     <Person ID="PER_HPASSS" Name="Hildebrando Pascoal">
@@ -272,16 +321,7 @@
             <Summary></Summary>
         </Common>
     </Person>
- 
-    <Place ID="PLA_BRAZIL" Name="Sao Paulo, Brasilia, Brazil" />
-    <Place ID="PLA_WAIPAH" Name="Waipahu, Oahu, Hawaii, United States" />
-    <Place ID="PLA_HNGKNG" Name="Hong Kong" />
-    <Place ID="PLA_MOSCOW" Name="Moscow, Russia" />
-    <Place ID="PLA_ECUADR" Name="Ecuador" />
-    <Place ID="PLA_BASTRP" Name="Bastrop, Texas" />
-    <Place ID="PLA_MEXICO" Name="Mexico"/>
 
-    
     <Organization ID="ORG_NSAAAA" Name="National Security Agency">
         <!-- More elements here -->
     </Organization>
