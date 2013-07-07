@@ -3,120 +3,274 @@
 <!-- World Crises XML using schema (WorldCrises.xsd) -->
 
 <WorldCrises>
-    <Crises Team="The A Team">
-        <CrisisID>CRI_NSAWTT</CrisisID>
-    </Crises>
 
-    <Crisis ID="CRI_NRINFL" Name="NSA Wiretapping">
+    <Crisis ID="CRI_NSAWRT" Name="NSA Wiretapping">
         <People>
-            <PersonID>PER_ESNWDN</PersonID>
-            <PersonID>PER_CRRRRR</PersonID>
+            <Person ID="PER_ESNWDN" />
+            <Person ID="PER_CRRRRR" />
         </People>
         <Organizations>
-            <OrgID>ORG_NSARRR</OrgID>
+            <Org ID="ORG_NSARRR" />
         </Organizations>
+        <Kind></Kind>
+        <Date>2013</Date>
+        <Time></Time>
+        <Locations>
+            <li></li>
+            <li>Hong Kong</li>
+            <li>Moscow</li>
+            <li>Ecuador</li>
+        </Locations>
         <PlaceID>PLA_WAIPAH</PlaceID>
-        <PlaceID>PLA_HNGKNG</PlaceID>
-        <PlaceID>PLA_MOSCOW</PlaceID>
-        <PlaceID>PLA_ECUADR</PlaceID>
-        <Year>2013</Year>
-        <!-- More elements here -->
+        <HumanImpact></HumanImpact>
+        <EconomicImpact></EconomicImpact>
+        <ResourcesNeeded></ResourcesNeeded>
+        <WaysToHelp></WaysToHelp>
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Crisis>
+
     <Crisis ID="CRI_TXWDFR" Name="Texas Wild Fires">
         <People>
-            <PersonID>PER_RPERRY</PersonID>
+            <Person ID="PER_RPERRY" />
         </People>
         <Organizations>
-            <OrgID>ORG_FEMAAA</OrgID>
+            <Org ID="ORG_FEMAAA" />
         </Organizations>
-        <PlaceID>PLA_BASTRP</PlaceID>
-        <Year>2011</Year>
+        <Kind></Kind>
+        <Date>2011</Date>
+        <Time></Time>
+        <Locations>
+            <li>Bastrop</li>
+        </Locations>
+        <HumanImpact></HumanImpact>
+        <EconomicImpact></EconomicImpact>
+        <ResourcesNeeded></ResourcesNeeded>
+        <WaysToHelp></WaysToHelp>
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Crisis>
-    
+
     <Crisis ID="CRI_BRZLPR" Name="Brazilian Protests">
         <People>
-            <PersonID>PER_HPASSS</PersonID>
+            <Person ID="PER_HPASSS" />
         </People>
 		<Organizations>
-			<OrgID>ORG_BRAGOV</OrgID>
+			<Org ID="ORG_BRAGOV" />
 		</Organizations>
-        <PlaceID>PLA_BRAZIL</PlaceID>
-        <Year>2013</Year>
-        <!-- More elements here -->
+        <Kind></Kind>
+        <Date>2013</Date>
+        <Time></Time>
+        <Locations>
+            <li>Brazil</li>
+        </Locations>
+        <HumanImpact></HumanImpact>
+        <EconomicImpact></EconomicImpact>
+        <ResourcesNeeded></ResourcesNeeded>
+        <WaysToHelp></WaysToHelp>
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Crisis>
 
     <Crisis ID="CRI_MEXDRG" Name="Mexican Drug War">
         <People>
-            <PersonID>PER_FCLDRN</PersonID>
-            <PersonID>PER_LAZCAN</PersonID>
-            <PersonID>PER_GUZMAN</PersonID>
+            <Person ID="PER_FCLDRN" />
+            <Person ID="PER_LAZCAN" />
+            <Person ID="PER_GUZMAN" />
         </People>
         <Organizations>
-            <OrgID>ORG_SINCAR</OrgID>
-            <OrgID>ORG_LOSZTA</OrgID>
-            <OrgID>ORG_GULFCA</OrgID>
-            <OrgID>ORG_MEXGOV</OrgID>
+            <Org ID="ORG_SINCAR" />
+            <Org ID="ORG_LOSZTA" />
+            <Org ID="ORG_GULFCA" />
+            <Org ID="ORG_MEXGOV" />
         </Organizations>
-        <PlaceID>PLA_MEXICO</PlaceID>
-        <Year>2006</Year>
-        <!-- More elements here -->
+        <Kind></Kind>
+        <Date>2006</Date>
+        <Time></Time>
+        <Locations>
+            <li>Mexico</li>
+        </Locations>
+        <HumanImpact></HumanImpact>
+        <EconomicImpact></EconomicImpact>
+        <ResourcesNeeded></ResourcesNeeded>
+        <WaysToHelp></WaysToHelp>
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Crisis>
     
     <Person ID="PER_HPASSS" Name="Hildebrando Pascoal">
         <Born>1952</Born>
         <!-- More elements here -->
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Person>
 
     <Person ID="PER_ESNWDN" Name="Edward Snowden">
         <Born>1983</Born>
         <!-- More elements here -->
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Person>
 
     <Person ID="PER_RFLCRR" Name="Rafael Correa">
         <Born>1963</Born>
         <Office>President, Ecuador</Office>
         <!-- More elements here -->
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Person>
 
     <Person ID="PER_MADRID" Name="Mario Villanueva Madrid">
         <Born>1948</Born>
-	<Description>Arrested former Mexican governor</Description>
+    	<Description>Arrested former Mexican governor</Description>
         <!-- More elements here -->
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Person>
 
     <Person ID="PER_ESTRDA" Name="Nicolas Estrada">
         <Office>Institutional Revolutionary Party (PRI) in Mexico</Office>
-	<Description>Leader of Mexican PRD party (Died on June 30, 2013)</Description>
+    	<Description>Leader of Mexican PRD party (Died on June 30, 2013)</Description>
         <!-- More elements here -->
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Person>
 
     <Person ID="PER_RPALMA" Name="Rosalia Palma">
         <Office>Institutional Revolutionary Party (PRI) in Mexico</Office>
-	<Description>candidate of Mexican PRI party</Description>
+    	<Description>candidate of Mexican PRI party</Description>
         <!-- More elements here -->
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Person>
 
     <Person ID="PER_FCLDRN" Name="Felipe Calderon">
         <Born>1962</Born>
         <Office>President of Mexico</Office>
         <!-- More elements here -->
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Person>
 
     <Person ID="PER_GUZMAN" Name="Joaquin Guzman Loera">
         <Born>1954</Born>
         <Office>Leader of Sinaloa Cartel</Office>
         <!-- More elements here -->
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Person>
 
     <Person ID="PER_LAZCAN" Name="Heriberto Lazcano Lazcano">
         <Born>1974</Born>
         <Office>Leader of Los Zetas Cartel</Office>
         <!-- More elements here -->
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Person>
 
     <Person ID="PER_RPERRY" Name="Rick Perry">
         <Born>1950</Born>
         <Office>Governor, Texas, United States</Office>
+        <Common>
+            <Citations></Citations>
+            <ExternalLinks></ExternalLinks>
+            <Images></Images>
+            <Videos></Videos>
+            <Maps></Maps>
+            <Feeds></Feeds>
+            <Summary></Summary>
+        </Common>
     </Person>
  
     <Place ID="PLA_BRAZIL" Name="Sao Paulo, Brasilia, Brazil" />
