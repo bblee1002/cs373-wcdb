@@ -38,6 +38,7 @@ def importView(request):
     form = XMLUploadForm(request.POST, request.FILES)
     if form.is_valid():
       # process data
+      upload = request.FILES['xmlfile']
       return HttpResponse("uploaded")
   else:
     form = XMLUploadForm()
