@@ -26,7 +26,7 @@ def peopleView(request, people_id):
   if people_id == '1' :
     return render(request, 'wcdb/PER_SNOWDN.html')
   if people_id == '3' :
-    return render(request, 'wcdb/PER_RJCBSN.html')
+    return render(request, 'wcdb/PER_TTHBLD.html')
   else :
     return HttpResponse('not such path')
 
