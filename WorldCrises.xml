@@ -69,6 +69,7 @@
         </Common>
     </Crisis>
 
+
     <Crisis ID="CRI_TXWDFR" Name="Texas Wild Fires">
         <People>
             <Person ID="PER_RPERRY" />
@@ -104,8 +105,7 @@
 			<Org ID="ORG_BRAGOV" />
 		</Organizations>
         <Kind></Kind>
-        <Date>2013</Date>
-        <Time></Time>
+        <Date>2013-06-17</Date>
         <Locations>
             <li>Brazil</li>
         </Locations>
@@ -187,6 +187,12 @@
             <Feeds></Feeds>
             <Summary></Summary>
         </Common>
+    </Person>
+
+    <Person ID="PER_DLVRUS" Name="Dilma Vana Rousseff">
+        <Crises>
+            <Crisis ID="CRI_BRZLPR"></Crisis>
+        </Crises>
     </Person>
 
     <Person ID="PER_ESNWDN" Name="Edward Snowden">
