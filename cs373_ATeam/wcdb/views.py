@@ -38,7 +38,6 @@ def index(request):
 
 def importView(request):
   form = XMLUploadForm()
-  if 
   if request.method == 'POST':
     form = XMLUploadForm(request.POST, request.FILES)
     if form.is_valid():
