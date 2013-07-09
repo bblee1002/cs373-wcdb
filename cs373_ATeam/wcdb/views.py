@@ -1,6 +1,7 @@
 from django import forms
 from django.http import HttpResponse
 from django.shortcuts import render
+from loadModels import validate
 
 def crisisView(request, crisis_id):
   if crisis_id == '1':
@@ -26,7 +27,7 @@ def peopleView(request, people_id):
   if people_id == '1' :
     return render(request, 'wcdb/PER_SNOWDN.html')
   elif people_id == '2' :
-    return HttpResponse("filling in")
+    return render(request, 'wcdb/PER_GUZMAN.html')
   elif people_id == '3' :
     return render(request, 'wcdb/PER_TTHBLD.html')
   else :
@@ -43,8 +44,9 @@ def importView(request):
     if form.is_valid():
       # process data
       upload = request.FILES['xmlfile']
-      return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': "12345"})
-  return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "12345"})
+      if validate(upload) :
+        return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!"})
+  return render(request, 'wcdb/import.html', {'form': form, 'success': False})
 
 def exportView(request) :
   output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"

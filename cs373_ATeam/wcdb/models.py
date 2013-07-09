@@ -12,11 +12,12 @@ def list_add(list, id) :
 #class for the ListType complexType
 class Li() :
     #Li
-    href          = None
-    embed         = None
-    text          = None
-    #text not in the attributes; not Li
-    floating_text = None
+    def __init__(self):
+        href          = None
+        embed         = None
+        text          = None
+        #text not in the attributes; not Li
+        floating_text = None
 
     def populate(self, e_node) :
         href          =  e_node.get("href")
@@ -26,46 +27,49 @@ class Li() :
 
 
 class Common() :
-    #Li
-    citations      = []
-    external_links = []
-    images         = []
-    videos         = []
-    maps           = []
-    feeds          = []
-    #similar to floating text
-    summary        = None
+    #Common
+    def __init__(self):
+        self.citations      = []
+        external_links = []
+        images         = []
+        videos         = []
+        maps           = []
+        feeds          = []
+        #similar to floating text
+        summary        = None
 
     def populate(self, e_node) :
+        if e_node == []:
+            return
         for citation in e_node.find("Citations") :
             temp_li = Li()
             temp_li.populate(citation)
-            citations.add(temp_li)
+            self.citations.append(temp_li)
 
         for link in e_node.find("ExternalLinks") :
             temp_li = Li()
             temp_li.populate(link)
-            citations.add(temp_li)
+            self.citations.append(temp_li)
 
         for image in e_node.find("Images") :
             temp_li = Li()
             temp_li.populate(image)
-            citations.add(temp_li)
+            self.citations.append(temp_li)
 
         for video in e_node.find("Videos") :
             temp_li = Li()
             temp_li.populate(video)
-            citations.add(temp_li)
+            self.citations.append(temp_li)
 
         for map in e_node.find("Maps") :
             temp_li = Li()
             temp_li.populate(map)
-            citations.add(temp_li)
+            self.citations.append(temp_li)
 
         for feed in e_node.find("Feeds") :
             temp_li = Li()
             temp_li.populate(feed)
-            citations.add(temp_li)
+            self.citations.append(temp_li)
 
         summary = e_node.find("Summary").text
 

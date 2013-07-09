@@ -1,27 +1,24 @@
 import sys
+from genxmlif import GenXmlIfError
+from minixsv import pyxsval
 from django.conf import settings
 from models import Crisis, Person, Org, Li, Common, list_add
 import xml.etree.ElementTree as ET
 
+def populate_models(tree) :
+	e_root = tree.getroot()
 
-#Read XML file
-strXML = ""
-for line in sys.stdin:
-		strXML += line
+	#populate Crisis models
+	crises = []
+	populate_crisis(e_root, crises)
 
-e_root = ET.fromstring(strXML)
+	#populate Person models
+	people = []
+	populate_person(e_root, people)
 
-#populate Crisis models
-crises = []
-populate_crisis(e_root, crises)
-
-#populate Person models
-people = []
-populate_person(e_root, people)
-
-#populate Org models
-organizations    = []
-populate_org(e_root, organizations)
+	#populate Org models
+	organizations    = []
+	populate_org(e_root, organizations)
 
 
 def populate_crisis(root, list) :
@@ -67,7 +64,7 @@ def populate_crisis(root, list) :
 			list_add(temp_crisis.ways_to_help, temp_li)
 
 		#populating common fields
-		temp_crisis.common.populate(crisis.find("Common"))
+		temp_crisis.common.populate(crisis.find('Common') or [])
 
 
 		#add populated crisis model to list
@@ -91,7 +88,7 @@ def populate_person(root, list) :
 		list.append(temp_person)
 
 def populate_org(root, list) :
-	for org in root.findall("Organization")
+	for org in root.findall("Organization") :
 		temp_org         =                 Org()
 		temp_org.org_ID  =         org.get("ID")
 		temp_org.name    =       org.get("Name")
@@ -114,12 +111,36 @@ def populate_org(root, list) :
 			list_add(temp_org.contact, temp_li)
 
 		#populating common fields
-		temp_org.common.populate(org.find("Common"))
+		temp_org.common.populate(org.find("Common") or [])
 
 		list.append(temp_org)
 
 #function for validating the file
-def validate(file) :
-	name = file.name
+def validate(file_in) :
+	name = str(file_in.name)
 	if name[-4:] != ".xml" and name[-4:] != ".XML" :
 		return False
+	xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
+	xmlFile = open('wcdb/temp.xml', 'w')
+	xmlFile.write(file_in.read())
+	xmlFile = open('wcdb/temp.xml', 'r')
+	# try:
+	psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
+		xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
+	tree = psvi.getTree()
+	populate_models(tree)
+
+	# except pyxsval.XsvalError, e:
+	# 	print e
+	# 	print 'Validation aborted.'
+	# 	return False
+	# except GenXmlIfError, e:
+	# 	print e
+	# 	print 'Parsing aborted.'
+	# 	return False
+	# except Exception, e:
+	# 	# catch all
+	# 	print e
+	# 	return False
+	#handle invalid case
+	return True
