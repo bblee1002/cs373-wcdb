@@ -20,6 +20,9 @@ def populate_models(tree) :
 	organizations    = []
 	populate_org(e_root, organizations)
 
+	filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
+	return filled_models
+
 
 def populate_crisis(root, list) :
 #Find instances of crises
@@ -30,7 +33,7 @@ def populate_crisis(root, list) :
 		temp_crisis.name      =       crisis.get("Name")
 		temp_crisis.kind      = crisis.find("Kind").text
 		temp_crisis.date      = crisis.find("Date").text
-		crisis.time           = crisis.find("Time").text
+		temp_crisis.time      = crisis.find("Time").text
 		#populating people
 		for person in crisis.iter("Person") :
 			list_add(temp_crisis.people, person.get("ID"))
@@ -43,22 +46,22 @@ def populate_crisis(root, list) :
 			temp_li.populate(location)
 			list_add(temp_crisis.locations, temp_li)
 
-		for human_impact in crisis.find("HumanImpact") :
+		for human_impact in crisis.find("HumanImpact") or [] :
 			temp_li = Li()
 			temp_li.populate(human_impact)
 			list_add(temp_crisis.human_impact, temp_li)
 
-		for economic_impact in crisis.find("EconomicImpact") :
+		for economic_impact in crisis.find("EconomicImpact") or [] :
 			temp_li = Li()
 			temp_li.populate(economic_impact)
 			list_add(temp_crisis.economic_impact, temp_li)
 
-		for resource in crisis.find("ResourcesNeeded") :
+		for resource in crisis.find("ResourcesNeeded") or [] :
 			temp_li = Li()
 			temp_li.populate(resource)
 			list_add(temp_crisis.resources_needed, temp_li)
 
-		for help in crisis.find("WaysToHelp") :
+		for help in crisis.find("WaysToHelp") or []:
 			temp_li                  =             Li()
 			temp_li.populate(help)
 			list_add(temp_crisis.ways_to_help, temp_li)
@@ -128,7 +131,7 @@ def validate(file_in) :
 	psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
 		xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
 	tree = psvi.getTree()
-	populate_models(tree)
+	populate_models(tree)                                                                                                                                           
 
 	# except pyxsval.XsvalError, e:
 	# 	print e
@@ -143,4 +146,4 @@ def validate(file_in) :
 	# 	print e
 	# 	return False
 	#handle invalid case
-	return True
+	return tree
