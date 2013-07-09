@@ -1,4 +1,5 @@
 import sys
+from genxmlif import GenXmlIfError
 from minixsv import pyxsval
 from django.conf import settings
 from models import Crisis, Person, Org, Li, Common, list_add
@@ -125,11 +126,24 @@ def validate(file_in) :
 	name = str(file_in.name)
 	if name[-4:] != ".xml" and name[-4:] != ".XML" :
 		return False
-	#handle invalid case
 	xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
 	xmlFile = open('wcdb/temp.xml', 'w')
 	xmlFile.write(file_in.read())
 	xmlFile = open('wcdb/temp.xml', 'r')
-	psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
-		xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
+	try:
+		psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
+			xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
+	except pyxsval.XsvalError, e:
+		print e
+		print 'Validation aborted.'
+		return False
+	except GenXmlIfError, e:
+		print e
+		print 'Parsing aborted.'
+		return False
+	except Exception, e:
+		# catch all
+		print e
+		return False
+	#handle invalid case
 	return True
