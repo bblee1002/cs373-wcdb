@@ -66,3 +66,4 @@ def exportView(request) :
   
 class XMLUploadForm(forms.Form):
   xmlfile = forms.FileField()
+  password = forms.CharField(max_length=8, widget=forms.PasswordInput) 
