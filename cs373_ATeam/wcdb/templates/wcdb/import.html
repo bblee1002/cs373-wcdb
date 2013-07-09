@@ -12,6 +12,7 @@
         {{ form.xmlfile }}
       </fieldset>
       <button type="submit" class="btn btn-primary">Upload</button>
+      {% firstof password "" %}
       {% firstof success "Not an XML file!" %}
     </form>
   </div>

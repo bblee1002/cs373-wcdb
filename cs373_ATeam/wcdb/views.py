@@ -36,17 +36,24 @@ def peopleView(request, people_id):
 def index(request):
   return render(request, 'wcdb/index.html')
 
+def passwordValidate(pw_input):
+  password = "ateam"
+  print pw_input
+  if password == pw_input:
+    return True
+  else:
+    return False
+
 def importView(request):
   form = XMLUploadForm()
-  if 
   if request.method == 'POST':
     form = XMLUploadForm(request.POST, request.FILES)
-    if form.is_valid():
+    if form.is_valid() and passwordValidate(form.cleaned_data['password']):
       # process data
       upload = request.FILES['xmlfile']
       if validate(upload) :
-        return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!"})
-  return render(request, 'wcdb/import.html', {'form': form, 'success': False})
+        return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': False})
+  return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
 def exportView(request) :
   output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"
