@@ -127,7 +127,9 @@ def validate(file_in) :
 		return False
 	#handle invalid case
 	xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
-	print xsd.read()
-	psvi = pyxsval.parseAndValidateString(file_in.read(),
-		xsd.read())
+	xmlFile = open('wcdb/temp.xml', 'w')
+	xmlFile.write(file_in.read())
+	xmlFile = open('wcdb/temp.xml', 'r')
+	psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
+		xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
 	return True
