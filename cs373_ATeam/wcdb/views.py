@@ -66,7 +66,7 @@ def exportView(request) :
   output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"
 
   #call unloadModels.py w/ filled_models = {Crises : [], Orgs : [], Ppl : []}
-  receive_import(global filled_models)
+  #receive_import(global filled_models)
 
   return render(request, 'wcdb/Export.html', {'output': output})
   
