@@ -5,14 +5,9 @@ from django.conf import settings
 from models import Crisis, Person, Org, Li, Common, list_add
 import xml.etree.ElementTree as ET
 
-def populate_models(file) :
-
-	#Read XML file
-	strXML = ""
-	for line in file:
-			strXML += line
-
-	e_root = ET.fromstring(strXML)
+def populate_models(tree) :
+	e_root = tree.getroot()
+	print e_root
 
 	#populate Crisis models
 	crises = []
@@ -130,20 +125,23 @@ def validate(file_in) :
 	xmlFile = open('wcdb/temp.xml', 'w')
 	xmlFile.write(file_in.read())
 	xmlFile = open('wcdb/temp.xml', 'r')
-	try:
-		psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
-			xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
-	except pyxsval.XsvalError, e:
-		print e
-		print 'Validation aborted.'
-		return False
-	except GenXmlIfError, e:
-		print e
-		print 'Parsing aborted.'
-		return False
-	except Exception, e:
-		# catch all
-		print e
-		return False
+	# try:
+	psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
+		xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
+	tree = psvi.getTree()
+	populate_models(tree)
+
+	# except pyxsval.XsvalError, e:
+	# 	print e
+	# 	print 'Validation aborted.'
+	# 	return False
+	# except GenXmlIfError, e:
+	# 	print e
+	# 	print 'Parsing aborted.'
+	# 	return False
+	# except Exception, e:
+	# 	# catch all
+	# 	print e
+	# 	return False
 	#handle invalid case
 	return True
