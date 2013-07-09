@@ -3,8 +3,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from loadModels import validate, populate_models
 
-filled_models = None
-
 def crisisView(request, crisis_id):
   if crisis_id == '1':
     return render(request, 'wcdb/CRI_NSAWRT.html')
@@ -38,6 +36,9 @@ def peopleView(request, people_id):
 def index(request):
   return render(request, 'wcdb/index.html')
 
+def unittestsView(request):
+  return render(request, 'wcdb/Unittests.html')
+
 def passwordValidate(pw_input):
   password = "ateam"
   print pw_input
@@ -69,14 +70,9 @@ def importView(request):
           #   print person
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': False})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
->>>>>>> 342036d0c28d4cb5ac9e54aa7dce3964549c1bee
 
 def exportView(request) :
   output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"
-
-  #call unloadModels.py w/ filled_models = {Crises : [], Orgs : [], Ppl : []}
-  receive_import(global filled_models)
-
   return render(request, 'wcdb/Export.html', {'output': output})
   
 class XMLUploadForm(forms.Form):
