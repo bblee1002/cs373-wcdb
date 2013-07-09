@@ -27,7 +27,7 @@ def peopleView(request, people_id):
   if people_id == '1' :
     return render(request, 'wcdb/PER_SNOWDN.html')
   elif people_id == '2' :
-    return HttpResponse("filling in")
+    return render(request, 'wcdb/PER_GUZMAN.html')
   elif people_id == '3' :
     return render(request, 'wcdb/PER_TTHBLD.html')
   else :
