@@ -12,6 +12,11 @@ def list_add(list, id) :
 #class for the ListType complexType
 class Li() :
     #Li
+    href          = None
+    embed         = None
+    text          = None
+    #text not in the attributes; not Li
+    floating_text = None
     def __init__(self):
         href          = None
         embed         = None
@@ -20,58 +25,60 @@ class Li() :
         floating_text = None
 
     def populate(self, e_node) :
-        href          =  e_node.get("href")
-        embed         = e_node.get("embed")
-        text          =  e_node.get("text")
-        floating_text =         e_node.text
+        self.href          =  e_node.get("href")
+        self.embed         = e_node.get("embed")
+        self.text          =  e_node.get("text")
+        self.floating_text =         e_node.text
 
 
 class Common() :
     #Common
     def __init__(self):
         self.citations      = []
-        external_links = []
-        images         = []
-        videos         = []
-        maps           = []
-        feeds          = []
+        self.external_links = []
+        self.images         = []
+        self.videos         = []
+        self.maps           = []
+        self.feeds          = []
         #similar to floating text
-        summary        = None
+        self.summary        = None
 
     def populate(self, e_node) :
         if e_node == []:
             return
-        for citation in e_node.find("Citations") :
+        for citation in e_node.find("Citations") or [] :
             temp_li = Li()
             temp_li.populate(citation)
             self.citations.append(temp_li)
 
-        for link in e_node.find("ExternalLinks") :
+        for link in e_node.find("ExternalLinks") or [] :
             temp_li = Li()
             temp_li.populate(link)
             self.citations.append(temp_li)
 
-        for image in e_node.find("Images") :
+        for image in e_node.find("Images") or [] :
             temp_li = Li()
             temp_li.populate(image)
             self.citations.append(temp_li)
 
-        for video in e_node.find("Videos") :
+        for video in e_node.find("Videos") or [] :
             temp_li = Li()
             temp_li.populate(video)
             self.citations.append(temp_li)
 
-        for map in e_node.find("Maps") :
+        for map in e_node.find("Maps") or [] :
             temp_li = Li()
             temp_li.populate(map)
             self.citations.append(temp_li)
 
-        for feed in e_node.find("Feeds") :
+        for feed in e_node.find("Feeds") or [] :
             temp_li = Li()
             temp_li.populate(feed)
             self.citations.append(temp_li)
 
-        summary = e_node.find("Summary").text
+        find_summary = e_node.find("Summary")
+        if find_summary :
+            summary = find_summary.text
 
 
 
