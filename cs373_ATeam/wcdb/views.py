@@ -41,11 +41,9 @@ def importView(request):
     form = XMLUploadForm(request.POST, request.FILES)
     if form.is_valid():
       # process data
+      upload = request.FILES['xmlfile']
       return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!"})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False})
-    
-
-  return render(request, 'wcdb/import.html', {'form': form})
 
 def exportView(request) :
   output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"

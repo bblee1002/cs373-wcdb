@@ -1,6 +1,6 @@
 import sys
 from django.conf import settings
-from cs373_ATeam.wcdb.models import Crisis
+from models import Crisis, Person, Org, Li, Common, list_add
 import xml.etree.ElementTree as ET
 
 
@@ -12,80 +12,114 @@ for line in sys.stdin:
 e_root = ET.fromstring(strXML)
 
 #populate Crisis models
-crisis_list = []
-populate_crisis(e_root, crisis_list)
+crises = []
+populate_crisis(e_root, crises)
 
 #populate Person models
-person_list = []
-populate_person(e_root, person_list)
+people = []
+populate_person(e_root, people)
 
 #populate Org models
-org_list = []
-populate_org(e_root, org_list)
+organizations    = []
+populate_org(e_root, organizations)
 
-#populate Place models
-place_list = []
-populate_place(e_root, org_list)
 
 def populate_crisis(root, list) :
 #Find instances of crises
 #and add to a list of crisis objects created by Django
-	for crisis in root.iter("Crisis"):
-		temp_crisis           =           Crisis()
-		temp_crisis.crisis_ID =   crisis.get("ID")
-		temp_crisis.name      = crisis.get("Name")
-		c_list.append(temp_crisis)
-
-		#populating the year
-		crisis.year = int(crisis.find("Year").text)
+	for crisis in root.findall("Crisis"):
+		temp_crisis           =                 Crisis()
+		temp_crisis.crisis_ID =         crisis.get("ID")
+		temp_crisis.name      =       crisis.get("Name")
+		temp_crisis.kind      = crisis.find("Kind").text
+		temp_crisis.date      = crisis.find("Date").text
+		crisis.time           = crisis.find("Time").text
 		#populating people
-		for person in crisis.iter("PersonID") :
-			temp_crisis.add_person(person.text)
+		for person in crisis.iter("Person") :
+			list_add(temp_crisis.people, person.get("ID"))
 		#populating organizations
-		for org in crisis.iter("OrgID") :
-			temp_crisis.add_org(org.text)
-		#populating places
-		for place in crisis.iter("PlaceID") :
-			temp_crisis.add_place(place.text)
+		for org in crisis.iter("Org") :
+			list_add(temp_crisis.organizations, org.get("ID"))
+
+		for location in crisis.find("Locations") :
+			temp_li = Li()
+			temp_li.populate(location)
+			list_add(temp_crisis.locations, temp_li)
+
+		for human_impact in crisis.find("HumanImpact") :
+			temp_li = Li()
+			temp_li.populate(human_impact)
+			list_add(temp_crisis.human_impact, temp_li)
+
+		for economic_impact in crisis.find("EconomicImpact") :
+			temp_li = Li()
+			temp_li.populate(economic_impact)
+			list_add(temp_crisis.economic_impact, temp_li)
+
+		for resource in crisis.find("ResourcesNeeded") :
+			temp_li = Li()
+			temp_li.populate(resource)
+			list_add(temp_crisis.resources_needed, temp_li)
+
+		for help in crisis.find("WaysToHelp") :
+			temp_li                  =             Li()
+			temp_li.populate(help)
+			list_add(temp_crisis.ways_to_help, temp_li)
+
+		#populating common fields
+		temp_crisis.common.populate(crisis.find("Common"))
+
+
 		#add populated crisis model to list
 		list.append(temp_crisis)
 
 def populate_person(root, list) :
 #Find instances of person
 #and add to a list of crisis objects created by Django
-	for person in root.iter("Person"):
+	for person in root.findall("Person"):
 		temp_person             =                     Person()
 		temp_person.person_ID   =             person.get("ID")
 		temp_person.name        =           person.get("Name")
-		temp_person.born        = int(person.find("Born").text)
-		temp_person.office      =    person.find("Office").text
+		temp_person.kind        =     person.find("Kind").text
+		temp_person.location    = person.find("Location").text
 
-		for org in person.iter("OrgID") :
-				temp_person.add_org(org.text)
+		for crisis in person.iter("Crisis") :
+				list_add(temp_person.crises, crisis.get("ID"))
+
+		for org in person.iter("Org") :
+				list_add(temp_person.organizations, org.get("ID"))
 		list.append(temp_person)
 
 def populate_org(root, list) :
-	for org in root.iter("Organization")
-		temp_org         =                Org()
-		temp_org.org_ID  =        org.get("ID")
-		temp_org.head_ID = org.get("OrgHeadID")
-		temp_org.name    =      org.get("Name")
+	for org in root.findall("Organization")
+		temp_org         =                 Org()
+		temp_org.org_ID  =         org.get("ID")
+		temp_org.name    =       org.get("Name")
+		temp_org.kind    = org.find("Kind").text
 
-		for person in org.iter("PersonID") :
-			temp_org.add_person(person.text)
+		for crisis in org.iter("Crisis") :
+				list_add(temp_org.crises, crisis.get("ID"))
 
+		for person in org.iter("Person") :
+			list_add(temp_org.people, person.get("ID"))
+
+		for history in org.find("History") :
+			temp_li = Li()
+			temp_li.populate(history)
+			list_add(temp_org.history, temp_li)
+
+		for contact in org.find("ContactInfo") :
+			temp_li = Li()
+			temp_li.populate(contact)
+			list_add(temp_org.contact, temp_li)
+
+		#populating common fields
+		temp_org.common.populate(org.find("Common"))
 
 		list.append(temp_org)
-
-def populate_place(root, list) :
-	for place in root.iter("Place") :
-		temp_place          = Place()
-		temp_place.place_ID = place.get("ID")
-		temp_place.name     = place.get("Name")
-
-		list.append(temp_place)
 
 #function for validating the file
 def validate(file) :
 	name = file.name
-	if name[-4:] == ".xml"
+	if name[-4:] != ".xml" and name[-4:] != ".XML" :
+		return False
