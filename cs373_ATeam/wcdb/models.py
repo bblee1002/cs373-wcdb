@@ -39,6 +39,8 @@ class Common() :
         summary        = None
 
     def populate(self, e_node) :
+        if e_node == []:
+            return
         for citation in e_node.find("Citations") :
             temp_li = Li()
             temp_li.populate(citation)

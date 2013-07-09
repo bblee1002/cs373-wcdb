@@ -7,7 +7,6 @@ import xml.etree.ElementTree as ET
 
 def populate_models(tree) :
 	e_root = tree.getroot()
-	print e_root
 
 	#populate Crisis models
 	crises = []
@@ -65,7 +64,7 @@ def populate_crisis(root, list) :
 			list_add(temp_crisis.ways_to_help, temp_li)
 
 		#populating common fields
-		temp_crisis.common.populate(crisis.find("Common"))
+		temp_crisis.common.populate(crisis.find('Common') or [])
 
 
 		#add populated crisis model to list
@@ -112,7 +111,7 @@ def populate_org(root, list) :
 			list_add(temp_org.contact, temp_li)
 
 		#populating common fields
-		temp_org.common.populate(org.find("Common"))
+		temp_org.common.populate(org.find("Common") or [])
 
 		list.append(temp_org)
 
