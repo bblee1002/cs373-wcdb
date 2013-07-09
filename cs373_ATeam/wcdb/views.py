@@ -37,13 +37,14 @@ def index(request):
 
 def importView(request):
   form = XMLUploadForm()
+  if 
   if request.method == 'POST':
     form = XMLUploadForm(request.POST, request.FILES)
     if form.is_valid():
       # process data
       upload = request.FILES['xmlfile']
-      return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!"})
-  return render(request, 'wcdb/import.html', {'form': form, 'success': False})
+      return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': "12345"})
+  return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "12345"})
 
 def exportView(request) :
   output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"
@@ -51,3 +52,4 @@ def exportView(request) :
   
 class XMLUploadForm(forms.Form):
   xmlfile = forms.FileField()
+  password = forms.CharField(max_length=8, widget=forms.PasswordInput) 
