@@ -1,27 +1,29 @@
 import sys
+from minixsv import pyxsval
 from django.conf import settings
 from models import Crisis, Person, Org, Li, Common, list_add
 import xml.etree.ElementTree as ET
 
+def populate_models(file) :
 
-#Read XML file
-strXML = ""
-for line in sys.stdin:
-		strXML += line
+	#Read XML file
+	strXML = ""
+	for line in file:
+			strXML += line
 
-e_root = ET.fromstring(strXML)
+	e_root = ET.fromstring(strXML)
 
-#populate Crisis models
-crises = []
-populate_crisis(e_root, crises)
+	#populate Crisis models
+	crises = []
+	populate_crisis(e_root, crises)
 
-#populate Person models
-people = []
-populate_person(e_root, people)
+	#populate Person models
+	people = []
+	populate_person(e_root, people)
 
-#populate Org models
-organizations    = []
-populate_org(e_root, organizations)
+	#populate Org models
+	organizations    = []
+	populate_org(e_root, organizations)
 
 
 def populate_crisis(root, list) :
@@ -91,7 +93,7 @@ def populate_person(root, list) :
 		list.append(temp_person)
 
 def populate_org(root, list) :
-	for org in root.findall("Organization")
+	for org in root.findall("Organization") :
 		temp_org         =                 Org()
 		temp_org.org_ID  =         org.get("ID")
 		temp_org.name    =       org.get("Name")
@@ -119,7 +121,13 @@ def populate_org(root, list) :
 		list.append(temp_org)
 
 #function for validating the file
-def validate(file) :
-	name = file.name
+def validate(file_in) :
+	name = str(file_in.name)
 	if name[-4:] != ".xml" and name[-4:] != ".XML" :
 		return False
+	#handle invalid case
+	xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
+	print xsd.read()
+	psvi = pyxsval.parseAndValidateString(file_in.read(),
+		xsd.read())
+	return True

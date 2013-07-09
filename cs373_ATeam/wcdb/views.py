@@ -1,6 +1,7 @@
 from django import forms
 from django.http import HttpResponse
 from django.shortcuts import render
+from loadModels import validate
 
 def crisisView(request, crisis_id):
   if crisis_id == '1':
@@ -39,7 +40,13 @@ def importView(request):
     if form.is_valid():
       # process data
       upload = request.FILES['xmlfile']
-      return HttpResponse("uploaded")
+      if validate(upload) :
+        return HttpResponse("uploaded")
+        #give to import to populate models
+      else :
+        return HttpResponse("bad")
+        #eddie here
+      return HttpResponse("form not valid")
   else:
     form = XMLUploadForm()
 
