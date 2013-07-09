@@ -26,7 +26,9 @@ def orgsView(request, orgs_id):
 def peopleView(request, people_id):
   if people_id == '1' :
     return render(request, 'wcdb/PER_SNOWDN.html')
-  if people_id == '3' :
+  elif people_id == '2' :
+    return HttpResponse("filling in")
+  elif people_id == '3' :
     return render(request, 'wcdb/PER_TTHBLD.html')
   else :
     return HttpResponse('not such path')
@@ -35,25 +37,19 @@ def index(request):
   return render(request, 'wcdb/index.html')
 
 def importView(request):
+  form = XMLUploadForm()
   if request.method == 'POST':
     form = XMLUploadForm(request.POST, request.FILES)
     if form.is_valid():
       # process data
       upload = request.FILES['xmlfile']
       if validate(upload) :
-        return HttpResponse("uploaded")
-        #give to import to populate models
-      else :
-        return HttpResponse("bad")
-        #eddie here
-      return HttpResponse("form not valid")
-  else:
-    form = XMLUploadForm()
-
-  return render(request, 'wcdb/import.html', {'form': form})
+        return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!"})
+  return render(request, 'wcdb/import.html', {'form': form, 'success': False})
 
 def exportView(request) :
-  return render(request, 'wcdb/Export.html')
+  output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"
+  return render(request, 'wcdb/Export.html', {'output': output})
   
 class XMLUploadForm(forms.Form):
   xmlfile = forms.FileField()
