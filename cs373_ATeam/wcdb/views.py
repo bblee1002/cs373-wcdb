@@ -43,20 +43,12 @@ def importView(request):
     if form.is_valid():
       # process data
       upload = request.FILES['xmlfile']
+      #validate returns a tree on success; false on failure
       e_tree = validate(upload)
       if e_tree :
+        #populate models returns a dictionary where the keys are 'crises', 'organizations' , 'people'
+        #and the values are corresponding lists of crisis, organization, and person models
         filled_models = populate_models(e_tree)
-        print "FILLED MODELS", filled_models
-        print "CRISES"
-        for crisis in filled_models["crises"] :
-          print crisis.name
-          print crisis.kind
-          print crisis.date
-          print crisis.time
-          for location in crisis.locations :
-            print "location", location.floating_text
-          # for person in crisis.people :
-          #   print person
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!"})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False})
 
@@ -66,4 +58,3 @@ def exportView(request) :
   
 class XMLUploadForm(forms.Form):
   xmlfile = forms.FileField()
-  password = forms.CharField(max_length=8, widget=forms.PasswordInput) 

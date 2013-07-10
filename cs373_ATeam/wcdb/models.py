@@ -6,7 +6,9 @@ from django.db import models
 
 #general method for adding to a list
 def list_add(list, id) :
+    #print "BEFORE APPEND", list
     list.append(id)
+    #print "AFTER APPEND", list
 
 
 #class for the ListType complexType
@@ -33,6 +35,14 @@ class Li() :
 
 class Common() :
     #Common
+    citations      = []
+    external_links = []
+    images         = []
+    videos         = []
+    maps           = []
+    feeds          = []
+    #similar to floating text
+    summary        = None
     def __init__(self):
         self.citations      = []
         self.external_links = []
@@ -44,8 +54,6 @@ class Common() :
         self.summary        = None
 
     def populate(self, e_node) :
-        if e_node == []:
-            return
         for citation in e_node.find("Citations") or [] :
             temp_li = Li()
             temp_li.populate(citation)
@@ -54,27 +62,27 @@ class Common() :
         for link in e_node.find("ExternalLinks") or [] :
             temp_li = Li()
             temp_li.populate(link)
-            self.citations.append(temp_li)
+            self.external_links.append(temp_li)
 
         for image in e_node.find("Images") or [] :
             temp_li = Li()
             temp_li.populate(image)
-            self.citations.append(temp_li)
+            self.images.append(temp_li)
 
         for video in e_node.find("Videos") or [] :
             temp_li = Li()
             temp_li.populate(video)
-            self.citations.append(temp_li)
+            self.videos.append(temp_li)
 
         for map in e_node.find("Maps") or [] :
             temp_li = Li()
             temp_li.populate(map)
-            self.citations.append(temp_li)
+            self.maps.append(temp_li)
 
         for feed in e_node.find("Feeds") or [] :
             temp_li = Li()
             temp_li.populate(feed)
-            self.citations.append(temp_li)
+            self.feeds.append(temp_li)
 
         find_summary = e_node.find("Summary")
         if find_summary :

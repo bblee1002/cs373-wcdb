@@ -62,12 +62,14 @@ def populate_crisis(root, list) :
 			list_add(temp_crisis.resources_needed, temp_li)
 
 		for help in crisis.find("WaysToHelp") or []:
-			temp_li                  =             Li()
+			temp_li = Li()
 			temp_li.populate(help)
 			list_add(temp_crisis.ways_to_help, temp_li)
 
 		#populating common fields
-		temp_crisis.common.populate(crisis.find('Common') or [])
+		found_common = crisis.find('Common')
+		if found_common :
+			temp_crisis.common.populate(crisis.find('Common'))
 
 
 		#add populated crisis model to list
@@ -114,7 +116,10 @@ def populate_org(root, list) :
 			list_add(temp_org.contact, temp_li)
 
 		#populating common fields
-		temp_org.common.populate(org.find("Common") or [])
+		#temp_org.common.populate(org.find("Common") or [])
+		found_common = org.find('Common')
+		if found_common :
+			temp_org.common.populate(org.find('Common'))
 
 		list.append(temp_org)
 
@@ -130,8 +135,7 @@ def validate(file_in) :
 	# try:
 	psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
 		xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
-	tree = psvi.getTree()
-	populate_models(tree)                                                                                                                                           
+	tree = psvi.getTree()                                                                                                                                          
 
 	# except pyxsval.XsvalError, e:
 	# 	print e
