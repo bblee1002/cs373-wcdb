@@ -51,7 +51,7 @@ def importView(request):
       if e_tree :
         #populate models returns a dictionary where the keys are 'crises', 'organizations' , 'people'
         #and the values are corresponding lists of crisis, organization, and person models
-        filled_models = populate_models(e_tree)
+        #filled_models = populate_models(e_tree)
         global imported_models
         imported_models = populate_models(e_tree)
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!"})

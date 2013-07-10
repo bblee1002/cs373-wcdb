@@ -109,6 +109,7 @@ class Common() :
         #Loop through list items contains in common lists
         xml_string = "<" + root_str + ">"
         for listitem in item_list :
+            #assert listitem is type(Li)
             xml_string += listitem.print_xml()
         xml_string += "</" + root_str + ">"
         return xml_string
