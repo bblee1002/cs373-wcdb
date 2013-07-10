@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from loadModels import validate, populate_models
 
+filled_models = None
+
 def crisisView(request, crisis_id):
   if crisis_id == '1':
     return render(request, 'wcdb/CRI_NSAWRT.html')
@@ -54,6 +56,10 @@ def importView(request):
 
 def exportView(request) :
   output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"
+
+  #call unloadModels.py w/ filled_models = {Crises : [], Orgs : [], Ppl : []}
+  #receive_import(global filled_models)
+
   return render(request, 'wcdb/Export.html', {'output': output})
   
 class XMLUploadForm(forms.Form):
