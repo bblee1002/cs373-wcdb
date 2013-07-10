@@ -12,7 +12,7 @@ def xml_from_li_list(root_str, model_list) :
 	xml_string = "<" + root_str + ">"
 	for li in model_list :
 		xml_string.append("<li>" + li + "</li>")
-	xml_string.append("</" + root_str ">")
+	xml_string.append("</" + root_str + ">")
 	return xml_string
 
 
