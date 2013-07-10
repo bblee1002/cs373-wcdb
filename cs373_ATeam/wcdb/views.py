@@ -2,8 +2,9 @@ from django import forms
 from django.http import HttpResponse
 from django.shortcuts import render
 from loadModels import validate, populate_models
+from unloadModels import receive_import
 
-filled_models = None
+imported_models = {}
 
 def crisisView(request, crisis_id):
   if crisis_id == '1':
@@ -51,14 +52,17 @@ def importView(request):
         #populate models returns a dictionary where the keys are 'crises', 'organizations' , 'people'
         #and the values are corresponding lists of crisis, organization, and person models
         filled_models = populate_models(e_tree)
+        global imported_models
+        imported_models = populate_models(e_tree)
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!"})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False})
 
 def exportView(request) :
-  output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"
+  #output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"
 
-  #call unloadModels.py w/ filled_models = {Crises : [], Orgs : [], Ppl : []}
-  #receive_import(global filled_models)
+  #call unloadModels.py w/ filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
+  global imported_models
+  output = receive_import(imported_models)
 
   return render(request, 'wcdb/Export.html', {'output': output})
   

@@ -11,8 +11,8 @@ from models import Crisis, Person, Org, Li, Common, list_add
 def xml_from_li_list(root_str, model_list) :
 	xml_string = "<" + root_str + ">"
 	for li in model_list :
-		xml_string.append("<li>" + li + "</li>")
-	xml_string.append("</" + root_str + ">")
+		xml_string += "<li>" + li + "</li>"
+	xml_string += "</" + root_str + ">"
 	return xml_string
 
 
@@ -22,10 +22,125 @@ def xml_from_li_list(root_str, model_list) :
 def receive_import(model_dict) :
 
 	#------------------------------#
-	#-----Export crises models-----#
+	#-----Export CRISIS models-----#
 	crises_xml_string = ""
 
-	for crisis in filled_models["crises"] :
+	for crisis in model_dict["crises"] :
+
+		#assumes all crises have an id and name
+		assert crisis.crisis_ID != None
+		assert crisis.name != None
+
+		#Start indiv crisis xml string
+		crisis_string = "<Crisis ID=\"" + crisis.crisis_ID + "\" Name=\"" + crisis.name + "\">"
+		#if there are people listed
+		if crisis.people        != [] :
+			p_string = "<People>"
+			for person in crisis.people :
+				p_string += "<Person ID=\"" + person + "\" />"
+			p_string +="</People>"
+			#ADD to current crisis xml string
+			crisis_string += p_string
+		
+		#if there are orgs listed
+		if crisis.organizations != [] :
+			o_string = "<Organizations>"
+			for org in crisis.organizations :
+				o_string += "<Org ID=\"" + org + "\" />"
+			o_string += "</Organizations>"
+			#ADD to current crisis xml string
+			crisis_string += o_string
+
+		if crisis.kind is not None :
+			k = "<Kind>" + crisis.kind + "</Kind>"
+			#ADD to current crisis xml string
+			crisis_string += k
+		if crisis.date is not None :
+			d = "<Date>" + crisis.date + "</Date>"
+			#ADD to current crisis xml string
+			crisis_string += d
+		if crisis.time is not None :
+			t = "<Time>" + crisis.time + "</Time>"
+			#ADD to current crisis xml string
+			crisis_string += t
+			
+
+		#handle li lists of models
+		if crisis.locations        != [] :
+			root = "Locations"
+			xml_locations = xml_from_li_list(root, crisis.locations)
+			#ADD to current crisis xml string
+			crisis_string += xml_locations
+		if crisis.human_impact     != [] :
+			root = "HumanImpact"
+			xml_human_impact = xml_from_li_list(root, crisis.human_impact)
+			#ADD to current crisis xml string
+			crisis_string += xml_human_impact
+		if crisis.economic_impact  != [] :
+			root = "EconomicImpact"
+			xml_economic_impact = xml_from_li_list(root, crisis.economic_impact)
+			#ADD to current crisis xml string
+			crisis_string += xml_economic_impact
+		if crisis.resources_needed != [] :
+			root = "ResourcesNeeded"
+			xml_resources_needed = xml_from_li_list(root, crisis.resources_needed)
+			#ADD to current crisis xml string
+			crisis_string += xml_resources_needed
+		if crisis.ways_to_help     != [] :
+			root = "WaysToHelp"
+			xml_ways_to_help = xml_from_li_list(root, crisis.ways_to_help)
+			#ADD to current crisis xml string
+			crisis_string += xml_ways_to_help
+
+		#Export info from the common class
+		if crisis.common is not None:
+			crisis_string += "<Common>"
+			if crisis.common.citations != [] :
+				root = "Citations"
+				xml_citations = xml_from_li_list(root, crisis.common.citations)
+				#ADD to current crisis xml string
+				crisis_string += xml_citations
+			if crisis.external_links   != [] :
+				root = "ExternalLinks"
+				xml_external_links = xml_from_li_list(root, crisis.common.external_links)
+				#ADD to current crisis xml string
+				crisis_string += xml_external_links
+			if crisis.common.images    != [] :
+				root = "Images"
+				xml_images = xml_from_li_list(root, crisis.common.images)
+				#ADD to current crisis xml string
+				crisis_string += xml_images
+			if crisis.common.videos    != [] :
+				root = "Videos"
+				xml_videos = xml_from_li_list(root, crisis.common.videos)
+				#ADD to current crisis xml string
+				crisis_string += xml_videos
+			if crisis.common.maps      != [] :
+				root = "Maps"
+				xml_maps = xml_from_li_list(root, crisis.common.maps)
+				#ADD to current crisis xml string
+				crisis_string += xml_maps
+			if crisis.common.feeds     != [] :
+				root = "Feeds"
+				xml_feeds = xml_from_li_list(root, crisis.common.feeds)
+				#ADD to current crisis xml string
+				crisis_string += xml_feeds
+			if crisis.common.summary is not None:
+				#ADD to current crisis xml string
+				crisis_string += "<Summary>" + crisis.common.summary + "</Summary" 
+			crisis_string += "</Common>"
+
+		#Conclude crisis xml and concat to crises_xml_string
+		crisis_string += "</Crisis>"
+		crises_xml_string += crisis_string
+
+
+	#------------------------------#
+	#-----Export PERSON models-----#
+	"""
+	person_xml_string = ""
+
+	for person in filled_models["crises"] :
 
 		#assumes all crises have an id and name
 		assert crisis.crisis_ID != None
@@ -55,84 +170,7 @@ def receive_import(model_dict) :
 			k = "<Kind>" + crisis.kind + "</Kind>"
 			#ADD to current crisis xml string
 			crisis_string.append(k)
-		if crisis.date is not None :
-			d = "<Date>" + crisis.date + "</Date>"
-			#ADD to current crisis xml string
-			crisis_string.append(d)
-		if crisis.time is not None :
-			t = "<Time>" + crisis.time + "</Time>"
-			#ADD to current crisis xml string
-			crisis_string.append(t)
-			
-
-		#handle li lists of models
-		if crisis.locations        != [] :
-			root = "Locations"
-			xml_locations = xml_from_li_list(root, crisis.locations)
-			#ADD to current crisis xml string
-			crisis_string.append(xml_locations)  	
-		if crisis.human_impact     != [] :
-			root = "HumanImpact"
-			xml_human_impact = xml_from_li_list(root, crisis.human_impact)
-			#ADD to current crisis xml string
-			crisis_string.append(xml_human_impact)
-		if crisis.economic_impact  != [] :
-			root = "EconomicImpact"
-			xml_economic_impact = xml_from_li_list(root, crisis.economic_impact)
-			#ADD to current crisis xml string
-			crisis_string.append(xml_economic_impact)
-		if crisis.resources_needed != [] :
-			root = "ResourcesNeeded"
-			xml_resources_needed = xml_from_li_list(root, crisis.resources_needed)
-			#ADD to current crisis xml string
-			crisis_string.append(xml_resources_needed)
-		if crisis.ways_to_help     != [] :
-			root = "WaysToHelp"
-			xml_ways_to_help = xml_from_li_list(root, crisis.ways_to_help)
-			#ADD to current crisis xml string
-			crisis_string.append(xml_ways_to_help)
-
-		#Export info from the common class
-		if crisis.common is not None:
-			crisis_string.append("<Common>")
-			if crisis.common.citations != [] :
-				root = "Citations"
-				xml_citations = xml_from_li_list(root, crisis.common.citations)
-				#ADD to current crisis xml string
-				crisis_string.append(xml_citations)
-			if crisis.external_links   != [] :
-				root = "ExternalLinks"
-				xml_external_links = xml_from_li_list(root, crisis.common.external_links)
-				#ADD to current crisis xml string
-				crisis_string.append(xml_external_links)
-			if crisis.common.images    != [] :
-				root = "Images"
-				xml_images = xml_from_li_list(root, crisis.common.images)
-				#ADD to current crisis xml string
-				crisis_string.append(xml_images)
-			if crisis.common.videos    != [] :
-				root = "Videos"
-				xml_videos = xml_from_li_list(root, crisis.common.videos)
-				#ADD to current crisis xml string
-				crisis_string.append(xml_videos)
-			if crisis.common.maps      != [] :
-				root = "Maps"
-				xml_maps = xml_from_li_list(root, crisis.common.maps)
-				#ADD to current crisis xml string
-				crisis_string.append(xml_maps)
-			if crisis.common.feeds     != [] :
-				root = "Feeds"
-				xml_feeds = xml_from_li_list(root, crisis.common.feeds)
-				#ADD to current crisis xml string
-				crisis_string.append(xml_feeds)
-				if crisis.common.summary is not None:
-				#ADD to current crisis xml string
-				crisis_string.append("<Summary>" + crisis.common.summary + "</Summary" )
-			crisis_string.append("</Common>")
-
-		#Conclude crisis xml and concat to crises_xml_string
-		crisis_string.append("</Crisis>")
-		crises_xml_string.append(crisis_string)
+	"""
 
 
 
