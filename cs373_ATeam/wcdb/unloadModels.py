@@ -11,7 +11,7 @@ from models import Crisis, Person, Org, Li, Common, list_add
 def xml_from_li_list(root_str, model_list) :
 	xml_string = "<" + root_str + ">"
 	for li in model_list :
-		xml_string += "<li>" + li + "</li>"
+		xml_string += "<li>" + str(li) + "</li>"
 	xml_string += "</" + root_str + ">"
 	return xml_string
 
@@ -100,7 +100,7 @@ def receive_import(model_dict) :
 				xml_citations = xml_from_li_list(root, crisis.common.citations)
 				#ADD to current crisis xml string
 				crisis_string += xml_citations
-			if crisis.external_links   != [] :
+			if crisis.common.external_links   != [] :
 				root = "ExternalLinks"
 				xml_external_links = xml_from_li_list(root, crisis.common.external_links)
 				#ADD to current crisis xml string
@@ -133,6 +133,7 @@ def receive_import(model_dict) :
 		#Conclude crisis xml and concat to crises_xml_string
 		crisis_string += "</Crisis>"
 		crises_xml_string += crisis_string
+		return crises_xml_string
 
 
 	#------------------------------#
