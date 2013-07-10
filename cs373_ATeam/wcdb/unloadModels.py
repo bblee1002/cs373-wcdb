@@ -4,9 +4,14 @@ from models import Crisis, Person, Org, Li, Common, list_add
 
 
 #Embed crises, orgs, and ppl roots within <WC>
-def embed_wc (sub_string) :
+#def embed_wc (sub_string) :
 	#wc_xml.append(sub_string)
 
+def xml_from_li_list(root_str, model_list) :
+	xml_string = "<" + root_str ">"
+	for li in model_list :
+		xml_string.append("<li>" + li + "</li>")
+	xml_string.append("</" + root_str ">")
 
 
 #case: no import happened to fill these models
@@ -16,6 +21,8 @@ def receive_import(model_dict) :
 	#export crises models
 	for crisis in filled_models["crises"] :
 		#assumes all crises have an id and name
+		assert crisis.crisis_ID != None
+		assert crisis.name != None
         crisis_string = "<Crisis ID=\"" + crisis.crisis_ID + "\" Name=\"" + crisis.name + "\">"
         #if there are people listed
         if crisis.people != [] :
@@ -35,40 +42,29 @@ def receive_import(model_dict) :
 			d = "<Date>" + crisis.date + "</Date>"
 		if crisis.time is not None :
 			d = "<Time>" + crisis.time + "</Time>"
-		#if there are locations listed
+
+		#handle li lists of models
 		if crisis.locations != [] :
-        	l_string = "<Locations>"
-        	for loc in crisis.locations :
-        		l_string.append("<li>" + loc + "</li>")
-    		l_string.append("</Locations>")
-		#if there are impacts listed
+        	root = "Locations"
+        	xml_from_li_list(root, crisis.locations)
+        	
 		if crisis.human_impact != [] :
-        	h_string = "<HumanImpact>"
-        	for hi in crisis.human_impact :
-        		h_string.append("<li>" + hi + "</li>")
-    		h_string.append("</HumanImpact>")
-		#if there are human impacts listed
-		if crisis.human_impact != [] :
-        	h_string = "<HumanImpact>"
-        	for hi in crisis.human_impact :
-        		h_string.append("<li>" + hi + "</li>")
-    		h_string.append("</HumanImpact>")
-		#if there are economic impacts listed
+        	root = "HumanImpact"
+        	xml_from_li_list(root, crisis.human_impact)
+
+
 		if crisis.economic_impact != [] :
-        	e_string = "<EconomicImpact>"
-        	for ei in crisis.human_impact :
-        		e_string.append("<li>" + ei + "</li>")
-    		e_string.append("</EconomicImpact>")
+        	root = "EconomicImpact"
+        	xml_from_li_list(root, crisis.economic_impact)
+
 		#if there are resources listed
 		if crisis.resources_needed != [] :
-        	r_string = "<ResourcesNeeded>"
-        	for rn in crisis.resources_needed :
-        		r_string.append("<li>" + rn + "</li>")
-    		e_string.append("</ResourcesNeeded>")
+        	root = "ResourcesNeeded"
+        	xml_from_li_list(root, crisis.resources_needed)
+
 		#if there are ways to help
 		if crisis.ways_to_help != [] :
-        	w_string = "<WaysToHelp>"
-        	for wth in crisis.ways_to_help :
-        		r_string.append("<li>" + wth + "</li>")
-    		e_string.append("</WaysToHelp>")
+        	root = "WaysToHelp"
+        	xml_from_li_list(root, crisis.ways_to_help)
+		#export 
         
