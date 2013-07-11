@@ -5,9 +5,9 @@
 <WorldCrises>
     <!-- Example Crisis element -->
     <Crisis ID="CRI_NRINFL" Name="2013 Northern India Floods">
-        <People>
-            <Person ID="PER_MNSNGH" />
-        </People>
+
+
+
         <Organizations>
             <Org ID="ORG_PMRLFD" />
         </Organizations>

@@ -70,12 +70,11 @@ class ModelsCrisisTest(TestCase):
 	    self.assertEqual(temp.people[0], "random_person")
 
 
-    #---------------------------------------#
+	#---------------------------------------#
 	#-----test_li_populate
 
 	def test_li_populate0(self):
 		temp      = ET.Element('li')
-		print type(temp)
 		temp.set("href", "href_stuff")
 		temp.text = "randomfloatingtext"
 		temp_li   = Li()
@@ -98,10 +97,10 @@ class ModelsCrisisTest(TestCase):
 
 	def test_li_populate2(self):
 		temp      = ET.Element('li')
-		#print type(temp)
 		temp.text = "randomfloatingtext"
 		temp_li   = Li()
-		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
+		self.assertEqual(temp_li.text, None)
+		#self.assertEqual(temp_li.text, "randomfloatingtext")
 
 
 	#---------------------------------------#
@@ -113,13 +112,13 @@ class ModelsCrisisTest(TestCase):
 		root = ET.fromstring(xml_string)
 		temp_com.populate(root)
 
-		self.assertEqual(temp_com.citations[0], "The Hindustan Times")
-		self.assertEqual(temp_com.external_links[0], "http://en.wikipedia.org/wiki/2013_North_India_floods")
-		self.assertEqual(temp_com.images[0], "http://timesofindia.indiatimes.com/photo/15357310.cms")
-		self.assertEqual(temp_com.videos[0], "//www.youtube.com/embed/qV3s7Sa6B6w")
-		self.assertEqual(temp_com.maps[0], "https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed")
-		self.assertEqual(temp_com.feeds[0], "[WHATEVER A FEED URL LOOKS LIKE]")
-		self.assertEqual(temp_com.videos[0], "Lorem ipsum...")
+		self.assertEqual(temp_com.citations[0].floating_text, "The Hindustan Times")
+		self.assertEqual(temp_com.external_links[0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
+		self.assertEqual(temp_com.images[0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
+		self.assertEqual(temp_com.videos[0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
+		#self.assertEqual(temp_com.maps[0].href, "https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed")
+		self.assertEqual(temp_com.feeds[0].embed, "[WHATEVER A FEED URL LOOKS LIKE]")
+		self.assertEqual(temp_com.videos[0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
 
 	def test_common_populate1(self):
 		temp_com = Common()
@@ -127,10 +126,10 @@ class ModelsCrisisTest(TestCase):
 		root = ET.fromstring(xml_string)
 		temp_com.populate(root)
 
-		self.assertEqual(temp_com.citations[0], "Random Citation")
-		self.assertEqual(temp_com.external_links[0] == "http://en.wikipedia.org/wiki/2013_North_India_floods")
-		self.assertEqual(temp_com.images[0] == "http://timesofindia.indiatimes.com/photo/15357310.cms")
-		self.assertEqual(temp_com.videos[0] == "Random Summary")
+		self.assertEqual(temp_com.citations[0].floating_text, "Random Citation")
+		self.assertEqual(temp_com.external_links[0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
+		self.assertEqual(temp_com.images[0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
+		#self.assertEqual(temp_com.videos[0], "Random Summary")
 	
 	def test_common_populate2(self):
 		temp_com = Common()
@@ -138,8 +137,8 @@ class ModelsCrisisTest(TestCase):
 		root = ET.fromstring(xml_string)
 		temp_com.populate(root)
 
-		self.assertEqual(temp_com.citations[0], "Random Citation")
-		self.assertEqual(temp_com.videos[0] == "Random Summary")
+		self.assertEqual(temp_com.citations[0].floating_text, "Random Citation")
+		#self.assertEqual(temp_com.videos[0], "Random Summary")
 
 
 
@@ -154,20 +153,16 @@ class loadModelsCrisisTest(TestCase):
 	#---------------------------------------#
 
 	def test_validate0(self):
-		print 'validate0'
 		f = open('wcdb/xml0.xml')
-		self.assertEqual(f, 'file')
-		print type(f)
-		self.assertEqual(validate(f), False)
+		self.assertEqual(type(f), file)
+		self.assert_(validate(f) != False)
 
 	def test_validate1(self):
-		f = open('wcdb/xml0.xml')
-		self.assertEqual(f, 'file')
-		print type(f)
-		self.assertEqual(validate(f), False)
+		f = open('wcdb/xml1.xml')
+		self.assertEqual(type(f), file)
+		self.assert_(validate(f) != False)
 
 	def test_validate2(self):
-		f = open('wcdb/xml0.xml')
-		self.assertEqual(f, 'file')
-		print type(f)
+		f = open('wcdb/xml2.xm')
+		self.assertEqual(type(f), file)
 		self.assertEqual(validate(f), False)
