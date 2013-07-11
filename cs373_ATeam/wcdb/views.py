@@ -68,8 +68,10 @@ def importView(request):
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
 def exportView(request) :
+  output = "You have to import something before you export!"
   global imported_models
-  output = receive_import(imported_models)
+  if imported_models != {}:
+    output = receive_import(imported_models)
 
   return render(request, 'wcdb/Export.html', {'output': output})
   
