@@ -33,18 +33,33 @@ class Li() :
         self.text          =  e_node.get("text")
         self.floating_text =         e_node.text
 
+    #Check for presence of "&" invalid XML char
+    def clean_li_xml (self, dirty) : 
+        dirty_clean = dirty.split("&")
+        for dirty_piece in dirty_clean:
+            #first element case
+            if dirty_piece == dirty_clean[0] :
+                dirty_new = dirty_piece
+            else :
+                dirty_new += "&amp;" + dirty_piece
+        return dirty_new
+
     def print_xml (self) :
         #Export xml from the li class
         self_string = ""
         if self is not None:
             if self.href is not None :
-                self_string += "<li> href=\"" + self.href + "\"</li>"
+                href_clean = self.clean_li_xml(self.href)
+                self_string += "<li> href=\"" + href_clean + "\"</li>"
             if self.embed is not None :
-                self_string += "<li> embed=\"" + self.embed + "\"</li>"
+                embed_clean = self.clean_li_xml(self.embed)
+                self_string += "<li> embed=\"" + embed_clean + "\"</li>"
             if self.text is not None :
-                self_string += "<li>" + self.text + "</li>"
+                text_clean = self.clean_li_xml(self.text)
+                self_string += "<li>" + text_clean + "</li>"
             if self.floating_text is not None :
-                self_string += "<li>" + self.floating_text + "</li>"
+                floating_text_clean = self.clean_li_xml(self.floating_text)
+                self_string += "<li>" + floating_text_clean + "</li>"
         #Conclude li xml instance string
         return self_string
 
