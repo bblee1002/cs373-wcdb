@@ -69,7 +69,7 @@ def populate_crisis(root, list) :
 		#populating common fields
 		found_common = crisis.find('Common')
 		if found_common :
-			temp_crisis.common.populate(crisis.find('Common'))
+			temp_crisis.common.populate(found_common)
 
 
 		#add populated crisis model to list
@@ -90,6 +90,12 @@ def populate_person(root, list) :
 
 		for org in person.iter("Org") :
 				list_add(temp_person.organizations, org.get("ID"))
+
+		#populating common fields
+		found_common = person.find('Common')
+		if found_common :
+			temp_person.common.populate(found_common)
+
 		list.append(temp_person)
 
 def populate_org(root, list) :
@@ -119,7 +125,7 @@ def populate_org(root, list) :
 		#temp_org.common.populate(org.find("Common") or [])
 		found_common = org.find('Common')
 		if found_common :
-			temp_org.common.populate(org.find('Common'))
+			temp_org.common.populate(found_common)
 
 		list.append(temp_org)
 
