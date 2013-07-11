@@ -47,7 +47,6 @@ def unittestsView(request):
 
 def passwordValidate(pw_input):
   password = "ateam"
-  print pw_input
   if password == pw_input:
     return True
   else:
@@ -61,6 +60,9 @@ def importView(request):
       # process data
       upload = request.FILES['xmlfile']
       e_tree = validate(upload)
+      if type(e_tree) == str:
+        return render(request, 'wcdb/import.html', {'form': form,
+          'success': False, 'password': "", 'output': e_tree})
       if e_tree :
         #populate models returns a dictionary where the keys are 'crises', 'organizations' , 'people'
         #and the values are corresponding lists of crisis, organization, and person models
