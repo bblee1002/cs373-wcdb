@@ -161,7 +161,7 @@ class loadModelsCrisisTest(TestCase):
 	def test_validate1(self):
 		f = open('wcdb/xml1.xml')
 		self.assertEqual(type(f), file)
-		self.assert_(validate(f) != False)
+		self.assert_(type(validate(f)) == str)
 
 	def test_validate2(self):
 		f = open('wcdb/xml2.xm')
