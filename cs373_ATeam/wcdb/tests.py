@@ -6,8 +6,15 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
+from minixsv import pyxsval
+from genxmlif import GenXmlIfError
 from models import Crisis, Person, Org, list_add, Li, Common
+from loadModels import validate
 
+
+xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
+psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
+	xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
 
 class ModelsCrisisTest(TestCase):
 
@@ -40,16 +47,16 @@ class ModelsCrisisTest(TestCase):
         self.assertEqual(temp.organizations[1], "random_org1")
 
 	def test_list_add2(self):
-        """
-        Tests the list_add functionality of adding information to a model object's lists
-        """
-        temp          = Person()
-        organization0 = "random_org0"
-        organization1 = "random_org1"
-        list_add(temp.organizations, organization0)
-        list_add(temp.organizations, organization1)
-        self.assertEqual(temp.organizations[0], "random_org0")
-        self.assertEqual(temp.organizations[1], "random_org1")
+		"""
+		Tests the list_add functionality of adding information to a model object's lists
+		"""
+		temp          = Person()
+		organization0 = "random_org0"
+		organization1 = "random_org1"
+		list_add(temp.organizations, organization0)
+		list_add(temp.organizations, organization1)
+		self.assertEqual(temp.organizations[0], "random_org0")
+		self.assertEqual(temp.organizations[1], "random_org1")
 
     def test_list_add3(self):
         """
@@ -99,7 +106,7 @@ class ModelsCrisisTest(TestCase):
 
 	def test_common_populate0(self):
 		temp_com = Common()
-		xml_string = "<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Videos><li embed="//www.youtube.com/embed/qV3s7Sa6B6w" /></Videos><Maps><li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" /></Maps><Feeds><li embed="[WHATEVER A FEED URL LOOKS LIKE]" /></Feeds><Summary>Lorem ipsum...</Summary></Common>"
+		xml_string = '<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Videos><li embed="//www.youtube.com/embed/qV3s7Sa6B6w" /></Videos><Maps><li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" /></Maps><Feeds><li embed="[WHATEVER A FEED URL LOOKS LIKE]" /></Feeds><Summary>Lorem ipsum...</Summary></Common>'
 		root = ET.fromstring(xml_string)
 		temp_com.populate(root)
 
@@ -113,7 +120,7 @@ class ModelsCrisisTest(TestCase):
 
 	def test_common_populate1(self):
 		temp_com = Common()
-		xml_string = "<Common><Citations><li>Random Citation</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Summary>Random Summary</Summary></Common>"
+		xml_string = '<Common><Citations><li>Random Citation</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Summary>Random Summary</Summary></Common>'
 		root = ET.fromstring(xml_string)
 		temp_com.populate(root)
 
@@ -133,3 +140,16 @@ class ModelsCrisisTest(TestCase):
 
 
 
+	#---------------------------------------#
+	#-----test_validate
+
+	def test_validate0(self):
+		self.assertEqual(validate(xml0.xml) == False)
+
+
+	def test_validate1(self):
+		self.assertEqual(type(validate(xml0.xml)) == tree)
+
+
+	def test_validate2(self):
+		self.assertEqual(type(validate(xml0.xml)) == tree)
