@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from loadModels import validate, populate_models
 from unloadModels import receive_import
+import subprocess
 
 imported_models = {}
 
@@ -40,7 +41,9 @@ def index(request):
   return render(request, 'wcdb/index.html')
 
 def unittestsView(request):
-  return render(request, 'wcdb/Unittests.html')
+  output = subprocess.check_output(['python', 'manage.py', 'test', 'wcdb'],
+    stderr=subprocess.STDOUT, shell=False)
+  return render(request, 'wcdb/Unittests.html', {'output': output})
 
 def passwordValidate(pw_input):
   password = "ateam"
