@@ -7,13 +7,16 @@
       {% csrf_token %}
       <fieldset>
         <legend>Upload XML</legend>
-        <label>File:</label>
+        <label>Please enter the password:</label>
         {{ form.password }}
+        <label>File:</label>
         {{ form.xmlfile }}
       </fieldset>
       <button type="submit" class="btn btn-primary">Upload</button>
+      {% firstof password "" %}
       {% firstof success "Not an XML file!" %}
     </form>
+    {{ output }}
   </div>
 </div>
 {% endblock content %}

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from loadModels import validate, populate_models
 from unloadModels import receive_import
+import subprocess
 
 imported_models = {}
 
@@ -39,32 +40,46 @@ def peopleView(request, people_id):
 def index(request):
   return render(request, 'wcdb/index.html')
 
+def unittestsView(request):
+  output = subprocess.check_output(['python', 'manage.py', 'test', 'wcdb'],
+    stderr=subprocess.STDOUT, shell=False)
+  return render(request, 'wcdb/Unittests.html', {'output': output})
+
+def passwordValidate(pw_input):
+  password = "ateam"
+  if password == pw_input:
+    return True
+  else:
+    return False
+
 def importView(request):
   form = XMLUploadForm()
   if request.method == 'POST':
     form = XMLUploadForm(request.POST, request.FILES)
-    if form.is_valid():
+    if form.is_valid() and passwordValidate(form.cleaned_data['password']):
       # process data
       upload = request.FILES['xmlfile']
-      #validate returns a tree on success; false on failure
       e_tree = validate(upload)
+      if type(e_tree) == str:
+        return render(request, 'wcdb/import.html', {'form': form,
+          'success': False, 'password': "", 'output': e_tree})
       if e_tree :
         #populate models returns a dictionary where the keys are 'crises', 'organizations' , 'people'
         #and the values are corresponding lists of crisis, organization, and person models
         #filled_models = populate_models(e_tree)
         global imported_models
         imported_models = populate_models(e_tree)
-        return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!"})
-  return render(request, 'wcdb/import.html', {'form': form, 'success': False})
+        return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': False})
+  return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
 def exportView(request) :
-  #output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"
-
-  #call unloadModels.py w/ filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
+  output = "You have to import something before you export!"
   global imported_models
-  output = receive_import(imported_models)
+  if imported_models != {}:
+    output = receive_import(imported_models)
 
   return render(request, 'wcdb/Export.html', {'output': output})
   
 class XMLUploadForm(forms.Form):
   xmlfile = forms.FileField()
+  password = forms.CharField(max_length=8, widget=forms.PasswordInput) 

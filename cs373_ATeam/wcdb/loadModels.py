@@ -138,22 +138,16 @@ def validate(file_in) :
 	xmlFile = open('wcdb/temp.xml', 'w')
 	xmlFile.write(file_in.read())
 	xmlFile = open('wcdb/temp.xml', 'r')
-	# try:
-	psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
-		xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
-	tree = psvi.getTree()                                                                                                                                          
-
-	# except pyxsval.XsvalError, e:
-	# 	print e
-	# 	print 'Validation aborted.'
-	# 	return False
-	# except GenXmlIfError, e:
-	# 	print e
-	# 	print 'Parsing aborted.'
-	# 	return False
-	# except Exception, e:
-	# 	# catch all
-	# 	print e
-	# 	return False
+	try:
+		psvi = pyxsval.parseAndValidate("wcdb/temp.xml",
+			"wcdb/WorldCrises.xsd.xml", xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
+		tree = psvi.getTree()
+	except pyxsval.XsvalError, e:
+		return 'Validation aborted. ' + e
+	except GenXmlIfError, e:
+		return 'Parsing aborted. ' + e
+	except Exception as e:
+		# catch all
+		return '' + str(e)
 	#handle invalid case
 	return tree
