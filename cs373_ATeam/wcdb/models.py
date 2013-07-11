@@ -38,13 +38,43 @@ class Li() :
         self_string = ""
         if self is not None:
             if self.href is not None :
-                self_string += "<li> href=\"" + self.href + "\"</li>"
+                #Check for presence of "&" invalid XML char
+                href_clean = self.href.split("&")
+                for href_piece in href_clean:
+                    #first element case
+                    if href_piece == href_clean[0] :
+                        href_new = href_piece
+                    else :
+                        href_new += "&amp;" + href_piece
+                self_string += "<li> href=\"" + href_new + "\"</li>"
             if self.embed is not None :
-                self_string += "<li> embed=\"" + self.embed + "\"</li>"
+                #Check for presence of "&" invalid XML char
+                embed_clean = self.embed.split("&")
+                for embed_piece in embed_clean:
+                    #first element case
+                    if embed_piece == embed_clean[0] :
+                        embed_new = embed_piece
+                    else :
+                        embed_new += "&amp;" + embed_piece
+                self_string += "<li> embed=\"" + embed_new + "\"</li>"
             if self.text is not None :
-                self_string += "<li>" + self.text + "</li>"
+                text_clean = self.text.split("&")
+                for text_piece in text_clean:
+                    #first element case
+                    if text_piece == text_clean[0] :
+                        text_new = text_piece
+                    else :
+                        text_new += "&amp;" + text_piece
+                self_string += "<li>" + text_new + "</li>"
             if self.floating_text is not None :
-                self_string += "<li>" + self.floating_text + "</li>"
+                floating_text_clean = self.floating_text.split("&")
+                for floating_text_piece in floating_text_clean:
+                    #first element case
+                    if floating_text_piece == floating_text_clean[0] :
+                        floating_text_new = floating_text_piece
+                    else :
+                        floating_text_new += "&amp;" + floating_text_piece
+                self_string += "<li>" + floating_text_new + "</li>"
         #Conclude li xml instance string
         return self_string
 
