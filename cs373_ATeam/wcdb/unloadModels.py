@@ -4,6 +4,20 @@ from models import Crisis, Person, Org, Li, Common
 
 
 
+#Check for presence of "&" invalid XML char
+#in everything but Li() instances
+#Returns a new string w/out any tag information
+def clean_xml (dirty) :	
+	dirty_clean = dirty.split("&")
+	for dirty_piece in dirty_clean:
+		#first element case
+		if dirty_piece == dirty_clean[0] :
+			dirty_new = dirty_piece
+		else :
+			dirty_new += "&amp;" + dirty_piece
+	return dirty_new
+
+
 #-----Export CRISIS models-----#
 def export_crisis (crisis) :
 	#assumes all crises have an id and name
@@ -17,7 +31,8 @@ def export_crisis (crisis) :
 	if crisis.people        != [] :
 		p_string = "<People>"
 		for person in crisis.people :
-			p_string += "<Person ID=\"" + person + "\" />"
+			clean_person = clean_xml(person)
+			p_string += "<Person ID=\"" + clean_person + "\" />"
 		p_string +="</People>"
 		crisis_string += p_string
 	
@@ -25,18 +40,22 @@ def export_crisis (crisis) :
 	if crisis.organizations != [] :
 		o_string = "<Organizations>"
 		for org in crisis.organizations :
-			o_string += "<Org ID=\"" + org + "\" />"
+			clean_org = clean_xml(org)
+			o_string += "<Org ID=\"" + clean_org + "\" />"
 		o_string += "</Organizations>"
 		crisis_string += o_string
 
 	if crisis.kind is not None :
-		k = "<Kind>" + crisis.kind + "</Kind>"
+		clean_k = clean_xml(crisis.kind)
+		k = "<Kind>" + clean_k + "</Kind>"
 		crisis_string += k
 	if crisis.date is not None :
-		d = "<Date>" + crisis.date + "</Date>"
+		clean_d = clean_xml(crisis.date)
+		d = "<Date>" + clean_d + "</Date>"
 		crisis_string += d
 	if crisis.time is not None :
-		t = "<Time>" + crisis.time + "</Time>"
+		clean_t = clean_xml(crisis.time)
+		t = "<Time>" + clean_t + "</Time>"
 		crisis_string += t
 		
 
@@ -85,7 +104,8 @@ def export_person (person) :
 	if person.crises        != [] :
 		pc_string = "<Crises>"
 		for p_crisis in person.crises :
-			pc_string += "<Crisis ID=\"" + p_crisis + "\" />"
+			clean_person = clean_xml(p_crisis)
+			pc_string += "<Crisis ID=\"" + clean_person + "\" />"
 		pc_string +="</Crises>"
 		person_string += pc_string
 	
@@ -93,16 +113,19 @@ def export_person (person) :
 	if person.organizations != [] :
 		o_string = "<Organizations>"
 		for org in person.organizations :
-			o_string += "<Org ID=\"" + org + "\" />"
+			clean_org = clean_xml(org)
+			o_string += "<Org ID=\"" + clean_org + "\" />"
 		o_string += "</Organizations>"
 		person_string += o_string
 
 	if person.kind is not None :
-		k = "<Kind>" + person.kind + "</Kind>"
+		clean_k = clean_xml(person.kind)
+		k = "<Kind>" + clean_k + "</Kind>"
 		person_string += k
 
 	if person.location is not None :
-		l = "<Location>" + person.location + "</Location>"
+		clean_l = clean_xml(person.location)
+		l = "<Location>" + clean_l + "</Location>"
 		person_string += l
 	
 	#Export info from the common class
@@ -128,7 +151,8 @@ def export_organization (org) :
 	if org.crises        != [] :
 		oc_string = "<Crises>"
 		for o_crisis in org.crises :
-			oc_string += "<Crisis ID=\"" + o_crisis + "\" />"
+			clean_crisis = clean_xml(o_crisis)
+			oc_string += "<Crisis ID=\"" + clean_crisis + "\" />"
 		oc_string +="</Crises>"
 		#ADD to current org xml string
 		org_string += oc_string
@@ -137,18 +161,21 @@ def export_organization (org) :
 	if org.people != [] :
 		op_string = "<People>"
 		for org_person in org.people :
-			op_string += "<Person ID=\"" + org_person + "\" />"
+			clean_person = clean_xml(org_person)
+			op_string += "<Person ID=\"" + clean_person + "\" />"
 		op_string += "</People>"
 		#ADD to current org xml string
 		org_string += op_string
 
 	if org.kind is not None :
-		k = "<Kind>" + org.kind + "</Kind>"
+		clean_k = clean_xml(org.kind)
+		k = "<Kind>" + clean_k + "</Kind>"
 		#ADD to current org xml string
 		org_string += k
 
 	if org.location is not None :
-		l = "<Location>" + org.location + "</Location>"
+		clean_l = clean_xml(org.location)
+		l = "<Location>" + clean_l + "</Location>"
 		#ADD to current org xml string
 		org_string += l
 
