@@ -1,0 +1,78 @@
+{% extends "wcdb/default.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="span12">
+    <h1>Bee Colony Collapse Disorder</h1>
+    
+    <dl class="dl-horizontal">
+      <dt>Date &amp; Time</dt>
+      <dd>since 2005</dd>
+      <dt>Location</dt>
+      <dd>Belgium, France, the Netherlands, Greece, Italy, Portugal, Spain, Switzerland, Germany, England, and USA</dd>
+      <dt>Kind</dt>
+      <dd>Environmental and Ecnomical</dd>
+      <dt>Organizations</dt>
+      <dd><a href="/orgs/3">United States Environmental Protection Agency</a><a href="http://www.epa.gov/"><sub><font size="1"> [EPA Homepage]</font></sub></a></dd>
+      <dt>People</dt>
+      <dd><a href="/people/3">Rowan Jacobsen</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Economic Impact</dt>
+      <dd>Shortages of bees in the US have increased the cost to farmers of renting them for pollination services by up to 20%</dd>
+      <dt>Human Impact</dt>
+      <dd>Colony collapse disorder can catastrophically reduce global food supply because it’s believed that one third of human nutrition is due to bee pollination.</dd>
+      <dt>Rescources Needed</dt>
+      <dd>Fill in!</dd>
+      <dt>Ways to help</dt>
+      <dd>Use of alternative pollinators like leafcutter, alkali bees, or bumblebees. Hand Pollination which is labor intensive, time consuming, and costly. Prairie restoration, establishment of wildlife preserves, encouragement of diverse wildlife landscaping rather than monoculture lawns</dd>
+    </dl>
+
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="active item">
+          <div class="inner-item">
+            <img src="http://ictmncdn1.tgpstage1.com/sites/default/files/styles/article_header_image/public/article_media/honeybees-small.jpg" alt="img not found">
+            <div class="carousel-caption">
+              <h4>Bees in a hive</h4>
+              <p>fill in!</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="inner-item">
+            <img src="http://twitter.github.io/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="img not found">
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+
+    <iframe width="940" height="600" src="//www.youtube.com/embed/BRGrI4AQG70" frameborder="0" allowfullscreen></iframe>
+    <dd> </dd>
+    <iframe width="940" height="600" src="//www.youtube.com/embed/Y0i8A2zCxWM" frameborder="0" allowfullscreen></iframe>
+    <dd> </dd>
+    <iframe width="940" height="600" src="//www.youtube.com/embed/unca1QR3nLs" frameborder="0" allowfullscreen></iframe>
+    <dl>
+ 
+    <br>
+    <div class="row-fluid">
+    <div class="span4"> </div>
+    <div class="span4"><a href="https://twitter.com">Twitter</a></div>
+    <div class="span4"><a href="https://facebook.com">Facebook</a></div>
+    </div> 
+
+    <dt>Citations</dt>
+    <dd>Fill in!</dd>
+    <dt>External Links</dt>
+    <dd><a href="http://thebeephotographer.photoshelter.com/gallery/Hand-Pollination-in-China/G0000M46TBQX4Odc/">Hand Pollination in China</a></dd>
+    <dd><a href="https://en.wikipedia.org/wiki/List_of_crop_plants_pollinated_by_bees">List of crop plants pollinated by bees</a></dd>
+    <dd><a href="https://en.wikipedia.org/wiki/Colony_collapse_disorder">Colony collapse disorder</a></dd>
+    <dd><a href="https://en.wikipedia.org/wiki/Pollinator_decline">Pollinator decline</a></dd>
+    </dl>
+
+  </div>
+</div>
+{% endblock content %}
