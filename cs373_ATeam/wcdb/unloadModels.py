@@ -137,7 +137,7 @@ def export_organization (org) :
 	if org.people != [] :
 		op_string = "<Organizations>"
 		for org_person in org.people :
-			op_string += "<Org ID=\"" + org_person + "\" />"
+			op_string += "<Person ID=\"" + org_person + "\" />"
 		op_string += "</Organizations>"
 		#ADD to current org xml string
 		org_string += op_string
