@@ -2,6 +2,9 @@ from django import forms
 from django.http import HttpResponse
 from django.shortcuts import render
 from loadModels import validate, populate_models
+from unloadModels import receive_import
+
+imported_models = {}
 
 def crisisView(request, crisis_id):
   if crisis_id == '1':
@@ -56,23 +59,18 @@ def importView(request):
       upload = request.FILES['xmlfile']
       e_tree = validate(upload)
       if e_tree :
-        filled_models = populate_models(e_tree)
-        print "FILLED MODELS", filled_models
-        print "CRISES"
-        for crisis in filled_models["crises"] :
-          print crisis.name
-          print crisis.kind
-          print crisis.date
-          print crisis.time
-          for location in crisis.locations :
-            print "location", location.floating_text
-          # for person in crisis.people :
-          #   print person
+        #populate models returns a dictionary where the keys are 'crises', 'organizations' , 'people'
+        #and the values are corresponding lists of crisis, organization, and person models
+        #filled_models = populate_models(e_tree)
+        global imported_models
+        imported_models = populate_models(e_tree)
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': False})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
 def exportView(request) :
-  output = "<WorldCrises><Crisis></Crisis><Crisis></Crisis></WorldCrises>"
+  global imported_models
+  output = receive_import(imported_models)
+
   return render(request, 'wcdb/Export.html', {'output': output})
   
 class XMLUploadForm(forms.Form):

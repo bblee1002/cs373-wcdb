@@ -1,6 +1,7 @@
 import os
 os.environ["DJANGO_SETTINGS_MODULE"] = "cs373_ATeam.settings"
 from django.db import models
+#from unloadModels import xml_from_li
 
 # Create your models here.
 
@@ -31,6 +32,22 @@ class Li() :
         self.embed         = e_node.get("embed")
         self.text          =  e_node.get("text")
         self.floating_text =         e_node.text
+
+    def print_xml (self) :
+        #Export xml from the li class
+        self_string = ""
+        if self is not None:
+            if self.href is not None :
+                self_string += "<li> href=\"" + self.href + "\"</li>"
+            if self.embed is not None :
+                self_string += "<li> embed=\"" + self.embed + "\"</li>"
+            if self.text is not None :
+                self_string += "<li>" + self.text + "</li>"
+            if self.floating_text is not None :
+                self_string += "<li>" + self.floating_text + "</li>"
+        #Conclude li xml instance string
+        return self_string
+
 
 
 class Common() :
@@ -87,6 +104,50 @@ class Common() :
         find_summary = e_node.find("Summary")
         if find_summary :
             summary = find_summary.text
+
+    def xml_from_li(self, root_str, item_list) :
+        #Loop through list items contains in common lists
+        xml_string = "<" + root_str + ">"
+        for listitem in item_list :
+            #assert listitem is type(Li)
+            xml_string += listitem.print_xml()
+        xml_string += "</" + root_str + ">"
+        return xml_string
+
+    def print_xml (self) :
+        #Export xml from the common class
+        self_string = ""
+        if self is not None:
+            self_string += "<Common>"
+            if self.citations != [] :
+                root = "Citations"
+                xml_citations = self.xml_from_li(root, self.citations)
+                self_string += xml_citations
+            if self.external_links   != [] :
+                root = "ExternalLinks"
+                xml_external_links = self.xml_from_li(root, self.external_links)
+                self_string += xml_external_links
+            if self.images    != [] :
+                root = "Images"
+                xml_images = self.xml_from_li(root, self.images)
+                self_string += xml_images
+            if self.videos    != [] :
+                root = "Videos"
+                xml_videos = self.xml_from_li(root, self.videos)
+                self_string += xml_videos
+            if self.maps      != [] :
+                root = "Maps"
+                xml_maps = self.xml_from_li(root, self.maps)
+                self_string += xml_maps
+            if self.feeds     != [] :
+                root = "Feeds"
+                xml_feeds = self.xml_from_li(root, self.feeds)
+                self_string += xml_feeds
+            if self.summary is not None:
+                self_string += "<Summary>" + self.summary + "</Summary"
+            self_string += "</Common>" 
+        #Conclude common xml instance string
+        return self_string
 
 
 
