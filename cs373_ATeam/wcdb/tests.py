@@ -10,6 +10,8 @@ from minixsv import pyxsval
 from genxmlif import GenXmlIfError
 from models import Crisis, Person, Org, list_add, Li, Common
 from loadModels import validate
+from django.test.simple import DjangoTestSuiteRunner
+
 
 
 xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
@@ -148,8 +150,8 @@ class ModelsCrisisTest(TestCase):
 
 
 	def test_validate1(self):
-		self.assertEqual(type(validate(xml0.xml)) == tree)
+		self.assertEqual(type(validate(xml0.xml)) == ElementTree)
 
 
 	def test_validate2(self):
-		self.assertEqual(type(validate(xml0.xml)) == tree)
+		self.assertEqual(type(validate(xml0.xml)) == ElementTree)
