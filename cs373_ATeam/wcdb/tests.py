@@ -12,7 +12,8 @@ from models import Crisis, Person, Org, list_add, Li, Common
 from loadModels import validate
 from unloadModels import clean_xml, export_crisis, export_person, export_crisis, export_organization, receive_import
 import xml.etree.ElementTree as ET
-
+from django.test.client import Client
+from views import passwordValidate
 
 
 #xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
@@ -262,3 +263,87 @@ class loadModelsCrisisTest(TestCase):
 		f = open('wcdb/xml2.xm')
 		self.assertEqual(type(f), file)
 		self.assertEqual(validate(f), False)
+
+
+
+class viewsTest(TestCase):
+
+#--------------------------------------------#
+#-----Unit Tests for functions from views.py
+#--------------------------------------------#
+
+	#---------------------------------------#
+	#-----test_crisisView
+	#---------------------------------------#
+
+	# tests that user can see our pages 
+	def test_indexView(self):
+		response = self.client.get("http://localhost:8000/")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView0(self):
+		response = self.client.get("http://localhost:8000/crisis/1")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView1(self):
+		response = self.client.get("http://localhost:8000/crisis/2")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView2(self):
+		response = self.client.get("http://localhost:8000/crisis/3")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView0(self):
+		response = self.client.get("http://localhost:8000/orgs/1")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView1(self):
+		response = self.client.get("http://localhost:8000/orgs/2")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView2(self):
+		response = self.client.get("http://localhost:8000/orgs/3")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView0(self):
+		response = self.client.get("http://localhost:8000/people/1")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView1(self):
+		response = self.client.get("http://localhost:8000/people/2")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView2(self):
+		response = self.client.get("http://localhost:8000/people/3")
+		self.assertEqual(response.status_code, 200)
+
+	"""
+	Creates an infinite loop!
+	def test_unittestView(self):
+		response = self.client.get("http://localhost:8000/unittests/")
+		self.assertEqual(response.status_code, 200)
+	"""
+
+	def test_importView1(self):
+		response = self.client.get("http://localhost:8000/import/")
+		self.assertEqual(response.status_code, 200)
+
+	def test_importView2(self):
+		c = Client()
+		with open('wcdb/xml0.xml') as upload:
+			response = self.client.post("http://localhost:8000/import/", {'password': "ateam", 'xmlvalue': upload}, follow = True)
+        	self.assertEqual(response.status_code, 200) # Redirect on form success
+
+	def test_passwordValidate0(self):
+		pw = "ateam"
+		result = passwordValidate(pw)
+		self.assert_(result)
+
+	def test_passwordValidate1(self):
+		pw = "someotherteam"
+		result = passwordValidate(pw)
+		self.assert_(not (result))
+
+	def test_exportView(self):
+		response = self.client.get("http://127.0.0.1:8000/export/")
+		self.assertEqual(response.status_code, 200)
