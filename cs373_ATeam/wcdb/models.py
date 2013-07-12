@@ -195,7 +195,7 @@ class Common() :
                 xml_feeds = self.xml_from_li(root, self.feeds)
                 self_string += xml_feeds
             if self.summary is not None:
-                self_string += "<Summary>" + self.summary + "</Summary"
+                self_string += "<Summary>" + self.summary + "</Summary>"
             self_string += "</Common>" 
         #Conclude common xml instance string
         return self_string

@@ -208,24 +208,19 @@ class ModelsCrisisTest(TestCase):
 
 	#---------------------------------------#
 	#-----test_print_xml
-	"""
+	
 	def test_print_xml0(self):
 		temp_com = Common()
-		xml_string = "<Common><Citations><li>RandomCitation</li></Citations><ExternalLinks><li>RandomLink</li></ExternalLinks><Images><li>RandomImage</li></Images><Videos><li>RandomVideo</li></Videos><Summary><RandomSummary</Summary></Common>"
+		xml_string = "<Common><Citations><li>RandomCitation</li></Citations><ExternalLinks><li>RandomLink</li></ExternalLinks><Images><li>RandomImage</li></Images><Videos><li>RandomVideo</li></Videos><Summary>Random Summary</Summary></Common>"
 		root = ET.fromstring(xml_string)
 		temp_com.populate(root)
 		common_xml = temp_com.print_xml()
 
-		#summar = temp_com.summary
-		#print "temp_com.summary", temp_com.summary
+		print "xml_string : ", xml_string, len(xml_string)
+		print "common_xml : ", common_xml, len(common_xml)
 
-		#print "xml_string : ", xml_string
-		#print "common_xml : ", common_xml
-
-		#self.assertEqual(common_xml, xml_string)
-	"""
-
-
+		self.assertEqual(xml_string, common_xml)
+	
 	
 
 	#---------------------------------------#
