@@ -801,7 +801,7 @@
     <Location>Texas</Location>
     <Common>
         <Citations>
-            <li href="http://en.wikipedia.org/wiki/Rick_Perry"> "Rick Perry". Wikipedia. Updated: 9 July, 2013. Visited: 12 July, 2013. </li>            
+            <li href="http://en.wikipedia.org/wiki/Rick_Perry"> "Rick Perry". Wikipedia. 9 July, 2013. Visited: 12 July, 2013. </li>            
         </Citations>
         <ExternalLinks>
             <li href="http://en.wikipedia.org/wiki/Rick_Perry">Wikipedia: Rick Perry</li>
@@ -809,8 +809,8 @@
             <li href="http://www.governor.state.tx.us/">Governor of the State of Texas Website</li>
         </ExternalLinks>
         <Images>
-            <li embed="http://governor.state.tx.us/multimedia/photos/TexasGovernorRickPerry.jpg" text="img not found" />
-            <li embed="http://a.abcnews.com/images/Politics/ap_Rick_Perry_2_jt_110813_wg.jpg" text="img not found" />
+            <li embed="http://governor.state.tx.us/multimedia/photos/TexasGovernorRickPerry.jpg" text="img not found">Governor Rick Perry posing for a photo</li>
+            <li embed="http://a.abcnews.com/images/Politics/ap_Rick_Perry_2_jt_110813_wg.jpg" text="img not found">Governor Rick Perry in the middle of a fiery speech</li>
         </Images>
         <Videos>
             <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/0uvmKnFY4uk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
@@ -818,7 +818,7 @@
             <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/iaXDrTGmCgU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
         </Videos>
         <Maps>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed">&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/GovernorPerry">Facebook</li>
@@ -837,6 +837,34 @@
     </Organizations>
     <Kind>Politician</Kind>
     <Location>Egypt</Location>
+    <Common>
+        <Citations>
+            <li href="http://en.wikipedia.org/wiki/Mohamed_Morsi"> "Mohamed Morsi". Wikipedia. 12 July, 2013. Visited on: 12 July, 2013.
+        </Citations>
+        <ExternalLinks>
+            <li href="http://en.wikipedia.org/wiki/Mohamed_Morsi">Wikipedia: Mohamed Morsi</li>
+            <li href="http://www.guardian.co.uk/world/2012/jul/08/egyptian-president-orders-parliament-reconvene">The Guardian: Egyptian President Orders Parliament to Reconvene</li>
+            <li href="http://www.telegraph.co.uk/news/worldnews/africaandindianocean/egypt/10171198/Egypt-orders-arrest-of-Muslim-Brotherhood-leader.html">The Telegraph: Egypt Orders Arrest of Muslim Brotherhood Leader</li>
+            <li href="http://www.huffingtonpost.com/2012/06/17/egypt-election-results-muslim-brotherhood-mohammed-morsi_n_1604499.html">Huffington Post: Mohamed Morsi Elected as President of Egypt</li>
+        </ExternalLinks>
+        <Images>
+            <li embed="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2012/7/8/1341761552172/Mohamed-Morsi-president-o-008.jpg" text="img not found">Mohamed Morsi - newly elected, and now recently deposed President of Egypt</li>
+            <li embed="http://i.telegraph.co.uk/multimedia/archive/02613/egypt-morsi_2613799b.jpg" text="img not found">Crowds rallying for the deposing of Egyptian President Mohamed Morsi</li>
+        </Images>
+        <Videos>
+            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/LyDOAQNsTrI" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/u0Trsszw1Uo" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/TbnYc65pN_g" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+        </Videos>
+        <Maps>
+            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=egypt&amp;aq=&amp;sll=33.870416,102.041016&amp;sspn=65.978644,50.712891&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Egypt&amp;ll=26.824071,30.805664&amp;spn=13.701404,18.676758&amp;z=5&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=egypt&amp;aq=&amp;sll=33.870416,102.041016&amp;sspn=65.978644,50.712891&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Egypt&amp;ll=26.824071,30.805664&amp;spn=13.701404,18.676758&amp;z=5" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+        </Maps>
+        <Feeds>
+            <li href="https://www.facebook.com/pages/Mohamed-Morsy/264081660269685">Facebook</li>
+            <li href="https://twitter.com/MuhammadMorsi">Twitter</li>
+        </Feeds>
+        <Summary>Born on August 8, 1951, Mohamed Morsi was elected as President of Egypt and assumed office on April 30, 2011. However, many Egyptian citizens were unhappy with his heavy-handed approach to governance and with his strong leaning towards incorporating religion into law. They were especially displeased with his decision to significantly expand his presidential powers and remove judicial review of his decrees soon after being elected into office. As a result, he was deposed on July 3, 2013.1</Summary>
+    </Common>
 </Person>
 
 <Person ID="PER_XNSHNG" Name="Zhang Xinsheng">
@@ -849,12 +877,26 @@
     <Kind>President of International Union for Conservation of Nature</Kind>
     <Location>China</Location>
     <Common>
+        <Citations>
+            <li href="https://www.iucn.org/news_homepage/?11060/IUCNs-New-President-elected">"IUCN's New President Elected". IUCN. 12 September, 2012. Visited: 12 July, 2013.</li>
+        </Citations>
+        <ExternalLinks>
+            <li href="https://www.iucn.org/news_homepage/?11060/IUCNs-New-President-elected">IUCN: Zhang Xinsheng Elected New President of IUCN</li>
+            <li href="http://www.cbd.int/idb/doc/2013/messages/idb-2013-iucn-pres-message.pdf">IUCN: Zhang Xinsheng On Plan For Next Four Years</li>
+        </ExternalLinks>
         <Images>
             <li embed="http://cmsdata.iucn.org/img/zhang_xinsheng_51854.jpg" />
         </Images>
         <Videos>
             <li embed="http://www.youtube.com/watch?v=o-rR4nKbUO8">Zhang Xinsheng</li>
         </Videos>
+        <Maps>
+            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4" style="color:#0000FF;text-align:left">View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+        </Maps>
+        <Feeds>
+            <li>No Social Feeds For Zhang Xinsheng</li>
+        </Feeds>
+        <Summary>Zhang Xinsheng was recently elected to be President of the International Union for Conservation of Nature on September 12, 2012.1</Summary>
     </Common>
 </Person>
 
