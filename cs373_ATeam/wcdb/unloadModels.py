@@ -98,6 +98,8 @@ def export_crisis (crisis) :
 #-----Export PERSON models-----#
 def export_person (person) :
 	"""
+	Export Person models by extracting information from the relevant class.
+	Builds a string to return at the end as parse elements of crisis.
 	"""
 	#assumes all people have an id and name
 	assert person.person_ID != None
@@ -147,6 +149,8 @@ def export_person (person) :
 #-----Export ORGANIZATIONS models-----#
 def export_organization (org) :
 	"""
+	Export Org models by extracting information from the relevant class.
+	Builds a string to return at the end as parse elements of crisis.
 	"""
 	#assumes all orgs have an id and name
 	assert org.org_ID != None
@@ -212,6 +216,7 @@ def export_organization (org) :
 #Called from from views.py
 def receive_import(model_dict) :
 	"""
+	Exports models into an xml string.
 	"""
 
 	#collect xml versions of all CRISIS models
