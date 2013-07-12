@@ -42,7 +42,6 @@ def populate_crisis(root, list) :
 	"""
 	for crisis in root.findall("Crisis"):
 		temp_crisis           =                 Crisis()
-		print "LENGTH: ", len(temp_crisis.people)
 		temp_crisis.crisis_ID =         crisis.get("ID")
 		temp_crisis.name      =       crisis.get("Name")
 		temp_crisis.kind      = crisis.find("Kind").text
