@@ -148,6 +148,6 @@ def validate(file_in) :
 		return 'Parsing aborted. ' + e
 	except Exception as e:
 		# catch all
-		return '' + str(e)
+		return 'Exception. ' + str(e)
 	#handle invalid case
 	return tree

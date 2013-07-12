@@ -37,8 +37,8 @@ class Li() :
     def clean_li_xml (self, dirty) : 
         dirty_clean = dirty.split("&")
         for dirty_piece in dirty_clean:
-            #first element case
-            if dirty_piece == dirty_clean[0] :
+            #first element case, is insures unique
+            if dirty_piece is dirty_clean[0] :
                 dirty_new = dirty_piece
             else :
                 dirty_new += "&amp;" + dirty_piece
@@ -116,9 +116,11 @@ class Common() :
             temp_li.populate(feed)
             self.feeds.append(temp_li)
 
+
         find_summary = e_node.find("Summary")
         if find_summary is not None :
-            summary = find_summary.text
+            self.summary = find_summary.text
+
 
     def xml_from_li(self, root_str, item_list) :
         #Loop through list items contains in common lists
@@ -129,8 +131,8 @@ class Common() :
         xml_string += "</" + root_str + ">"
         return xml_string
 
+    #Export xml from the common class
     def print_xml (self) :
-        #Export xml from the common class
         self_string = ""
         if self is not None:
             self_string += "<Common>"

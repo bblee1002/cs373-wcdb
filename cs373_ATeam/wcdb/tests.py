@@ -10,8 +10,10 @@ from minixsv import pyxsval
 from genxmlif import GenXmlIfError
 from models import Crisis, Person, Org, list_add, Li, Common
 from loadModels import validate
+from unloadModels import clean_xml, export_crisis, export_person, export_crisis, export_organization, receive_import
 import xml.etree.ElementTree as ET
-
+from django.test.client import Client
+from views import passwordValidate
 
 
 #xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
@@ -80,10 +82,10 @@ class ModelsCrisisTest(TestCase):
 		temp_li   = Li()
 		temp_li.populate(temp)
 		self.assertEqual(temp_li.href, "href_stuff")
+		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
 
 	def test_li_populate1(self):
 		temp      = ET.Element('li')
-		#print type(temp)
 		temp.set("href", "href_stuff")
 		temp.set("embed", "embed_stuff")
 		temp.set("text", "text_stuff")
@@ -99,8 +101,51 @@ class ModelsCrisisTest(TestCase):
 		temp      = ET.Element('li')
 		temp.text = "randomfloatingtext"
 		temp_li   = Li()
-		self.assertEqual(temp_li.text, None)
-		#self.assertEqual(temp_li.text, "randomfloatingtext")
+		temp_li.populate(temp)
+		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
+
+
+	#---------------------------------------#
+	#-----test_clean_li_xml
+	
+	def test_clean_li_xml0(self):
+		dirt = "happy&go&lucky&&&go&happy"
+		temp      = ET.Element('li')
+		temp.set("href", dirt)
+		temp.set("embed", dirt)
+		temp.set("text", dirt)
+		temp.text = dirt
+		temp_li   = Li()
+		temp_li.populate(temp)
+		href_clean = temp_li.clean_li_xml(temp_li.href)
+		embed_clean = temp_li.clean_li_xml(temp_li.embed)
+		text_clean = temp_li.clean_li_xml(temp_li.text)
+		floating_text_clean = temp_li.clean_li_xml(temp_li.floating_text)
+		standard_clean = "happy&amp;go&amp;lucky&amp;&amp;&amp;go&amp;happy"
+
+		self.assertEqual(href_clean, standard_clean)
+		self.assertEqual(embed_clean, standard_clean)
+		self.assertEqual(text_clean, standard_clean)
+		self.assertEqual(floating_text_clean, standard_clean)
+	
+
+	#---------------------------------------#
+	#-----test_li_print_xml
+	
+	def test_li_print_xml0(self):
+		temp      = ET.Element('li')
+		temp.set("href", "href_stuff")
+		temp.set("embed", "embed_stuff")
+		temp.set("text", "text_stuff")
+		temp.text = "randomfloatingtext"
+		temp_li   = Li()
+		temp_li.populate(temp)
+		temp_string = temp_li.print_xml()
+		correct_string = "<li> href=\"href_stuff\"</li><li> embed=\"embed_stuff\"</li><li>text_stuff</li><li>randomfloatingtext</li>"
+		#print temp_string
+		#print correct_string
+		self.assertEqual(temp_string, correct_string)
+
 
 
 	#---------------------------------------#
@@ -140,6 +185,58 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(temp_com.citations[0].floating_text, "Random Citation")
 		#self.assertEqual(temp_com.videos[0], "Random Summary")
 
+	#---------------------------------------#
+	#-----test_xml_from_li
+
+	def test_xml_from_li0(self):
+		temp_com = Common()
+		xml_string = "<Common><Citations><li>RandomCitation</li></Citations><ExternalLinks><li>RandomLink</li></ExternalLinks><Images><li>RandomImage</li></Images><Videos><li>RandomVideo</li></Videos></Common>"
+		root = ET.fromstring(xml_string)
+		temp_com.populate(root)
+		li_xml = "<Common>"
+		c_cites = temp_com.xml_from_li("Citations", temp_com.citations)
+		li_xml += c_cites
+		c_links = temp_com.xml_from_li("ExternalLinks", temp_com.external_links)
+		li_xml += c_links
+		c_ims = temp_com.xml_from_li("Images", temp_com.images)
+		li_xml += c_ims
+		c_vids = temp_com.xml_from_li("Videos", temp_com.videos)
+		li_xml += c_vids
+		li_xml += "</Common>"
+		self.assertEqual(li_xml, xml_string )
+
+
+	#---------------------------------------#
+	#-----test_print_xml
+	"""
+	def test_print_xml0(self):
+		temp_com = Common()
+		xml_string = "<Common><Citations><li>RandomCitation</li></Citations><ExternalLinks><li>RandomLink</li></ExternalLinks><Images><li>RandomImage</li></Images><Videos><li>RandomVideo</li></Videos><Summary><RandomSummary</Summary></Common>"
+		root = ET.fromstring(xml_string)
+		temp_com.populate(root)
+		common_xml = temp_com.print_xml()
+
+		#summar = temp_com.summary
+		#print "temp_com.summary", temp_com.summary
+
+		#print "xml_string : ", xml_string
+		#print "common_xml : ", common_xml
+
+		#self.assertEqual(common_xml, xml_string)
+	"""
+
+
+	
+
+	#---------------------------------------#
+	#-----test_clean_xml (paranoid clean for things that are not li objects)
+	
+	def test_clean_xml0(self):
+		dirt = "happy&go&lucky&&&go&happy"
+		dirt_to_clean = clean_xml(dirt)
+		standard_clean = "happy&amp;go&amp;lucky&amp;&amp;&amp;go&amp;happy"
+		self.assertEqual(dirt_to_clean, standard_clean)
+
 
 
 class loadModelsCrisisTest(TestCase):
@@ -160,9 +257,93 @@ class loadModelsCrisisTest(TestCase):
 	def test_validate1(self):
 		f = open('wcdb/xml1.xml')
 		self.assertEqual(type(f), file)
-		self.assert_(validate(f) != False)
+		self.assert_(type(validate(f)) == str)
 
 	def test_validate2(self):
 		f = open('wcdb/xml2.xm')
 		self.assertEqual(type(f), file)
 		self.assertEqual(validate(f), False)
+
+
+
+class viewsTest(TestCase):
+
+#--------------------------------------------#
+#-----Unit Tests for functions from views.py
+#--------------------------------------------#
+
+	#---------------------------------------#
+	#-----test_crisisView
+	#---------------------------------------#
+
+	# tests that user can see our pages 
+	def test_indexView(self):
+		response = self.client.get("http://localhost:8000/")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView0(self):
+		response = self.client.get("http://localhost:8000/crisis/1")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView1(self):
+		response = self.client.get("http://localhost:8000/crisis/2")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView2(self):
+		response = self.client.get("http://localhost:8000/crisis/3")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView0(self):
+		response = self.client.get("http://localhost:8000/orgs/1")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView1(self):
+		response = self.client.get("http://localhost:8000/orgs/2")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView2(self):
+		response = self.client.get("http://localhost:8000/orgs/3")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView0(self):
+		response = self.client.get("http://localhost:8000/people/1")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView1(self):
+		response = self.client.get("http://localhost:8000/people/2")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView2(self):
+		response = self.client.get("http://localhost:8000/people/3")
+		self.assertEqual(response.status_code, 200)
+
+	"""
+	Creates an infinite loop!
+	def test_unittestView(self):
+		response = self.client.get("http://localhost:8000/unittests/")
+		self.assertEqual(response.status_code, 200)
+	"""
+
+	def test_importView1(self):
+		response = self.client.get("http://localhost:8000/import/")
+		self.assertEqual(response.status_code, 200)
+
+	def test_importView2(self):
+		c = Client()
+		with open('wcdb/xml0.xml') as upload:
+			response = self.client.post("http://localhost:8000/import/", {'password': "ateam", 'xmlvalue': upload}, follow = True)
+        	self.assertEqual(response.status_code, 200) # Redirect on form success
+
+	def test_passwordValidate0(self):
+		pw = "ateam"
+		result = passwordValidate(pw)
+		self.assert_(result)
+
+	def test_passwordValidate1(self):
+		pw = "someotherteam"
+		result = passwordValidate(pw)
+		self.assert_(not (result))
+
+	def test_exportView(self):
+		response = self.client.get("http://127.0.0.1:8000/export/")
+		self.assertEqual(response.status_code, 200)

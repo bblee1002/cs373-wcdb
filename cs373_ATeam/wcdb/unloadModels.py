@@ -11,7 +11,6 @@ def clean_xml (dirty) :
 	"""	
 	dirty_clean = dirty.split("&")
 	for dirty_piece in dirty_clean:
-		#first element case
 		if dirty_piece is dirty_clean[0] :
 			dirty_new = dirty_piece
 		else :
