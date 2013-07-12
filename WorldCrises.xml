@@ -129,6 +129,7 @@
     </Common>
 </Crisis>
 
+
     <Crisis ID="CRI_TXWDFR" Name="Texas Wild Fires">
         <People>
             <Person ID="PER_RPERRY" />
@@ -791,12 +792,40 @@
 
 <Person ID="PER_RPERRY" Name="Rick Perry">
     <Crises>
-        <Crisis ID="CRI_FOREST" />
+        <Crisis ID="CRI_TXWDFR" />
     </Crises>
     <Organizations>
         <Org ID="ORG_FEMAAA" />
     </Organizations>
-
+    <Kind>Governor of Texas</Kind>
+    <Location>Texas</Location>
+    <Common>
+        <Citations>
+            <li href="http://en.wikipedia.org/wiki/Rick_Perry"> "Rick Perry". Wikipedia. Updated: 9 July, 2013. Visited: 12 July, 2013. </li>            
+        </Citations>
+        <ExternalLinks>
+            <li href="http://en.wikipedia.org/wiki/Rick_Perry">Wikipedia: Rick Perry</li>
+            <li href="http://www.usatoday.com/story/news/politics/2013/07/08/rick-perry-texas-governor-president/2497773/">USA Today: Rick Perry Won't Run Again</li>
+            <li href="http://www.governor.state.tx.us/">Governor of the State of Texas Website</li>
+        </ExternalLinks>
+        <Images>
+            <li embed="http://governor.state.tx.us/multimedia/photos/TexasGovernorRickPerry.jpg" text="img not found" />
+            <li embed="http://a.abcnews.com/images/Politics/ap_Rick_Perry_2_jt_110813_wg.jpg" text="img not found" />
+        </Images>
+        <Videos>
+            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/0uvmKnFY4uk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/iESaX8YioyQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/iaXDrTGmCgU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+        </Videos>
+        <Maps>
+            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed">&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+        </Maps>
+        <Feeds>
+            <li href="https://www.facebook.com/GovernorPerry">Facebook</li>
+            <li href="https://twitter.com/GovernorPerry">Twitter</li>
+        </Feeds>
+        <Summary>Born in Paint Creek, Texas on March 4, 1950, Rick Perry is currently the Governor of the state of Texas. He is a staunchly conservative politician who is famous for attempting to name 3 federal agencies he intended to end if he won the 2012 Presidential Election but failing to be able to name the third. He is also famous for holding 3 days of prayer in an attempt to end the Texas Wildfire crisis in 2011. Eventually, Texas firefighters were able to successfully put out the flames as the wildfire season drew to a close. Perry requested federal aid, and in response, FEMA reimbursed the state of Texas $48 million for fire suppression costs.</Summary>
+    </Common>
 </Person>
 
 <Person ID="PER_MMORSI" Name="Mohammed Morsi">
