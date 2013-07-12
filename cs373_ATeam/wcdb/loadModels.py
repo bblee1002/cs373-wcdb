@@ -44,9 +44,12 @@ def populate_crisis(root, list) :
 		temp_crisis           =                 Crisis()
 		temp_crisis.crisis_ID =         crisis.get("ID")
 		temp_crisis.name      =       crisis.get("Name")
-		temp_crisis.kind      = crisis.find("Kind").text
-		temp_crisis.date      = crisis.find("Date").text
-		temp_crisis.time      = crisis.find("Time").text
+		if crisis.find("Kind") is not None :
+			temp_crisis.kind      = crisis.find("Kind").text
+		if crisis.find("Date") is not None :
+			temp_crisis.date      = crisis.find("Date").text
+		if crisis.find("Time") is not None :
+			temp_crisis.time      = crisis.find("Time").text
 		#populating people
 		for person in crisis.iter("Person") or [] :
 			list_add(temp_crisis.people, person.get("ID"))
@@ -97,8 +100,10 @@ def populate_person(root, list) :
 		temp_person             =                     Person()
 		temp_person.person_ID   =             person.get("ID")
 		temp_person.name        =           person.get("Name")
-		temp_person.kind        =     person.find("Kind").text
-		temp_person.location    = person.find("Location").text
+		if person.find("Kind") is not None :
+			temp_person.kind        =     person.find("Kind").text
+		if person.find("Location") is not None :
+			temp_person.location    = person.find("Location").text
 
 		for crisis in person.iter("Crisis") :
 				list_add(temp_person.crises, crisis.get("ID"))
@@ -122,8 +127,10 @@ def populate_org(root, list) :
 		temp_org          =                     Org()
 		temp_org.org_ID   =             org.get("ID")
 		temp_org.name     =           org.get("Name")
-		temp_org.kind     =     org.find("Kind").text
-		temp_org.location = org.find("Location").text
+		if org.find("Kind") is not None :
+			temp_org.kind     =     org.find("Kind").text
+		if org.find("Location") is not None :
+			temp_org.location = org.find("Location").text
 
 		for crisis in org.iter("Crisis") :
 				list_add(temp_org.crises, crisis.get("ID"))
