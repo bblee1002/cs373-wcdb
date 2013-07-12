@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cs373_ATeam.wcdb.views</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;cs373_ATeam ::
+        <a href="cs373_ATeam.wcdb-module.html">Package&nbsp;wcdb</a> ::
+        Module&nbsp;views
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.views-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="cs373_ATeam.wcdb.views-module.html">Module cs373_ATeam.wcdb.views</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt> <tt class="py-keyword">import</tt> <tt class="py-name">forms</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">http</tt> <tt class="py-keyword">import</tt> <tt class="py-name">HttpResponse</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">shortcuts</tt> <tt class="py-keyword">import</tt> <tt class="py-name">render</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module cs373_ATeam.wcdb.loadModels=cs373_ATeam.wcdb.loadModels-module.html"><a title="cs373_ATeam.wcdb.loadModels" class="py-name" href="#" onclick="return doclink('link-0', 'loadModels', 'link-0');">loadModels</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Function cs373_ATeam.wcdb.loadModels.validate()=cs373_ATeam.wcdb.loadModels-module.html#validate"><a title="cs373_ATeam.wcdb.loadModels.validate" class="py-name" href="#" onclick="return doclink('link-1', 'validate', 'link-1');">validate</a></tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Function cs373_ATeam.wcdb.loadModels.populate_models()=cs373_ATeam.wcdb.loadModels-module.html#populate_models"><a title="cs373_ATeam.wcdb.loadModels.populate_models" class="py-name" href="#" onclick="return doclink('link-2', 'populate_models', 'link-2');">populate_models</a></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name" targets="Module cs373_ATeam.wcdb.unloadModels=cs373_ATeam.wcdb.unloadModels-module.html"><a title="cs373_ATeam.wcdb.unloadModels" class="py-name" href="#" onclick="return doclink('link-3', 'unloadModels', 'link-3');">unloadModels</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Function cs373_ATeam.wcdb.unloadModels.receive_import()=cs373_ATeam.wcdb.unloadModels-module.html#receive_import"><a title="cs373_ATeam.wcdb.unloadModels.receive_import" class="py-name" href="#" onclick="return doclink('link-4', 'receive_import', 'link-4');">receive_import</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">subprocess</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-string">"""</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-string">Views.py renders the view specified by a url.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-string">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable cs373_ATeam.wcdb.views.imported_models=cs373_ATeam.wcdb.views-module.html#imported_models"><a title="cs373_ATeam.wcdb.views.imported_models" class="py-name" href="#" onclick="return doclink('link-5', 'imported_models', 'link-5');">imported_models</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="crisisView"></a><div id="crisisView-def"><a name="L14"></a><tt class="py-lineno"> 14</tt> <a class="py-toggle" href="#" id="crisisView-toggle" onclick="return toggle('crisisView');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cs373_ATeam.wcdb.views-module.html#crisisView">crisisView</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">,</tt> <tt class="py-param">crisis_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="crisisView-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="crisisView-expanded"><a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">  <tt class="py-docstring">"""</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">  Renders view for crises.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">  """</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">  <tt class="py-keyword">if</tt> <tt class="py-name">crisis_id</tt> <tt class="py-op">==</tt> <tt class="py-string">'1'</tt><tt class="py-op">:</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/CRI_NSAWRT.html'</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">  <tt class="py-keyword">elif</tt> <tt class="py-name">crisis_id</tt> <tt class="py-op">==</tt> <tt class="py-string">'2'</tt><tt class="py-op">:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/CRI_MEXDRG.html'</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">  <tt class="py-keyword">elif</tt> <tt class="py-name">crisis_id</tt> <tt class="py-op">==</tt> <tt class="py-string">'3'</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/CRI_BEEDIE.html'</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">  <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponse</tt><tt class="py-op">(</tt><tt class="py-string">"no such path"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="orgsView"></a><div id="orgsView-def"><a name="L27"></a><tt class="py-lineno"> 27</tt> <a class="py-toggle" href="#" id="orgsView-toggle" onclick="return toggle('orgsView');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cs373_ATeam.wcdb.views-module.html#orgsView">orgsView</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">,</tt> <tt class="py-param">orgs_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="orgsView-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="orgsView-expanded"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">  <tt class="py-docstring">"""</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">  Renders view for organizations.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">  """</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">  <tt class="py-keyword">if</tt> <tt class="py-name">orgs_id</tt> <tt class="py-op">==</tt> <tt class="py-string">'1'</tt> <tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/ORG_NSAAAA.html'</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">  <tt class="py-keyword">elif</tt> <tt class="py-name">orgs_id</tt> <tt class="py-op">==</tt> <tt class="py-string">'2'</tt> <tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/ORG_SINCAR.html'</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">  <tt class="py-keyword">elif</tt> <tt class="py-name">orgs_id</tt> <tt class="py-op">==</tt> <tt class="py-string">'3'</tt> <tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/ORG_EPAAAA.html'</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">  <tt class="py-keyword">else</tt> <tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponse</tt><tt class="py-op">(</tt><tt class="py-string">"not such path"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="peopleView"></a><div id="peopleView-def"><a name="L40"></a><tt class="py-lineno"> 40</tt> <a class="py-toggle" href="#" id="peopleView-toggle" onclick="return toggle('peopleView');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cs373_ATeam.wcdb.views-module.html#peopleView">peopleView</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">,</tt> <tt class="py-param">people_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="peopleView-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="peopleView-expanded"><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">  <tt class="py-docstring">"""</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">  Renders view for people.</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">  """</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">  <tt class="py-keyword">if</tt> <tt class="py-name">people_id</tt> <tt class="py-op">==</tt> <tt class="py-string">'1'</tt> <tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/PER_SNOWDN.html'</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">  <tt class="py-keyword">elif</tt> <tt class="py-name">people_id</tt> <tt class="py-op">==</tt> <tt class="py-string">'2'</tt> <tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/PER_GUZMAN.html'</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">  <tt class="py-keyword">elif</tt> <tt class="py-name">people_id</tt> <tt class="py-op">==</tt> <tt class="py-string">'3'</tt> <tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/PER_TTHBLD.html'</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">  <tt class="py-keyword">else</tt> <tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponse</tt><tt class="py-op">(</tt><tt class="py-string">'not such path'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="index"></a><div id="index-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="index-toggle" onclick="return toggle('index');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cs373_ATeam.wcdb.views-module.html#index">index</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="index-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="index-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">  <tt class="py-docstring">"""</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">  Renders view for homepage.</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">  """</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">  <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/index.html'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="unittestsView"></a><div id="unittestsView-def"><a name="L59"></a><tt class="py-lineno"> 59</tt> <a class="py-toggle" href="#" id="unittestsView-toggle" onclick="return toggle('unittestsView');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cs373_ATeam.wcdb.views-module.html#unittestsView">unittestsView</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="unittestsView-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="unittestsView-expanded"><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">  <tt class="py-docstring">"""</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">  Renders view for unit tests as well as runs the unit tests.</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">  """</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">  <tt class="py-name">output</tt> <tt class="py-op">=</tt> <tt class="py-name">subprocess</tt><tt class="py-op">.</tt><tt class="py-name">check_output</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">'python'</tt><tt class="py-op">,</tt> <tt class="py-string">'manage.py'</tt><tt class="py-op">,</tt> <tt class="py-string">'test'</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-name">stderr</tt><tt class="py-op">=</tt><tt class="py-name">subprocess</tt><tt class="py-op">.</tt><tt class="py-name">STDOUT</tt><tt class="py-op">,</tt> <tt class="py-name">shell</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">  <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/Unittests.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'output'</tt><tt class="py-op">:</tt> <tt class="py-name">output</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
+<a name="passwordValidate"></a><div id="passwordValidate-def"><a name="L67"></a><tt class="py-lineno"> 67</tt> <a class="py-toggle" href="#" id="passwordValidate-toggle" onclick="return toggle('passwordValidate');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cs373_ATeam.wcdb.views-module.html#passwordValidate">passwordValidate</a><tt class="py-op">(</tt><tt class="py-param">pw_input</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="passwordValidate-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="passwordValidate-expanded"><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">  <tt class="py-docstring">"""</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">  Validates that the password for the XMLUploadForm is correct.</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">  """</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">  <tt id="link-6" class="py-name" targets="Variable cs373_ATeam.wcdb.views.XMLUploadForm.password=cs373_ATeam.wcdb.views.XMLUploadForm-class.html#password"><a title="cs373_ATeam.wcdb.views.XMLUploadForm.password" class="py-name" href="#" onclick="return doclink('link-6', 'password', 'link-6');">password</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"ateam"</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">  <tt class="py-keyword">if</tt> <tt id="link-7" class="py-name"><a title="cs373_ATeam.wcdb.views.XMLUploadForm.password" class="py-name" href="#" onclick="return doclink('link-7', 'password', 'link-6');">password</a></tt> <tt class="py-op">==</tt> <tt class="py-name">pw_input</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">  <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="importView"></a><div id="importView-def"><a name="L77"></a><tt class="py-lineno"> 77</tt> <a class="py-toggle" href="#" id="importView-toggle" onclick="return toggle('importView');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cs373_ATeam.wcdb.views-module.html#importView">importView</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="importView-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="importView-expanded"><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">  <tt class="py-docstring">"""</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">  Renders view for import page, kicks off the import facility, reports</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">  back to the user success or failure.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">  """</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">  <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name" targets="Class cs373_ATeam.wcdb.views.XMLUploadForm=cs373_ATeam.wcdb.views.XMLUploadForm-class.html"><a title="cs373_ATeam.wcdb.views.XMLUploadForm" class="py-name" href="#" onclick="return doclink('link-8', 'XMLUploadForm', 'link-8');">XMLUploadForm</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">  <tt class="py-keyword">if</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">method</tt> <tt class="py-op">==</tt> <tt class="py-string">'POST'</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">    <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="cs373_ATeam.wcdb.views.XMLUploadForm" class="py-name" href="#" onclick="return doclink('link-9', 'XMLUploadForm', 'link-8');">XMLUploadForm</a></tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">POST</tt><tt class="py-op">,</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">FILES</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">is_valid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt id="link-10" class="py-name" targets="Function cs373_ATeam.wcdb.views.passwordValidate()=cs373_ATeam.wcdb.views-module.html#passwordValidate"><a title="cs373_ATeam.wcdb.views.passwordValidate" class="py-name" href="#" onclick="return doclink('link-10', 'passwordValidate', 'link-10');">passwordValidate</a></tt><tt class="py-op">(</tt><tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">cleaned_data</tt><tt class="py-op">[</tt><tt class="py-string">'password'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">      <tt class="py-comment"># process data</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">      <tt class="py-name">upload</tt> <tt class="py-op">=</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">FILES</tt><tt class="py-op">[</tt><tt class="py-string">'xmlfile'</tt><tt class="py-op">]</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">      <tt class="py-name">e_tree</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="cs373_ATeam.wcdb.loadModels.validate" class="py-name" href="#" onclick="return doclink('link-11', 'validate', 'link-1');">validate</a></tt><tt class="py-op">(</tt><tt class="py-name">upload</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">      <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">e_tree</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">str</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/import.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'form'</tt><tt class="py-op">:</tt> <tt class="py-name">form</tt><tt class="py-op">,</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">          <tt class="py-string">'success'</tt><tt class="py-op">:</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-string">'password'</tt><tt class="py-op">:</tt> <tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-string">'output'</tt><tt class="py-op">:</tt> <tt class="py-name">e_tree</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">      <tt class="py-keyword">if</tt> <tt class="py-name">e_tree</tt> <tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-comment">#populate models returns a dictionary where the keys are 'crises', 'organizations' , 'people'</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-comment">#and the values are corresponding lists of crisis, organization, and person models</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-comment">#filled_models = populate_models(e_tree)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-keyword">global</tt> <tt id="link-12" class="py-name"><a title="cs373_ATeam.wcdb.views.imported_models" class="py-name" href="#" onclick="return doclink('link-12', 'imported_models', 'link-5');">imported_models</a></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt id="link-13" class="py-name"><a title="cs373_ATeam.wcdb.views.imported_models" class="py-name" href="#" onclick="return doclink('link-13', 'imported_models', 'link-5');">imported_models</a></tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="cs373_ATeam.wcdb.loadModels.populate_models" class="py-name" href="#" onclick="return doclink('link-14', 'populate_models', 'link-2');">populate_models</a></tt><tt class="py-op">(</tt><tt class="py-name">e_tree</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/import.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'form'</tt><tt class="py-op">:</tt> <tt class="py-name">form</tt><tt class="py-op">,</tt> <tt class="py-string">'success'</tt><tt class="py-op">:</tt> <tt class="py-string">"Uploaded successfully!"</tt><tt class="py-op">,</tt> <tt class="py-string">'password'</tt><tt class="py-op">:</tt> <tt class="py-name">False</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">  <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/import.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'form'</tt><tt class="py-op">:</tt> <tt class="py-name">form</tt><tt class="py-op">,</tt> <tt class="py-string">'success'</tt><tt class="py-op">:</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-string">'password'</tt><tt class="py-op">:</tt> <tt class="py-string">"Password incorrect!"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="exportView"></a><div id="exportView-def"><a name="L101"></a><tt class="py-lineno">101</tt> <a class="py-toggle" href="#" id="exportView-toggle" onclick="return toggle('exportView');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cs373_ATeam.wcdb.views-module.html#exportView">exportView</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt> <tt class="py-op">:</tt> </tt>
+</div><div id="exportView-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="exportView-expanded"><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">  <tt class="py-docstring">"""</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">  Renders view for export page, kicks off export facility.</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">  """</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">  <tt class="py-name">output</tt> <tt class="py-op">=</tt> <tt class="py-string">"You have to import something before you export!"</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">  <tt class="py-keyword">global</tt> <tt id="link-15" class="py-name"><a title="cs373_ATeam.wcdb.views.imported_models" class="py-name" href="#" onclick="return doclink('link-15', 'imported_models', 'link-5');">imported_models</a></tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">  <tt class="py-keyword">if</tt> <tt id="link-16" class="py-name"><a title="cs373_ATeam.wcdb.views.imported_models" class="py-name" href="#" onclick="return doclink('link-16', 'imported_models', 'link-5');">imported_models</a></tt> <tt class="py-op">!=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-name">output</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="cs373_ATeam.wcdb.unloadModels.receive_import" class="py-name" href="#" onclick="return doclink('link-17', 'receive_import', 'link-4');">receive_import</a></tt><tt class="py-op">(</tt><tt id="link-18" class="py-name"><a title="cs373_ATeam.wcdb.views.imported_models" class="py-name" href="#" onclick="return doclink('link-18', 'imported_models', 'link-5');">imported_models</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">  <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'wcdb/Export.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'output'</tt><tt class="py-op">:</tt> <tt class="py-name">output</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">   </tt>
+<a name="XMLUploadForm"></a><div id="XMLUploadForm-def"><a name="L112"></a><tt class="py-lineno">112</tt> <a class="py-toggle" href="#" id="XMLUploadForm-toggle" onclick="return toggle('XMLUploadForm');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="cs373_ATeam.wcdb.views.XMLUploadForm-class.html">XMLUploadForm</a><tt class="py-op">(</tt><tt class="py-base-class">forms</tt><tt class="py-op">.</tt><tt class="py-base-class">Form</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XMLUploadForm-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="XMLUploadForm-expanded"><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">  <tt class="py-docstring">"""</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">  XMLUploadForm that has an upload file field along with a password field.</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">  """</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">  <tt id="link-19" class="py-name" targets="Variable cs373_ATeam.wcdb.views.XMLUploadForm.xmlfile=cs373_ATeam.wcdb.views.XMLUploadForm-class.html#xmlfile"><a title="cs373_ATeam.wcdb.views.XMLUploadForm.xmlfile" class="py-name" href="#" onclick="return doclink('link-19', 'xmlfile', 'link-19');">xmlfile</a></tt> <tt class="py-op">=</tt> <tt class="py-name">forms</tt><tt class="py-op">.</tt><tt class="py-name">FileField</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">  <tt id="link-20" class="py-name"><a title="cs373_ATeam.wcdb.views.XMLUploadForm.password" class="py-name" href="#" onclick="return doclink('link-20', 'password', 'link-6');">password</a></tt> <tt class="py-op">=</tt> <tt class="py-name">forms</tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">8</tt><tt class="py-op">,</tt> <tt class="py-name">widget</tt><tt class="py-op">=</tt><tt class="py-name">forms</tt><tt class="py-op">.</tt><tt class="py-name">PasswordInput</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Jul 12 17:42:37 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
