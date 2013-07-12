@@ -117,7 +117,7 @@ class Common() :
             self.feeds.append(temp_li)
 
         find_summary = e_node.find("Summary")
-        if find_summary :
+        if find_summary is not None :
             summary = find_summary.text
 
     def xml_from_li(self, root_str, item_list) :
