@@ -108,7 +108,7 @@ def populate_person(root, list) :
 
 		#populating common fields
 		found_common = person.find('Common')
-		if found_common :
+		if found_common is not None :
 			temp_person.common.populate(found_common)
 
 		list.append(temp_person)
@@ -119,10 +119,11 @@ def populate_org(root, list) :
 	in the tree and adds it to the list
 	"""
 	for org in root.findall("Organization") :
-		temp_org         =                 Org()
-		temp_org.org_ID  =         org.get("ID")
-		temp_org.name    =       org.get("Name")
-		temp_org.kind    = org.find("Kind").text
+		temp_org          =                     Org()
+		temp_org.org_ID   =             org.get("ID")
+		temp_org.name     =           org.get("Name")
+		temp_org.kind     =     org.find("Kind").text
+		temp_org.location = org.find("Location").text
 
 		for crisis in org.iter("Crisis") :
 				list_add(temp_org.crises, crisis.get("ID"))
@@ -130,20 +131,18 @@ def populate_org(root, list) :
 		for person in org.iter("Person") :
 			list_add(temp_org.people, person.get("ID"))
 
-		for history in org.find("History") :
+		for history in org.find("History") or [] :
 			temp_li = Li()
 			temp_li.populate(history)
 			list_add(temp_org.history, temp_li)
 
-		for contact in org.find("ContactInfo") :
+		for contact in org.find("ContactInfo") or [] :
 			temp_li = Li()
 			temp_li.populate(contact)
 			list_add(temp_org.contact, temp_li)
 
-		#populating common fields
-		#temp_org.common.populate(org.find("Common") or [])
 		found_common = org.find('Common')
-		if found_common :
+		if found_common is not None :
 			temp_org.common.populate(found_common)
 
 		list.append(temp_org)
