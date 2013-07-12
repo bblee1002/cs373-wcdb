@@ -130,26 +130,68 @@
 </Crisis>
 
 
-<Crisis ID="CRI_TXWDFR" Name="Texas Wild Fires">
-    <People>
-        <Person ID="PER_RPERRY" />
-    </People>
-    <Organizations>
-        <Org ID="ORG_FEMAAA" />
-    </Organizations>
-    <Kind></Kind>
-    <Date>2011-10-16</Date>
-    <Locations>
-        <li>Bastrop</li>
-    </Locations>
-    <HumanImpact><li>Impact</li></HumanImpact>
-    <EconomicImpact><li>Impact</li></EconomicImpact>
-    <ResourcesNeeded><li>Money</li></ResourcesNeeded>
-    <WaysToHelp><li>predict</li></WaysToHelp>
-    <Common>
-
-    </Common>
-</Crisis>
+    <Crisis ID="CRI_TXWDFR" Name="Texas Wild Fires">
+        <People>
+            <Person ID="PER_RPERRY" />
+        </People>
+        <Organizations>
+            <Org ID="ORG_FEMAAA" />
+        </Organizations>
+        <Kind>Natural disaster</Kind>
+        <Date>2011-09-04</Date>
+        <Locations>
+            <li></li>
+            <li>Texas</li>
+        </Locations>
+        <HumanImpact>
+            <li>These wildfires burned 2,862 homes, caused six fatalities, including two firefighters, and injuring 62 other people.1</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>They also burned down over 2,700 other structures, causing a total of $510.927 million in damages.1 FEMA has reimbursed the state of Texas $48 million for the fire suppression costs during the wildfires.2,3</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li>Money</li>
+            <li>Physical Labor</li>
+            <li>Awareness</li>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li href="http://www.txwildfirerelief.org/">Texas Wildfire Relief</li>
+            <li href="http://www.helpthechildren.org/disaster-relief/project-help-texas-wildfires">Donate To Help The Children: Project Help Texas</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <li href="http://en.wikipedia.org/wiki/2011_Texas_wildfires">"2011 Texas Wildfires". Wikipedia. 8 June, 2013. Visited: 12 July, 2013.</li>
+                <li href="http://www.kvue.com/news/state/FEMA-reimburses-Texas-nearly-48M-after-wildfires-214925101.html">Vess, Jessica. "FEMA reimburses Texas nearly $48M After Wildfires". Associated Press. 10 July, 2013. Visited: 12, July 2013</li>
+                <li href="http://www.texastribune.org/2011/09/07/records-femas-wildfire-spending/">Becca, Aaronson. "On the Records: FEMA's Wildfire Spending". The Texas Tribune. 7 September, 2011. Visited: 12 July, 2013.</li>
+                <li href="http://www.csmonitor.com/USA/Politics/2011/0907/Texas-wildfires-Is-Rick-Perry-being-hypocritical-asking-for-federal-aid">Jonsson, Patrik. "Texas Wildfires: Is Rick perry Being Hypocritical Asking For Federal Aid?". The Christian Science Monitor. 7 September, 2011. Visited: 12 July, 2013.</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/2011_Texas_wildfires">Wikipedia: 2011 Texas Wildfires</li>
+                <li href="http://www.huffingtonpost.com/2011/04/11/texas-wildfires-2011-video_n_847776.html">Huffington post: Texas Wildfires 2011</li>
+                <li href="http://www.kvue.com/news/state/FEMA-reimburses-Texas-nearly-48M-after-wildfires-214925101.html">Associated Press: FEMA Reimburses Texas</li>
+                <li href="http://www.csmonitor.com/USA/Politics/2011/0907/Texas-wildfires-Is-Rick-Perry-being-hypocritical-asking-for-federal-aid">Christian Science Monitor: Texas Wildfires</li>
+                <li href="http://www.cnn.com/2011/US/09/06/texas.fires/index.html">CNN: Texas Wildfires</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://cdn.theatlantic.com/static/infocus/texasfire042011/s_t01_00000001.jpg" text="img not found">Wildfires burning on Black Mountain</li>
+                <li embed="http://cdn.theatlantic.com/static/infocus/texasfire042011/s_t05_19010027.jpg" text="img not found">Smoke rises from wildfire near Possum Kingdom, Texas</li>
+            </Images>
+            <Videos>
+                <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/pqr2DNaMLiQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+                <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/m67ZokFYl2A" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+                <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/PyG-m8Pd0r8" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            </Videos>
+            <Maps>
+                <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Bastrop,+TX&amp;aq=0&amp;oq=bastrop+county&amp;sll=30.307761,-97.753401&amp;sspn=1.166617,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bastrop,+Texas&amp;ll=30.110385,-97.315178&amp;spn=0.103948,0.145912&amp;z=12&amp;iwloc=A&amp;output=embed">&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Bastrop,+TX&amp;aq=0&amp;oq=bastrop+county&amp;sll=30.307761,-97.753401&amp;sspn=1.166617,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bastrop,+Texas&amp;ll=30.110385,-97.315178&amp;spn=0.103948,0.145912&amp;z=12&amp;iwloc=A" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+                <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=texas&amp;aq=&amp;sll=30.110533,-97.315178&amp;sspn=0.146121,0.099049&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Texas&amp;z=5&amp;iwloc=A&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=texas&amp;aq=&amp;sll=30.110533,-97.315178&amp;sspn=0.146121,0.099049&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Texas&amp;z=5&amp;iwloc=A" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+            </Maps>
+            <Feeds>
+                <li href="https://www.facebook.com/helptexaswildfires">Facebook</li>
+                <li href="https://twitter.com/texas_wildfires">Twitter</li>
+            </Feeds>
+            <Summary>Spurred on by the currently ongoing 2011 Southern US Drought, the 2011 Texas Wildfires, beginning on November 15, 2013 and ending on October 31, 2011, were some of the worst the state of Texas has ever seen. It included what is generally acknowledged to be the most catastrophic wildfire in Texas history - the Bastrop County Complex Fire which destroyed over 1600 homes and burned over 34,000 acres of land, killing two people.1 Declaring a State of Disaster on December 21, 2010, Texas Governor Rick Perry requested President Obama to send federal aid to help with the wildfires.4</Summary>
+        </Common>
+    </Crisis>
 
 <Crisis ID="CRI_BRZLPR" Name="Brazilian Protests">
     <People>
@@ -750,12 +792,40 @@
 
 <Person ID="PER_RPERRY" Name="Rick Perry">
     <Crises>
-        <Crisis ID="CRI_FOREST" />
+        <Crisis ID="CRI_TXWDFR" />
     </Crises>
     <Organizations>
         <Org ID="ORG_FEMAAA" />
     </Organizations>
-
+    <Kind>Governor of Texas</Kind>
+    <Location>Texas</Location>
+    <Common>
+        <Citations>
+            <li href="http://en.wikipedia.org/wiki/Rick_Perry"> "Rick Perry". Wikipedia. Updated: 9 July, 2013. Visited: 12 July, 2013. </li>            
+        </Citations>
+        <ExternalLinks>
+            <li href="http://en.wikipedia.org/wiki/Rick_Perry">Wikipedia: Rick Perry</li>
+            <li href="http://www.usatoday.com/story/news/politics/2013/07/08/rick-perry-texas-governor-president/2497773/">USA Today: Rick Perry Won't Run Again</li>
+            <li href="http://www.governor.state.tx.us/">Governor of the State of Texas Website</li>
+        </ExternalLinks>
+        <Images>
+            <li embed="http://governor.state.tx.us/multimedia/photos/TexasGovernorRickPerry.jpg" text="img not found" />
+            <li embed="http://a.abcnews.com/images/Politics/ap_Rick_Perry_2_jt_110813_wg.jpg" text="img not found" />
+        </Images>
+        <Videos>
+            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/0uvmKnFY4uk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/iESaX8YioyQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/iaXDrTGmCgU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+        </Videos>
+        <Maps>
+            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed">&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+        </Maps>
+        <Feeds>
+            <li href="https://www.facebook.com/GovernorPerry">Facebook</li>
+            <li href="https://twitter.com/GovernorPerry">Twitter</li>
+        </Feeds>
+        <Summary>Born in Paint Creek, Texas on March 4, 1950, Rick Perry is currently the Governor of the state of Texas. He is a staunchly conservative politician who is famous for attempting to name 3 federal agencies he intended to end if he won the 2012 Presidential Election but failing to be able to name the third. He is also famous for holding 3 days of prayer in an attempt to end the Texas Wildfire crisis in 2011. Eventually, Texas firefighters were able to successfully put out the flames as the wildfire season drew to a close. Perry requested federal aid, and in response, FEMA reimbursed the state of Texas $48 million for fire suppression costs.</Summary>
+    </Common>
 </Person>
 
 <Person ID="PER_MMORSI" Name="Mohammed Morsi">
