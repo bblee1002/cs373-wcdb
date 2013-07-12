@@ -4,14 +4,14 @@ from models import Crisis, Person, Org, Li, Common
 
 
 
-#Check for presence of "&" invalid XML char
-#in everything but Li() instances
+#Check for presence of "&" invalid XML char in string "dirty"
+#in everything but Li() instances, which makes this kind of a paranoid function
 #Returns a new string w/out any tag information
 def clean_xml (dirty) :	
 	dirty_clean = dirty.split("&")
 	for dirty_piece in dirty_clean:
-		#first element case
-		if dirty_piece == dirty_clean[0] :
+		#first element case, is insures unique
+		if dirty_piece is dirty_clean[0] :
 			dirty_new = dirty_piece
 		else :
 			dirty_new += "&amp;" + dirty_piece
