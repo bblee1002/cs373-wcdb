@@ -5,7 +5,18 @@ from django.conf import settings
 from models import Crisis, Person, Org, Li, Common, list_add
 import xml.etree.ElementTree as ET
 
+"""
+File imports an xml file, sent in by the user from the website, and populates Django models
+using the information from the file.
+"""
+
 def populate_models(tree) :
+	"""
+	Function expects an element tree as a parameter. Main function of the file that calls
+	populate_crisis, populate_org, and populate_person. Returns a dictionary where the keys
+	are the type of model and the values are lists of instances of the models populated by 
+	this funciton.
+	"""
 	e_root = tree.getroot()
 
 	#populate Crisis models
@@ -25,8 +36,10 @@ def populate_models(tree) :
 
 
 def populate_crisis(root, list) :
-#Find instances of crises
-#and add to a list of crisis objects created by Django
+	"""
+	Function expects a node in an element tree and a list as parameters. Find instances of crisis
+	in the tree and adds it to the list
+	"""
 	for crisis in root.findall("Crisis"):
 		temp_crisis           =                 Crisis()
 		temp_crisis.crisis_ID =         crisis.get("ID")
@@ -68,7 +81,7 @@ def populate_crisis(root, list) :
 
 		#populating common fields
 		found_common = crisis.find('Common')
-		if found_common :
+		if found_common is not None:
 			temp_crisis.common.populate(found_common)
 
 
@@ -76,8 +89,10 @@ def populate_crisis(root, list) :
 		list.append(temp_crisis)
 
 def populate_person(root, list) :
-#Find instances of person
-#and add to a list of crisis objects created by Django
+	"""
+	Function expects a node in an element tree and a list as parameters. Find instances of person
+	in the tree and adds it to the list
+	"""
 	for person in root.findall("Person"):
 		temp_person             =                     Person()
 		temp_person.person_ID   =             person.get("ID")
@@ -99,6 +114,10 @@ def populate_person(root, list) :
 		list.append(temp_person)
 
 def populate_org(root, list) :
+	"""
+	Function expects a node in an element tree and a list as parameters. Find instances of organization
+	in the tree and adds it to the list
+	"""
 	for org in root.findall("Organization") :
 		temp_org         =                 Org()
 		temp_org.org_ID  =         org.get("ID")
@@ -129,8 +148,11 @@ def populate_org(root, list) :
 
 		list.append(temp_org)
 
-#function for validating the file
 def validate(file_in) :
+	"""
+	Function expects a file as a parameter. Checks if file is a valid xml file.
+	Returns False if not, and an element tree built from the file if it is valid.
+	"""
 	name = str(file_in.name)
 	if name[-4:] != ".xml" and name[-4:] != ".XML" :
 		return False
