@@ -10,6 +10,7 @@ from minixsv import pyxsval
 from genxmlif import GenXmlIfError
 from models import Crisis, Person, Org, list_add, Li, Common
 from loadModels import validate
+from unloadModels import clean_xml, export_crisis, export_person, export_crisis, export_organization, receive_import
 import xml.etree.ElementTree as ET
 
 
@@ -80,10 +81,10 @@ class ModelsCrisisTest(TestCase):
 		temp_li   = Li()
 		temp_li.populate(temp)
 		self.assertEqual(temp_li.href, "href_stuff")
+		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
 
 	def test_li_populate1(self):
 		temp      = ET.Element('li')
-		#print type(temp)
 		temp.set("href", "href_stuff")
 		temp.set("embed", "embed_stuff")
 		temp.set("text", "text_stuff")
@@ -99,8 +100,51 @@ class ModelsCrisisTest(TestCase):
 		temp      = ET.Element('li')
 		temp.text = "randomfloatingtext"
 		temp_li   = Li()
-		self.assertEqual(temp_li.text, None)
-		#self.assertEqual(temp_li.text, "randomfloatingtext")
+		temp_li.populate(temp)
+		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
+
+
+	#---------------------------------------#
+	#-----test_clean_li_xml
+	
+	def test_clean_li_xml0(self):
+		dirt = "happy&go&lucky&&&go&happy"
+		temp      = ET.Element('li')
+		temp.set("href", dirt)
+		temp.set("embed", dirt)
+		temp.set("text", dirt)
+		temp.text = dirt
+		temp_li   = Li()
+		temp_li.populate(temp)
+		href_clean = temp_li.clean_li_xml(temp_li.href)
+		embed_clean = temp_li.clean_li_xml(temp_li.embed)
+		text_clean = temp_li.clean_li_xml(temp_li.text)
+		floating_text_clean = temp_li.clean_li_xml(temp_li.floating_text)
+		standard_clean = "happy&amp;go&amp;lucky&amp;&amp;&amp;go&amp;happy"
+
+		self.assertEqual(href_clean, standard_clean)
+		self.assertEqual(embed_clean, standard_clean)
+		self.assertEqual(text_clean, standard_clean)
+		self.assertEqual(floating_text_clean, standard_clean)
+	
+
+	#---------------------------------------#
+	#-----test_li_print_xml
+	
+	def test_li_print_xml0(self):
+		temp      = ET.Element('li')
+		temp.set("href", "href_stuff")
+		temp.set("embed", "embed_stuff")
+		temp.set("text", "text_stuff")
+		temp.text = "randomfloatingtext"
+		temp_li   = Li()
+		temp_li.populate(temp)
+		temp_string = temp_li.print_xml()
+		correct_string = "<li> href=\"href_stuff\"</li><li> embed=\"embed_stuff\"</li><li>text_stuff</li><li>randomfloatingtext</li>"
+		#print temp_string
+		#print correct_string
+		self.assertEqual(temp_string, correct_string)
+
 
 
 	#---------------------------------------#
@@ -139,6 +183,58 @@ class ModelsCrisisTest(TestCase):
 
 		self.assertEqual(temp_com.citations[0].floating_text, "Random Citation")
 		#self.assertEqual(temp_com.videos[0], "Random Summary")
+
+	#---------------------------------------#
+	#-----test_xml_from_li
+
+	def test_xml_from_li0(self):
+		temp_com = Common()
+		xml_string = "<Common><Citations><li>RandomCitation</li></Citations><ExternalLinks><li>RandomLink</li></ExternalLinks><Images><li>RandomImage</li></Images><Videos><li>RandomVideo</li></Videos></Common>"
+		root = ET.fromstring(xml_string)
+		temp_com.populate(root)
+		li_xml = "<Common>"
+		c_cites = temp_com.xml_from_li("Citations", temp_com.citations)
+		li_xml += c_cites
+		c_links = temp_com.xml_from_li("ExternalLinks", temp_com.external_links)
+		li_xml += c_links
+		c_ims = temp_com.xml_from_li("Images", temp_com.images)
+		li_xml += c_ims
+		c_vids = temp_com.xml_from_li("Videos", temp_com.videos)
+		li_xml += c_vids
+		li_xml += "</Common>"
+		self.assertEqual(li_xml, xml_string )
+
+
+	#---------------------------------------#
+	#-----test_print_xml
+	"""
+	def test_print_xml0(self):
+		temp_com = Common()
+		xml_string = "<Common><Citations><li>RandomCitation</li></Citations><ExternalLinks><li>RandomLink</li></ExternalLinks><Images><li>RandomImage</li></Images><Videos><li>RandomVideo</li></Videos><Summary><RandomSummary</Summary></Common>"
+		root = ET.fromstring(xml_string)
+		temp_com.populate(root)
+		common_xml = temp_com.print_xml()
+
+		#summar = temp_com.summary
+		#print "temp_com.summary", temp_com.summary
+
+		#print "xml_string : ", xml_string
+		#print "common_xml : ", common_xml
+
+		#self.assertEqual(common_xml, xml_string)
+	"""
+
+
+	
+
+	#---------------------------------------#
+	#-----test_clean_xml (paranoid clean for things that are not li objects)
+	
+	def test_clean_xml0(self):
+		dirt = "happy&go&lucky&&&go&happy"
+		dirt_to_clean = clean_xml(dirt)
+		standard_clean = "happy&amp;go&amp;lucky&amp;&amp;&amp;go&amp;happy"
+		self.assertEqual(dirt_to_clean, standard_clean)
 
 
 
