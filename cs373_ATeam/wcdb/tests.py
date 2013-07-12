@@ -37,8 +37,6 @@ class ModelsCrisisTest(TestCase):
 	    person = "random_person"
 	    list_add(temp, person)
 	    self.assertEqual(temp[0], "random_person")
-	    
-
 
 	#---------------------------------------#
 	#-----test_li_populate
@@ -72,7 +70,6 @@ class ModelsCrisisTest(TestCase):
 		temp_li.populate(temp)
 		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
 
-
 	#---------------------------------------#
 	#-----test_clean_li_xml
 	
@@ -95,7 +92,6 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(embed_clean, standard_clean)
 		self.assertEqual(text_clean, standard_clean)
 		self.assertEqual(floating_text_clean, standard_clean)
-	
 
 	#---------------------------------------#
 	#-----test_li_print_xml
@@ -113,8 +109,6 @@ class ModelsCrisisTest(TestCase):
 		#print temp_string
 		#print correct_string
 		self.assertEqual(temp_string, correct_string)
-
-
 
 	#---------------------------------------#
 	#-----test_common_populate
@@ -151,7 +145,6 @@ class ModelsCrisisTest(TestCase):
 		temp_com.populate(root)
 
 		self.assertEqual(temp_com.citations[0].floating_text, "Random Citation")
-		#self.assertEqual(temp_com.videos[0], "Random Summary")
 
 	#---------------------------------------#
 	#-----test_xml_from_li
@@ -173,7 +166,6 @@ class ModelsCrisisTest(TestCase):
 		li_xml += "</Common>"
 		self.assertEqual(li_xml, xml_string )
 
-
 	#---------------------------------------#
 	#-----test_print_xml
 	
@@ -188,56 +180,6 @@ class ModelsCrisisTest(TestCase):
 		#print "common_xml : ", common_xml, len(common_xml)
 
 		self.assertEqual(xml_string, common_xml)
-	
-
-	# #---------------------------------------#
-	# #-----test_export_crisis
-
-	# def test_export_crisis0(self):
-	# 	xml_string = "<WC><Crisis ID=\"CRI_UEGYPT\" Name=\"Political unrest in Egypt\"><People><Person ID=\"PER_HMUBAR\" /><Person ID=\"PER_RLAKAH\" /><Person ID=\"PER_ELBARA\" /><Person ID=\"PER_MMORSI\" /></People><Organizations><Org ID=\"ORG_MUSBRO\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Revolution</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>Cairo</li><li>Alexandria</li><li>Mansoura</li><li>Suez</li></Locations><HumanImpact><li>Anger towards the corruption in the Egyption political system influenced millions of protesters to join plaza marches and other demonstrations against the government.</li><li>Many protests were organized using social media, demonstrating the powerful new influence of technology over politics and human action.</li><li>The movement united Egytian citizens over a spectrum of socio-economic and religious foundations.</li><li>Eight hundred forty-six people were killed and around six thousand have assumed injuries participating in demonstrations against Egypt's police and military.</li></HumanImpact><EconomicImpact><li>As the government is restructured in Egypt, the economic situation of people will change based our their dependency on the corrupt system as a source of wealth.</li><li>It is possible that the gap in leadership will be taken advantage of and a party with a different form of corruption will refactor the system completely.</li><li>If Egypt adopts a better set of leaders, it may positively influence its trade with Western countries.</li><li> Importers of Egypt's oil will see prices of gasoline affected by the turnover of Egypt's political leaders.</li></EconomicImpact><ResourcesNeeded><li>Money</li><li>Support for positive political reorganization</li><li>New leaders (non-corrupt)</li></ResourcesNeeded><WaysToHelp><li> href=\"http://en.wikipedia.org/wiki/Egyptian_Organization_for_Human_Rights\"</li><li> Egyption Organization for Human Rights</li><li> href=\"http://www.americanprogress.org/\"</li><li> Center for American Progress</li><li> href=\"http://www.cewla.org/\"</li><li> Center for Egyptian Women's Legal Assistance (CEWLA)</li></WaysToHelp><Common><Citations><li> href=\"http://www.bloomberg.com/news/2013-07-05/gasoline-rises-on-u-s-job-gains-amid-political-unrest-in-egypt.html\"</li><li> Powell, Barbara. Gasoline Rises on US Job Gains Amid Political Unrest in Egypt. 2013 Jul 5. Bloomberg.</li><li> href=\"http://www.economist.com/topics/egyptian-politics\"</li><li> The Economist. Egyptian politics.</li></Citations><ExternalLinks><li> href=\"http://www.livescience.com/38023-protecting-egypt-artifacts-during-crisis.html\"</li><li> Egypt's National Treasures Threatened by Political Unrest</li><li> href=\"https://en.wikipedia.org/wiki/2011_Egyptian_revolution\"</li><li> Wikipedia : Egyptian Revolution of 2011</li><li> href=\"http://www.bbc.co.uk/news/world-middle-east-23228297\"</li><li> Egypt's political unrest causes regional concern</li></ExternalLinks><Images><li> embed=\"http://radio.foxnews.com/wp-content/uploads/2011/02/egypt-drama-2.jpg\"</li><li> Egypt unrest continues</li><li> embed=\"http://media.themalaysianinsider.com/images/uploads/2011/january/31/mubarak.jpg\"</li><li> Down with Mubarak Protest sign</li></Images><Videos><li> embed=\"https://www.youtube.com/watch?v=ze1hcPejorQ\"</li><li> Egypt's president ousted in military coup\" </li><li> embed=\"https://www.youtube.com/watch?v=1dGDv7kzJEI\"</li><li> Obama, staff huddle over Egypt</li><li> embed=\"https://www.youtube.com/watch?v=bptZAPw2lgQ\"</li><li> Analysis: Victory or 'a sad day' for Egypt?</li><li> embed=\"https://www.youtube.com/watch?v=GcLmi0ZdEpc\"</li><li> Protest in Egypt - Jan 25, 2011</li></Videos><Summary>Egypt is on the brink of drastic political changes that will affect its future political systems and socioeconic climate.</Summary></Common></Crisis></WC>"
-	# 	crisis_list = []
-	# 	root = ET.fromstring(xml_string)
-	# 	print root.tag
-	# 	print root[0].tag
-	# 	print len(root[0].tag)
-	# 	populate_crisis(root, crisis_list)
-	# 	print crisis_list[0]
-	# 	print type(crisis_list[0])
-	# 	print "<<<<<<<<<<<<<<<<<<<", crisis_list, "<<<<<<<<<<<<<<<<<<<"
-	# 	#crisis_xml = export_crisis(crisis_list[0])
-
-
-
-		#print "xml_string : ", xml_string, len(xml_string)
-		#print "crisis_xml : ", crisis_xml, len(crisis_xml)
-
-
-		
-
-
-	#---------------------------------------#
-	#-----test_export_person
-
-
-	#---------------------------------------#
-	#-----test_export_organization
-
-
-	#---------------------------------------#
-	#-----test_receive_import
-
-
-
-
-
-	#---------------------------------------#
-	#-----test_clean_xml (paranoid clean for things that are not li objects)
-	
-	def test_clean_xml0(self):
-		dirt = "happy&go&lucky&&&go&happy"
-		dirt_to_clean = clean_xml(dirt)
-		standard_clean = "happy&amp;go&amp;lucky&amp;&amp;&amp;go&amp;happy"
-		self.assertEqual(dirt_to_clean, standard_clean)
 
 
 
@@ -265,29 +207,6 @@ class loadModelsCrisisTest(TestCase):
 		f = open('wcdb/xml2.xm')
 		self.assertEqual(type(f), file)
 		self.assertEqual(validate(f), False)
-
-	#---------------------------------------#
-	#-----test_export_crisis
-
-	def test_export_crisis0(self):
-		xml_string = "<WC><Crisis ID=\"CRI_UEGYPT\" Name=\"Political unrest in Egypt\"><People><Person ID=\"PER_HMUBAR\" /><Person ID=\"PER_RLAKAH\" /><Person ID=\"PER_ELBARA\" /><Person ID=\"PER_MMORSI\" /></People><Organizations><Org ID=\"ORG_MUSBRO\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Revolution</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>Cairo</li><li>Alexandria</li><li>Mansoura</li><li>Suez</li></Locations><HumanImpact><li>Anger towards the corruption in the Egyption political system influenced millions of protesters to join plaza marches and other demonstrations against the government.</li><li>Many protests were organized using social media, demonstrating the powerful new influence of technology over politics and human action.</li><li>The movement united Egytian citizens over a spectrum of socio-economic and religious foundations.</li><li>Eight hundred forty-six people were killed and around six thousand have assumed injuries participating in demonstrations against Egypt's police and military.</li></HumanImpact><EconomicImpact><li>As the government is restructured in Egypt, the economic situation of people will change based our their dependency on the corrupt system as a source of wealth.</li><li>It is possible that the gap in leadership will be taken advantage of and a party with a different form of corruption will refactor the system completely.</li><li>If Egypt adopts a better set of leaders, it may positively influence its trade with Western countries.</li><li> Importers of Egypt's oil will see prices of gasoline affected by the turnover of Egypt's political leaders.</li></EconomicImpact><ResourcesNeeded><li>Money</li><li>Support for positive political reorganization</li><li>New leaders (non-corrupt)</li></ResourcesNeeded><WaysToHelp><li> href=\"http://en.wikipedia.org/wiki/Egyptian_Organization_for_Human_Rights\"</li><li> Egyption Organization for Human Rights</li><li> href=\"http://www.americanprogress.org/\"</li><li> Center for American Progress</li><li> href=\"http://www.cewla.org/\"</li><li> Center for Egyptian Women's Legal Assistance (CEWLA)</li></WaysToHelp><Common><Citations><li> href=\"http://www.bloomberg.com/news/2013-07-05/gasoline-rises-on-u-s-job-gains-amid-political-unrest-in-egypt.html\"</li><li> Powell, Barbara. Gasoline Rises on US Job Gains Amid Political Unrest in Egypt. 2013 Jul 5. Bloomberg.</li><li> href=\"http://www.economist.com/topics/egyptian-politics\"</li><li> The Economist. Egyptian politics.</li></Citations><ExternalLinks><li> href=\"http://www.livescience.com/38023-protecting-egypt-artifacts-during-crisis.html\"</li><li> Egypt's National Treasures Threatened by Political Unrest</li><li> href=\"https://en.wikipedia.org/wiki/2011_Egyptian_revolution\"</li><li> Wikipedia : Egyptian Revolution of 2011</li><li> href=\"http://www.bbc.co.uk/news/world-middle-east-23228297\"</li><li> Egypt's political unrest causes regional concern</li></ExternalLinks><Images><li> embed=\"http://radio.foxnews.com/wp-content/uploads/2011/02/egypt-drama-2.jpg\"</li><li> Egypt unrest continues</li><li> embed=\"http://media.themalaysianinsider.com/images/uploads/2011/january/31/mubarak.jpg\"</li><li> Down with Mubarak Protest sign</li></Images><Videos><li> embed=\"https://www.youtube.com/watch?v=ze1hcPejorQ\"</li><li> Egypt's president ousted in military coup\" </li><li> embed=\"https://www.youtube.com/watch?v=1dGDv7kzJEI\"</li><li> Obama, staff huddle over Egypt</li><li> embed=\"https://www.youtube.com/watch?v=bptZAPw2lgQ\"</li><li> Analysis: Victory or 'a sad day' for Egypt?</li><li> embed=\"https://www.youtube.com/watch?v=GcLmi0ZdEpc\"</li><li> Protest in Egypt - Jan 25, 2011</li></Videos><Summary>Egypt is on the brink of drastic political changes that will affect its future political systems and socioeconic climate.</Summary></Common></Crisis></WC>"
-		crisis_list = []
-		root = ET.fromstring(xml_string)
-		populate_crisis(root, crisis_list)
-		print crisis_list[0]
-		print type(crisis_list[0])
-		crisis_xml = export_crisis(crisis_list[0])
-		check_string = xml_string [4:-5]
-
-		print "xml_string : ", len(xml_string)
-		print xml_string [4:-4]
-		print ""
-		print ""
-		print "crisis_xml : ", len(crisis_xml)
-		print crisis_list
-
-		#assertEqual(xml_string[4:-5], crisis_xml)
-
 
 
 
