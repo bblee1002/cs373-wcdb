@@ -287,16 +287,11 @@ class loadModelsCrisisTest(TestCase):
 		crisis_list = []
 		root = ET.fromstring(xml_string)
 		populate_crisis(root, crisis_list)
-		print "ROOT: ", root.tag
-		print ""
-		print ""
-		print "test_populate_crisis0 : ", crisis_list
-		print "22222222222222222222222222222222222222222222222222"
 		print len(crisis_list[0].people)
 		for person in crisis_list[0].people :
 			print person
 
-		#self.assert_(len(crisis_list) >= 1)
+		self.assert_(len(crisis_list) >= 1)
 
 	def test_populate_crisis1(self):
 		xml_string1 = "<WC><Crisis ID=\"CRI_kindofrandom\" Name=\"kindofrandom\"><People><Person ID=\"PER_kindofrandom\" /></People><Organizations><Org ID=\"ORG_kindofrandom\" /></Organizations><Kind>kindofrandom</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>kindofrandom</li></Locations><HumanImpact><li>kindofrandom</li></HumanImpact><EconomicImpact><li>kindofrandom</li></EconomicImpact><ResourcesNeeded><li>kindofrandom</li></ResourcesNeeded><WaysToHelp><li> href=\"http://kindofrandom\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis></WC>"
@@ -304,17 +299,7 @@ class loadModelsCrisisTest(TestCase):
 		root1 = ET.fromstring(xml_string1)
 		populate_crisis(root1, crisis_list1)
 
-		print ""
-		print ""
-		print "test_populate_crisis1 : ", crisis_list1
-		print "3333333333333333333333333333333333333333333333333"
-		print len(crisis_list1[0].people)
-		for person in crisis_list1[0].people :
-			print person
-		print ""
-		print ""
-
-		#self.assert_(len(crisis_list1) >= 1)
+		self.assert_(len(crisis_list1) >= 1)
 
 
 
