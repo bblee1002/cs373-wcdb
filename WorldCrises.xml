@@ -718,7 +718,34 @@
     <Crisis ID="CRI_NSAWRT"></Crisis>
     </Crises>
     <Organizations><Org ID="ORG_NSAAAA"/></Organizations>
+    <Location>Moscow, Russia</Location>
     <!-- More elements here -->
+    <Common>
+        <Citations>
+            <li href="http://en.wikipedia.org/wiki/Edward_Snowden"> Edward Snowden. Wikipedia. Updated: 7 July, 2013. Visited: 7 July, 2013. </li>
+            <li href="http://www.guardian.co.uk/world/2013/jul/08/edward-snowden-surveillance-excess-interview"> Greenwald, Glenn. Edward Snowden: US surveillance 'not something I'm willing to live under'. The Guardian. 8 July, 2013. Visited: July 9, 2013. </li>
+            <li href="http://www.guardian.co.uk/world/2013/jul/05/edward-snowden-nsa-whistleblower-spy">Ackerman, Spencer. "Edward Snowden is a Whistleblower, Not a Spy - But Do Our Leaders Care?". The Guardian. 5 July, 2013. Visited: July 7, 2013.</li>
+        </Citations>
+        <ExternalLinks>
+            <li href="http://www.cnn.com/2013/06/10/politics/edward-snowden-profile">CNN: Eric Snowden, A Profile</li>
+            <li href="http://www.fool.com/investing/general/2013/07/06/is-edward-snowden-a-hero-or-a-villain.aspx">The Motley Fool: Is Snowden a Hero or a Villain?</li>
+        </ExternalLinks>
+        <Images>
+            <li embed="http://www.thedailysheeple.com/wp-content/uploads/2013/06/snowden.jpg" text="img not found">Edward Snowden being interviewed in Hong Kong after leaking details of NSA's surveillance program to the press</li>
+            <li embed="http://newswire.kulmun.be/wp-content/uploads/2013/03/NicolasMaduro.jpg" text="img not found">Venezuelan President Nicolas Maduro Maduro is one of the few leaders who has offered political asylum to Snowden</li>
+            <li embed="http://upload.wikimedia.org/wikipedia/commons/c/c5/Vladimir_Putin_beefcake-1.jpg" text="img not found">Russian President Vladimir Putin. Despite Snowden currently being holed up in Moscow Airport, Putin has essentially avoided taking a side by not offering asylum to Snowden while simultaneously refusing to hand him over to the U.S. Governmen</li>
+            <li embed="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/6/11/1370966794013/Lindsay-Mills-girlfriend--010.jpg" text="img not found">Edward Snowden's Girlfriend Lindsay</li>
+        </Images>
+        <Videos>
+            <li embed="//www.youtube.com/embed/wB4Gn0u4DSE" />
+            <li embed="//www.youtube.com/embed/qiWpJuUWqOA" />
+        </Videos>
+        <Feeds>
+            <li href="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook page</li>
+            <li href="https://twitter.com/EJosephSnowden">Edward Snowden's Twitter page</li>
+        </Feeds>
+        <Summary>Dilma Rousseff is the current president of Brazil.</Summary>
+    </Common>
 </Person>
 
 <Person ID="PER_RFLCRR" Name="Rafael Correa">
