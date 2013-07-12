@@ -1,0 +1,1 @@
+web: gunicorn cs373_ATeam.wsgi
