@@ -1,19 +1,27 @@
 import os
 os.environ["DJANGO_SETTINGS_MODULE"] = "cs373_ATeam.settings"
 from django.db import models
-#from unloadModels import xml_from_li
 
-# Create your models here.
+"""
+File containing definitions for our Django models and any relevant classes and function
+"""
 
-#general method for adding to a list
+
 def list_add(list, id) :
-    #print "BEFORE APPEND", list
+    """
+    Function expects a list and some object
+    The object is appended to the list
+    """
     list.append(id)
-    #print "AFTER APPEND", list
 
 
-#class for the ListType complexType
+
+
 class Li() :
+    """
+    Class for the List tag in the unified xml schema. Contains a field for an href, embedded link, 
+    and alt text. The floating_text attribute is to catch any text not in attributes.
+    """
     #Li
     href          = None
     embed         = None
@@ -28,6 +36,10 @@ class Li() :
         floating_text = None
 
     def populate(self, e_node) :
+        """
+        Non-static method expects an element node as a parameter.
+        Uses node to populate attributues of a Li object
+        """
         self.href          =  e_node.get("href")
         self.embed         = e_node.get("embed")
         self.text          =  e_node.get("text")
@@ -35,17 +47,23 @@ class Li() :
 
     #Check for presence of "&" invalid XML char
     def clean_li_xml (self, dirty) : 
+        """
+        Non-static method expects a string as a parameter.
+        Searches string for ampersands and escapes them to convert them to valid xml
+        """
         dirty_clean = dirty.split("&")
         for dirty_piece in dirty_clean:
-            #first element case
-            if dirty_piece == dirty_clean[0] :
+            #first element case, is insures unique
+            if dirty_piece is dirty_clean[0] :
                 dirty_new = dirty_piece
             else :
                 dirty_new += "&amp;" + dirty_piece
         return dirty_new
 
     def print_xml (self) :
-        #Export xml from the li class
+        """
+        Non-static method used to export the contents of a Li object as valid xml
+        """
         self_string = ""
         if self is not None:
             if self.href is not None :
@@ -66,6 +84,10 @@ class Li() :
 
 
 class Common() :
+    """
+    Class for the Common tag in the unified xml schema Contains a field for an href, embedded link, and alt text
+    The floating_text attribute is to catch any text not in attributes.
+    """
     #Common
     citations      = []
     external_links = []
@@ -86,6 +108,10 @@ class Common() :
         self.summary        = None
 
     def populate(self, e_node) :
+        """
+        Non-static method expects an element node as a parameter.
+        Uses node to populate attributues of a Common object
+        """
         for citation in e_node.find("Citations") or [] :
             temp_li = Li()
             temp_li.populate(citation)
@@ -116,11 +142,18 @@ class Common() :
             temp_li.populate(feed)
             self.feeds.append(temp_li)
 
+
         find_summary = e_node.find("Summary")
-        if find_summary :
-            summary = find_summary.text
+        if find_summary is not None :
+            self.summary = find_summary.text
+
 
     def xml_from_li(self, root_str, item_list) :
+        """
+        Non-static method expects a root string and a list of Li objects as parameters.
+        Iterates through list of Li objects and calls their xml_from_li() method, 
+        concatenating the output to a string. The root string is concatenated around this string.
+        """
         #Loop through list items contains in common lists
         xml_string = "<" + root_str + ">"
         for listitem in item_list :
@@ -129,8 +162,11 @@ class Common() :
         xml_string += "</" + root_str + ">"
         return xml_string
 
+    #Export xml from the common class
     def print_xml (self) :
-        #Export xml from the common class
+        """
+        Non-static method used to export the contents of a Common object as valid xml
+        """
         self_string = ""
         if self is not None:
             self_string += "<Common>"
@@ -159,7 +195,7 @@ class Common() :
                 xml_feeds = self.xml_from_li(root, self.feeds)
                 self_string += xml_feeds
             if self.summary is not None:
-                self_string += "<Summary>" + self.summary + "</Summary"
+                self_string += "<Summary>" + self.summary + "</Summary>"
             self_string += "</Common>" 
         #Conclude common xml instance string
         return self_string
@@ -167,6 +203,9 @@ class Common() :
 
 
 class Crisis(models.Model) :
+    """
+    Crisis Model
+    """
     crisis_ID         = models.CharField(max_length=200)
     name              = models.CharField(max_length=200)
     kind              = models.CharField(max_length=200)
@@ -186,6 +225,9 @@ class Crisis(models.Model) :
 
 
 class Person(models.Model) :
+    """
+    Person Model
+    """
     person_ID         = models.CharField(max_length=200)
     name              = models.CharField(max_length=200)
     kind              = models.CharField(max_length=200)
@@ -196,6 +238,9 @@ class Person(models.Model) :
     
 
 class Org(models.Model) :
+    """
+    Organization Model
+    """
     org_ID      = models.CharField(max_length=200)
     name        = models.CharField(max_length=200)
     kind        = models.CharField(max_length=200)
