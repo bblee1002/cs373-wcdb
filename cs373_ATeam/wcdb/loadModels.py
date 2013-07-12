@@ -42,19 +42,20 @@ def populate_crisis(root, list) :
 	"""
 	for crisis in root.findall("Crisis"):
 		temp_crisis           =                 Crisis()
+		print "LENGTH: ", len(temp_crisis.people)
 		temp_crisis.crisis_ID =         crisis.get("ID")
 		temp_crisis.name      =       crisis.get("Name")
 		temp_crisis.kind      = crisis.find("Kind").text
 		temp_crisis.date      = crisis.find("Date").text
 		temp_crisis.time      = crisis.find("Time").text
 		#populating people
-		for person in crisis.iter("Person") :
+		for person in crisis.iter("Person") or [] :
 			list_add(temp_crisis.people, person.get("ID"))
 		#populating organizations
-		for org in crisis.iter("Org") :
+		for org in crisis.iter("Org") or [] :
 			list_add(temp_crisis.organizations, org.get("ID"))
 
-		for location in crisis.find("Locations") :
+		for location in crisis.find("Locations") or [] :
 			temp_li = Li()
 			temp_li.populate(location)
 			list_add(temp_crisis.locations, temp_li)
