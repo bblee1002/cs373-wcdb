@@ -7,10 +7,9 @@
     <Crisis ID="CRI_NSAWRT" Name="NSA Wiretapping">
         <People>
             <Person ID="PER_ESNWDN" />
-            <Person ID="PER_CRRRRR" />
         </People>
         <Organizations>
-            <Org ID="ORG_NSARRR" />
+            <Org ID="ORG_NSAAAA" />
         </Organizations>
         <Kind>Civil Liberties</Kind>
         <Date>2013-06-06</Date>
@@ -143,18 +142,12 @@
     <Locations>
         <li>Bastrop</li>
     </Locations>
-    <HumanImpact></HumanImpact>
-    <EconomicImpact></EconomicImpact>
-    <ResourcesNeeded></ResourcesNeeded>
-    <WaysToHelp></WaysToHelp>
+    <HumanImpact><li>Impact</li></HumanImpact>
+    <EconomicImpact><li>Impact</li></EconomicImpact>
+    <ResourcesNeeded><li>Money</li></ResourcesNeeded>
+    <WaysToHelp><li>predict</li></WaysToHelp>
     <Common>
-        <Citations></Citations>
-        <ExternalLinks></ExternalLinks>
-        <Images></Images>
-        <Videos></Videos>
-        <Maps></Maps>
-        <Feeds></Feeds>
-        <Summary></Summary>
+
     </Common>
 </Crisis>
 
@@ -216,8 +209,7 @@
         <Org ID="ORG_SINCAR" />
     </Organizations>
     <Kind>Violent Conflict</Kind>
-    <Date>2006-</Date>
-    <Time></Time>
+    <Date>2006-01-01</Date>
     <Locations>
         <li>Mexico</li>
         <li>United States</li>
@@ -286,10 +278,9 @@
             <li>Russia</li>
         </Locations>
         <HumanImpact>
-            <li>Basic civil rights are in danger as sexual minorities are subject to political ridicule and civilian abuse.</li>>
+            <li>Basic civil rights are in danger as sexual minorities are subject to political ridicule and civilian abuse.</li>
         </HumanImpact>
-        <EconomicImpact>
-        </EconomicImpact>
+
         <ResourcesNeeded>
             <li>Prime Minister of India undertook an aerial survey of the affected areas and announced 1,000 crore (US$170 million) aid package for disaster relief efforts in the state.</li>
             <li>The Indian Army and the National Disaster Response Force were deployed to evacuate stranded people on June 15th 2013.</li>
@@ -327,9 +318,7 @@
 
     <Crisis ID="CRI_UEGYPT" Name="Political unrest in Egypt">
         <People>
-            <Person ID="PER_HMUBAR" />
-            <Person ID="PER_RLAKAH" />
-            <Person ID="PER_ELBARA" />
+
             <Person ID="PER_MMORSI" />
         </People>
         <Organizations>
@@ -476,7 +465,7 @@
         <Org ID="ORG_EPAAAA" />
     </Organizations>
     <Kind>Environmental</Kind>
-    <Date>Long-term, Most severe since 20th century</Date>
+    <Date>1900-01-01</Date>
     <Locations>
         <li>Africa</li>
         <li>Latin America</li>
@@ -595,15 +584,13 @@
 
 <Person ID="PER_HPASSS" Name="Hildebrando Pascoal">
     <Crises>
-        <Crisis ID="CRI_BRZLPR"></Crisis>
+        <Crisis ID="CRI_BRZLPR" />
     </Crises>
     <Organizations>
         <Org ID="ORG_BRAGOV"/>
     </Organizations>
     <Kind>Former Politician</Kind>
-    <Location>
-        <li>Rio de Janeiro</li>
-    </Location>
+    <Location>Rio de Janeiro</Location>
     <Common>
         <Citations>
             <li href="http://interamericansecuritywatch.com/public-rage-catching-up-with-brazils-congress/">Romero, Simon. "Public Rage Catching Up With Brazil’s Congress". InterAmerican Security Watch. 28 June, 2013. Visited: 11 July, 2013.</li>
@@ -664,9 +651,7 @@
         <Org ID="ORG_BRAGOV"/>
     </Organizations>
     <Kind>Politician</Kind>
-    <Location>
-        <li>Rio de Janeiro</li>
-    </Location>
+    <Location>Rio de Janeiro</Location>
     <Common>
         <Citations>
             <li href="http://www.guardian.co.uk/world/2013/jun/29/brazilian-dilma-rousseff-support-protests?INTCMP=SRCH"> "Brazilian president Dilma Rousseff's support plummets in wake of protests". The Guardian. 29 June, 2013. Visited: 11 July, 2013.</li>
@@ -688,32 +673,21 @@
 </Person>
 
 <Person ID="PER_ESNWDN" Name="Edward Snowden">
-    <Born>1983</Born>
+    <Crises>
+    <Crisis ID="CRI_NSAWRT"></Crisis>
+    </Crises>
+    <Organizations><Org ID="ORG_NSAAAA"/></Organizations>
     <!-- More elements here -->
-    <Common>
-        <Citations></Citations>
-        <ExternalLinks></ExternalLinks>
-        <Images></Images>
-        <Videos></Videos>
-        <Maps></Maps>
-        <Feeds></Feeds>
-        <Summary></Summary>
-    </Common>
 </Person>
 
 <Person ID="PER_RFLCRR" Name="Rafael Correa">
-    <Born>1963</Born>
-    <Office>President, Ecuador</Office>
+    <Crises>
+        <Crisis ID="CRI_NSAWRT"></Crisis>
+    </Crises>
+    <Organizations>
+        <Org ID="ORG_NSAAAA"/>
+    </Organizations>
     <!-- More elements here -->
-    <Common>
-        <Citations></Citations>
-        <ExternalLinks></ExternalLinks>
-        <Images></Images>
-        <Videos></Videos>
-        <Maps></Maps>
-        <Feeds></Feeds>
-        <Summary></Summary>
-    </Common>
 </Person>
 
 <Person ID="PER_GUZMAN" Name="Joaquin Guzman Loera">
@@ -748,17 +722,13 @@
 </Person>
 
 <Person ID="PER_RPERRY" Name="Rick Perry">
-    <Born>1950</Born>
-    <Office>Governor, Texas, United States</Office>
-    <Common>
-        <Citations></Citations>
-        <ExternalLinks></ExternalLinks>
-        <Images></Images>
-        <Videos></Videos>
-        <Maps></Maps>
-        <Feeds></Feeds>
-        <Summary></Summary>
-    </Common>
+    <Crises>
+        <Crisis ID="CRI_FOREST" />
+    </Crises>
+    <Organizations>
+        <Org ID="ORG_FEMAAA" />
+    </Organizations>
+
 </Person>
 
 <Person ID="PER_MMORSI" Name="Mohammed Morsi">
@@ -877,7 +847,7 @@
         <Crisis ID="CRI_NSAWRT" />
     </Crises>
     <People>
-        <Person ID="PER_SNOWDN" />
+        <Person ID="PER_ESNWDN" />
     </People>
     <Kind>Government</Kind>
     <Location>Fort Meade, Maryland</Location>
@@ -1012,7 +982,7 @@
         <Crisis ID="CRI_UEGYPT" />
     </Crises>
     <People>
-        <Person ID="PER_ELBARA" />
+        <Person ID="PER_MMORSI" />
     </People>
     <Kind>Islamic Movement</Kind>
     <Location>Egypt</Location>
@@ -1027,9 +997,6 @@
         <Crisis ID="CRI_UEGYPT" />
     </Crises>
     <People>
-        <Person ID="PER_HMUBAR" />
-        <Person ID="PER_RLAKAH" />
-        <Person ID="PER_ELBARA" />
         <Person ID="PER_MMORSI" />
     </People>
     <Kind>Semi-presidental government</Kind>
@@ -1115,7 +1082,7 @@
         <Crisis ID="CRI_MEXDRG" />
     </Crises>
     <People>
-        <Person ID="PER_MNSNGH" />
+        <Person ID="PER_GUZMAN" />
     </People>
     <Kind>Drug Cartel</Kind>
     <Location>Mexico</Location>
@@ -1147,7 +1114,7 @@
         <Crisis ID="CRI_MEXDRG" />
     </Crises>
     <People>
-        <Person ID="PER_FCLDRN" />
+        <Person ID="PER_GUZMAN" />
     </People>
     <Kind>Government</Kind>
     <Location>Mexico</Location>
@@ -1208,6 +1175,47 @@
         <Summary>Founded in 2005, LGBT Human Rights Project GayRussia.Ru (Gayrussia.ru) is an LGBT Advocate organization in Russia. </Summary>
     </Common>
 </Organization>
+
+    <Organization ID="ORG_BRAGOV" Name="Brazillian Government">
+        <Crises>
+            <Crisis ID="CRI_BEEDIE" />
+        </Crises>
+        <People>
+            <Person ID="PER_DLVRUS" />
+            <Person ID="PER_MMORSI" />
+        </People>
+        <Kind>Semi-presidental government</Kind>
+        <Location>Egypt</Location>
+        <History>
+            <li>Current constitution which was passed in 1988 is very democratic</li>
+            <li>There are two political parties which are internationalist liberals and statist nationalists</li>
+        </History>
+        <ContactInfo>
+            <li href="https://sistema.planalto.gov.br/falepr2/index.php?IND_IDIOMA=I">Ask the President</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+            <li href="http://en.wikipedia.org/wiki/Politics_of_Brazil">Politics of Brazil: 20 June, 2013. Visited: 11 July, 2013.</li>
+            </Citations>
+            <ExternalLinks>
+            <li href="http://www.fema.gov/">Brazilian Government official website</li>      
+            </ExternalLinks>
+            <Images>
+            <li embed="http://www.patentbaristas.com/wp/wp-content/uploads/2008/02/brazil-flag.gif" text="img not found">Brazilian Government</li>
+            </Images>
+            <Videos>
+            <li embed="//www.youtube.com/embed/E_6pa0zgO4k" />
+            <li embed="//www.youtube.com/embed/08P0i-TAI0c" />
+            </Videos>
+            <Maps>
+            <li embed="https://maps.google.com/maps?q=brazil&amp;hl=en&amp;client=ubuntu&amp;channel=fs&amp;oe=utf-8&amp;hnear=Brazil&amp;t=h&amp;z=4" />
+            </Maps>
+            <Feeds>
+            <li href="https://www.facebook.com/pages/Brazilian-military-government/119755061404595?nr">Facebook</li>
+            </Feeds>
+            <Summary></Summary>
+        </Common>
+    </Organization>
 
 <Organization ID="ORG_WATERO" Name="Water.org">
     <Crises>
