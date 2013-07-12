@@ -4,14 +4,14 @@ from models import Crisis, Person, Org, Li, Common
 
 
 
-#Check for presence of "&" invalid XML char
-#in everything but Li() instances
-#Returns a new string w/out any tag information
-def clean_xml (dirty) :	
+def clean_xml (dirty) :
+	"""
+	Check for presence of "&" invalid XML char in everything but Li() instances.
+	Returns a new string w/out any tag information
+	"""	
 	dirty_clean = dirty.split("&")
 	for dirty_piece in dirty_clean:
-		#first element case
-		if dirty_piece == dirty_clean[0] :
+		if dirty_piece is dirty_clean[0] :
 			dirty_new = dirty_piece
 		else :
 			dirty_new += "&amp;" + dirty_piece
@@ -20,6 +20,10 @@ def clean_xml (dirty) :
 
 #-----Export CRISIS models-----#
 def export_crisis (crisis) :
+	"""
+	Export CRISIS models by extracting information from the relevant class.
+	Builds a string to return at the end as parse elements of crisis.
+	"""
 	#assumes all crises have an id and name
 	assert crisis.crisis_ID != None
 	assert crisis.name != None
@@ -93,6 +97,10 @@ def export_crisis (crisis) :
 
 #-----Export PERSON models-----#
 def export_person (person) :
+	"""
+	Export Person models by extracting information from the relevant class.
+	Builds a string to return at the end as parse elements of crisis.
+	"""
 	#assumes all people have an id and name
 	assert person.person_ID != None
 	assert person.name != None
@@ -140,6 +148,10 @@ def export_person (person) :
 
 #-----Export ORGANIZATIONS models-----#
 def export_organization (org) :
+	"""
+	Export Org models by extracting information from the relevant class.
+	Builds a string to return at the end as parse elements of crisis.
+	"""
 	#assumes all orgs have an id and name
 	assert org.org_ID != None
 	assert org.name != None
@@ -203,6 +215,9 @@ def export_organization (org) :
 #Access models thrgh arg model_dict = {Crises : [], Orgs : [], Ppl : []}
 #Called from from views.py
 def receive_import(model_dict) :
+	"""
+	Exports models into an xml string.
+	"""
 
 	#collect xml versions of all CRISIS models
 	crises_xml_string = ""

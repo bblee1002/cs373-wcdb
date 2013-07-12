@@ -5,7 +5,18 @@ from django.conf import settings
 from models import Crisis, Person, Org, Li, Common, list_add
 import xml.etree.ElementTree as ET
 
+"""
+File imports an xml file, sent in by the user from the website, and populates Django models
+using the information from the file.
+"""
+
 def populate_models(tree) :
+	"""
+	Function expects an element tree as a parameter. Main function of the file that calls
+	populate_crisis, populate_org, and populate_person. Returns a dictionary where the keys
+	are the type of model and the values are lists of instances of the models populated by 
+	this funciton.
+	"""
 	e_root = tree.getroot()
 
 	#populate Crisis models
@@ -25,23 +36,28 @@ def populate_models(tree) :
 
 
 def populate_crisis(root, list) :
-#Find instances of crises
-#and add to a list of crisis objects created by Django
+	"""
+	Function expects a node in an element tree and a list as parameters. Find instances of crisis
+	in the tree and adds it to the list
+	"""
 	for crisis in root.findall("Crisis"):
 		temp_crisis           =                 Crisis()
 		temp_crisis.crisis_ID =         crisis.get("ID")
 		temp_crisis.name      =       crisis.get("Name")
-		temp_crisis.kind      = crisis.find("Kind").text
-		temp_crisis.date      = crisis.find("Date").text
-		temp_crisis.time      = crisis.find("Time").text
+		if crisis.find("Kind") is not None :
+			temp_crisis.kind      = crisis.find("Kind").text
+		if crisis.find("Date") is not None :
+			temp_crisis.date      = crisis.find("Date").text
+		if crisis.find("Time") is not None :
+			temp_crisis.time      = crisis.find("Time").text
 		#populating people
-		for person in crisis.iter("Person") :
+		for person in crisis.iter("Person") or [] :
 			list_add(temp_crisis.people, person.get("ID"))
 		#populating organizations
-		for org in crisis.iter("Org") :
+		for org in crisis.iter("Org") or [] :
 			list_add(temp_crisis.organizations, org.get("ID"))
 
-		for location in crisis.find("Locations") :
+		for location in crisis.find("Locations") or [] :
 			temp_li = Li()
 			temp_li.populate(location)
 			list_add(temp_crisis.locations, temp_li)
@@ -68,7 +84,7 @@ def populate_crisis(root, list) :
 
 		#populating common fields
 		found_common = crisis.find('Common')
-		if found_common :
+		if found_common is not None:
 			temp_crisis.common.populate(found_common)
 
 
@@ -76,14 +92,18 @@ def populate_crisis(root, list) :
 		list.append(temp_crisis)
 
 def populate_person(root, list) :
-#Find instances of person
-#and add to a list of crisis objects created by Django
+	"""
+	Function expects a node in an element tree and a list as parameters. Find instances of person
+	in the tree and adds it to the list
+	"""
 	for person in root.findall("Person"):
 		temp_person             =                     Person()
 		temp_person.person_ID   =             person.get("ID")
 		temp_person.name        =           person.get("Name")
-		temp_person.kind        =     person.find("Kind").text
-		temp_person.location    = person.find("Location").text
+		if person.find("Kind") is not None :
+			temp_person.kind        =     person.find("Kind").text
+		if person.find("Location") is not None :
+			temp_person.location    = person.find("Location").text
 
 		for crisis in person.iter("Crisis") :
 				list_add(temp_person.crises, crisis.get("ID"))
@@ -93,17 +113,24 @@ def populate_person(root, list) :
 
 		#populating common fields
 		found_common = person.find('Common')
-		if found_common :
+		if found_common is not None :
 			temp_person.common.populate(found_common)
 
 		list.append(temp_person)
 
 def populate_org(root, list) :
+	"""
+	Function expects a node in an element tree and a list as parameters. Find instances of organization
+	in the tree and adds it to the list
+	"""
 	for org in root.findall("Organization") :
-		temp_org         =                 Org()
-		temp_org.org_ID  =         org.get("ID")
-		temp_org.name    =       org.get("Name")
-		temp_org.kind    = org.find("Kind").text
+		temp_org          =                     Org()
+		temp_org.org_ID   =             org.get("ID")
+		temp_org.name     =           org.get("Name")
+		if org.find("Kind") is not None :
+			temp_org.kind     =     org.find("Kind").text
+		if org.find("Location") is not None :
+			temp_org.location = org.find("Location").text
 
 		for crisis in org.iter("Crisis") :
 				list_add(temp_org.crises, crisis.get("ID"))
@@ -111,26 +138,27 @@ def populate_org(root, list) :
 		for person in org.iter("Person") :
 			list_add(temp_org.people, person.get("ID"))
 
-		for history in org.find("History") :
+		for history in org.find("History") or [] :
 			temp_li = Li()
 			temp_li.populate(history)
 			list_add(temp_org.history, temp_li)
 
-		for contact in org.find("ContactInfo") :
+		for contact in org.find("ContactInfo") or [] :
 			temp_li = Li()
 			temp_li.populate(contact)
 			list_add(temp_org.contact, temp_li)
 
-		#populating common fields
-		#temp_org.common.populate(org.find("Common") or [])
 		found_common = org.find('Common')
-		if found_common :
+		if found_common is not None :
 			temp_org.common.populate(found_common)
 
 		list.append(temp_org)
 
-#function for validating the file
 def validate(file_in) :
+	"""
+	Function expects a file as a parameter. Checks if file is a valid xml file.
+	Returns False if not, and an element tree built from the file if it is valid.
+	"""
 	name = str(file_in.name)
 	if name[-4:] != ".xml" and name[-4:] != ".XML" :
 		return False
