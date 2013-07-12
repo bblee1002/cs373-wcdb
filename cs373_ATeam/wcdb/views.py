@@ -5,9 +5,16 @@ from loadModels import validate, populate_models
 from unloadModels import receive_import
 import subprocess
 
+"""
+Views.py renders the view specified by a url.
+"""
+
 imported_models = {}
 
 def crisisView(request, crisis_id):
+  """
+  Renders view for crises.
+  """
   if crisis_id == '1':
     return render(request, 'wcdb/CRI_NSAWRT.html')
   elif crisis_id == '2':
@@ -18,6 +25,9 @@ def crisisView(request, crisis_id):
     return HttpResponse("no such path")
 
 def orgsView(request, orgs_id):
+  """
+  Renders view for organizations.
+  """
   if orgs_id == '1' :
     return render(request, 'wcdb/ORG_NSAAAA.html')
   elif orgs_id == '2' :
@@ -28,6 +38,9 @@ def orgsView(request, orgs_id):
     return HttpResponse("not such path")
 
 def peopleView(request, people_id):
+  """
+  Renders view for people.
+  """
   if people_id == '1' :
     return render(request, 'wcdb/PER_SNOWDN.html')
   elif people_id == '2' :
@@ -38,14 +51,23 @@ def peopleView(request, people_id):
     return HttpResponse('not such path')
 
 def index(request):
+  """
+  Renders view for homepage.
+  """
   return render(request, 'wcdb/index.html')
 
 def unittestsView(request):
+  """
+  Renders view for unit tests as well as runs the unit tests.
+  """
   output = subprocess.check_output(['python', 'manage.py', 'test', 'wcdb'],
     stderr=subprocess.STDOUT, shell=False)
   return render(request, 'wcdb/Unittests.html', {'output': output})
 
 def passwordValidate(pw_input):
+  """
+  Validates that the password for the XMLUploadForm is correct.
+  """
   password = "ateam"
   if password == pw_input:
     return True
@@ -53,6 +75,10 @@ def passwordValidate(pw_input):
     return False
 
 def importView(request):
+  """
+  Renders view for import page, kicks off the import facility, reports
+  back to the user success or failure.
+  """
   form = XMLUploadForm()
   if request.method == 'POST':
     form = XMLUploadForm(request.POST, request.FILES)
@@ -73,6 +99,9 @@ def importView(request):
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
 def exportView(request) :
+  """
+  Renders view for export page, kicks off export facility.
+  """
   output = "You have to import something before you export!"
   global imported_models
   if imported_models != {}:
@@ -81,5 +110,8 @@ def exportView(request) :
   return render(request, 'wcdb/Export.html', {'output': output})
   
 class XMLUploadForm(forms.Form):
+  """
+  XMLUploadForm that has an upload file field along with a password field.
+  """
   xmlfile = forms.FileField()
   password = forms.CharField(max_length=8, widget=forms.PasswordInput) 
