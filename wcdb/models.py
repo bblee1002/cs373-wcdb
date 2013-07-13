@@ -7,12 +7,12 @@ File containing definitions for our Django models and any relevant classes and f
 """
 
 
-def list_add(list, id) :
+def list_add(m_list, id) :
     """
     Function expects a list and some object
     The object is appended to the list
     """
-    list.append(id)
+    m_list.append(id)
 
 
 
@@ -223,6 +223,24 @@ class Crisis(models.Model) :
     #common
     common            = Common()
 
+    def __init__(self):
+        self.crisis_ID         = None
+        self.name              = None
+        self.kind              = None
+        self.date              = None
+        self.time              = None
+        self.people            = []
+        self.organizations     = []
+        #Li list
+        #locations, human_impact, economic_impact is always floating text
+        self.locations         = []
+        self.human_impact      = []
+        self.economic_impact   = []
+        self.resources_needed  = []
+        self.ways_to_help      = []
+        #common
+        self.common            = Common()
+
 
 class Person(models.Model) :
     """
@@ -235,6 +253,18 @@ class Person(models.Model) :
     common            =                         Common()
     crises            = []
     organizations     = []
+
+    def __init__(self):
+        self.person_ID         = None
+        self.name              = None
+        self.kind              = None
+        self.location          = None
+        self.crises            = []
+        self.organizations     = []
+        #Li list
+        #locations, human_impact, economic_impact is always floating text
+        #common
+        self.common            = Common()
     
 
 class Org(models.Model) :
@@ -252,6 +282,20 @@ class Org(models.Model) :
     contact     = []
     #Common
     common      = Common()
+
+    def __init__(self):
+        self.org_ID            = None
+        self.name              = None
+        self.kind              = None
+        self.location          = None
+        self.people            = []
+        self.crises            = []
+        #Li list
+        #locations, human_impact, economic_impact is always floating text
+        self.history           = []
+        self.contact           = []
+        #common
+        self.common            = Common()
 
 
 
