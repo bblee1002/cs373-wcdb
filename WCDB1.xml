@@ -204,17 +204,25 @@
     <Kind>Socioeconomic Crisis</Kind>
     <Date>2013-06-17</Date>
     <Locations>
-        <li>Brazil</li>
+        <li>Rio de Janeiro</li>
+        <li>Sao Paulo</li>
+        <li>Porto Alegre</li>
+        <li>Brasilia</li>
     </Locations>
     <HumanImpact>
         <li>National Pact to improve Education, Health, &amp; Public Transportation</li>
+        <li>Visibility of votes for forfeit of office</li>
+        <li>Criminalization of Corruption and Embezzlement</li>
     </HumanImpact>
     <EconomicImpact>
         <li>Public transportation fares lowered</li>
+        <li>Portion of petroleum royalties go to education</li>
+        <li>Brazilian citizens feel too much money is being spent on the 2015 World Cup</li>
     </EconomicImpact>
     <ResourcesNeeded>
         <li>Awareness as to why there are Brazilian protests.</li>
         <li>Negotiators</li>
+        <li>Voters in Brazil</li>
     </ResourcesNeeded>
     <WaysToHelp>
         <li>Understanding as to why the protests are happening.</li>
@@ -228,6 +236,7 @@
         </Citations>
         <ExternalLinks>
             <li href="http://en.wikipedia.org/wiki/2013_protests_in_Brazil">Wikipedia: 2013 Brazilian Protests</li>
+            <li href="http://brazilprotestsguide.blogspot.ch/">Brazil Protest Blog</li>
         </ExternalLinks>
         <Images>
             <li embed="http://upload.wikimedia.org/wikipedia/commons/1/11/Protestos_no_Rio_em_2013.jpg">If the fare doesn't drop, Rio is going to stop!</li>
@@ -239,7 +248,7 @@
         <Maps>
             <li embed="https://maps.google.com/maps?q=map+brazil&amp;client=ubuntu&amp;channel=cs&amp;hnear=Brazil&amp;gl=us&amp;t=m&amp;z=4"></li>
         </Maps>
-        <Summary>The 2013 Brazilian protests started as upset citizens protesting the increase of fares of public transportation methods. Lately the protests have evolved into demanding a better oversite of government workers especially.</Summary>
+        <Summary>The 2013 Brazilian protests started as upset citizens protesting the increase of fares of public transportation methods. Lately the protests have evolved into demanding a better oversite of government workers, better public transportation with lesser cost, and controversy over hosting the 2015 World Cup.</Summary>
     </Common>
 </Crisis>
 
@@ -636,18 +645,21 @@
     <Common>
         <Citations>
             <li href="http://interamericansecuritywatch.com/public-rage-catching-up-with-brazils-congress/">Romero, Simon. "Public Rage Catching Up With Brazil’s Congress". InterAmerican Security Watch. 28 June, 2013. Visited: 11 July, 2013.</li>
+            <li href="http://news.bbc.co.uk/2/hi/americas/454174.stm">Cviic, Stephen. "World: Americas Brazilian deputy 'ran death squads'". BBC News. 22 September, 1999. Visited: 17 July, 2013</li>
         </Citations>
         <ExternalLinks>
             <li href="http://pt.wikipedia.org/wiki/Hildebrando_Pascoal">Wikipedia: Hildebrando Pascoal</li>
         </ExternalLinks>
         <Images>
             <li embed="http://upload.wikimedia.org/wikipedia/commons/d/d0/Hildebrando.jpg" text="img not found">Hildebrando Pascoal arriving at court to be tried.</li>
+            <li href="http://graphics8.nytimes.com/images/2013/06/28/world/jp-brazil2/jp-brazil2-popup.jpg">Hildebrando Pascoal</li>
         </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/I199ISU6lOE" />
         </Videos>
         <Summary>
-            Hildebrando Pascoal "the chainsaw congressman" is a former Brazilian congressman associated with a death squad torture and murder incident. He was removed from office, convicted, and sent to prison.
+            Hildebrando Pascoal "the chainsaw congressman" is a former Brazilian congressman associated with drug-trafficking and a death squad torture and mass murder incident. He was removed from office, convicted, and sent to prison September of 2009.
+            A prime example of occasional political corruption in Brazil. Under former Brazilian law federal deputies are immune from prosecution.
         </Summary>
     </Common>
 </Person>
@@ -1315,19 +1327,21 @@
     </Common>
 </Organization>
 
-    <Organization ID="ORG_BRAGOV" Name="Brazillian Government">
+    <Organization ID="ORG_BRAGOV" Name="Brazilian Government">
         <Crises>
-            <Crisis ID="CRI_BEEDIE" />
+            <Crisis ID="CRI_BRZLPR" />
         </Crises>
         <People>
             <Person ID="PER_DLVRUS" />
-            <Person ID="PER_MMORSI" />
+            <Person ID="PER_HPASSS" />
         </People>
-        <Kind>Semi-presidental government</Kind>
-        <Location>Egypt</Location>
+        <Kind>Presidential Representative Democratic Republic</Kind>
+        <Location>Brasilia, Brazil</Location>
         <History>
             <li>Current constitution which was passed in 1988 is very democratic</li>
-            <li>There are two political parties which are internationalist liberals and statist nationalists</li>
+            <li>There are two political parties which are internationalist liberals and state nationalists</li>
+            <li>President is both Head of State and Head of Government</li>
+            <li>Central government compose of executive, judicial, and legislative branches</li>
         </History>
         <ContactInfo>
             <li href="https://sistema.planalto.gov.br/falepr2/index.php?IND_IDIOMA=I">Ask the President</li>
@@ -1337,7 +1351,7 @@
             <li href="http://en.wikipedia.org/wiki/Politics_of_Brazil">Politics of Brazil: 20 June, 2013. Visited: 11 July, 2013.</li>
             </Citations>
             <ExternalLinks>
-            <li href="http://www.fema.gov/">Brazilian Government official website</li>      
+            <li href="http://www.brasil.gov.br/?set_language=en">Brazilian Government official website</li>      
             </ExternalLinks>
             <Images>
             <li embed="http://www.patentbaristas.com/wp/wp-content/uploads/2008/02/brazil-flag.gif" text="img not found">Brazilian Government</li>
