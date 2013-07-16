@@ -6,7 +6,13 @@ from django.conf.urls.defaults import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'cs373_ATeam.views.home', name='home'),
+    url(r'^$', 'wcdb.views.index'),
+    url(r'^import/$', 'wcdb.views.importView'),
+    url(r'^crisis/(?P<crisis_id>\d)$', 'wcdb.views.crisisView'),
+    url(r'^orgs/(?P<orgs_id>\d)$', 'wcdb.views.orgsView'),
+    url(r'^people/(?P<people_id>\d)$', 'wcdb.views.peopleView'),
+    url(r'^export/$', 'wcdb.views.exportView'),
+    url(r'^unittests/$', 'wcdb.views.unittestsView'),
     # url(r'^cs373_ATeam/', include('cs373_ATeam.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -14,4 +20,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+	
 )
