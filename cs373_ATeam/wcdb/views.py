@@ -4,12 +4,15 @@ from django.shortcuts import render
 from loadModels import validate, populate_models
 from unloadModels import receive_import
 import subprocess
+#from getDbModel.py import getCrisis, getPerson, getOrg
 
 """
 Views.py renders the view specified by a url.
 """
 
 imported_models = {}
+  
+
 
 def crisisView(request, crisis_id):
   """
@@ -27,6 +30,9 @@ def crisisView(request, crisis_id):
   else:
     return HttpResponse("no such path")
 
+  #Soon to be replaced with
+  #getCrisis(id)
+
 def orgsView(request, orgs_id):
   """
   Renders view for organizations.
@@ -40,6 +46,9 @@ def orgsView(request, orgs_id):
   else :
     return HttpResponse("not such path")
 
+  #Soon to be replaced with
+  #getOrg(id)
+
 def peopleView(request, people_id):
   """
   Renders view for people.
@@ -52,6 +61,9 @@ def peopleView(request, people_id):
     return render(request, 'wcdb/PER_TTHBLD.html')
   else :
     return HttpResponse('not such path')
+
+  #Soon to be replaced with
+  #getPerson(people_id)
 
 def index(request):
   """
@@ -96,8 +108,15 @@ def importView(request):
         #populate models returns a dictionary where the keys are 'crises', 'organizations' , 'people'
         #and the values are corresponding lists of crisis, organization, and person models
         #filled_models = populate_models(e_tree)
+
+        #populate models should be changed to not return anything
+        #everything that used to be returned by the dict should be accessed through the db
         global imported_models
         imported_models = populate_models(e_tree)
+
+        #Dynamically access model data from the db instead of using dict at this point
+        
+
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': False})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
