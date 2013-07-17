@@ -15,6 +15,9 @@ def crisisView(request, crisis_id):
   """
   Renders view for crises.
   """
+  '''
+  {'name': name, 'kind': kind, 'date': data, ...}
+  '''
   if crisis_id == '1':
     return render(request, 'wcdb/CRI_NSAWRT.html')
   elif crisis_id == '2':
