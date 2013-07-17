@@ -4,6 +4,7 @@
 	<!-- <link rel="stylesheet" type="text/css" href="/static/css/style.css"></link> -->
 	<link rel="stylesheet" type="text/css" href="/static/css/layout.css"></link>
 	<link rel="stylesheet" type="text/css" href="/static/css/personal-info.css"></link>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-overrides.css"></link>
 	<script type="text/javascript" src="/static/js/jquery.js"></script>
 	<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 </head>
@@ -23,7 +24,7 @@
 	            <ul class="nav">
 	                <li><a href="/import">Import</a></li>
 	                <li><a href="/export">Export</a></li>
-	                <li><a href="/unitests">Unittests</a></li>
+	                <li><a href="/unittests">Unittests</a></li>
 	            </ul>
 	        </div>
 	    </div>
@@ -32,8 +33,12 @@
 
 	<div class="content wide-content">
 		<div class="container-fluid">
-			{% block content %}
-			{% endblock content %}
+			<div class="settings-wrapper" id="pad-wrapper">
+				<div class="span12">
+					{% block content %}
+					{% endblock content %}
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
