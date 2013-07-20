@@ -14,7 +14,6 @@
         <Kind>Civil Liberties</Kind>
         <Date>2013-06-06</Date>
         <Locations>
-            <li></li>
             <li>United States of America</li>
             <li>Hong Kong</li>
             <li>Moscow</li>
@@ -98,7 +97,6 @@
       <Kind>agency of the U.S. federal government which was created for the purpose of protecting human health and the environment by writing and enforcing regulations based on laws passed by Congress</Kind>
       <Date>2005-01-01</Date>
       <Locations>
-        <li></li>
         <li>Belgium</li>
         <li>France</li>
         <li>Netherlands</li>
@@ -161,7 +159,6 @@
         <Kind>Natural disaster</Kind>
         <Date>2011-09-04</Date>
         <Locations>
-            <li></li>
             <li>Texas</li>
         </Locations>
         <HumanImpact>
@@ -775,15 +772,15 @@
             <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/wB4Gn0u4DSE" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
             <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/qiWpJuUWqOA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
         </Videos>
-        <Feeds>
-            <li href="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook page</li>
-            <li href="https://twitter.com/EJosephSnowden">Edward Snowden's Twitter page</li>
-        </Feeds>
         <Maps>
             <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=bolivia&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bolivia&amp;z=5&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=bolivia&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bolivia&amp;z=5" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
             <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=hong+kong&amp;aq=&amp;sll=-16.299051,-63.588867&amp;sspn=39.46404,67.631836&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Hong+Kong&amp;z=9&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=hong+kong&amp;aq=&amp;sll=-16.299051,-63.588867&amp;sspn=39.46404,67.631836&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Hong+Kong&amp;z=9" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
             <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=22.395793,114.109497&amp;sspn=2.419894,4.22699&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=60.75916,91.933594&amp;spn=30.757311,74.707031&amp;z=3&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=22.395793,114.109497&amp;sspn=2.419894,4.22699&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=60.75916,91.933594&amp;spn=30.757311,74.707031&amp;z=3" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
         </Maps>
+        <Feeds>
+            <li href="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook page</li>
+            <li href="https://twitter.com/EJosephSnowden">Edward Snowden's Twitter page</li>
+        </Feeds>
         <Summary>Edward Snowden is a whistleblower who revealed the NSA's PRISM surveillance program. Throughout his life, he has had a history of working in defense of the US government, first as a Special Forces recruit, then as an NSA security guard, and finally as a private contractor working for Booz Allen Hamilton inside the NSA at the Kunia Regional SIGINT Operations Center in Hawaii. He grew increasingly unsettled as he learned just how far the US government was going with its surveillance program and believed that the decision of how far the US government was allowed to go lay with the American people and not with the NSA or the executive branch. In an attempt to correct the situation, he released information about the NSA's PRISM surveillance program to The Guardian's Glenn Greenwald and fled the US to first Hong Kong and later Russia. Currently, he is trapped in Moscow Airport, attempting to gain political asylum and safe transport to another country.</Summary>
     </Common>
 </Person>
