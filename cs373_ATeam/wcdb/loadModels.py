@@ -19,20 +19,28 @@ def populate_models(tree) :
 	"""
 	e_root = tree.getroot()
 
+	for crisis in e_root.findall("Crisis"):
+		populate_crisis(crisis)
+
 	#populate Crisis models
-	crises = []
-	populate_crisis(e_root, crises)
+	#crises = []
+	#populate_crisis(e_root, crises)
 
+
+	for person in e_root.findall("Person"):
+			populate_person(person)
 	#populate Person models
-	people = []
-	populate_person(e_root, people)
+	#people = []
+	#populate_person(e_root, people)
 
+	for organization in e_root.findall("Organization"):
+		populate_org(organization)
 	#populate Org models
-	organizations    = []
-	populate_org(e_root, organizations)
+	#organizations    = []
+	#populate_org(e_root, organizations)
 
-	filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
-	return filled_models
+	#filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
+	#return filled_models
 
 
 def populate_crisis(root) :
