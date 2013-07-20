@@ -28,15 +28,13 @@ class Li(models.Model) :
     text          =  models.CharField(max_length=200)
     #text not in the attributes; not Li
     floating_text =  models.CharField(max_length=200)
-    crisis_ID     =  models.CharField(max_length=200)
-    org_ID        =  models.CharField(max_length=200)
-    person_ID     =  models.CharField(max_length=200)
+    model_id      =  models.CharField(max_length=200)
     kind          =  models.CharField(max_length=200)
     #only if type is citation
 
 
 
-    def populate(self, e_node) :
+    def populate(self, e_node, modl_id, item_type) :
         """
         Non-static method expects an element node as a parameter.
         Uses node to populate attributues of a Li object
@@ -45,6 +43,9 @@ class Li(models.Model) :
         self.embed         = e_node.get("embed")
         self.text          =  e_node.get("text")
         self.floating_text =         e_node.text
+        self.model_id      =             modl_id            
+        self.kind          =           item_type
+
 
     #Check for presence of "&" invalid XML char
     def clean_li_xml (self, dirty) : 
