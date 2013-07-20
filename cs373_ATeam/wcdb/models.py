@@ -23,18 +23,18 @@ class Li(models.Model) :
     and alt text. The floating_text attribute is to catch any text not in attributes.
     """
     #Li
-    def __init__(self):
-        self.href          =  models.CharField(max_length=200)
-        self.embed         =  models.CharField(max_length=200)
-        self.text          =  models.CharField(max_length=200)
-        #text not in the attributes; not Li
-        self.floating_text =  models.CharField(max_length=200)
-        self.crisis_ID     =  models.CharField(max_length=200)
-        self.org_ID        =  models.CharField(max_length=200)
-        self.person_ID     =  models.CharField(max_length=200)
-        self.type          =  models.CharField(max_length=200)
-        #only if type is citation
-        self.cite_nbr      = models.IntegerField(max_length=6)
+    href          =  models.CharField(max_length=200)
+    embed         =  models.CharField(max_length=200)
+    text          =  models.CharField(max_length=200)
+    #text not in the attributes; not Li
+    floating_text =  models.CharField(max_length=200)
+    crisis_ID     =  models.CharField(max_length=200)
+    org_ID        =  models.CharField(max_length=200)
+    person_ID     =  models.CharField(max_length=200)
+    kind          =  models.CharField(max_length=200)
+    #only if type is citation
+
+
 
     def populate(self, e_node) :
         """
@@ -199,25 +199,23 @@ class Crisis(models.Model) :
     """
     Crisis Model
     """
-
-    def __init__(self):
-        self.crisis_ID         = models.CharField(max_length=200)
-        self.name              = models.CharField(max_length=200)
-        self.kind              = models.CharField(max_length=200)
-        self.date              = models.CharField(max_length=200)
-        self.time              = models.CharField(max_length=200)
-        self.people            = []
-        self.organizations     = []
-        #Li list
-        #locations, human_impact, economic_impact is always floating text
-        self.locations         = []
-        self.human_impact      = []
-        self.economic_impact   = []
-        self.resources_needed  = []
-        self.ways_to_help      = []
-        #common
-        self.common            = Common()
-        self.common_summary    = models.CharField(max_length=2000)
+    crisis_ID         = models.CharField(max_length=200)
+    name              = models.CharField(max_length=200)
+    kind              = models.CharField(max_length=200)
+    date              = models.CharField(max_length=200)
+    time              = models.CharField(max_length=200)
+    people            = []
+    organizations     = []
+    #Li list
+    #locations, human_impact, economic_impact is always floating text
+    locations         = []
+    human_impact      = []
+    economic_impact   = []
+    resources_needed  = []
+    ways_to_help      = []
+    #common
+    common            = Common()
+    common_summary    = models.CharField(max_length=2000)
 
 
 class Person(models.Model) :
@@ -225,50 +223,37 @@ class Person(models.Model) :
     Person Model
     """
 
-    def __init__(self):
-        self.person_ID         = models.CharField(max_length=200)
-        self.name              = models.CharField(max_length=200)
-        self.kind              = models.CharField(max_length=200)
-        self.location          = models.CharField(max_length=200)
-        self.crises            = []
-        self.organizations     = []
-        #Li list
-        #locations, human_impact, economic_impact is always floating text
-        #common
-        self.common            = Common()
-        self.common_summary    = models.CharField(max_length=2000)
+    person_ID         = models.CharField(max_length=200)
+    name              = models.CharField(max_length=200)
+    kind              = models.CharField(max_length=200)
+    location          = models.CharField(max_length=200)
+    crises            = []
+    organizations     = []
+    #Li list
+    #locations, human_impact, economic_impact is always floating text
+    #common
+    common            = Common()
+    common_summary    = models.CharField(max_length=2000)
+        
     
 
 class Org(models.Model) :
     """
     Organization Model
     """
-    org_ID      = models.CharField(max_length=200)
-    name        = models.CharField(max_length=200)
-    kind        = models.CharField(max_length=200)
-    location    = models.CharField(max_length=200)
-    crises      = []
-    people      = []
+    org_ID         = models.CharField(max_length=200)
+    name           = models.CharField(max_length=200)
+    kind           = models.CharField(max_length=200)
+    location       = models.CharField(max_length=200)
+    crises         = []
+    people         = []
     #Li list
-    history     = []
-    contact     = []
+    history        = []
+    contact        = []
     #Common
-    common      = Common()
+    common         = Common()
+    common_summary = models.CharField(max_length=2000)
 
-    def __init__(self):
-        self.org_ID            = models.CharField(max_length=200)
-        self.name              = models.CharField(max_length=200)
-        self.kind              = models.CharField(max_length=200)
-        self.location          = models.CharField(max_length=200)
-        self.people            = []
-        self.crises            = []
-        #Li list
-        #locations, human_impact, economic_impact is always floating text
-        self.history           = []
-        self.contact           = []
-        #common
-        self.common            = Common()
-        self.common_summary    = models.CharField(max_length=2000)
 
 
 
