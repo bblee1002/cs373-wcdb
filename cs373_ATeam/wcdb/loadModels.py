@@ -2,7 +2,7 @@ import sys
 from genxmlif import GenXmlIfError
 from minixsv import pyxsval
 from django.conf import settings
-from models import Crisis, Person, Org, Li, Common, list_add
+from models import Crisis, Person, Org, Li, Common, Relations, list_add
 import xml.etree.ElementTree as ET
 
 """
@@ -43,7 +43,7 @@ def populate_models(tree) :
 	#return filled_models
 
 
-def populate_crisis(root, list) :
+def populate_crisis(root) :
 	"""
 	Function expects a node in an element tree and a list as parameters. Find instances of crisis
 	in the tree and adds it to the list
@@ -60,10 +60,14 @@ def populate_crisis(root, list) :
 			temp_crisis.time      = crisis.find("Time").text
 		#populating people
 		for person in crisis.iter("Person") or [] :
-			list_add(temp_crisis.people, person.get("ID"))
+			temp_relations = Relations()
+			temp_relations.populate(c_id = crisis.get("Name"), p_id = person.get("Name"))
+			temp_relations.save()
 		#populating organizations
 		for org in crisis.iter("Org") or [] :
-			list_add(temp_crisis.organizations, org.get("ID"))
+			temp_relations = Relations()
+			temp_relations.populate(c_id = crisis.get("Name"), o_id = org.get("Name"))
+			temp_relations.save()
 
 		for location in crisis.find("Locations") or [] :
 			temp_li = Li()
