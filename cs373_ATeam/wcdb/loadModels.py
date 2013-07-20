@@ -25,10 +25,21 @@ def populate_models(tree) :
 	#return filled_models
 
 def populate_li(root, modl_id, tag):
-    for li in root.find(tag) or [] :
+	outer_node = root.find(tag)
+	if outer_node is not None:
+		for li in outer_node or [] :
             temp_li = Li()
             temp_li.populate(li, modl_id, tag)
             temp_li.save()
+
+def populate_common(node, modl_id, model_instance):
+	found_common = node.find('Common')
+	if found_common is not None:
+		common = Common()
+		common.populate(found_common, modelInstance, modl_id)
+		found_summary = found_common.find("Summary")
+		if found_summary is not None:
+				model_instance.common_summary = found_summary.text
 
 def populate_crisis(root) :
 	"""
@@ -62,20 +73,24 @@ def populate_crisis(root) :
 		populate_li(crisis, crisis.get("ID"), "ResourcesNeeded")
 		populate_li(crisis, crisis.get("ID"), "WaysToHelp")
 
-		# for location in crisis.find("Locations") or [] :
-		# 	temp_li = Li()
-		# 	temp_li.populate(location, crisis.get("ID"), "Locations")
-		# 	list_add(temp_crisis.locations, temp_li)
+		populate_common(crisis, crisis.get("ID"), temp_crisis)
 
-		#populating common fields
-		found_common = crisis.find('Common')
-		if found_common is not None:
-			temp_crisis.common.populate(found_common)
+		temp_crisis.save()
+
+		# # for location in crisis.find("Locations") or [] :
+		# # 	temp_li = Li()
+		# # 	temp_li.populate(location, crisis.get("ID"), "Locations")
+		# # 	list_add(temp_crisis.locations, temp_li)
+
+		# #populating common fields
+		# found_common = crisis.find('Common')
+		# if found_common is not None:
+		# 	temp_crisis.common.populate(found_common)
 
 
 
 		#add populated crisis model to list
-		temp_crisis.save()
+
 
 def populate_person(root) :
 	"""

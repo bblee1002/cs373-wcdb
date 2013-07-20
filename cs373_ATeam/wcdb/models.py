@@ -92,15 +92,15 @@ class Common() :
     The floating_text attribute is to catch any text not in attributes.
     """
     #Common
-    def __init__(self):
-        self.citations      = []
-        self.external_links = []
-        self.images         = []
-        self.videos         = []
-        self.maps           = []
-        self.feeds          = []
-        #similar to floating text
-        #self.summary        = None
+    # def __init__(self):
+    #     self.citations      = []
+    #     self.external_links = []
+    #     self.images         = []
+    #     self.videos         = []
+    #     self.maps           = []
+    #     self.feeds          = []
+    #     #similar to floating text
+    #     #self.summary        = None
 
     def populate(self, e_node, modl_id) :
         """
@@ -113,6 +113,48 @@ class Common() :
         populate_li(e_node, modl_id, "Videos")
         populate_li(e_node, modl_id, "Maps")
         populate_li(e_node, modl_id, "Feeds")
+        
+
+
+
+        for child in e_node:
+                temp_li = Li()
+                temp_li.populate()
+        for citation in e_node.find("Citations") or [] :
+            temp_li = Li()
+            temp_li.populate(citation)
+            self.citations.append(temp_li)
+
+        for link in e_node.find("ExternalLinks") or [] :
+            temp_li = Li()
+            temp_li.populate(link)
+            self.external_links.append(temp_li)
+
+        for image in e_node.find("Images") or [] :
+            temp_li = Li()
+            temp_li.populate(image)
+            self.images.append(temp_li)
+
+        for video in e_node.find("Videos") or [] :
+            temp_li = Li()
+            temp_li.populate(video)
+            self.videos.append(temp_li)
+
+        for map in e_node.find("Maps") or [] :
+            temp_li = Li()
+            temp_li.populate(map)
+            self.maps.append(temp_li)
+
+        for feed in e_node.find("Feeds") or [] :
+            temp_li = Li()
+            temp_li.populate(feed)
+            self.feeds.append(temp_li)
+
+
+        # find_summary = e_node.find("Summary")
+        # if find_summary is not None :
+        #     self.summary = find_summary.text
+
 
     def xml_from_li(self, root_str, item_list) :
         """
