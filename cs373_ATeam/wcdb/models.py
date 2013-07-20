@@ -193,7 +193,20 @@ class Common() :
         #Conclude common xml instance string
         return self_string
 
-
+class Relations(models.Model) :
+    """
+    Relation model maintaining relationships between Crisis, Person, and Org models
+    """
+    crisis_ID = models.CharField(max_length=200)
+    person_ID = models.CharField(max_length=200)
+    org_ID    = models.CharField(max_length=200)
+    def populate(self, c_id = None, p_id = None, o_id = None) :
+        if c_id is not None :
+            self.crisis_ID = c_id
+        if p_id is not None :
+            self.person_ID = p_id
+        if o_id is not None :
+            self.org_ID = o_id
 
 class Crisis(models.Model) :
     """
@@ -204,6 +217,7 @@ class Crisis(models.Model) :
     kind              = models.CharField(max_length=200)
     date              = models.CharField(max_length=200)
     time              = models.CharField(max_length=200)
+    #relations models
     people            = []
     organizations     = []
     #Li list
@@ -227,6 +241,7 @@ class Person(models.Model) :
     name              = models.CharField(max_length=200)
     kind              = models.CharField(max_length=200)
     location          = models.CharField(max_length=200)
+    #relations models
     crises            = []
     organizations     = []
     #Li list
@@ -245,6 +260,7 @@ class Org(models.Model) :
     name           = models.CharField(max_length=200)
     kind           = models.CharField(max_length=200)
     location       = models.CharField(max_length=200)
+    #relations models
     crises         = []
     people         = []
     #Li list
