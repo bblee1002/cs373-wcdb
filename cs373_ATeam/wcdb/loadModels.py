@@ -28,9 +28,9 @@ def populate_li(root, modl_id, tag):
 	outer_node = root.find(tag)
 	if outer_node is not None:
 		for li in outer_node or [] :
-            temp_li = Li()
-            temp_li.populate(li, modl_id, tag)
-            temp_li.save()
+			temp_li = Li()
+			temp_li.populate(li, modl_id, tag)
+			temp_li.save()
 
 def populate_common(node, modl_id, model_instance):
 	found_common = node.find('Common')
