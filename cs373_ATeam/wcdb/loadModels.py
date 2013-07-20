@@ -42,6 +42,11 @@ def populate_models(tree) :
 	#filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
 	#return filled_models
 
+def populate_li(root, modl_id, tag):
+    for li in root.find(tag) or [] :
+            temp_li = Li()
+            temp_li.populate(li, modl_id, tag)
+            temp_li.save()
 
 def populate_crisis(root) :
 	"""
@@ -68,31 +73,17 @@ def populate_crisis(root) :
 			temp_relations = Relations()
 			temp_relations.populate(c_id = crisis.get("Name"), o_id = org.get("Name"))
 			temp_relations.save()
+		
+		populate_li(crisis, crisis.get("ID"), "Locations")
+		populate_li(crisis, crisis.get("ID"), "HumanImpact")
+		populate_li(crisis, crisis.get("ID"), "EconomicImpact")
+		populate_li(crisis, crisis.get("ID"), "ResourcesNeeded")
+		populate_li(crisis, crisis.get("ID"), "WaysToHelp")
 
-		for location in crisis.find("Locations") or [] :
-			temp_li = Li()
-			temp_li.populate(location)
-			list_add(temp_crisis.locations, temp_li)
-
-		for human_impact in crisis.find("HumanImpact") or [] :
-			temp_li = Li()
-			temp_li.populate(human_impact)
-			list_add(temp_crisis.human_impact, temp_li)
-
-		for economic_impact in crisis.find("EconomicImpact") or [] :
-			temp_li = Li()
-			temp_li.populate(economic_impact)
-			list_add(temp_crisis.economic_impact, temp_li)
-
-		for resource in crisis.find("ResourcesNeeded") or [] :
-			temp_li = Li()
-			temp_li.populate(resource)
-			list_add(temp_crisis.resources_needed, temp_li)
-
-		for help in crisis.find("WaysToHelp") or []:
-			temp_li = Li()
-			temp_li.populate(help)
-			list_add(temp_crisis.ways_to_help, temp_li)
+		# for location in crisis.find("Locations") or [] :
+		# 	temp_li = Li()
+		# 	temp_li.populate(location, crisis.get("ID"), "Locations")
+		# 	list_add(temp_crisis.locations, temp_li)
 
 		#populating common fields
 		found_common = crisis.find('Common')
