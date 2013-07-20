@@ -1,22 +1,93 @@
 {% extends "wcdb/default.html" %}
 
 {% block content %}
-	<div class="row">
-		<div class="span6">
-			<h1>The A Team</h1>
-			<ul>
-				<li>Paul Carroll</li>
-				<li>Shan R. Gupta</li>
-				<li>Brandon Lee</li>
-				<li>Eduardo Saenz</li>
-				<li>Olga Saprycheva</li>
-				<li>Shaelyn Watson</li>
-			</ul>
-		</div>
-		<div class="span6">
-		</div>
+	<link rel="stylesheet" type="text/css" href="/static/css/user-list.css"></link>
+	<!-- Members table -->
+	<div class="row-fluid table">
+		<div class="row-fluid header">
+			<div class="span3">
+			    <h1>The A Team</h1>
+			</div>
+			<div class="span6">
+				<table class="table table-hover">
+				    <thead>
+				        <tr>
+				            <th class="span4">
+				                Name
+				            </th>
+				            <th class="span4">
+				                <span class="line"></span>GitHub ID
+				            </th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				    <!-- row -->
+				    <tr>
+				        <td>
+				            <img src="" class="img-circle avatar hidden-phone" />
+				            Paul Carroll
+				        </td>
+				        <td>
+				            <a href="https://github.com/pvcarroll">pvcarroll</a>
+				        </td>
+				    </tr>
+				    <!-- row -->
+				    <tr>
+				        <td>
+				            <img src="" class="img-circle avatar hidden-phone" />
+				            Shan R. Gupta
+				        </td>
+				        <td>
+				            <a href="https://github.com/shanrgupta">shanrgupta</a>
+				        </td>
+				    </tr>
+				    <!-- row -->
+				    <tr>
+				        <td>
+				            <img src="" class="img-circle avatar hidden-phone" />
+				            Brandon Lee
+				        </td>
+				        <td>
+				            <a href="https://github.com/bblee1002">bblee1002</a>
+				        </td>
+				    </tr>
+				    <!-- row -->
+				    <tr>
+				        <td>
+				            <img src="" class="img-circle avatar hidden-phone" />
+				            Eduardo Saenz
+				        </td>
+				        <td>
+				            <a href="https://github.com/eddies5/">eddies5</a>
+				        </td>
+				    </tr>
+				    <!-- row -->
+				    <tr>
+				        <td>
+				            <img src="" class="img-circle avatar" />
+				            Olga Saprycheva
+				        </td>
+				        <td>
+				            <a href="https://github.com/osaprych">osaprych</a>
+				        </td>
+				    </tr>
+				    <!-- row -->
+				    <tr>
+				        <td>
+				            <img src="" class="img-circle avatar" />
+				            Shaelyn Watson
+				        </td>
+				        <td>
+				            <a href="https://github.com/Shaelyn-Watson">Shaelyn-Watson</a>
+				        </td>
+				    </tr>
+				    
+				    </tbody>
+				</table>
+			</div>
+		    
+	    </div>
 	</div>
-
 
 	<div class="row">
 		<div class="span4">
