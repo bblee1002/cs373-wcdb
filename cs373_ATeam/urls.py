@@ -5,7 +5,6 @@ from django.conf.urls.defaults import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
     url(r'^$', 'wcdb.views.index'),
     url(r'^import/$', 'wcdb.views.importView'),
     url(r'^crisis/(?P<crisis_id>\d)$', 'wcdb.views.crisisView'),
@@ -13,7 +12,12 @@ urlpatterns = patterns('',
     url(r'^people/(?P<people_id>\d)$', 'wcdb.views.peopleView'),
     url(r'^export/$', 'wcdb.views.exportView'),
     url(r'^unittests/$', 'wcdb.views.unittestsView'),
-    # url(r'^cs373_ATeam/', include('cs373_ATeam.foo.urls')),
+
+    '''
+    url(r'^crisis/(?P<crisis_id>CRI_[A-Z]{6})$', 'wcdb.views.crisisView'),
+    url(r'^orgs/(?P<orgs_id>ORG_[A-Z]{6})$', 'wcdb.views.orgsView'),
+    url(r'^people/(?P<people_id>PER_[A-Z]{6})$', 'wcdb.views.peopleView'),
+    '''
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
