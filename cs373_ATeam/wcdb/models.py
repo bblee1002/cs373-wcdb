@@ -1,12 +1,18 @@
 import os
 os.environ["DJANGO_SETTINGS_MODULE"] = "cs373_ATeam.settings"
 from django.db import models
-from loadModels import populate_li
 
 """
 File containing definitions for our Django models and any relevant classes and function
 """
 
+def populate_li(root, modl_id, tag):
+    outer_node = root.find(tag)
+    if outer_node is not None:
+        for li in outer_node or [] :
+            temp_li = Li()
+            temp_li.populate(li, modl_id, tag)
+            temp_li.save()
 
 def list_add(m_list, id) :
     """
@@ -113,7 +119,7 @@ class Common() :
         populate_li(e_node, modl_id, "Videos")
         populate_li(e_node, modl_id, "Maps")
         populate_li(e_node, modl_id, "Feeds")
-        
+
 
 
 

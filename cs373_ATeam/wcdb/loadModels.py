@@ -2,7 +2,7 @@ import sys
 from genxmlif import GenXmlIfError
 from minixsv import pyxsval
 from django.conf import settings
-from models import Crisis, Person, Org, Li, Common, Relations
+from models import Crisis, Person, Org, Li, Common, Relations, populate_li
 import xml.etree.ElementTree as ET
 
 """
@@ -24,13 +24,13 @@ def populate_models(tree) :
 	#filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
 	#return filled_models
 
-def populate_li(root, modl_id, tag):
-	outer_node = root.find(tag)
-	if outer_node is not None:
-		for li in outer_node or [] :
-            temp_li = Li()
-            temp_li.populate(li, modl_id, tag)
-            temp_li.save()
+# def populate_li(root, modl_id, tag):
+# 	outer_node = root.find(tag)
+# 	if outer_node is not None:
+# 		for li in outer_node or [] :
+# 			temp_li = Li()
+# 			temp_li.populate(li, modl_id, tag)
+# 			temp_li.save()
 
 def populate_common(node, modl_id, model_instance):
 	found_common = node.find('Common')
@@ -148,7 +148,7 @@ def populate_org(root) :
 
 		populate_common(org, org.get("ID"), temp_org)
 		temp_org.save()
-		
+
 def validate(file_in) :
 	"""
 	Function expects a file as a parameter. Checks if file is a valid xml file.
