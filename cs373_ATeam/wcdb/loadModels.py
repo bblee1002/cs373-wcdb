@@ -39,8 +39,9 @@ def populate_common(node, modl_id, model_instance):
 		common = Common()
 		common.populate(found_common, modl_id)
 		found_summary = found_common.find("Summary")
-		if found_summary is not None:
-				model_instance.common_summary = found_summary.text
+
+		if found_summary is not None and found_summary is not "" :
+			model_instance.common_summary = found_summary.text
 
 def populate_crisis(root) :
 	"""
@@ -130,6 +131,7 @@ def populate_org(root) :
 		temp_org.org_ID   =             org.get("ID")
 		temp_org.name     =           org.get("Name")
 		if org.find("Kind") is not None :
+			print "GGGUUUTTEEENNNNTTTTAAAAGGGG", org.find("Kind").text
 			temp_org.kind     =     org.find("Kind").text
 		if org.find("Location") is not None :
 			temp_org.location = org.find("Location").text
