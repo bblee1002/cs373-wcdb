@@ -2,23 +2,37 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/style.css"></link>
+	<link rel="stylesheet" type="text/css" href="/static/css/layout.css"></link>
+	<link rel="stylesheet" type="text/css" href="/static/css/personal-info.css"></link>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-overrides.css"></link>
 	<script type="text/javascript" src="/static/js/jquery.js"></script>
 	<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="navbar">
-			<div class="navbar-inner">
-				<ul class="nav">
-					<li><a href="/">Home</a></li>
-					<li><a href="/import">Import</a></li>
-					<li><a href="/export">Export</a></li>
-					<li><a href="/unittests">Unittests</a></li>
-				</ul>
+
+
+	<!-- navbar -->
+	<div class="navbar navbar-inverse">
+	    <div class="navbar-inner">
+	        <a class="brand" href="/">HOME</a>
+	        <div class="nav-collapse collapse">
+	            <ul class="nav">
+	                <li><a href="/import">Import</a></li>
+	                <li><a href="/export">Export</a></li>
+	                <li><a href="/unittests">Unittests</a></li>
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+	<!-- end navbar -->
+
+	<div class="content wide-content">
+		<div class="container-fluid">
+			<div class="settings-wrapper" id="pad-wrapper">
+				{% block content %}
+				{% endblock content %}
 			</div>
 		</div>
-		{% block content %}
-		{% endblock content %}
 	</div>
 </body>
 

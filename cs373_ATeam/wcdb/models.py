@@ -17,23 +17,24 @@ def list_add(m_list, id) :
 
 
 
-class Li() :
+class Li(models.Model) :
     """
     Class for the List tag in the unified xml schema. Contains a field for an href, embedded link, 
     and alt text. The floating_text attribute is to catch any text not in attributes.
     """
     #Li
-    href          = None
-    embed         = None
-    text          = None
-    #text not in the attributes; not Li
-    floating_text = None
     def __init__(self):
-        href          = None
-        embed         = None
-        text          = None
+        self.href          =  models.CharField(max_length=200)
+        self.embed         =  models.CharField(max_length=200)
+        self.text          =  models.CharField(max_length=200)
         #text not in the attributes; not Li
-        floating_text = None
+        self.floating_text =  models.CharField(max_length=200)
+        self.crisis_ID     =  models.CharField(max_length=200)
+        self.org_ID        =  models.CharField(max_length=200)
+        self.person_ID     =  models.CharField(max_length=200)
+        self.type          =  models.CharField(max_length=200)
+        #only if type is citation
+        self.cite_nbr      = models.IntegerField(max_length=6)
 
     def populate(self, e_node) :
         """
@@ -89,14 +90,6 @@ class Common() :
     The floating_text attribute is to catch any text not in attributes.
     """
     #Common
-    citations      = []
-    external_links = []
-    images         = []
-    videos         = []
-    maps           = []
-    feeds          = []
-    #similar to floating text
-    summary        = None
     def __init__(self):
         self.citations      = []
         self.external_links = []
@@ -105,7 +98,7 @@ class Common() :
         self.maps           = []
         self.feeds          = []
         #similar to floating text
-        self.summary        = None
+        #self.summary        = None
 
     def populate(self, e_node) :
         """
@@ -143,9 +136,9 @@ class Common() :
             self.feeds.append(temp_li)
 
 
-        find_summary = e_node.find("Summary")
-        if find_summary is not None :
-            self.summary = find_summary.text
+        # find_summary = e_node.find("Summary")
+        # if find_summary is not None :
+        #     self.summary = find_summary.text
 
 
     def xml_from_li(self, root_str, item_list) :
@@ -206,29 +199,13 @@ class Crisis(models.Model) :
     """
     Crisis Model
     """
-    crisis_ID         = models.CharField(max_length=200)
-    name              = models.CharField(max_length=200)
-    kind              = models.CharField(max_length=200)
-    date              = models.CharField(max_length=200)
-    time              = models.CharField(max_length=200)
-    people            = []
-    organizations     = []
-    #Li list
-    #locations, human_impact, economic_impact is always floating text
-    locations         = []
-    human_impact      = []
-    economic_impact   = []
-    resources_needed  = []
-    ways_to_help      = []
-    #common
-    common            = Common()
 
     def __init__(self):
-        self.crisis_ID         = None
-        self.name              = None
-        self.kind              = None
-        self.date              = None
-        self.time              = None
+        self.crisis_ID         = models.CharField(max_length=200)
+        self.name              = models.CharField(max_length=200)
+        self.kind              = models.CharField(max_length=200)
+        self.date              = models.CharField(max_length=200)
+        self.time              = models.CharField(max_length=200)
         self.people            = []
         self.organizations     = []
         #Li list
@@ -240,31 +217,26 @@ class Crisis(models.Model) :
         self.ways_to_help      = []
         #common
         self.common            = Common()
+        self.common_summary    = models.CharField(max_length=2000)
 
 
 class Person(models.Model) :
     """
     Person Model
     """
-    person_ID         = models.CharField(max_length=200)
-    name              = models.CharField(max_length=200)
-    kind              = models.CharField(max_length=200)
-    location          = models.CharField(max_length=200)
-    common            =                         Common()
-    crises            = []
-    organizations     = []
 
     def __init__(self):
-        self.person_ID         = None
-        self.name              = None
-        self.kind              = None
-        self.location          = None
+        self.person_ID         = models.CharField(max_length=200)
+        self.name              = models.CharField(max_length=200)
+        self.kind              = models.CharField(max_length=200)
+        self.location          = models.CharField(max_length=200)
         self.crises            = []
         self.organizations     = []
         #Li list
         #locations, human_impact, economic_impact is always floating text
         #common
         self.common            = Common()
+        self.common_summary    = models.CharField(max_length=2000)
     
 
 class Org(models.Model) :
@@ -284,10 +256,10 @@ class Org(models.Model) :
     common      = Common()
 
     def __init__(self):
-        self.org_ID            = None
-        self.name              = None
-        self.kind              = None
-        self.location          = None
+        self.org_ID            = models.CharField(max_length=200)
+        self.name              = models.CharField(max_length=200)
+        self.kind              = models.CharField(max_length=200)
+        self.location          = models.CharField(max_length=200)
         self.people            = []
         self.crises            = []
         #Li list
@@ -296,6 +268,7 @@ class Org(models.Model) :
         self.contact           = []
         #common
         self.common            = Common()
+        self.common_summary    = models.CharField(max_length=2000)
 
 
 
