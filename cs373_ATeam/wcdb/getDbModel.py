@@ -7,7 +7,7 @@ Views.py renders the view specified by a url.
 
 def getCrisis(id):
   """
-   Added for Phase2 implementation
+  Added for Phase2 implementation
   Returns dictionary of individual crisis data
   dict of form = 
   """

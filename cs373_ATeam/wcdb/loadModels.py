@@ -2,7 +2,7 @@ import sys
 from genxmlif import GenXmlIfError
 from minixsv import pyxsval
 from django.conf import settings
-from models import Crisis, Person, Org, Li, Common, list_add
+from models import Crisis, Person, Org, Li, Common, Relations, list_add
 import xml.etree.ElementTree as ET
 
 """
@@ -19,23 +19,31 @@ def populate_models(tree) :
 	"""
 	e_root = tree.getroot()
 
+	for crisis in e_root.findall("Crisis"):
+		populate_crisis(crisis)
+
 	#populate Crisis models
-	crises = []
-	populate_crisis(e_root, crises)
+	#crises = []
+	#populate_crisis(e_root, crises)
 
+
+	for person in e_root.findall("Person"):
+			populate_person(person)
 	#populate Person models
-	people = []
-	populate_person(e_root, people)
+	#people = []
+	#populate_person(e_root, people)
 
+	for organization in e_root.findall("Organization"):
+		populate_org(organization)
 	#populate Org models
-	organizations    = []
-	populate_org(e_root, organizations)
+	#organizations    = []
+	#populate_org(e_root, organizations)
 
-	filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
-	return filled_models
+	#filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
+	#return filled_models
 
 
-def populate_crisis(root, list) :
+def populate_crisis(root) :
 	"""
 	Function expects a node in an element tree and a list as parameters. Find instances of crisis
 	in the tree and adds it to the list
@@ -52,10 +60,14 @@ def populate_crisis(root, list) :
 			temp_crisis.time      = crisis.find("Time").text
 		#populating people
 		for person in crisis.iter("Person") or [] :
-			list_add(temp_crisis.people, person.get("ID"))
+			temp_relations = Relations()
+			temp_relations.populate(c_id = crisis.get("Name"), p_id = person.get("Name"))
+			temp_relations.save()
 		#populating organizations
 		for org in crisis.iter("Org") or [] :
-			list_add(temp_crisis.organizations, org.get("ID"))
+			temp_relations = Relations()
+			temp_relations.populate(c_id = crisis.get("Name"), o_id = org.get("Name"))
+			temp_relations.save()
 
 		for location in crisis.find("Locations") or [] :
 			temp_li = Li()

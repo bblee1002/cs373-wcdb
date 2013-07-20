@@ -122,9 +122,9 @@ def importView(request):
 
         #populate models should be changed to not return anything
         #everything that used to be returned by the dict should be accessed through the db
-        global imported_models
-        imported_models = populate_models(e_tree)
-
+        #global imported_models
+        #imported_models = populate_models(e_tree)
+        populate_models(e_tree)
         #Dynamically access model data from the db instead of using dict at this point
         
 
