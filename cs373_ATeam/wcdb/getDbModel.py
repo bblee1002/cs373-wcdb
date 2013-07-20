@@ -1,4 +1,4 @@
-from models import Crisis, Person, Org
+from models import Crisis, Person, Org, Relations, Li
 
 """
 Views.py renders the view specified by a url.
@@ -11,7 +11,45 @@ def getCrisis(id):
   Returns dictionary of individual crisis data
   dict of form = 
   """
-  pass
+  crisis = Crisis.objects.get(crisis_ID = id)
+  print crisis
+  crisis_dict = {}
+
+  # #Create keys of dict and give values
+  crisis_dict['name'] = crisis.name
+
+  # if person.kind is not None :
+  crisis_dict['kind'] = crisis.kind
+
+  # if person.location is not None :
+  crisis_dict['date'] = crisis.date
+
+  crisis_dict['time'] = crisis.time
+
+  temp_person = []
+  temp_orgs = []
+  temp_list = Relations.objects.filter(crisis_ID = id)
+
+  for a in temp_list :
+    if a.person_ID != None:
+      temp_person.append(a.person_ID)
+    if a.org_ID != None:
+      temp_orgs.append(a.org_ID)
+
+  crisis_dict['people'] = temp_person
+  crisis_dict['organizations'] = temp_orgs
+
+  common_dict = {'citations': [], 'external_links': [], 'images': [], 'videos': [], 'maps': [], 'feeds': [], 'summary': []}
+
+  temp_list = []
+  temp_list = Li.objects.filter(model_id = id)
+
+  for a in temp_list :
+    common_dict[a.kind].append(a)
+
+  crisis_dict['common'] = common_dict
+
+  return crisis_dict
 
 def getPerson(id):
   """
@@ -27,8 +65,8 @@ def getPerson(id):
 
   #***needs to be hooked up
   #when back end is ready
-  person = Person.objects.filter(person_ID = id)
-
+  person = Person.objects.get(person_ID = id)
+  print person
   person_dict = {}
 
   # #Create keys of dict and give values
@@ -48,7 +86,7 @@ def getPerson(id):
     if a.crisis_ID != None:
       temp_crisis.append(a.crisis_ID)
     if a.org_ID != None:
-      temp_orgs.append(a.crisis_ID)
+      temp_orgs.append(a.org_ID)
 
   person_dict['crises'] = temp_crisis
   person_dict['organizations'] = temp_orgs
@@ -56,7 +94,7 @@ def getPerson(id):
   common_dict = {'citations': [], 'external_links': [], 'images': [], 'videos': [], 'maps': [], 'feeds': [], 'summary': []}
 
   temp_list = []
-  temp_list = Li.objects.filter(person_ID = id)
+  temp_list = Li.objects.filter(model_id = id)
 
   for a in temp_list :
     common_dict[a.kind].append(a)
@@ -90,13 +128,49 @@ def getPerson(id):
   return person_dict
 
 
-def getOrg(org):
+def getOrg(id):
   """
   Added for Phase2 implementation
   Returns dictionary of individual organization data
   dict of form = 
   """
-  pass
+  org = Org.objects.get(org_ID = id)
+  print org
+  org_dict = {}
+
+  # #Create keys of dict and give values
+  org_dict['name'] = org.name
+
+  # if person.kind is not None :
+  org_dict['kind'] = org.kind
+
+  # if person.location is not None :
+  org_dict['location'] = org.location
+
+  temp_people = []
+  temp_crisis = []
+  temp_list = Relations.objects.filter(org_ID = id)
+
+  for a in temp_list :
+    if a.crisis_ID != None:
+      temp_crisis.append(a.crisis_ID)
+    if a.person_ID != None:
+      temp_people.append(a.person_ID)
+
+  org_dict['crises'] = temp_crisis
+  org_dict['people'] = temp_people
+
+  common_dict = {'citations': [], 'external_links': [], 'images': [], 'videos': [], 'maps': [], 'feeds': [], 'summary': []}
+
+  temp_list = []
+  temp_list = Li.objects.filter(model_id = id)
+
+  for a in temp_list :
+    common_dict[a.kind].append(a)
+
+  org_dict['common'] = common_dict
+
+  return org_dict
 
 def getCrisisIDs():
   '''
