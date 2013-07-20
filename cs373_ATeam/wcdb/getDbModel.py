@@ -80,18 +80,30 @@ def getCrisisIDs():
   return {"crisisName": "id"}
   returns a dict of the crisis IDs so that front-end can present correct url
   '''
-  pass
+  objects = Crisis.objects.all()
+  ids = {}
+  for o in objects:
+    ids[o.name] = o.crisis_ID
+  return ids
 
 def getOrgIDs():
   '''
   return {"orgName": "id"}
   returns a dict of the org IDs so that front-end can present correct url
   '''
-  pass
+  objects = Org.objects.all()
+  ids = {}
+  for o in objects:
+    ids[o.name] = o.org_ID
+  return ids
 
 def getPeopleIDs():
   '''
   return {"personName": "id"}
   returns a dict of the person IDs so that front-end can present correct url
   '''
-  pass
+  objects = Person.objects.all()
+  ids = {}
+  for o in objects:
+    ids[o.name] = o.person_ID
+  return ids
