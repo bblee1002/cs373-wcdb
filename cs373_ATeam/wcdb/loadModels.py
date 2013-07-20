@@ -2,7 +2,7 @@ import sys
 from genxmlif import GenXmlIfError
 from minixsv import pyxsval
 from django.conf import settings
-from models import Crisis, Person, Org, Li, Common, Relations, list_add
+from models import Crisis, Person, Org, Li, Common, Relations
 import xml.etree.ElementTree as ET
 
 """
@@ -18,27 +18,9 @@ def populate_models(tree) :
 	this funciton.
 	"""
 	e_root = tree.getroot()
-
-	for crisis in e_root.findall("Crisis"):
-		populate_crisis(crisis)
-
-	#populate Crisis models
-	#crises = []
-	#populate_crisis(e_root, crises)
-
-
-	for person in e_root.findall("Person"):
-			populate_person(person)
-	#populate Person models
-	#people = []
-	#populate_person(e_root, people)
-
-	for organization in e_root.findall("Organization"):
-		populate_org(organization)
-	#populate Org models
-	#organizations    = []
-	#populate_org(e_root, organizations)
-
+	populate_crisis(e_root)
+	populate_person(e_root)
+	populate_org(e_root)
 	#filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
 	#return filled_models
 
@@ -104,6 +86,7 @@ def populate_person(root) :
 		temp_person             =                     Person()
 		temp_person.person_ID   =             person.get("ID")
 		temp_person.name        =           person.get("Name")
+
 		if person.find("Kind") is not None :
 			temp_person.kind        =     person.find("Kind").text
 		if person.find("Location") is not None :
