@@ -112,6 +112,7 @@ def populate_person(root, list) :
 		temp_person             =                     Person()
 		temp_person.person_ID   =             person.get("ID")
 		temp_person.name        =           person.get("Name")
+
 		if person.find("Kind") is not None :
 			temp_person.kind        =     person.find("Kind").text
 		if person.find("Location") is not None :

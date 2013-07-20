@@ -43,7 +43,7 @@ class Li(models.Model) :
         self.embed         = e_node.get("embed")
         self.text          =  e_node.get("text")
         self.floating_text =         e_node.text
-        self.model_id      =             modl_id            
+        self.model_id      =             modl_id
         self.kind          =           item_type
 
 
