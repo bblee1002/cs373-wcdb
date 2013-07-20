@@ -74,7 +74,6 @@ def populate_crisis(root) :
 		populate_li(crisis, crisis.get("ID"), "WaysToHelp")
 
 		populate_common(crisis, crisis.get("ID"), temp_crisis)
-
 		temp_crisis.save()
 
 		# # for location in crisis.find("Locations") or [] :
@@ -117,11 +116,7 @@ def populate_person(root) :
 			temp_relations.populate(p_id = person.get("ID"), o_id = org.get("ID"))
 			temp_relations.save()
 
-		#populating common fields
-		found_common = person.find('Common')
-		if found_common is not None :
-			temp_person.common.populate(found_common)
-
+		populate_common(person, person.get("ID"), temp_person)
 		temp_person.save()
 
 def populate_org(root) :
@@ -151,12 +146,9 @@ def populate_org(root) :
 		populate_li(org, org.get("ID"), "History")
 		populate_li(org, org.get("ID"), "ContactInfo")
 
-		found_common = org.find('Common')
-		if found_common is not None :
-			temp_org.common.populate(found_common)
-
-		list.append(temp_org)
-
+		populate_common(org, org.get("ID"), temp_org)
+		temp_org.save()
+		
 def validate(file_in) :
 	"""
 	Function expects a file as a parameter. Checks if file is a valid xml file.
