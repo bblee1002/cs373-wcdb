@@ -69,8 +69,29 @@ def getPerson(id):
 
 def getOrg(org):
   """
-   Added for Phase2 implementation
+  Added for Phase2 implementation
   Returns dictionary of individual organization data
   dict of form = 
   """
+  pass
+
+def getCrisisIDs():
+  '''
+  return {"crisisName": "id"}
+  returns a dict of the crisis IDs so that front-end can present correct url
+  '''
+  pass
+
+def getOrgIDs():
+  '''
+  return {"orgName": "id"}
+  returns a dict of the org IDs so that front-end can present correct url
+  '''
+  pass
+
+def getPeopleIDs():
+  '''
+  return {"personName": "id"}
+  returns a dict of the person IDs so that front-end can present correct url
+  '''
   pass

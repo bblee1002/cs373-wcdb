@@ -4,7 +4,8 @@ from django.shortcuts import render
 from loadModels import validate, populate_models
 from unloadModels import receive_import
 import subprocess
-#from getDbModel.py import getCrisis, getPerson, getOrg
+#from getDbModel.py import getCrisis, getPerson, getOrg, getCrisisIDs,
+# getOrgIDs, getPeopleIDs
 
 """
 Views.py renders the view specified by a url.
@@ -69,6 +70,16 @@ def index(request):
   """
   Renders view for homepage.
   """
+  '''
+  Here need to get:
+  crises = {}
+  orgs = {}
+  people = {}
+  from backend
+  '''
+  # crisisIDs = getCrisisIDs()
+  # orgIDs = getOrgIDs()
+  # peopleIDs = getPeopleIDs()
   return render(request, 'wcdb/index.html')
 
 def unittestsView(request):
