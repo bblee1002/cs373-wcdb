@@ -66,14 +66,14 @@ def populate_crisis(root) :
 		#populating people
 		for person in crisis.iter("Person") or [] :
 			temp_relations = Relations()
-			temp_relations.populate(c_id = crisis.get("Name"), p_id = person.get("Name"))
+			temp_relations.populate(c_id = crisis.get("ID"), p_id = person.get("ID"))
 			temp_relations.save()
 		#populating organizations
 		for org in crisis.iter("Org") or [] :
 			temp_relations = Relations()
-			temp_relations.populate(c_id = crisis.get("Name"), o_id = org.get("Name"))
+			temp_relations.populate(c_id = crisis.get("ID"), o_id = org.get("ID"))
 			temp_relations.save()
-		
+
 		populate_li(crisis, crisis.get("ID"), "Locations")
 		populate_li(crisis, crisis.get("ID"), "HumanImpact")
 		populate_li(crisis, crisis.get("ID"), "EconomicImpact")
@@ -91,10 +91,11 @@ def populate_crisis(root) :
 			temp_crisis.common.populate(found_common)
 
 
-		#add populated crisis model to list
-		list.append(temp_crisis)
 
-def populate_person(root, list) :
+		#add populated crisis model to list
+		temp_crisis.save()
+
+def populate_person(root) :
 	"""
 	Function expects a node in an element tree and a list as parameters. Find instances of person
 	in the tree and adds it to the list
@@ -109,19 +110,23 @@ def populate_person(root, list) :
 			temp_person.location    = person.find("Location").text
 
 		for crisis in person.iter("Crisis") :
-				list_add(temp_person.crises, crisis.get("ID"))
+			temp_relations = Relations()
+			temp_relations.populate(c_id = crisis.get("ID"), p_id = person.get("ID"))
+			temp_relations.save()
 
 		for org in person.iter("Org") :
-				list_add(temp_person.organizations, org.get("ID"))
+			temp_relations = Relations()
+			temp_relations.populate(p_id = person.get("ID"), o_id = org.get("ID"))
+			temp_relations.save()
 
 		#populating common fields
 		found_common = person.find('Common')
 		if found_common is not None :
 			temp_person.common.populate(found_common)
 
-		list.append(temp_person)
+		temp_person.save()
 
-def populate_org(root, list) :
+def populate_org(root) :
 	"""
 	Function expects a node in an element tree and a list as parameters. Find instances of organization
 	in the tree and adds it to the list
@@ -136,20 +141,17 @@ def populate_org(root, list) :
 			temp_org.location = org.find("Location").text
 
 		for crisis in org.iter("Crisis") :
-				list_add(temp_org.crises, crisis.get("ID"))
+			temp_relations = Relations()
+			temp_relations.populate(c_id = crisis.get("ID"), o_id = org.get("ID"))
+			temp_relations.save()
 
 		for person in org.iter("Person") :
-			list_add(temp_org.people, person.get("ID"))
+			temp_relations = Relations()
+			temp_relations.populate(p_id = person.get("ID"), o_id = org.get("ID"))
+			temp_relations.save()
 
-		for history in org.find("History") or [] :
-			temp_li = Li()
-			temp_li.populate(history)
-			list_add(temp_org.history, temp_li)
-
-		for contact in org.find("ContactInfo") or [] :
-			temp_li = Li()
-			temp_li.populate(contact)
-			list_add(temp_org.contact, temp_li)
+		populate_li(org, org.get("ID"), "History")
+		populate_li(org, org.get("ID"), "ContactInfo")
 
 		found_common = org.find('Common')
 		if found_common is not None :
