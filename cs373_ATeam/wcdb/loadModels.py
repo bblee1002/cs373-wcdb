@@ -2,7 +2,7 @@ import sys
 from genxmlif import GenXmlIfError
 from minixsv import pyxsval
 from django.conf import settings
-from models import Crisis, Person, Org, Li, Common, Relations, list_add
+from models import Crisis, Person, Org, Li, Common, Relations
 import xml.etree.ElementTree as ET
 
 """
@@ -18,27 +18,9 @@ def populate_models(tree) :
 	this funciton.
 	"""
 	e_root = tree.getroot()
-
-	for crisis in e_root.findall("Crisis"):
-		populate_crisis(crisis)
-
-	#populate Crisis models
-	#crises = []
-	#populate_crisis(e_root, crises)
-
-
-	for person in e_root.findall("Person"):
-			populate_person(person)
-	#populate Person models
-	#people = []
-	#populate_person(e_root, people)
-
-	for organization in e_root.findall("Organization"):
-		populate_org(organization)
-	#populate Org models
-	#organizations    = []
-	#populate_org(e_root, organizations)
-
+	populate_crisis(e_root)
+	populate_person(e_root)
+	populate_org(e_root)
 	#filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
 	#return filled_models
 
@@ -94,7 +76,7 @@ def populate_crisis(root) :
 		#add populated crisis model to list
 		list.append(temp_crisis)
 
-def populate_person(root, list) :
+def populate_person(root) :
 	"""
 	Function expects a node in an element tree and a list as parameters. Find instances of person
 	in the tree and adds it to the list
@@ -122,7 +104,7 @@ def populate_person(root, list) :
 
 		list.append(temp_person)
 
-def populate_org(root, list) :
+def populate_org(root) :
 	"""
 	Function expects a node in an element tree and a list as parameters. Find instances of organization
 	in the tree and adds it to the list

@@ -1,6 +1,7 @@
 import os
 os.environ["DJANGO_SETTINGS_MODULE"] = "cs373_ATeam.settings"
 from django.db import models
+from loadModels import populate_li
 
 """
 File containing definitions for our Django models and any relevant classes and function
@@ -101,46 +102,17 @@ class Common() :
         #similar to floating text
         #self.summary        = None
 
-    def populate(self, e_node) :
+    def populate(self, e_node, modl_id) :
         """
         Non-static method expects an element node as a parameter.
         Uses node to populate attributues of a Common object
         """
-        for citation in e_node.find("Citations") or [] :
-            temp_li = Li()
-            temp_li.populate(citation)
-            self.citations.append(temp_li)
-
-        for link in e_node.find("ExternalLinks") or [] :
-            temp_li = Li()
-            temp_li.populate(link)
-            self.external_links.append(temp_li)
-
-        for image in e_node.find("Images") or [] :
-            temp_li = Li()
-            temp_li.populate(image)
-            self.images.append(temp_li)
-
-        for video in e_node.find("Videos") or [] :
-            temp_li = Li()
-            temp_li.populate(video)
-            self.videos.append(temp_li)
-
-        for map in e_node.find("Maps") or [] :
-            temp_li = Li()
-            temp_li.populate(map)
-            self.maps.append(temp_li)
-
-        for feed in e_node.find("Feeds") or [] :
-            temp_li = Li()
-            temp_li.populate(feed)
-            self.feeds.append(temp_li)
-
-
-        # find_summary = e_node.find("Summary")
-        # if find_summary is not None :
-        #     self.summary = find_summary.text
-
+        populate_li(e_node, modl_id, "Citations")
+        populate_li(e_node, modl_id, "ExternalLinks")
+        populate_li(e_node, modl_id, "Images")
+        populate_li(e_node, modl_id, "Videos")
+        populate_li(e_node, modl_id, "Maps")
+        populate_li(e_node, modl_id, "Feeds")
 
     def xml_from_li(self, root_str, item_list) :
         """
