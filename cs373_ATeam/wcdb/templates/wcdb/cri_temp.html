@@ -41,7 +41,7 @@
 
 <div id="myCarousel" class="carousel slide">
 	<div class="carousel-inner">
-		<!-- NEED TO FIX THE ACTIVE PROBLEM!!! -->
+		<!-- NEED TO FIX THE ACTIVE ITEM PROBLEM!!! -->
 		{% for i in img_list %}
 			<div class="active item">
 				<div class="inner-item">
@@ -56,5 +56,32 @@
 	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
+
+{% for v in video_list %}
+	<iframe width="940" height="600" src="{{ v.href }}" frameborder="0" allowfullscreen></iframe>
+	<br><br>
+{% endfor %}
+
+<!-- Uhhh, maps requires more work -->
+{% for map in map_list %}
+{% endfor %}
+
+<ul>
+	{% for feed in feed_list %}
+		<li><a href="{{ feed.href }}">{{ feed.name }}</a></li>
+	{% endfor %}
+</ul>
+
+<ul>
+	{% for citation in citation_list %}
+		<li>{{ citation.text }}</a></li>
+	{% endfor %}
+</ul>
+
+<ul>
+	{% for link in external_link_list %}
+		<li>{{ link.text }}</a></li>
+	{% endfor %}
+</ul>
 
 {% endblock content %}
