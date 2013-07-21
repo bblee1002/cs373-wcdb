@@ -131,7 +131,6 @@ def populate_org(root) :
 		temp_org.org_ID   =             org.get("ID")
 		temp_org.name     =           org.get("Name")
 		if org.find("Kind") is not None :
-			print "GGGUUUTTEEENNNNTTTTAAAAGGGG", org.find("Kind").text
 			temp_org.kind     =     org.find("Kind").text
 		if org.find("Location") is not None :
 			temp_org.location = org.find("Location").text

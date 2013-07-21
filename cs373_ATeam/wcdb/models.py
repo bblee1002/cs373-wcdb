@@ -199,7 +199,7 @@ class Crisis(models.Model) :
     """
     Crisis Model
     """
-    crisis_ID         = models.CharField(max_length=200)
+    crisis_ID         = models.CharField(max_length=200, primary_key=True)
     name              = models.CharField(max_length=200)
     kind              = models.CharField(max_length=200)
     date              = models.CharField(max_length=200)
@@ -224,7 +224,7 @@ class Person(models.Model) :
     Person Model
     """
 
-    person_ID         = models.CharField(max_length=200)
+    person_ID         = models.CharField(max_length=200, primary_key=True)
     name              = models.CharField(max_length=200)
     kind              = models.CharField(max_length=200)
     location          = models.CharField(max_length=200)
@@ -243,7 +243,7 @@ class Org(models.Model) :
     """
     Organization Model
     """
-    org_ID         = models.CharField(max_length=200)
+    org_ID         = models.CharField(max_length=200, primary_key=True)
     name           = models.CharField(max_length=200)
     kind           = models.CharField(max_length=200)
     location       = models.CharField(max_length=200)
