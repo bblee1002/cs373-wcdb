@@ -55,7 +55,8 @@ def getCrisis(id):
   common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
                   'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
                   'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
-                  'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+                  'Images': [], 'Videos': [], 'Maps': [], 'Feeds': [],
+                  'Summary': crisis.common_summary}
 
   li_list = Li.objects.filter(model_id = id)
 
@@ -117,7 +118,8 @@ def getPerson(id):
   common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
                   'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
                   'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
-                  'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+                  'Images': [], 'Videos': [], 'Maps': [], 'Feeds': [],
+                  'Summary': person.common_summary}
 
   li_list = Li.objects.filter(model_id = id)
 
@@ -175,7 +177,8 @@ def getOrg(id):
   common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
                   'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
                   'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
-                  'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+                  'Images': [], 'Videos': [], 'Maps': [], 'Feeds': [], 
+                  'Summary': org.common_summary}
 
   li_list = Li.objects.filter(model_id = id)
 
