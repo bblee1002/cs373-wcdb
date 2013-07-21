@@ -5,34 +5,21 @@ from loadModels import validate, populate_models
 from unloadModels import receive_import
 import subprocess
 from getDbModel import  getCrisisIDs, getOrgIDs, getPeopleIDs
-# getCrisis, getPerson, getOrg,
+from getDbModel import getCrisis, getPerson, getOrg
 
 """
 Views.py renders the view specified by a url.
 """
 
 imported_models = {}
-  
-
 
 def crisisView(request, crisis_id):
   """
   Renders view for crises.
   """
-  '''
-  {'name': name, 'kind': kind, 'date': data, ...}
-  '''
-  if crisis_id == '1':
-    return render(request, 'wcdb/CRI_NSAWRT.html')
-  elif crisis_id == '2':
-    return render(request, 'wcdb/CRI_MEXDRG.html')
-  elif crisis_id == '3':
-    return render(request, 'wcdb/CRI_BEEDIE.html')
-  else:
-    return HttpResponse("no such path")
+  crisis_dict = getCrisis(crisis_id)
 
-  #Soon to be replaced with
-  #getCrisis(id)
+  return render(request, 'wcdb/cri_temp.html', crisis_dict)
 
 def orgsView(request, orgs_id):
   """
