@@ -101,7 +101,7 @@
 		<div class="span4">
 			<h2>Organizations</h2>
 			{% for k, v in orgIDs.items %}
-				<li><a href="/org/{{ k }}">{{ v }}</a></li>
+				<li><a href="/orgs/{{ k }}">{{ v }}</a></li>
 			{% empty %}
 				<li>IMPORT SOME DATA!</li>
 			{% endfor %}
@@ -109,7 +109,7 @@
 		<div class="span4">
 			<h2>People</h2>
 			{% for k, v in peopleIDs.items %}
-				<li><a href="/person/{{ k }}">{{ v }}</a></li>
+				<li><a href="/people/{{ k }}">{{ v }}</a></li>
 			{% empty %}
 				<li>IMPORT SOME DATA!</li>
 			{% endfor %}
