@@ -24,27 +24,35 @@
     <br><br>
 {% endfor %}
 
-<!-- Uhhh, maps requires more work -->
+
 {% for map in common.Maps %}
+    <iframe width="940" height="600" src="{{ map.embed }}" frameborder="0" allowfullscreen></iframe>
+    <br><br>
 {% endfor %}
 
+<dt>Feeds</dt>
 <ul>
     {% for feed in common.Feeds %}
-        <li><a href="{{ feed.href }}">{{ feed }}</a></li>
+        <li><a href="{{ feed.href }}">{{ feed.href }} </a>{{ feed.floating_text }}</li>
     {% endfor %}
 </ul>
 
+<dt>Citations</dt>
 <ul>
     {% for citation in common.Citations %}
-        <li>{{ citation.text }}</a></li>
+        <li><a href="{{ citation.href }}">{{ citation.href }} </a>{{ citation.floating_text }}</li>
     {% endfor %}
 </ul>
 
+<dt>External Links</dt>
 <ul>
     {% for link in common.ExternalLinks %}
-        <li>{{ link.text }}</a></li>
+        <li><a href="{{ link.href }}">{{ link.href }} </a>{{ link.floating_text }}</li>
     {% endfor %}
 </ul>
+
+<dt>Summary</dt>
+<dd>{{ common.Summary }}</dd>
 
 {% endblock content %}
 
