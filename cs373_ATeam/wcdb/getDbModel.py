@@ -177,7 +177,7 @@ def getCrisisIDs():
   return {"crisisName": "id"}
   returns a dict of the crisis IDs so that front-end can present correct url
   '''
-  objects = Crisis.objects.all()
+  objects = Crisis.objects.all().order_by('name')
   ids = {}
   for o in objects:
     ids[o.crisis_ID] = o.name
@@ -188,7 +188,7 @@ def getOrgIDs():
   return {"orgName": "id"}
   returns a dict of the org IDs so that front-end can present correct url
   '''
-  objects = Org.objects.all()
+  objects = Org.objects.all().order_by('name')
   ids = {}
   for o in objects:
     ids[o.org_ID] = o.name
@@ -199,7 +199,7 @@ def getPeopleIDs():
   return {"personName": "id"}
   returns a dict of the person IDs so that front-end can present correct url
   '''
-  objects = Person.objects.all()
+  objects = Person.objects.all().order_by('name')
   ids = {}
   for o in objects:
     ids[o.person_ID] = o.name
