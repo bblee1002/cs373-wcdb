@@ -12,11 +12,11 @@
     <!--<dd>{{ crises }}</dd>-->
 
     {% for c in crises %}
-        <dd><a href="/crisis/{{ c }}">{{ c }}</a></dd>
+        <dd><a href="/crisis/{{ c.0 }}">{{ c.1 }}</a></dd>
     {% endfor %}
     <dt>People</dt>
     {% for p in people %}
-        <dd><a href="/people/{{ p }}">{{ p }}</a></dd>
+        <dd><a href="/people/{{ p.0 }}">{{ p.1 }}</a></dd>
     {% endfor %}
 </dl>
 
@@ -50,12 +50,13 @@
 </div>
 
 {% for v in video_list %}
-    <iframe width="940" height="600" src="{{ v.href }}" frameborder="0" allowfullscreen></iframe>
+    <iframe width="940" height="600" src="{{ v.embed }}" frameborder="0" allowfullscreen></iframe>
     <br><br>
 {% endfor %}
 
-<!-- Uhhh, maps requires more work -->
 {% for map in map_list %}
+    <iframe width="940" height="600" src="{{ map.embed }}" frameborder="0" allowfullscreen></iframe>
+    <br><br>
 {% endfor %}
 
 <ul>

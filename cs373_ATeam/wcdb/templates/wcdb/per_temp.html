@@ -24,13 +24,14 @@
     <br><br>
 {% endfor %}
 
-<!-- Uhhh, maps requires more work -->
 {% for map in common.Maps %}
+    <iframe width="940" height="600" src="{{ map.embed }}" frameborder="0" allowfullscreen></iframe>
+    <br><br>
 {% endfor %}
 
 <ul>
     {% for feed in common.Feeds %}
-        <li><a href="{{ feed.href }}">{{ feed }}</a></li>
+        <li><a href="{{ feed.embed }}">{{ feed }}</a></li>
     {% endfor %}
 </ul>
 
