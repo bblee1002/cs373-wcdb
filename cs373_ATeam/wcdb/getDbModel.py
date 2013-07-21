@@ -180,7 +180,7 @@ def getCrisisIDs():
   objects = Crisis.objects.all()
   ids = {}
   for o in objects:
-    ids[o.name] = o.crisis_ID
+    ids[o.crisis_ID] = o.name
   return ids
 
 def getOrgIDs():
@@ -191,7 +191,7 @@ def getOrgIDs():
   objects = Org.objects.all()
   ids = {}
   for o in objects:
-    ids[o.name] = o.org_ID
+    ids[o.org_ID] = o.name
   return ids
 
 def getPeopleIDs():
@@ -202,5 +202,5 @@ def getPeopleIDs():
   objects = Person.objects.all()
   ids = {}
   for o in objects:
-    ids[o.name] = o.person_ID
+    ids[o.person_ID] = o.name
   return ids
