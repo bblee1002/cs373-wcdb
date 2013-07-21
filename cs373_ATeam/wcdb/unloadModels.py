@@ -1,7 +1,7 @@
 import sys
 import xml.etree.ElementTree as ET
 from models import Crisis, Person, Org, Li, Common
-
+from getDbModel import  *
 
 
 def clean_xml (dirty) :
@@ -218,6 +218,13 @@ def receive_import(model_dict) :
 	"""
 	Exports models into an xml string.
 	"""
+
+	crisis_ids = getCrisisIDs()
+	org_ids = getOrgIDs()
+	person_ids = getPeopleIDs()
+
+	#for crisis in crisis_ids.key():
+
 
 	#collect xml versions of all CRISIS models
 	crises_xml_string = ""
