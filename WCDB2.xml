@@ -769,13 +769,13 @@
             <li embed="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/6/11/1370966794013/Lindsay-Mills-girlfriend--010.jpg" text="img not found">Edward Snowden's Girlfriend Lindsay</li>
         </Images>
         <Videos>
-            <li embed="//www.youtube.com/embed/wB4Gn0u4DSE"</li>
-            <li embed="//www.youtube.com/embed/qiWpJuUWqOA"</li>
+            <li embed="//www.youtube.com/embed/wB4Gn0u4DSE" />
+            <li embed="//www.youtube.com/embed/qiWpJuUWqOA" />
         </Videos>
         <Maps>
-            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=bolivia&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bolivia&amp;z=5&amp;output=embed"</li>
-            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=hong+kong&amp;aq=&amp;sll=-16.299051,-63.588867&amp;sspn=39.46404,67.631836&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Hong+Kong&amp;z=9&amp;output=embed"</li>
-            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=22.395793,114.109497&amp;sspn=2.419894,4.22699&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=60.75916,91.933594&amp;spn=30.757311,74.707031&amp;z=3&amp;output=embed"</li>
+            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=bolivia&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bolivia&amp;z=5&amp;output=embed"</li>
+            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=hong+kong&amp;aq=&amp;sll=-16.299051,-63.588867&amp;sspn=39.46404,67.631836&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Hong+Kong&amp;z=9&amp;output=embed"</li>
+            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=22.395793,114.109497&amp;sspn=2.419894,4.22699&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=60.75916,91.933594&amp;spn=30.757311,74.707031&amp;z=3&amp;output=embed"</li>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook page</li>
@@ -854,7 +854,7 @@
             <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/iaXDrTGmCgU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
         </Videos>
         <Maps>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+            <li> embed="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed"</li>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/GovernorPerry">Facebook</li>
@@ -888,12 +888,12 @@
             <li embed="http://i.telegraph.co.uk/multimedia/archive/02613/egypt-morsi_2613799b.jpg" text="img not found">Crowds rallying for the deposing of Egyptian President Mohamed Morsi</li>
         </Images>
         <Videos>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/LyDOAQNsTrI" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/u0Trsszw1Uo" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/TbnYc65pN_g" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li> embed="//www.youtube.com/embed/LyDOAQNsTrI"</li>
+            <li> embed="//www.youtube.com/embed/u0Trsszw1Uo" </li>
+            <li> embed="//www.youtube.com/embed/TbnYc65pN_g" </li>
         </Videos>
         <Maps>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=egypt&amp;aq=&amp;sll=33.870416,102.041016&amp;sspn=65.978644,50.712891&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Egypt&amp;ll=26.824071,30.805664&amp;spn=13.701404,18.676758&amp;z=5&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=egypt&amp;aq=&amp;sll=33.870416,102.041016&amp;sspn=65.978644,50.712891&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Egypt&amp;ll=26.824071,30.805664&amp;spn=13.701404,18.676758&amp;z=5" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=egypt&amp;aq=&amp;sll=33.870416,102.041016&amp;sspn=65.978644,50.712891&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Egypt&amp;ll=26.824071,30.805664&amp;spn=13.701404,18.676758&amp;z=5&amp;output=embed"</li>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/pages/Mohamed-Morsy/264081660269685">Facebook</li>
@@ -927,7 +927,7 @@
             <li embed="http://www.youtube.com/watch?v=o-rR4nKbUO8">Zhang Xinsheng</li>
         </Videos>
         <Maps>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4" style="color:#0000FF;text-align:left">View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4&amp;output=embed"</li>
         </Maps>
         <Feeds>
             <li>No Social Feeds For Zhang Xinsheng</li>
@@ -1056,13 +1056,13 @@
             <li embed="http://media.cagle.com/29/2013/06/07/132863_600.jpg" text="img not found">Big Brother is Always Listening...</li>
         </Images>
         <Videos>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/FHN8D5bExtU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/Rz6rd_q2SYM" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/mRoVxUL5X7Q" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/qAPh5Pe1Iwk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li> embed="//www.youtube.com/embed/FHN8D5bExtU" </li>
+            <li> embed="//www.youtube.com/embed/Rz6rd_q2SYM" </li>
+            <li> embed="//www.youtube.com/embed/mRoVxUL5X7Q" </li>
+            <li> embed="//www.youtube.com/embed/qAPh5Pe1Iwk" </li>
         </Videos>
         <Maps>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+            <li> embed = "https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"</li>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/NSACareers">Facebook</li>
