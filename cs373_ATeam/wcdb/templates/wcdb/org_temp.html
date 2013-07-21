@@ -12,9 +12,20 @@
     {% for crisis in crisis_list %}
 	    <dd><a href="/crisis/{{ crisis.id }}">{{ crisis.name }}</a></dd>
     {% endfor %}
-    <dt>Organizations</dt>
-    {% for org in org_list %}
-	    <dd><a href="/orgs/{{ org.id }}">{{ org.name }}</a></dd>
+    <dt>People</dt>
+    {% for people in people_list %}
+        <dd><a href="/people/{{ people.id }}">{{ people.name }}</a></dd>
+    {% endfor %}
+</dl>
+
+<dl>
+    <dt>History</dt>
+    {% for i in history_list %}
+        <dd>{{ i }}</dd>
+    {% endfor %}
+    <dt>Contact</dt>
+    {% for i in contact_list %}
+        <dd>{{ i }}</dd>
     {% endfor %}
 </dl>
 
@@ -64,4 +75,3 @@
 </ul>
 
 {% endblock content %}
-
