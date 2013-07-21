@@ -107,30 +107,6 @@ def getPerson(id):
 
   person_dict['common'] = common_dict
 
-  # #if there are crises listed
-  # if person.crises        != [] :
-  #   temp_c = []
-  #   #*****************************
-  #   #Collect crisis ids into a list
-  #   for c in person.crises :
-  #     print c
-  #     #temp_c += c.crisis_ID
-  #   #person_dict[crises] = temp_c
-  
-  # #if there are orgs listed
-  # if person.organizations != [] :
-  #   temp_o = []
-  #   for o in person.organizations :
-  #     #*****************************
-  #     print o
-  #     #temp_o += o.org_ID
-  #   #person_dict[organizations] = o
-  
-  # #Export info from the common class == how? new common function?
-  # if person.common is not None :
-  #   #person_string += person.common.print_xml()
-
-  #Conclude person dictionary
   return person_dict
 
 
