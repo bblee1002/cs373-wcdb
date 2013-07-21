@@ -649,6 +649,17 @@
     </Organizations>
     <Kind>Proactive engineer</Kind>
     <Location>Japan</Location>
+    <Common>
+        <Citations>
+            <li href="http://interamericansecuritywatch.com/public-rage-catching-up-with-brazils-congress/">Fujita. "Japan Nuclear Crisis: Retirees Volunteer for Fukushima Duty". ABC News. Jun 1, 2011</li>
+        </Citations>
+        <Videos>
+            <li embed="//www.youtube.com/embed/I199ISU6lOEhttp://www.youtube.com/watch?v=enRGG1KJpWE" />
+        </Videos>
+        <Summary>
+            Yasuteru Yamad is a Japanese engineer who attempted to gather retired engineers as volunteers to clean up Japan's nuclear fallout.He reasoned that older people are less likely to develop the devastating cancers associated with nuclear energy. 
+        </Summary>
+    </Common>
 </Person>
 
 <Person ID="PER_HPASSS" Name="Hildebrando Pascoal">
@@ -687,6 +698,7 @@
         <Crisis ID="CRI_BEEDIE" />
     </Crises>
     <Organizations><Org ID="ORG_EPAAAA" /></Organizations>
+    <Kind>Beekeeper</Kind>
     <Location>4802 Gatewood Dr, Colorado Springs, CO, USA</Location>
     <Common>
         <Citations>
@@ -792,7 +804,8 @@
     <Organizations>
         <Org ID="ORG_NSAAAA"/>
     </Organizations>
-    <!-- More elements here -->
+    <Kind>President of the Republic of Ecuador</Kind>
+    <Location>Ecuador</Location><!-- More elements here -->
 </Person>
 
 <Person ID="PER_GUZMAN" Name="Joaquin Guzman Loera">
