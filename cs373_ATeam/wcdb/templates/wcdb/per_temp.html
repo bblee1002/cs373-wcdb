@@ -9,56 +9,39 @@
     <dt>Location</dt>
     <dd>{{ location }}</dd>
     <dt>Crises</dt>
-    {% for crisis in crisis_list %}
-	    <dd><a href="/crisis/{{ crisis.id }}">{{ crisis.name }}</a></dd>
+    {% for c in crises %}
+	    <dd><a href="/crisis/{{ c.0 }}">{{ c.1 }}</a></dd>
     {% endfor %}
     <dt>Organizations</dt>
-    {% for org in org_list %}
-	    <dd><a href="/orgs/{{ org.id }}">{{ org.name }}</a></dd>
+    {% for org in organizations %}
+	    <dd><a href="/orgs/{{ org.0 }}">{{ org.1 }}</a></dd>
     {% endfor %}
 </dl>
 
-<div id="myCarousel" class="carousel slide">
-    <div class="carousel-inner">
-        <!-- NEED TO FIX THE ACTIVE ITEM PROBLEM!!! -->
-        {% for i in img_list %}
-            <div class="active item">
-                <div class="inner-item">
-                    <img src="{{ i.href }}" alt="img not found">
-                    <div class="carousel-caption">
-                        <h4>{{ i.text }}</h4>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
 
-{% for v in video_list %}
-    <iframe width="940" height="600" src="{{ v.href }}" frameborder="0" allowfullscreen></iframe>
+{% for v in common.Videos %}
+    <iframe width="940" height="600" src="{{ v.embed }}" frameborder="0" allowfullscreen></iframe>
     <br><br>
 {% endfor %}
 
 <!-- Uhhh, maps requires more work -->
-{% for map in map_list %}
+{% for map in common.Maps %}
 {% endfor %}
 
 <ul>
-    {% for feed in feed_list %}
-        <li><a href="{{ feed.href }}">{{ feed.name }}</a></li>
+    {% for feed in common.Feeds %}
+        <li><a href="{{ feed.href }}">{{ feed }}</a></li>
     {% endfor %}
 </ul>
 
 <ul>
-    {% for citation in citation_list %}
+    {% for citation in common.Citations %}
         <li>{{ citation.text }}</a></li>
     {% endfor %}
 </ul>
 
 <ul>
-    {% for link in external_link_list %}
+    {% for link in common.ExternalLinks %}
         <li>{{ link.text }}</a></li>
     {% endfor %}
 </ul>
