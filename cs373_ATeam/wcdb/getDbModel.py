@@ -13,7 +13,6 @@ def getCrisis(id):
   dict of form = 
   """
   crisis = Crisis.objects.get(crisis_ID = id)
-  print crisis
   crisis_dict = {}
 
   # #Create keys of dict and give values
@@ -40,7 +39,10 @@ def getCrisis(id):
   crisis_dict['people'] = temp_person
   crisis_dict['organizations'] = temp_orgs
 
-  common_dict = {'citations': [], 'external_links': [], 'images': [], 'videos': [], 'maps': [], 'feeds': [], 'summary': []}
+  common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+                  'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+                  'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+                  'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
 
   temp_list = []
   temp_list = Li.objects.filter(model_id = id)
@@ -92,7 +94,10 @@ def getPerson(id):
   person_dict['crises'] = temp_crisis
   person_dict['organizations'] = temp_orgs
 
-  common_dict = {'citations': [], 'external_links': [], 'images': [], 'videos': [], 'maps': [], 'feeds': [], 'summary': []}
+  common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+                  'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+                  'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+                  'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
 
   temp_list = []
   temp_list = Li.objects.filter(model_id = id)
@@ -161,7 +166,10 @@ def getOrg(id):
   org_dict['crises'] = temp_crisis
   org_dict['people'] = temp_people
 
-  common_dict = {'citations': [], 'external_links': [], 'images': [], 'videos': [], 'maps': [], 'feeds': [], 'summary': []}
+  common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+                  'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+                  'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+                  'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
 
   temp_list = []
   temp_list = Li.objects.filter(model_id = id)
