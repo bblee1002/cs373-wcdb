@@ -7,6 +7,7 @@ import subprocess
 from getDbModel import  getCrisisIDs, getOrgIDs, getPeopleIDs
 from getDbModel import getCrisis, getPerson, getOrg
 
+
 """
 Views.py renders the view specified by a url.
 """
@@ -25,33 +26,21 @@ def orgsView(request, orgs_id):
   """
   Renders view for organizations.
   """
-  if orgs_id == '1' :
-    return render(request, 'wcdb/ORG_NSAAAA.html')
-  elif orgs_id == '2' :
-    return render(request, 'wcdb/ORG_SINCAR.html')
-  elif orgs_id == '3' :
-    return render(request, 'wcdb/ORG_EPAAAA.html')
-  else :
-    return HttpResponse("no such path")
+  org_dict = getOrg(orgs_id)
+  # if len(org_dict) <= 0
+  #   return HttpResponse('org does not exist')
+  return render(request, 'wcdb/org_temp.html', org_dict)
 
-  #Soon to be replaced with
-  #getOrg(id)
 
 def peopleView(request, people_id):
   """
   Renders view for people.
   """
-  if people_id == '1' :
-    return render(request, 'wcdb/PER_SNOWDN.html')
-  elif people_id == '2' :
-    return render(request, 'wcdb/PER_GUZMAN.html')
-  elif people_id == '3' :
-    return render(request, 'wcdb/PER_TTHBLD.html')
-  else :
-    return HttpResponse('no such path')
+  per_dict = getPerson(people_id)
+  # if len(per_dict) == 0
+  #   return HttpResponse('person does not exist')
+  return render(request, 'wcdb/per_temp.html', per_dict)
 
-  #Soon to be replaced with
-  #getPerson(people_id)
 
 def index(request):
   """

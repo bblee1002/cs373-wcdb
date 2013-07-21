@@ -9,12 +9,14 @@
     <dt>Location</dt>
     <dd>{{ location }}</dd>
     <dt>Crises</dt>
-    {% for crisis in crisis_list %}
-	    <dd><a href="/crisis/{{ crisis.id }}">{{ crisis.name }}</a></dd>
+    <!--<dd>{{ crises }}</dd>-->
+
+    {% for c in crises %}
+        <dd><a href="/crisis/{{ c }}">{{ c }}</a></dd>
     {% endfor %}
     <dt>People</dt>
-    {% for people in people_list %}
-        <dd><a href="/people/{{ people.id }}">{{ people.name }}</a></dd>
+    {% for p in people %}
+        <dd><a href="/people/{{ p }}">{{ p }}</a></dd>
     {% endfor %}
 </dl>
 
