@@ -45,7 +45,7 @@ def orgsView(request, orgs_id):
   elif orgs_id == '3' :
     return render(request, 'wcdb/ORG_EPAAAA.html')
   else :
-    return HttpResponse("not such path")
+    return HttpResponse("no such path")
 
   #Soon to be replaced with
   #getOrg(id)
@@ -61,7 +61,7 @@ def peopleView(request, people_id):
   elif people_id == '3' :
     return render(request, 'wcdb/PER_TTHBLD.html')
   else :
-    return HttpResponse('not such path')
+    return HttpResponse('no such path')
 
   #Soon to be replaced with
   #getPerson(people_id)
