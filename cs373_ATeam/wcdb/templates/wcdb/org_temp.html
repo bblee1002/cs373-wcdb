@@ -22,59 +22,49 @@
 
 <dl>
     <dt>History</dt>
-    {% for i in history_list %}
-        <dd>{{ i }}</dd>
+    {% for i in common.History %}
+        <dd>{{ i.floating_text }}</dd>
     {% endfor %}
     <dt>Contact</dt>
-    {% for i in contact_list %}
-        <dd>{{ i }}</dd>
+    {% for i in common.ContactInfo %}
+        <dd>{{ i.floating_text }}</dd>
     {% endfor %}
 </dl>
 
-<div id="myCarousel" class="carousel slide">
-    <div class="carousel-inner">
-        <!-- NEED TO FIX THE ACTIVE ITEM PROBLEM!!! -->
-        {% for i in img_list %}
-            <div class="active item">
-                <div class="inner-item">
-                    <img src="{{ i.href }}" alt="img not found">
-                    <div class="carousel-caption">
-                        <h4>{{ i.text }}</h4>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
 
-{% for v in video_list %}
+{% for v in common.Videos %}
     <iframe width="940" height="600" src="{{ v.embed }}" frameborder="0" allowfullscreen></iframe>
     <br><br>
 {% endfor %}
 
-{% for map in map_list %}
+
+{% for map in common.Maps %}
     <iframe width="940" height="600" src="{{ map.embed }}" frameborder="0" allowfullscreen></iframe>
     <br><br>
 {% endfor %}
 
+<dt>Feeds</dt>
 <ul>
-    {% for feed in feed_list %}
-        <li><a href="{{ feed.href }}">{{ feed.name }}</a></li>
+    {% for feed in common.Feeds %}
+        <li><a href="{{ feed.href }}">{{ feed.href }} </a>{{ feed.floating_text }}</li>
     {% endfor %}
 </ul>
 
+<dt>Citations</dt>
 <ul>
-    {% for citation in citation_list %}
-        <li>{{ citation.text }}</a></li>
+    {% for citation in common.Citations %}
+        <li><a href="{{ citation.href }}">{{ citation.href }} </a>{{ citation.floating_text }}</li>
     {% endfor %}
 </ul>
 
+<dt>External Links</dt>
 <ul>
-    {% for link in external_link_list %}
-        <li>{{ link.text }}</a></li>
+    {% for link in common.ExternalLinks %}
+        <li><a href="{{ link.href }}">{{ link.href }} </a>{{ link.floating_text }}</li>
     {% endfor %}
 </ul>
+
+<dt>Summary</dt>
+<dd>{{ common.Summary.floating_text }}</dd>
 
 {% endblock content %}

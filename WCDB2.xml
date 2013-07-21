@@ -1009,7 +1009,7 @@
         </Videos>
         <Feeds>
             <!-- Put feed URL here and embed on your site in your own cool way-->
-            <li embed="https://twitter.com/OfficialMDamon" />
+            <li href="https://twitter.com/OfficialMDamon" />
         </Feeds>
         <Summary>Matt Damon was born on October 8, 1970. He co-founded Water.org in July 2009 to help bring potable water to those less fortunate </Summary>
     </Common>
