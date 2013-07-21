@@ -13,4 +13,5 @@ DROP TABLE IF EXISTS wcdb_crisis;
 DROP TABLE IF EXISTS wcdb_li;
 DROP TABLE IF EXISTS wcdb_org;
 DROP TABLE IF EXISTS wcdb_person;
+DROP TABLE IF EXISTS wcdb_relations;
 COMMIT;
