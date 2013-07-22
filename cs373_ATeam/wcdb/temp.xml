@@ -1079,7 +1079,7 @@
     <People>
         <Person ID="PER_RPERRY" />
     </People>
-    <Kind>agency of the United States Department of Homeland Security which primary purpose is to coordinate the response to a disaster that has occurred in the United States and that overwhelms the resources of local and state authorities. </Kind>
+    <Kind>Government Organization</Kind>
     <Location>500 C Street SW, Washington, DC 20472</Location>
     <History>
         <li>Federal emergency management in the U.S. has existed in one form or another for over 200 years.</li>
@@ -1109,7 +1109,7 @@
             <li href="https://www.facebook.com/FEMA">Facebook</li>
             <li href="https://twitter.com/fema">Twitter</li>
         </Feeds>
-        <Summary></Summary>
+        <Summary>Agency of the United States Department of Homeland Security which primary purpose is to coordinate the response to a disaster that has occurred in the United States and that overwhelms the resources of local and state authorities. </Summary>
     </Common>
 </Organization>
 
@@ -1197,7 +1197,7 @@
     <People>
         <Person ID="PER_XNSHNG" />
     </People>
-    <Kind></Kind>
+    <Kind>Conservation Organization</Kind>
     <Location>Global</Location>
     <History>
         <li>Founded in 1948.</li>
@@ -1395,7 +1395,7 @@
             <Feeds>
             <li href="https://www.facebook.com/pages/Brazilian-military-government/119755061404595?nr">Facebook</li>
             </Feeds>
-            <Summary></Summary>
+            <Summary>The governing body of the country of the state of Brazil</Summary>
         </Common>
     </Organization>
 

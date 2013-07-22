@@ -61,13 +61,17 @@ def populate_crisis(root) :
 		#populating people
 		for person in crisis.iter("Person") or [] :
 			temp_relations = Relations()
-			temp_relations.populate(c_id = crisis.get("ID"), p_id = person.get("ID"))
-			temp_relations.save()
+			check = Relations.objects.filter(crisis_ID = crisis.get("ID"), person_ID = person.get("ID"))
+			if len(check) == 0:
+				temp_relations.populate(c_id = crisis.get("ID"), p_id = person.get("ID"))
+				temp_relations.save()
 		#populating organizations
 		for org in crisis.iter("Org") or [] :
 			temp_relations = Relations()
-			temp_relations.populate(c_id = crisis.get("ID"), o_id = org.get("ID"))
-			temp_relations.save()
+			check = Relations.objects.filter(crisis_ID = crisis.get("ID"), org_ID = org.get("ID"))
+			if len(check) == 0:
+				temp_relations.populate(c_id = crisis.get("ID"), o_id = org.get("ID"))
+				temp_relations.save()
 
 		populate_li(crisis, crisis.get("ID"), "Locations")
 		populate_li(crisis, crisis.get("ID"), "HumanImpact")
@@ -110,13 +114,17 @@ def populate_person(root) :
 
 		for crisis in person.iter("Crisis") :
 			temp_relations = Relations()
-			temp_relations.populate(c_id = crisis.get("ID"), p_id = person.get("ID"))
-			temp_relations.save()
+			check = Relations.objects.filter(crisis_ID = crisis.get("ID"), person_ID = person.get("ID"))
+			if len(check) == 0:
+				temp_relations.populate(c_id = crisis.get("ID"), p_id = person.get("ID"))
+				temp_relations.save()
 
 		for org in person.iter("Org") :
 			temp_relations = Relations()
-			temp_relations.populate(p_id = person.get("ID"), o_id = org.get("ID"))
-			temp_relations.save()
+			check = Relations.objects.filter(org_ID = org.get("ID"), person_ID = person.get("ID"))
+			if len(check) == 0:
+				temp_relations.populate(p_id = person.get("ID"), o_id = org.get("ID"))
+				temp_relations.save()
 
 		populate_common(person, person.get("ID"), temp_person)
 		temp_person.save()
@@ -137,13 +145,17 @@ def populate_org(root) :
 
 		for crisis in org.iter("Crisis") :
 			temp_relations = Relations()
-			temp_relations.populate(c_id = crisis.get("ID"), o_id = org.get("ID"))
-			temp_relations.save()
+			check = Relations.objects.filter(crisis_ID = crisis.get("ID"), org_ID = org.get("ID"))
+			if len(check) == 0:
+				temp_relations.populate(c_id = crisis.get("ID"), o_id = org.get("ID"))
+				temp_relations.save()
 
 		for person in org.iter("Person") :
 			temp_relations = Relations()
-			temp_relations.populate(p_id = person.get("ID"), o_id = org.get("ID"))
-			temp_relations.save()
+			check = Relations.objects.filter(org_ID = org.get("ID"), person_ID = person.get("ID"))
+			if len(check) == 0:
+				temp_relations.populate(p_id = person.get("ID"), o_id = org.get("ID"))
+				temp_relations.save()
 
 		populate_li(org, org.get("ID"), "History")
 		populate_li(org, org.get("ID"), "ContactInfo")

@@ -10,9 +10,27 @@ def populate_li(root, modl_id, tag):
     outer_node = root.find(tag)
     if outer_node is not None:
         for li in outer_node or [] :
+            href = li.get("href")
+            embed = li.get("embed")
+            text = li.get("text")
+            floating_text = li.text
+
+            if href is None:
+                href = ''
+            if embed is None:
+                embed = ''
+            if text is None:
+                text = ''
+            if floating_text is None:
+                floating_text = ''
+
             temp_li = Li()
-            temp_li.populate(li, modl_id, tag)
-            temp_li.save()
+            check = Li.objects.filter(model_id=modl_id, href=href,
+                embed=embed, text=text, floating_text=floating_text, kind=tag)
+
+            if len(check) == 0:
+                temp_li.populate(li, modl_id, tag)
+                temp_li.save()
 
 def list_add(m_list, id) :
     """

@@ -7,13 +7,14 @@ Replace this with more appropriate tests for your application.
 from django.test import TestCase
 from minixsv import pyxsval
 from genxmlif import GenXmlIfError
-from models import Crisis, Person, Org, list_add, Li, Common
+from models import Crisis, Person, Org, list_add, Li, Common, Relations
 from loadModels import validate, populate_crisis, populate_person, populate_org, populate_models
 from unloadModels import clean_xml, export_crisis, export_person, export_crisis, export_organization, receive_import
 import xml.etree.ElementTree as ET
 from django.test.client import Client
 from views import passwordValidate
 from getDbModel import getCrisis, getPerson, getOrg, getCrisisIDs, getOrgIDs, getPeopleIDs
+
 
 #xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
 #psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
@@ -638,3 +639,64 @@ class ModelsCrisisTest(TestCase):
 # 	def test_exportView(self):
 # 		response = self.client.get("http://127.0.0.1:8000/export/")
 # 		self.assertEqual(response.status_code, 200)
+
+
+class getBdModelTest(TestCase):
+
+# #--------------------------------------------#
+# #-----Unit Tests for functions from getDbModel.py
+# #--------------------------------------------#
+
+# 	#---------------------------------------#
+# 	#-----test_getCrisis
+# 	#---------------------------------------#
+
+	def test_getCrisis(self):
+		# create a person, crisis, and organization
+		temp_crisis           = Crisis()
+		#temp_relations        = []		# can't save a list to db table
+		temp_crisis.crisis_ID = "CRI_NSAWRT"
+		temp_crisis.name      = "NSA Wiretapping"
+		temp_crisis.kind      = "Civil Liberties"
+		temp_crisis.date      = "2013-06-06"
+
+		# relations = [{'crisis_ID': "", 'person_ID': "", 'org_ID': ""}]
+		relations1 = Relations()
+		relations1.crisis_ID = "CRI_NSAWRT"
+		relations1.person_ID = "PER_ESNWDN"
+		relations1.org_ID = "ORG_NSAAAA"
+		relations2 = Relations()
+		relations2.crisis_ID = "CRI_NSAWRT"
+		relations2.person_ID = "PER_PUTIN"
+		relations2.org_ID = "RUSGOVT"
+		#temp_relations.append(relations1)
+		
+		"""
+		temp_relations[0].crisis_ID = "CRI_NSAWRT"
+		temp_relations[0].person_ID = "PER_ESNWDN"
+		temp_relations[0].org_ID = "ORG_NSAAAA"
+		temp_relations[1].crisis_ID = "CRI_NSAWRT"
+		temp_relations[1].person_ID = "PER_PUTIN"
+		temp_relations[1].org_ID = "RUSGOVT"		
+		"""
+		#temp_crisis.organizations = ["ORG_NSAAAA", "RUSGOVT"]
+		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [{'href': "linktosomething.com", 'text': "hello"}], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [{'href': "linktogooglemap.com", 'text': "hello from maps"}], 'Feeds': []}
+		li1 = Li()
+		li1.href = "linktosomething.com"
+		li1.text = "some text"
+		li1.model_id = "CRI_NSAWRT"
+
+		relations1.save()
+		relations2.save()
+		#li1.save()
+		temp_crisis.save()
+
+		crisis = getCrisis("CRI_NSAWRT")
+		print crisis
+		self.assertEqual(temp_crisis.name, crisis.get('name'))
+		self.assertEqual(temp_crisis.kind, crisis.get('kind'))
+		self.assertEqual(temp_crisis.date, crisis.get('date'))
+		self.assertEqual(relations1.person_ID, crisis.get('people')[0][0])
+		self.assertEqual(relations1.org_ID, crisis.get('organizations')[0][0])
+		self.assertEqual(relations2.person_ID, crisis.get('people')[1][0])
+		self.assertEqual(relations2.org_ID, crisis.get('organizations')[1][0])
