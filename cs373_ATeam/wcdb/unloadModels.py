@@ -8,15 +8,8 @@ def clean_xml (dirty) :
 	"""
 	Check for presence of "&" invalid XML char in everything but Li() instances.
 	Returns a new string w/out any tag information
-	"""	
-	dirty_clean = dirty.split("&")
-	for dirty_piece in dirty_clean:
-		if dirty_piece is dirty_clean[0] :
-			dirty_new = dirty_piece
-		else :
-			dirty_new.join("&amp;")
-			dirty_new.join(dirty_piece)
-	return dirty_new
+	"""
+	return dirty.replace('&', '&amp;')
 
 def make_non_li_string(clean_string, tag):
 	return "<" + tag + ">" + clean_string + "</" + tag + ">"
