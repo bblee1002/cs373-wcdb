@@ -14,76 +14,96 @@ def clean_xml (dirty) :
 		if dirty_piece is dirty_clean[0] :
 			dirty_new = dirty_piece
 		else :
-			dirty_new += "&amp;" + dirty_piece
+			dirty_new.join("&amp;")
+			dirty_new.join(dirty_piece)
 	return dirty_new
 
+def make_non_li_string(clean_string, tag):
+	return "<" + tag + ">" + clean_string + "</" + tag + ">"
+
+def make_li_string(li_list, tag):
+	if len(li_list) == 0:
+		return ''
+	item_string = "<" + tag + ">"
+	for item in li_list:
+		item = clean_xml(item)
+		item_string.join("<li>")
+		item_string.join(item)
+		item_string.join("</li>")
+	item_string.join("</" + tag + ">")
+	return item_string
 
 #-----Export CRISIS models-----#
-def export_crisis (crisis) :
+def export_crisis (crisis_dict, crisis_id) :
 	"""
 	Export CRISIS models by extracting information from the relevant class.
 	Builds a string to return at the end as parse elements of crisis.
 	"""
 	#assumes all crises have an id and name
-	assert crisis.crisis_ID != None
-	assert crisis.name != None
 
 	#Start indiv crisis xml string
-	crisis_string = "<Crisis ID=\"" + crisis.crisis_ID + "\" Name=\"" + crisis.name + "\">"
-	
+	crisis_string = "<Crisis ID=\"" + crisis_id + "\" Name=\"" + str(crisis_dict["name"])+ "\">"
+
+
 	#if there are people listed
-	if crisis.people        != [] :
+	if crisis_dict["people"]        != [] :
 		p_string = "<People>"
-		for person in crisis.people :
-			clean_person = clean_xml(person)
-			p_string += "<Person ID=\"" + clean_person + "\" />"
-		p_string +="</People>"
-		crisis_string += p_string
+		for person in crisis_dict["people"] :
+			clean_person = clean_xml(str(person[0]))
+			p_string.join("<Person ID=\"" + clean_person + "\" />")
+		p_string.join("</People>")
+		crisis_string.join(p_string)
 	
 	#if there are orgs listed
-	if crisis.organizations != [] :
+	if crisis_dict["organizations"] != [] :
 		o_string = "<Organizations>"
 		for org in crisis.organizations :
-			clean_org = clean_xml(org)
-			o_string += "<Org ID=\"" + clean_org + "\" />"
-		o_string += "</Organizations>"
-		crisis_string += o_string
+			clean_org = clean_xml(str(org[0]))
+			o_string.join("<Org ID=\"" + clean_org + "\" />")
+		o_string.join("</Organizations>")
+		crisis_string.join(o_string)
 
-	if crisis.kind is not None :
-		clean_k = clean_xml(crisis.kind)
-		k = "<Kind>" + clean_k + "</Kind>"
-		crisis_string += k
-	if crisis.date is not None :
-		clean_d = clean_xml(crisis.date)
-		d = "<Date>" + clean_d + "</Date>"
-		crisis_string += d
-	if crisis.time is not None :
-		clean_t = clean_xml(crisis.time)
-		t = "<Time>" + clean_t + "</Time>"
-		crisis_string += t
-		
+	try:
+		crisis_string.join(make_non_li_string(clean_xml(str(crisis_dict["kind"])), "Kind"))
+	except:
+		pass
 
-	#handle li lists
-	if crisis.locations        != [] :
-		root = "Locations"
-		xml_locations = crisis.common.xml_from_li(root, crisis.locations)
-		crisis_string += xml_locations
-	if crisis.human_impact     != [] :
-		root = "HumanImpact"
-		xml_human_impact = crisis.common.xml_from_li(root, crisis.human_impact)
-		crisis_string += xml_human_impact
-	if crisis.economic_impact  != [] :
-		root = "EconomicImpact"
-		xml_economic_impact = crisis.common.xml_from_li(root, crisis.economic_impact)
-		crisis_string += xml_economic_impact
-	if crisis.resources_needed != [] :
-		root = "ResourcesNeeded"
-		xml_resources_needed = crisis.common.xml_from_li(root, crisis.resources_needed)
-		crisis_string += xml_resources_needed
-	if crisis.ways_to_help     != [] :
-		root = "WaysToHelp"
-		xml_ways_to_help = crisis.common.xml_from_li(root, crisis.ways_to_help)
-		crisis_string += xml_ways_to_help
+	try:
+		crisis_string.join(make_non_li_string(clean_xml(str(crisis_dict["date"])), "Date"))
+	except:
+		pass
+
+	try:
+		crisis_string.join(make_non_li_string(clean_xml(str(crisis_dict["time"])), "Time"))
+	except:
+		pass
+
+	li_dict = crisis_dict["common"]
+
+	try:
+		crisis_string.join(make_li_string(li_dict["Locations"], "Locations"))
+	except:
+		pass
+
+	try:
+		crisis_string.join(make_li_string(li_dict["HumanImpact"], "HumanImpact"))
+	except:
+		pass
+
+	try:
+		crisis_string.join(make_li_string(li_dict["EconomicImpact"], "EconomicImpact"))
+	except:
+		pass
+
+	try:
+		crisis_string.join(make_li_string(li_dict["ResourcesNeeded"], "ResourcesNeeded"))
+	except:
+		pass
+
+	try:
+		crisis_string.join(make_li_string(li_dict["WaystoHelp"], "WaysToHelp"))
+	except:
+		pass
 
 	#Export info from the common class
 	if crisis.common is not None :
@@ -223,11 +243,12 @@ def receive_import(model_dict) :
 	org_ids = getOrgIDs()
 	person_ids = getPeopleIDs()
 
-	#for crisis in crisis_ids.key():
-
+	crises_xml_string = ""
+	for crisis_id in crisis_ids.keys():
+		crisis_dict = getCrisis(crisis_id)
+		crises_xml_string.join(export_crisis(crisis_dict))
 
 	#collect xml versions of all CRISIS models
-	crises_xml_string = ""
 	for crisis in model_dict["crises"] :
 		crises_xml_string += export_crisis (crisis)
 
@@ -242,6 +263,4 @@ def receive_import(model_dict) :
 		organizations_xml_string += export_organization (org)
 
 	return "<WorldCrises>" + crises_xml_string + people_xml_string + organizations_xml_string + "</WorldCrises>"
-
-
 
