@@ -676,19 +676,21 @@ class getBdModelTest(TestCase):
 		temp_relations[1].org_ID = "RUSGOVT"		
 		"""
 		#temp_crisis.organizations = ["ORG_NSAAAA", "RUSGOVT"]
-		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [{'href': "linktosomething.com", 'text': "hello"}], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [{'href': "linktogooglemap.com", 'text': "hello from maps"}], 'Feeds': []}
+		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
 		li1 = Li()
 		li1.href = "linktosomething.com"
 		li1.text = "some text"
+		li1.kind = "Images"
 		li1.model_id = "CRI_NSAWRT"
 
 		relations1.save()
 		relations2.save()
-		#li1.save()
+		li1.save()
 		temp_crisis.save()
 
 		crisis = getCrisis("CRI_NSAWRT")
 		print crisis
+		print crisis.
 		self.assertEqual(temp_crisis.name, crisis.get('name'))
 		self.assertEqual(temp_crisis.kind, crisis.get('kind'))
 		self.assertEqual(temp_crisis.date, crisis.get('date'))
