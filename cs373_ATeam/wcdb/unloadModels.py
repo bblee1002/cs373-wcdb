@@ -100,15 +100,18 @@ def export_crisis (crisis_dict, crisis_id) :
 		strings.append("	</Organizations>\n")
 
 	try:
-		strings.append(make_non_li_string(clean_xml(str(crisis_dict["kind"])), "Kind"))
+		if crisis_dict["kind"] != '' and crisis_dict["kind"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(crisis_dict["kind"])), "Kind"))
 	except:
 		pass
 	try:
-		strings.append(make_non_li_string(clean_xml(str(crisis_dict["date"])), "Date"))
+		if crisis_dict["date"] != '' and crisis_dict["date"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(crisis_dict["date"])), "Date"))
 	except:
 		pass
 	try:
-		strings.append(make_non_li_string(clean_xml(str(crisis_dict["time"])), "Time"))
+		if crisis_dict["time"] != '' and crisis_dict["time"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(crisis_dict["time"])), "Time"))
 	except:
 		pass
 	li_dict = crisis_dict["common"]
@@ -148,11 +151,13 @@ def export_person (person_dict, person_id) :
 		strings.append("	</Organizations>\n")
 
 	try:
-		strings.append(make_non_li_string(clean_xml(str(person_dict["kind"])), "Kind"))
+		if person_dict["kind"] != '' and person_dict["kind"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(person_dict["kind"])), "Kind"))
 	except:
 		pass
 	try:
-		strings.append(make_non_li_string(clean_xml(str(person_dict["location"])), "Location"))
+		if person_dict["location"] != '' and person_dict["location"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(person_dict["location"])), "Location"))
 	except:
 		pass
 
@@ -186,11 +191,13 @@ def export_organization (org_dict, org_id) :
 		strings.append("	</People>\n")
 
 	try:
-		strings.append(make_non_li_string(clean_xml(str(org_dict["kind"])), "Kind"))
+		if org_dict["time"] != '' and org_dict["time"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(org_dict["kind"])), "Kind"))
 	except:
 		pass
 	try:
-		strings.append(make_non_li_string(clean_xml(str(org_dict["location"])), "Location"))
+		if org_dict["location"] != '' and org_dict["location"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(org_dict["location"])), "Location"))
 	except:
 		pass
 	
@@ -227,8 +234,12 @@ def export_xml() :
 		crises_xml_string.append(export_organization(org_dict, org_id))
 
 	crises_xml_string.append("</WorldCrises>")
-	# f = open('WCDBExportXML.xml', 'w')
+	f = open('WCDBExportXML.xml', 'w')
 	exportstring = ''.join(crises_xml_string)
-	# f.write(exportstring)
-	return exportstring
+	exportstring = exportstring.replace(u'\u2018', '\'')
+	exportstring = exportstring.replace(u'\u2019', '\'')
+	exportstring = exportstring.replace(u'\u201C', '\"')
+	exportstring = exportstring.replace(u'\u201D', '\"')
+	f.write(exportstring.encode('ascii'))
+	return exportstring.encode('ascii')
 
