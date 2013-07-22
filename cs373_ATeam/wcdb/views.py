@@ -2,7 +2,7 @@ from django import forms
 from django.http import HttpResponse
 from django.shortcuts import render
 from loadModels import validate, populate_models
-from unloadModels import receive_import
+from unloadModels import export_xml
 import subprocess
 from getDbModel import  getCrisisIDs, getOrgIDs, getPeopleIDs
 from getDbModel import getCrisis, getPerson, getOrg
@@ -105,10 +105,12 @@ def exportView(request) :
   """
   Renders view for export page, kicks off export facility.
   """
-  output = "You have to import something before you export!"
-  global imported_models
-  if imported_models != {}:
-    output = receive_import(imported_models)
+  # output = "You have to import something before you export!"
+  # global imported_models
+  # if imported_models != {}:
+  #   output = receive_import(imported_models)
+
+  output = export_xml()
 
   return render(request, 'wcdb/Export.html', {'output': output})
   
