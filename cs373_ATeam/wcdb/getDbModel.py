@@ -36,13 +36,13 @@ def getCrisis(id):
   relations = Relations.objects.filter(crisis_ID = id)
 
   for a in relations :
-    if a.person_ID is not None:
+    if len(a.person_ID) != 0 :
       try:
         name = Person.objects.get(person_ID = a.person_ID).name
       except:
         name = ''
       temp_person.append((a.person_ID, name))
-    if a.org_ID is not None:
+    if len(a.org_ID) != 0 :
       try:
         name = Org.objects.get(org_ID = a.org_ID).name
       except:
@@ -98,13 +98,13 @@ def getPerson(id):
   relations = Relations.objects.filter(person_ID = id)
 
   for a in relations :
-    if a.crisis_ID != None:
+    if len(a.crisis_ID) != 0 :
       try:
         name = Crisis.objects.get(crisis_ID = a.crisis_ID).name
       except:
         name = ''
       temp_crisis.append((a.crisis_ID, name))
-    if a.org_ID != None:
+    if len(a.org_ID) != 0 :
       try:
         name = Org.objects.get(org_ID = a.org_ID).name
       except:
@@ -156,13 +156,13 @@ def getOrg(id):
   relations = Relations.objects.filter(org_ID = id)
 
   for a in relations :
-    if a.crisis_ID != None:
+    if len(a.crisis_ID) != 0 :
       try:
         name = Crisis.objects.get(crisis_ID = a.crisis_ID).name
       except:
         name = ''
       temp_crisis.append((a.crisis_ID, name))
-    if a.person_ID != None:
+    if len(a.person_ID) != 0:
       try:
         name = Person.objects.get(person_ID = a.person_ID).name
       except:

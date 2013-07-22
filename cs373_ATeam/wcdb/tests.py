@@ -4,9 +4,7 @@ when you run "manage.py test".
 
 Replace this with more appropriate tests for your application.
 """
-print "ENTER"
 from django.test import TestCase
-print "PASSED IMPORT"
 from minixsv import pyxsval
 from genxmlif import GenXmlIfError
 from models import Crisis, Person, Org, list_add, Li, Common
@@ -15,7 +13,7 @@ from unloadModels import clean_xml, export_crisis, export_person, export_crisis,
 import xml.etree.ElementTree as ET
 from django.test.client import Client
 from views import passwordValidate
-
+from getDbModel import getCrisis, getPerson, getOrg, getCrisisIDs, getOrgIDs, getPeopleIDs
 
 #xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
 #psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
@@ -42,25 +40,26 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(temp_li.href, "href_stuff")
 		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
 
-# 	def test_li_populate1(self):
-# 		temp      = ET.Element('li')
-# 		temp.set("href", "href_stuff")
-# 		temp.set("embed", "embed_stuff")
-# 		temp.set("text", "text_stuff")
-# 		temp.text = "randomfloatingtext"
-# 		temp_li   = Li()
-# 		temp_li.populate(temp)
-# 		self.assertEqual(temp_li.href, "href_stuff")
-# 		self.assertEqual(temp_li.embed, "embed_stuff")
-# 		self.assertEqual(temp_li.text, "text_stuff")
-# 		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
+	def test_li_populate1(self):
+		temp      = ET.Element('li')
+		temp.set("href", "href_stuff")
+		temp.set("embed", "embed_stuff")
+		temp.set("text", "text_stuff")
+		temp.text = "randomfloatingtext"
+		temp_li   = Li()
+		temp_li.populate(temp, "PER_BRANDO", "Images")
+		self.assertEqual(temp_li.model_id, "PER_BRANDO")
+		self.assertEqual(temp_li.kind, "Images")
+		self.assertEqual(temp_li.text, "text_stuff")
+		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
 
-# 	def test_li_populate2(self):
-# 		temp      = ET.Element('li')
-# 		temp.text = "randomfloatingtext"
-# 		temp_li   = Li()
-# 		temp_li.populate(temp)
-# 		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
+	def test_li_populate2(self):
+		temp      = ET.Element('li')
+		temp.text = "randomfloatingtext"
+		temp_li   = Li()
+		temp_li.populate(temp, "PER_SHANGU", "ExternalLinks")
+		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
+		self.assertEqual(temp_li.kind, "ExternalLinks")
 
 # 	#---------------------------------------#
 # 	#-----test_clean_li_xml
@@ -164,22 +163,22 @@ class ModelsCrisisTest(TestCase):
 # 		correct_string = "<li> href=\"fee\"</li><li> embed=\"foo\"</li><li>fi</li><li>fum</li>"
 # 		self.assertEqual(temp_string, correct_string)
 
-# 	#---------------------------------------#
-# 	#-----test_common_populate
+	#---------------------------------------#
+	#-----test_common_populate
 
-# 	def test_common_populate0(self):
-# 		temp_com = Common()
-# 		xml_string = '<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Videos><li embed="//www.youtube.com/embed/qV3s7Sa6B6w" /></Videos><Maps><li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" /></Maps><Feeds><li embed="[WHATEVER A FEED URL LOOKS LIKE]" /></Feeds><Summary>Lorem ipsum...</Summary></Common>'
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
+	# def test_common_populate0(self):
+	# 	temp_com = Common()
+	# 	xml_string = '<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Videos><li embed="//www.youtube.com/embed/qV3s7Sa6B6w" /></Videos><Maps><li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" /></Maps><Feeds><li embed="[WHATEVER A FEED URL LOOKS LIKE]" /></Feeds><Summary>Lorem ipsum...</Summary></Common>'
+	# 	root = ET.fromstring(xml_string)
+	# 	temp_com.populate(root, "PER_EDDIES")
 
-# 		self.assertEqual(temp_com.citations[0].floating_text, "The Hindustan Times")
-# 		self.assertEqual(temp_com.external_links[0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
-# 		self.assertEqual(temp_com.images[0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
-# 		self.assertEqual(temp_com.videos[0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
-# 		#self.assertEqual(temp_com.maps[0].href, "https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed")
-# 		self.assertEqual(temp_com.feeds[0].embed, "[WHATEVER A FEED URL LOOKS LIKE]")
-# 		self.assertEqual(temp_com.videos[0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
+	# 	self.assertEqual(temp_com.citations[0].floating_text, "The Hindustan Times")
+		# self.assertEqual(temp_com.external_links[0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
+		# self.assertEqual(temp_com.images[0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
+		# self.assertEqual(temp_com.videos[0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
+		# #self.assertEqual(temp_com.maps[0].href, "https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed")
+		# self.assertEqual(temp_com.feeds[0].embed, "[WHATEVER A FEED URL LOOKS LIKE]")
+		# self.assertEqual(temp_com.videos[0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
 
 # 	def test_common_populate1(self):
 # 		temp_com = Common()
@@ -439,18 +438,18 @@ class ModelsCrisisTest(TestCase):
 # 		self.assertEqual(type(f), file)
 # 		self.assertEqual(validate(f), False)
 
-# 	#---------------------------------------#
-# 	#-----test_populate_models
+	#---------------------------------------#
+	#-----test_populate_models
 
-# 	def populate_models0(self) :
-# 		crisis_string = "<WC><Crisis ID=\"CRI_NOTFOREXPORT\" Name=\"NOTFOREXPORT\"><People><Person ID=\"PER_NOTFOREXPORT\" /></People><Organizations><Org ID=\"ORG_NOTFOREXPORT\" /></Organizations><Kind>NOTFOREXPORT</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>random</li></Locations><HumanImpact><li>random</li></HumanImpact><EconomicImpact><li>random</li></EconomicImpact><ResourcesNeeded><li>random</li></ResourcesNeeded><WaysToHelp><li> href=\"http://random\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis>"
-# 		person_string = "<Person ID=\"PER_HMUBAR\" Name=\"Hosni Mubarak\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_MUSBRO\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person>"
-# 		org_string = "<Organization ID=\"ORG_MUSBRO\" Name=\"The Muslim Brotherhood\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><People><Person ID=\"PER_ELBARA\" /><Person ID=\"PER_HMUBAR\" /><Person ID=\"PER_RLAKAH\" /><Person ID=\"PER_MMORSI\" /></People><Kind>Islamic Movement</Kind><Location>Egypt</Location><Common></Common></Organization></WC>"
-# 		xml_to_tree = crisis_string + person_string + org_string
-# 		e_tree = ET.parse(xml_to_tree)
-# 		cri_per_org_dict = populate_models(e_tree)
-# 		print "TYPE DICT = ", type(cri_per_org_dict)
-# 		#self.assertEqual(type(cri_per_org_dict), )
+	# def populate_models0(self) :
+	# 	crisis_string = "<WC><Crisis ID=\"CRI_NOTFOREXPORT\" Name=\"NOTFOREXPORT\"><People><Person ID=\"PER_NOTFOREXPORT\" /></People><Organizations><Org ID=\"ORG_NOTFOREXPORT\" /></Organizations><Kind>NOTFOREXPORT</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>random</li></Locations><HumanImpact><li>random</li></HumanImpact><EconomicImpact><li>random</li></EconomicImpact><ResourcesNeeded><li>random</li></ResourcesNeeded><WaysToHelp><li> href=\"http://random\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis>"
+	# 	person_string = "<Person ID=\"PER_HMUBAR\" Name=\"Hosni Mubarak\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_MUSBRO\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person>"
+	# 	org_string = "<Organization ID=\"ORG_MUSBRO\" Name=\"The Muslim Brotherhood\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><People><Person ID=\"PER_ELBARA\" /><Person ID=\"PER_HMUBAR\" /><Person ID=\"PER_RLAKAH\" /><Person ID=\"PER_MMORSI\" /></People><Kind>Islamic Movement</Kind><Location>Egypt</Location><Common></Common></Organization></WC>"
+	# 	xml_to_tree = crisis_string + person_string + org_string
+	# 	e_tree = ET.parse(xml_to_tree)
+	# 	cri_per_org_dict = populate_models(e_tree)
+	# 	print "TYPE DICT = ", type(cri_per_org_dict)
+	# 	self.assertEqual(type(cri_per_org_dict), )
 
 
 # 	def populate_models1(self) :
@@ -473,84 +472,89 @@ class ModelsCrisisTest(TestCase):
 # 	#---------------------------------------#
 # 	#-----test_populate_crisis
 
-# 	def test_populate_crisis0(self):
-# 		xml_string = "<WC><Crisis ID=\"CRI_NOTFOREXPORT\" Name=\"NOTFOREXPORT\"><People><Person ID=\"PER_NOTFOREXPORT\" /></People><Organizations><Org ID=\"ORG_NOTFOREXPORT\" /></Organizations><Kind>NOTFOREXPORT</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>random</li></Locations><HumanImpact><li>random</li></HumanImpact><EconomicImpact><li>random</li></EconomicImpact><ResourcesNeeded><li>random</li></ResourcesNeeded><WaysToHelp><li> href=\"http://random\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis></WC>"
-# 		crisis_list = []
-# 		root = ET.fromstring(xml_string)
-# 		populate_crisis(root, crisis_list)
+	def test_populate_crisis0(self):
+		xml_string = "<WC><Crisis ID=\"CRI_SIXCHR\" Name=\"FAKENAME\"><People><Person ID=\"PER_NOTFOREXPORT\" /></People><Organizations><Org ID=\"ORG_NOTFOREXPORT\" /></Organizations><Kind>NOTFOREXPORT</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>random</li></Locations><HumanImpact><li>random</li></HumanImpact><EconomicImpact><li>random</li></EconomicImpact><ResourcesNeeded><li>random</li></ResourcesNeeded><WaysToHelp><li> href=\"http://random\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis></WC>"
+		root = ET.fromstring(xml_string)
+		populate_crisis(root)
+		cri_dict = getCrisis("CRI_SIXCHR")
+		self.assertEqual(cri_dict['name'], "FAKENAME")
 
-# 		self.assert_(len(crisis_list) >= 1)
+	def test_populate_crisis1(self):
+		xml_string = "<WC><Crisis ID=\"CRI_kindofrandom\" Name=\"kindofrandom\"><People><Person ID=\"PER_kindofrandom\" /></People><Organizations><Org ID=\"ORG_kindofrandom\" /></Organizations><Kind>kindofrandom</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>kindofrandom</li></Locations><HumanImpact><li>kindofrandom</li></HumanImpact><EconomicImpact><li>kindofrandom</li></EconomicImpact><ResourcesNeeded><li>kindofrandom</li></ResourcesNeeded><WaysToHelp><li> href=\"http://kindofrandom\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis></WC>"
+		root = ET.fromstring(xml_string)
+		populate_crisis(root)
+		cri_dict = getCrisis("CRI_kindofrandom")
+		self.assertEqual(cri_dict['name'], "kindofrandom")
+		self.assertEqual(cri_dict['date'], "2011-01-25")
 
-# 	def test_populate_crisis1(self):
-# 		xml_string1 = "<WC><Crisis ID=\"CRI_kindofrandom\" Name=\"kindofrandom\"><People><Person ID=\"PER_kindofrandom\" /></People><Organizations><Org ID=\"ORG_kindofrandom\" /></Organizations><Kind>kindofrandom</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>kindofrandom</li></Locations><HumanImpact><li>kindofrandom</li></HumanImpact><EconomicImpact><li>kindofrandom</li></EconomicImpact><ResourcesNeeded><li>kindofrandom</li></ResourcesNeeded><WaysToHelp><li> href=\"http://kindofrandom\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis></WC>"
-# 		crisis_list1 = []
-# 		root1 = ET.fromstring(xml_string1)
-# 		populate_crisis(root1, crisis_list1)
+	def test_populate_crisis2(self):
+		xml_string = "<WC><Crisis ID=\"CRI_last_populate_crisis_to_check\" Name=\"last_populate_crisis_to_check\"><People><Person ID=\"PER_last_populate_crisis_to_check\" /></People><Organizations><Org ID=\"ORG_last_populate_crisis_to_check\" /></Organizations><Kind>Apocalyptic</Kind><Date>2000-01-20</Date><Time>09:00:00+05:30</Time><Locations><li>last_populate_crisis_to_check</li></Locations><HumanImpact><li>last_populate_crisis_to_check</li></HumanImpact><EconomicImpact><li>last_populate_crisis_to_check</li></EconomicImpact><ResourcesNeeded><li>last_populate_crisis_to_check</li></ResourcesNeeded><WaysToHelp><li> href=\"http://last_populate_crisis_to_check\"</li><li>last_populate_crisis_to_check</li></WaysToHelp><Common><Citations><li> href= last_populate_crisis_to_check</li></Citations><ExternalLinks><li> href=\"http:last_populate_crisis_to_check.html\"</li></ExternalLinks><Images><li> embed=\"http:last_populate_crisis_to_check.jpg\"</li></Images><Summary>last_populate_crisis_to_check</Summary></Common></Crisis></WC>"
+		root = ET.fromstring(xml_string)
+		populate_crisis(root)
+		cri_dict = getCrisis("CRI_last_populate_crisis_to_check")
+		self.assertEqual(cri_dict['name'], "last_populate_crisis_to_check")
+		self.assertEqual(cri_dict['time'], "09:00:00+05:30")
+		self.assertEqual(cri_dict['kind'], "Apocalyptic")
+		self.assertEqual(cri_dict['date'], "2000-01-20")
+	#---------------------------------------#
+	#-----test_populate_person
 
-# 		self.assert_(len(crisis_list1) >= 1)
+	def test_populate_person0(self):
+		xml_string = "<WC><Person ID=\"PER_HMUBAR\" Name=\"Hosni Mubarak\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_MUSBRO\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person></WC>"
+		root = ET.fromstring(xml_string)
+		populate_person(root)
+		per_dict = getPerson("PER_HMUBAR")
+		self.assertEqual(per_dict['name'], "Hosni Mubarak")
+		self.assertEqual(per_dict['kind'], "Politician")
+		self.assertEqual(per_dict['location'], "Egypt")
 
-# 	def test_populate_crisis2(self):
-# 		xml_string1 = "<WC><Crisis ID=\"CRI_last_populate_crisis_to_check\" Name=\"last_populate_crisis_to_check\"><People><Person ID=\"PER_last_populate_crisis_to_check\" /></People><Organizations><Org ID=\"ORG_last_populate_crisis_to_check\" /></Organizations><Kind>last_populate_crisis_to_check</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>last_populate_crisis_to_check</li></Locations><HumanImpact><li>last_populate_crisis_to_check</li></HumanImpact><EconomicImpact><li>last_populate_crisis_to_check</li></EconomicImpact><ResourcesNeeded><li>last_populate_crisis_to_check</li></ResourcesNeeded><WaysToHelp><li> href=\"http://last_populate_crisis_to_check\"</li><li>last_populate_crisis_to_check</li></WaysToHelp><Common><Citations><li> href= last_populate_crisis_to_check</li></Citations><ExternalLinks><li> href=\"http:last_populate_crisis_to_check.html\"</li></ExternalLinks><Images><li> embed=\"http:last_populate_crisis_to_check.jpg\"</li></Images><Summary>last_populate_crisis_to_check</Summary></Common></Crisis></WC>"
-# 		crisis_list1 = []
-# 		root1 = ET.fromstring(xml_string1)
-# 		populate_crisis(root1, crisis_list1)
+	def test_populate_person1(self):
+		xml_string = "<WC><Person ID=\"PER_ELBARA\" Name=\"Mohamed ElBaradei\"><Crises><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_EGYGOV\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person></WC>"
+		root = ET.fromstring(xml_string)
+		populate_person(root)
+		per_dict = getPerson("PER_ELBARA")
+		self.assertEqual(per_dict['name'], "Mohamed ElBaradei")
 
-# 		self.assert_(len(crisis_list1) >= 1)
+	def test_populate_person2(self):
+		xml_string = "<WC><Person ID=\"PER_YEEZUS\" Name=\"Kanye West\"><Crises><Crisis ID=\"CRI_YEEZUS\" /></Crises><Organizations><Org ID=\"ORG_GOODMU\" /><Org ID=\"ORG_HARDNI\" /></Organizations><Kind>Self-proclaimed demi-god</Kind><Location>Earf</Location><Common></Common></Person></WC>"
+		root = ET.fromstring(xml_string)
+		populate_person(root)
+		per_dict = getPerson("PER_YEEZUS")
+		self.assertEqual(per_dict['name'], "Kanye West")
+		self.assertEqual(per_dict['kind'], "Self-proclaimed demi-god")
+		self.assertEqual(per_dict['location'], "Earf")
+		# self.assertEqual(per_dict['organizations'][0][0], 'ORG_GOODMU')
+	#---------------------------------------#
+	#-----test_populate_org
+
+	def test_populate_org0(self):
+		xml_string = "<WC><Organization ID=\"ORG_MUSBRO\" Name=\"The Muslim Brotherhood\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><People><Person ID=\"PER_ELBARA\" /><Person ID=\"PER_HMUBAR\" /><Person ID=\"PER_RLAKAH\" /><Person ID=\"PER_MMORSI\" /></People><Kind>Islamic Movement</Kind><Location>Egypt</Location><Common></Common></Organization></WC>"
+		root = ET.fromstring(xml_string)
+		populate_org(root)
+		org_dict = getOrg("ORG_MUSBRO")
+		self.assertEqual(org_dict['name'], "The Muslim Brotherhood")
+		self.assertEqual(org_dict['kind'], "Islamic Movement")
+		self.assertEqual(org_dict['location'], "Egypt")
+
+	def test_populate_org1(self):
+		xml_string = "<WC><Organization ID=\"ORG_random\" Name=\"random\"><Crises><Crisis ID=\"CRI_random\" /></Crises><People><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /></People><Kind>krandom</Kind><Location>anywhere</Location><Common></Common></Organization></WC>"
+		root = ET.fromstring(xml_string)
+		populate_org(root)
+		org_dict = getOrg("ORG_random")
+		self.assertEqual(org_dict['name'], "random")
+		self.assertEqual(org_dict['kind'], "krandom")
+		self.assertEqual(org_dict['location'], "anywhere")
 
 
-# 	#---------------------------------------#
-# 	#-----test_populate_person
-
-# 	def test_populate_person0(self):
-# 		xml_string = "<WC><Person ID=\"PER_HMUBAR\" Name=\"Hosni Mubarak\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_MUSBRO\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person></WC>"
-# 		person_list = []
-# 		root = ET.fromstring(xml_string)
-# 		populate_person(root, person_list)
-
-# 	 	self.assert_(len(person_list) >= 1)
-
-# 	def test_populate_person1(self):
-# 		xml_string1 = "<WC><Person ID=\"PER_ELBARA\" Name=\"Mohamed ElBaradei\"><Crises><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_EGYGOV\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person></WC>"
-# 		person_list1 = []
-# 		root1 = ET.fromstring(xml_string1)
-# 		populate_person(root1, person_list1)
-
-# 		self.assert_(len(person_list1) >= 1)
-
-# 	def test_populate_person2(self):
-# 		xml_string = "<WC><Person ID=\"PER_MMORSI\" Name=\"Mohammed Morsi\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_EGYGOV\" /><Org ID=\"ORG_MUSBRO\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person></WC>"
-# 		person_list = []
-# 		root = ET.fromstring(xml_string)
-# 		populate_person(root, person_list)
-
-# 	 	self.assert_(len(person_list) >= 1)
-
-# 	#---------------------------------------#
-# 	#-----test_populate_org
-
-# 	def test_populate_org0(self):
-# 		xml_string = "<WC><Organization ID=\"ORG_MUSBRO\" Name=\"The Muslim Brotherhood\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><People><Person ID=\"PER_ELBARA\" /><Person ID=\"PER_HMUBAR\" /><Person ID=\"PER_RLAKAH\" /><Person ID=\"PER_MMORSI\" /></People><Kind>Islamic Movement</Kind><Location>Egypt</Location><Common></Common></Organization></WC>"
-# 		org_list = []
-# 		root = ET.fromstring(xml_string)
-# 		populate_org(root, org_list)
-
-# 	 	self.assert_(len(org_list) >= 1)
-
-# 	def test_populate_org1(self):
-# 		xml_string1 = "<WC><Organization ID=\"ORG_random\" Name=\"random\"><Crises><Crisis ID=\"CRI_random\" /></Crises><People><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /></People><Kind>random</Kind><Location>random</Location><Common></Common></Organization></WC>"
-# 		org_list1 = []
-# 		root1 = ET.fromstring(xml_string1)
-# 		populate_org(root1, org_list1)
-
-# 		self.assert_(len(org_list1) >= 1)
-
-# 	def test_populate_org2(self):
-# 		xml_string = "<WC><Organization ID=\"ORG_ORGANIZE\" Name=\"ORGANIZE\"><Crises><Crisis ID=\"CRI_ORGANIZE\" /></Crises><People><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /></People><Kind>ORGANIZE</Kind><Location>ORGANIZE</Location><Common></Common></Organization></WC>"
-# 		org_list = []
-# 		root = ET.fromstring(xml_string)
-# 		populate_org(root, org_list)
-
-# 	 	self.assert_(len(org_list) >= 1)
+	def test_populate_org2(self):
+		xml_string = "<WC><Organization ID=\"ORG_RECONC\" Name=\"Recon Corps\"><Crises><Crisis ID=\"CRI_TITANS\" /></Crises><People><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /></People><Kind>Elite titan research group</Kind><Location>Outside the walls</Location><Common></Common></Organization></WC>"
+		root = ET.fromstring(xml_string)
+		populate_org(root)
+		org_dict = getOrg("ORG_RECONC")
+		self.assertEqual(org_dict['name'], "Recon Corps")
+		self.assertEqual(org_dict['kind'], "Elite titan research group")
+		self.assertEqual(org_dict['location'], "Outside the walls")
+		self.assertEqual(org_dict['crises'][0][0], 'CRI_TITANS')
 
 
 # class viewsTest(TestCase):
