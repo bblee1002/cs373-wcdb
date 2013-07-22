@@ -33,6 +33,19 @@ def make_li_string(li_list, tag):
 	item_string.join("</" + tag + ">")
 	return item_string
 
+
+def make_common_string(common_dict):
+	common_string = "<Common>"
+	make_li_string(common_dict["Citations"], "Citations")
+	make_li_string(common_dict["ExternalLinks"], "ExternalLinks")
+	make_li_string(common_dict["Images"], "Images")
+	make_li_string(common_dict["Videos"], "Videos")
+	make_li_string(common_dict["Maps"], "Maps")
+	make_li_string(common_dict["Feeds"], "Feeds")
+	common_string.join("</Common>")
+
+
+
 #-----Export CRISIS models-----#
 def export_crisis (crisis_dict, crisis_id) :
 	"""
@@ -67,49 +80,24 @@ def export_crisis (crisis_dict, crisis_id) :
 		crisis_string.join(make_non_li_string(clean_xml(str(crisis_dict["kind"])), "Kind"))
 	except:
 		pass
-
 	try:
 		crisis_string.join(make_non_li_string(clean_xml(str(crisis_dict["date"])), "Date"))
 	except:
 		pass
-
 	try:
 		crisis_string.join(make_non_li_string(clean_xml(str(crisis_dict["time"])), "Time"))
 	except:
 		pass
-
 	li_dict = crisis_dict["common"]
+	crisis_string.join(make_li_string(li_dict["Locations"], "Locations"))
+	crisis_string.join(make_li_string(li_dict["HumanImpact"], "HumanImpact"))
+	crisis_string.join(make_li_string(li_dict["EconomicImpact"], "EconomicImpact"))
+	crisis_string.join(make_li_string(li_dict["ResourcesNeeded"], "ResourcesNeeded"))
+	crisis_string.join(make_li_string(li_dict["WaystoHelp"], "WaysToHelp"))
 
-	try:
-		crisis_string.join(make_li_string(li_dict["Locations"], "Locations"))
-	except:
-		pass
+	crisis_string.join(make_common_string(li_dict))
+	crisis_string.join(make_li_string(li_dict["Summary"], "Summary"))
 
-	try:
-		crisis_string.join(make_li_string(li_dict["HumanImpact"], "HumanImpact"))
-	except:
-		pass
-
-	try:
-		crisis_string.join(make_li_string(li_dict["EconomicImpact"], "EconomicImpact"))
-	except:
-		pass
-
-	try:
-		crisis_string.join(make_li_string(li_dict["ResourcesNeeded"], "ResourcesNeeded"))
-	except:
-		pass
-
-	try:
-		crisis_string.join(make_li_string(li_dict["WaystoHelp"], "WaysToHelp"))
-	except:
-		pass
-
-	#Export info from the common class
-	if crisis.common is not None :
-		crisis_string += crisis.common.print_xml()
-
-	#Conclude crisis xml
 	crisis_string += "</Crisis>"
 	return crisis_string
 
@@ -248,19 +236,13 @@ def receive_import(model_dict) :
 		crisis_dict = getCrisis(crisis_id)
 		crises_xml_string.join(export_crisis(crisis_dict))
 
-	#collect xml versions of all CRISIS models
-	for crisis in model_dict["crises"] :
-		crises_xml_string += export_crisis (crisis)
+	for person_id in person_ids.keys():
+		person_dict = getPerson(person_id)
+		crises_xml_string.join(export_person(person_dict))
 
-	#collect xml versions of all PERSON models
-	people_xml_string = ""
-	for person in model_dict["people"] :
-		people_xml_string += export_person (person)
+	for org_id in org_ids.keys():
+		org_dict = getOrg(org_id)
+		crises_xml_string.join(export_org(org_dict))
 
-	#collect xml versions of all ORGANIZATION models
-	organizations_xml_string = ""
-	for org in model_dict["organizations"] :
-		organizations_xml_string += export_organization (org)
-
-	return "<WorldCrises>" + crises_xml_string + people_xml_string + organizations_xml_string + "</WorldCrises>"
+	return "<WorldCrises>" + crises_xml_string + "</WorldCrises>"
 
