@@ -223,15 +223,15 @@ class Crisis(models.Model) :
     date              = models.CharField(max_length=200)
     time              = models.CharField(max_length=200)
     #relations models
-    people            = []
-    organizations     = []
-    #Li list
-    #locations, human_impact, economic_impact is always floating text
-    locations         = []
-    human_impact      = []
-    economic_impact   = []
-    resources_needed  = []
-    ways_to_help      = []
+    # people            = []
+    # organizations     = []
+    # #Li list
+    # #locations, human_impact, economic_impact is always floating text
+    # locations         = []
+    # human_impact      = []
+    # economic_impact   = []
+    # resources_needed  = []
+    # ways_to_help      = []
     #common
     common            = Common()
     common_summary    = models.CharField(max_length=2000)
@@ -247,8 +247,8 @@ class Person(models.Model) :
     kind              = models.CharField(max_length=200)
     location          = models.CharField(max_length=200)
     #relations models
-    crises            = []
-    organizations     = []
+    # crises            = []
+    # organizations     = []
     #Li list
     #locations, human_impact, economic_impact is always floating text
     #common
@@ -266,11 +266,11 @@ class Org(models.Model) :
     kind           = models.CharField(max_length=200)
     location       = models.CharField(max_length=200)
     #relations models
-    crises         = []
-    people         = []
-    #Li list
-    history        = []
-    contact        = []
+    # crises         = []
+    # people         = []
+    # #Li list
+    # history        = []
+    # contact        = []
     #Common
     common         = Common()
     common_summary = models.CharField(max_length=2000)
