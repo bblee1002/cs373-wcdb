@@ -264,7 +264,7 @@
             <li embed="//www.youtube.com/embed/Mic0AYK8F-c" />
         </Videos>
         <Maps>
-            <li embed="https://maps.google.com/maps?q=map+brazil&amp;client=ubuntu&amp;channel=cs&amp;hnear=Brazil&amp;gl=us&amp;t=m&amp;z=4"></li>
+            <li embed="https://maps.google.com/maps?client=ubuntu&amp;channel=cs&amp;q=map+of+brazil&amp;ie=UTF8&amp;hq=&amp;hnear=Brazil&amp;gl=us&amp;t=m&amp;z=4&amp;ll=-14.235004,-51.92528&amp;output=embed"></li>
         </Maps>
         <Summary>The 2013 Brazilian protests started as upset citizens protesting the increase of fares of public transportation methods. Lately the protests have evolved into demanding a better oversite of government workers, better public transportation with lesser cost, and controversy over hosting the 2015 World Cup.</Summary>
     </Common>
@@ -679,7 +679,7 @@
         </ExternalLinks>
         <Images>
             <li embed="http://upload.wikimedia.org/wikipedia/commons/d/d0/Hildebrando.jpg" text="img not found">Hildebrando Pascoal arriving at court to be tried.</li>
-            <li href="http://graphics8.nytimes.com/images/2013/06/28/world/jp-brazil2/jp-brazil2-popup.jpg">Hildebrando Pascoal</li>
+            <li embed="http://graphics8.nytimes.com/images/2013/06/28/world/jp-brazil2/jp-brazil2-popup.jpg">Hildebrando Pascoal</li>
         </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/I199ISU6lOE" />
@@ -1401,7 +1401,7 @@
             <li embed="//www.youtube.com/embed/08P0i-TAI0c" />
             </Videos>
             <Maps>
-            <li embed="https://maps.google.com/maps?q=brazil&amp;hl=en&amp;client=ubuntu&amp;channel=fs&amp;oe=utf-8&amp;hnear=Brazil&amp;t=h&amp;z=4" />
+            <li embed="https://maps.google.com/maps?client=ubuntu&amp;channel=cs&amp;q=map+of+brazil&amp;ie=UTF8&amp;hq=&amp;hnear=Brazil&amp;gl=us&amp;t=m&amp;z=4&amp;ll=-14.235004,-51.92528&amp;output=embed" />
             </Maps>
             <Feeds>
             <li href="https://www.facebook.com/pages/Brazilian-military-government/119755061404595?nr">Facebook</li>
