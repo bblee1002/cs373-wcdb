@@ -21,25 +21,25 @@ def make_li_string(li_list, tag):
 		return ''
 	item_string = "<" + tag + ">"
 	for item in li_list:
-		item_string.join("<li")
+		item_string = ''.join([item_string,"<li"])
 		if item.href != u'':
 			href = clean_xml(item.href)
-			item_string.join(" href=\"" + href + "\"")
+			item_string = ''.join([item_string," href=\"" + href + "\""])
 
 		if item.embed != u'':
 			embed = clean_xml(item.embed)
-			item_string.join(" embed=\"" + embed + "\"")
+			item_string = ''.join([item_string," embed=\"" + embed + "\""])
 
 		if item.text != u'':
 			text = clean_xml(item.text)
-			item_string.join(" text=\"" + text + "\"")
-		item_string.join(">")
+			item_string = ''.join([item_string, " text=\"" + text + "\""])
+		item_string = ''.join([item_string, ">"])
 
 		if item.floating_text != u'':
 			floating_text = clean_xml(item.floating_text)
-			item_string.join(floating_text)
-		item_string.join("</li>")
-	item_string.join("</" + tag + ">")
+			item_string = ''.join([item_string, floating_text])
+		item_string = ''.join([item_string, "</li>"])
+	item_string = ''.join([item_string, "</" + tag + ">"])
 	return item_string
 
 
