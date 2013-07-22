@@ -9,6 +9,8 @@ def clean_xml (dirty) :
 	Check for presence of "&" invalid XML char in everything but Li() instances.
 	Returns a new string w/out any tag information
 	"""
+	if dirty is None:
+		return ''
 	return dirty.replace('&', '&amp;')
 
 def make_non_li_string(clean_string, tag):
@@ -19,9 +21,23 @@ def make_li_string(li_list, tag):
 		return ''
 	item_string = "<" + tag + ">"
 	for item in li_list:
-		item = clean_xml(item)
-		item_string.join("<li>")
-		item_string.join(item)
+		item_string.join("<li")
+		if item.href != u'':
+			href = clean_xml(item.href)
+			item_string.join(" href=\"" + href + "\"")
+
+		if item.embed != u'':
+			embed = clean_xml(item.embed)
+			item_string.join(" embed=\"" + embed + "\"")
+
+		if item.text != u'':
+			text = clean_xml(item.text)
+			item_string.join(" text=\"" + text + "\"")
+		item_string.join(">")
+
+		if item.floating_text != u'':
+			floating_text = clean_xml(item.floating_text)
+			item_string.join(floating_text)
 		item_string.join("</li>")
 	item_string.join("</" + tag + ">")
 	return item_string
@@ -215,7 +231,7 @@ def export_organization (org) :
 
 #Access models thrgh arg model_dict = {Crises : [], Orgs : [], Ppl : []}
 #Called from from views.py
-def receive_import(model_dict) :
+def receive_import() :
 	"""
 	Exports models into an xml string.
 	"""
@@ -227,7 +243,7 @@ def receive_import(model_dict) :
 	crises_xml_string = ""
 	for crisis_id in crisis_ids.keys():
 		crisis_dict = getCrisis(crisis_id)
-		crises_xml_string.join(export_crisis(crisis_dict))
+		crises_xml_string.join(export_crisis(crisis_dict, crisis_id))
 
 	for person_id in person_ids.keys():
 		person_dict = getPerson(person_id)
