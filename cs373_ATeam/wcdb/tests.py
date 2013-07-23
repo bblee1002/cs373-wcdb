@@ -7,7 +7,7 @@ Replace this with more appropriate tests for your application.
 from django.test import TestCase
 from minixsv import pyxsval
 from genxmlif import GenXmlIfError
-from models import Crisis, Person, Org, list_add, Li, Common, Relations
+from models import Crisis, Person, Org, list_add, Li, Common, Relations, populate_li
 from loadModels import validate, populate_crisis, populate_person, populate_org, populate_models
 from unloadModels import clean_xml, export_crisis, export_person, export_crisis, export_organization, receive_import
 import xml.etree.ElementTree as ET
@@ -61,6 +61,21 @@ class ModelsCrisisTest(TestCase):
 		temp_li.populate(temp, "PER_SHANGU", "ExternalLinks")
 		self.assertEqual(temp_li.floating_text, "randomfloatingtext")
 		self.assertEqual(temp_li.kind, "ExternalLinks")
+
+	#---------------------------------------#
+	#-----test_populate_li
+
+	# def test_populate_li(self):
+	# 	li_string = "<WC><li href=\"http://www.guardian.co.uk/world/2013/jul/04/european-us-internet-providers-nsa\">Traynor, Ian. \"European Firms \'Could Quit US Internet Providers Over NSA Scandal\'\". The Guardian. 4 July, 2013. Visited: 7 July, 2013.</li></WC>"
+	# 	e_root    = ET.fromstring(li_string)
+	# 	temp      = ET.Element('li')
+	# 	temp.set("href", "href_stuff")
+	# 	temp.text = "randomfloatingtext"
+	# 	temp_li   = Li()
+	# 	temp_li.populate(temp, "PER_MMORSI", "Videos")
+	# 	self.assertEqual(temp_li.href, "href_stuff")
+	# 	self.assertEqual(temp_li.floating_text, "randomfloatingtext")
+
 
 # 	#---------------------------------------#
 # 	#-----test_clean_li_xml
@@ -169,7 +184,7 @@ class ModelsCrisisTest(TestCase):
 
 	# def test_common_populate0(self):
 	# 	temp_com = Common()
-	# 	xml_string = '<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Videos><li embed="//www.youtube.com/embed/qV3s7Sa6B6w" /></Videos><Maps><li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" /></Maps><Feeds><li embed="[WHATEVER A FEED URL LOOKS LIKE]" /></Feeds><Summary>Lorem ipsum...</Summary></Common>'
+	# 	xml_string = '<Crisis ID=CRI_NSAWRT Name=NSA Wiretapping><Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Videos><li embed="//www.youtube.com/embed/qV3s7Sa6B6w" /></Videos><Maps><li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" /></Maps><Feeds><li embed="[WHATEVER A FEED URL LOOKS LIKE]" /></Feeds><Summary>Lorem ipsum...</Summary></Common>'
 	# 	root = ET.fromstring(xml_string)
 	# 	temp_com.populate(root, "PER_EDDIES")
 
@@ -415,63 +430,89 @@ class ModelsCrisisTest(TestCase):
 # 		self.assertEqual(check_string, org_xml)
 
 
-# class loadModelsCrisisTest(TestCase):
+class loadModelsCrisisTest(TestCase):
 
 # #------------------------------------------------#
 # #-----Unit Tests for functions from loadModels.py
 # #------------------------------------------------#
 
-# 	#---------------------------------------#
-# 	#-----test_validate
+	#---------------------------------------#
+	#-----test_validate
 
-# 	def test_validate0(self):
-# 		f = open('wcdb/xml0.xml')
-# 		self.assertEqual(type(f), file)
-# 		self.assert_(validate(f) != False)
+	def test_validate0(self):
+		f = open('wcdb/xml0.xml')
+		self.assertEqual(type(f), file)
+		self.assert_(validate(f) != False)
 
-# 	def test_validate1(self):
-# 		f = open('wcdb/xml1.xml')
-# 		self.assertEqual(type(f), file)
-# 		self.assert_(type(validate(f)) == str)
+	def test_validate1(self):
+		f = open('wcdb/xml1.xml')
+		self.assertEqual(type(f), file)
+		self.assert_(type(validate(f)) == str)
 
-# 	def test_validate2(self):
-# 		f = open('wcdb/xml2.xm')
-# 		self.assertEqual(type(f), file)
-# 		self.assertEqual(validate(f), False)
+	def test_validate2(self):
+		f = open('wcdb/xml2.xm')
+		self.assertEqual(type(f), file)
+		self.assertEqual(validate(f), False)
 
 	#---------------------------------------#
 	#-----test_populate_models
 
-	# def populate_models0(self) :
-	# 	crisis_string = "<WC><Crisis ID=\"CRI_NOTFOREXPORT\" Name=\"NOTFOREXPORT\"><People><Person ID=\"PER_NOTFOREXPORT\" /></People><Organizations><Org ID=\"ORG_NOTFOREXPORT\" /></Organizations><Kind>NOTFOREXPORT</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>random</li></Locations><HumanImpact><li>random</li></HumanImpact><EconomicImpact><li>random</li></EconomicImpact><ResourcesNeeded><li>random</li></ResourcesNeeded><WaysToHelp><li> href=\"http://random\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis>"
-	# 	person_string = "<Person ID=\"PER_HMUBAR\" Name=\"Hosni Mubarak\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_MUSBRO\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person>"
-	# 	org_string = "<Organization ID=\"ORG_MUSBRO\" Name=\"The Muslim Brotherhood\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><People><Person ID=\"PER_ELBARA\" /><Person ID=\"PER_HMUBAR\" /><Person ID=\"PER_RLAKAH\" /><Person ID=\"PER_MMORSI\" /></People><Kind>Islamic Movement</Kind><Location>Egypt</Location><Common></Common></Organization></WC>"
-	# 	xml_to_tree = crisis_string + person_string + org_string
-	# 	e_tree = ET.parse(xml_to_tree)
-	# 	cri_per_org_dict = populate_models(e_tree)
-	# 	print "TYPE DICT = ", type(cri_per_org_dict)
-	# 	self.assertEqual(type(cri_per_org_dict), )
+	def test_populate_models0(self) :
+		crisis_string = "<WC><Crisis ID=\"CRI_NOTFOREXPORT\" Name=\"NOTFOREXPORT\"><People><Person ID=\"PER_NOTFOREXPORT\" /></People><Organizations><Org ID=\"ORG_NOTFOREXPORT\" /></Organizations><Kind>NOTFOREXPORT</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>random</li></Locations><HumanImpact><li>random</li></HumanImpact><EconomicImpact><li>random</li></EconomicImpact><ResourcesNeeded><li>random</li></ResourcesNeeded><WaysToHelp><li> href=\"http://random\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis>"
+		person_string = "<Person ID=\"PER_HMUBAR\" Name=\"Hosni Mubarak\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_MUSBRO\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person>"
+		org_string = "<Organization ID=\"ORG_MUSBRO\" Name=\"The Muslim Brotherhood\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><People><Person ID=\"PER_ELBARA\" /><Person ID=\"PER_HMUBAR\" /><Person ID=\"PER_RLAKAH\" /><Person ID=\"PER_MMORSI\" /></People><Kind>Islamic Movement</Kind><Location>Egypt</Location><Common></Common></Organization></WC>"
+		xml_to_tree = crisis_string + person_string + org_string
+		e_root = ET.fromstring(xml_to_tree)
+		e_tree = ET.ElementTree(e_root)
+		populate_models(e_tree)
+		cri_dict = getCrisis("CRI_NOTFOREXPORT")
+		self.assertEqual(cri_dict['name'], "NOTFOREXPORT")
+		self.assertEqual(cri_dict['time'], "09:00:00+05:30")
+		self.assertEqual(cri_dict['organizations'][0][0], 'ORG_NOTFOREXPORT')
 
 
-# 	def populate_models1(self) :
-# 		crisis_string = "<WC><Crisis ID=\"CRI_kindofrandom\" Name=\"kindofrandom\"><People><Person ID=\"PER_kindofrandom\" /></People><Organizations><Org ID=\"ORG_kindofrandom\" /></Organizations><Kind>kindofrandom</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>kindofrandom</li></Locations><HumanImpact><li>kindofrandom</li></HumanImpact><EconomicImpact><li>kindofrandom</li></EconomicImpact><ResourcesNeeded><li>kindofrandom</li></ResourcesNeeded><WaysToHelp><li> href=\"http://kindofrandom\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis>"
-# 		person_string = "<Person ID=\"PER_ELBARA\" Name=\"Mohamed ElBaradei\"><Crises><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_EGYGOV\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person>"
-# 		org_string = "<Organization ID=\"ORG_random\" Name=\"random\"><Crises><Crisis ID=\"CRI_random\" /></Crises><People><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /></People><Kind>random</Kind><Location>random</Location><Common></Common></Organization></WC>"
-# 		xml_to_tree = crisis_string + person_string + org_string
-# 		e_tree = ET.parse(xml_to_tree)
-# 		populate_models(e_tree)
+	def test_populate_models1(self) :
+		crisis_string = "<WC><Crisis ID=\"CRI_kindofrandom\" Name=\"kindofrandom\"><People><Person ID=\"PER_kindofrandom\" /></People><Organizations><Org ID=\"ORG_kindofrandom\" /></Organizations><Kind>kindofrandom</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>kindofrandom</li></Locations><HumanImpact><li>kindofrandom</li></HumanImpact><EconomicImpact><li>kindofrandom</li></EconomicImpact><ResourcesNeeded><li>kindofrandom</li></ResourcesNeeded><WaysToHelp><li> href=\"http://kindofrandom\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis>"
+		person_string = "<Person ID=\"PER_ELBARA\" Name=\"Mohamed ElBaradei\"><Crises><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_EGYGOV\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person>"
+		org_string = "<Organization ID=\"ORG_LAKERS\" Name=\"Los Angeles Lakers\"><Crises><Crisis ID=\"CRI_DWIGHT\" /></Crises><People><Person ID=\"PER_DANTON\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /></People><Kind>Sports</Kind><Location>Los Angeles</Location><Common></Common></Organization></WC>"
+		xml_to_tree = crisis_string + person_string + org_string
+		e_root = ET.fromstring(xml_to_tree)
+		e_tree = ET.ElementTree(e_root)
+		populate_models(e_tree)
+		per_dict = getPerson("PER_ELBARA")
+		org_dict = getOrg("ORG_LAKERS")
+		self.assertEqual(per_dict['name'], "Mohamed ElBaradei")
+		self.assertEqual(per_dict['kind'], "Politician")
+		self.assertEqual(per_dict['organizations'][0][0], 'ORG_EGYGOV')
+		self.assertEqual(org_dict['name'], "Los Angeles Lakers")
+		self.assertEqual(org_dict['location'], "Los Angeles")
+		self.assertEqual(org_dict['crises'][0][0], 'CRI_DWIGHT')
 
-# 	def populate_models2(self) :
-# 		crisis_string = "<WC><Crisis ID=\"CRI_last_populate_crisis_to_check\" Name=\"last_populate_crisis_to_check\"><People><Person ID=\"PER_last_populate_crisis_to_check\" /></People><Organizations><Org ID=\"ORG_last_populate_crisis_to_check\" /></Organizations><Kind>last_populate_crisis_to_check</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>last_populate_crisis_to_check</li></Locations><HumanImpact><li>last_populate_crisis_to_check</li></HumanImpact><EconomicImpact><li>last_populate_crisis_to_check</li></EconomicImpact><ResourcesNeeded><li>last_populate_crisis_to_check</li></ResourcesNeeded><WaysToHelp><li> href=\"http://last_populate_crisis_to_check\"</li><li>last_populate_crisis_to_check</li></WaysToHelp><Common><Citations><li> href= last_populate_crisis_to_check</li></Citations><ExternalLinks><li> href=\"http:last_populate_crisis_to_check.html\"</li></ExternalLinks><Images><li> embed=\"http:last_populate_crisis_to_check.jpg\"</li></Images><Summary>last_populate_crisis_to_check</Summary></Common></Crisis>"
-# 		person_string = "<Person ID=\"PER_MMORSI\" Name=\"Mohammed Morsi\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_EGYGOV\" /><Org ID=\"ORG_MUSBRO\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person>"
-# 		org_string = "<Organization ID=\"ORG_ORGANIZE\" Name=\"ORGANIZE\"><Crises><Crisis ID=\"CRI_ORGANIZE\" /></Crises><People><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /></People><Kind>ORGANIZE</Kind><Location>ORGANIZE</Location><Common></Common></Organization></WC>"
-# 		xml_to_tree = crisis_string + person_string + org_string
-# 		e_tree = ET.parse(xml_to_tree)
-# 		populate_models(e_tree)
+	def test_populate_models2(self) :
+		crisis_string = "<WC><Crisis ID=\"CRI_DWIGHT\" Name=\"Dwightmare\"><People><Person ID=\"PER_JIMBUS\" /></People><Organizations><Org ID=\"ORG_YESMEN\" /></Organizations><Kind>kindofrandom</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>Wherever the Rugrats lived</li></Locations><HumanImpact><li>kindofrandom</li></HumanImpact><EconomicImpact><li>kindofrandom</li></EconomicImpact><ResourcesNeeded><li>kindofrandom</li></ResourcesNeeded><WaysToHelp><li> href=\"http://kindofrandom\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis>"
+		person_string = "<Person ID=\"PER_JIMBUS\" Name=\"Jim Buss\"><Crises><Crisis ID=\"CRI_STUPID\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_LAKERS\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Idiot</Kind><Location>Egypt</Location><Common></Common></Person>"
+		org_string = "<Organization ID=\"ORG_KNICKS\" Name=\"New York Knicks\"><Crises><Crisis ID=\"CRI_TOOOLD\" /></Crises><People><Person ID=\"PER_DOLANPLS\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /></People><Kind>Sports</Kind><Location>New York</Location><Common></Common></Organization></WC>"
+		xml_to_tree = crisis_string + person_string + org_string
+		e_root = ET.fromstring(xml_to_tree)
+		e_tree = ET.ElementTree(e_root)
+		populate_models(e_tree)
+		cri_dict = getCrisis("CRI_DWIGHT")
+		per_dict = getPerson("PER_JIMBUS")
+		org_dict = getOrg("ORG_KNICKS")
+		self.assertEqual(cri_dict['name'], "Dwightmare")
+		self.assertEqual(cri_dict['time'], "09:00:00+05:30")
+		self.assertEqual(cri_dict['organizations'][0][0], 'ORG_YESMEN')
+		self.assertEqual(per_dict['name'], "Jim Buss")
+		self.assertEqual(per_dict['kind'], "Idiot")
+		self.assertEqual(per_dict['organizations'][0][0], 'ORG_LAKERS')
+		self.assertEqual(org_dict['name'], "New York Knicks")
+		self.assertEqual(org_dict['location'], "New York")
+		self.assertEqual(org_dict['crises'][0][0], 'CRI_TOOOLD')
 
 
-# 	#---------------------------------------#
-# 	#-----test_populate_crisis
+
+	#---------------------------------------#
+	#-----test_populate_crisis
 
 	def test_populate_crisis0(self):
 		xml_string = "<WC><Crisis ID=\"CRI_SIXCHR\" Name=\"FAKENAME\"><People><Person ID=\"PER_NOTFOREXPORT\" /></People><Organizations><Org ID=\"ORG_NOTFOREXPORT\" /></Organizations><Kind>NOTFOREXPORT</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>random</li></Locations><HumanImpact><li>random</li></HumanImpact><EconomicImpact><li>random</li></EconomicImpact><ResourcesNeeded><li>random</li></ResourcesNeeded><WaysToHelp><li> href=\"http://random\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis></WC>"
@@ -489,7 +530,7 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(cri_dict['date'], "2011-01-25")
 
 	def test_populate_crisis2(self):
-		xml_string = "<WC><Crisis ID=\"CRI_last_populate_crisis_to_check\" Name=\"last_populate_crisis_to_check\"><People><Person ID=\"PER_last_populate_crisis_to_check\" /></People><Organizations><Org ID=\"ORG_last_populate_crisis_to_check\" /></Organizations><Kind>Apocalyptic</Kind><Date>2000-01-20</Date><Time>09:00:00+05:30</Time><Locations><li>last_populate_crisis_to_check</li></Locations><HumanImpact><li>last_populate_crisis_to_check</li></HumanImpact><EconomicImpact><li>last_populate_crisis_to_check</li></EconomicImpact><ResourcesNeeded><li>last_populate_crisis_to_check</li></ResourcesNeeded><WaysToHelp><li> href=\"http://last_populate_crisis_to_check\"</li><li>last_populate_crisis_to_check</li></WaysToHelp><Common><Citations><li> href= last_populate_crisis_to_check</li></Citations><ExternalLinks><li> href=\"http:last_populate_crisis_to_check.html\"</li></ExternalLinks><Images><li> embed=\"http:last_populate_crisis_to_check.jpg\"</li></Images><Summary>last_populate_crisis_to_check</Summary></Common></Crisis></WC>"
+		xml_string = "<WC><Crisis ID=\"CRI_last_populate_crisis_to_check\" Name=\"last_populate_crisis_to_check\"><People><Person ID=\"PER_last_populate_crisis_to_check\" /></People><Organizations><Org ID=\"ORG_SAVIOR\" /></Organizations><Kind>Apocalyptic</Kind><Date>2000-01-20</Date><Time>09:00:00+05:30</Time><Locations><li>last_populate_crisis_to_check</li></Locations><HumanImpact><li>last_populate_crisis_to_check</li></HumanImpact><EconomicImpact><li>last_populate_crisis_to_check</li></EconomicImpact><ResourcesNeeded><li>last_populate_crisis_to_check</li></ResourcesNeeded><WaysToHelp><li> href=\"http://last_populate_crisis_to_check\"</li><li>last_populate_crisis_to_check</li></WaysToHelp><Common><Citations><li> href= last_populate_crisis_to_check</li></Citations><ExternalLinks><li> href=\"http:last_populate_crisis_to_check.html\"</li></ExternalLinks><Images><li> embed=\"http:last_populate_crisis_to_check.jpg\"</li></Images><Summary>last_populate_crisis_to_check</Summary></Common></Crisis></WC>"
 		root = ET.fromstring(xml_string)
 		populate_crisis(root)
 		cri_dict = getCrisis("CRI_last_populate_crisis_to_check")
@@ -497,6 +538,7 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(cri_dict['time'], "09:00:00+05:30")
 		self.assertEqual(cri_dict['kind'], "Apocalyptic")
 		self.assertEqual(cri_dict['date'], "2000-01-20")
+		self.assertEqual(cri_dict['organizations'][0][0], 'ORG_SAVIOR')
 	#---------------------------------------#
 	#-----test_populate_person
 
@@ -524,7 +566,7 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(per_dict['name'], "Kanye West")
 		self.assertEqual(per_dict['kind'], "Self-proclaimed demi-god")
 		self.assertEqual(per_dict['location'], "Earf")
-		# self.assertEqual(per_dict['organizations'][0][0], 'ORG_GOODMU')
+		self.assertEqual(per_dict['organizations'][0][0], 'ORG_GOODMU')
 	#---------------------------------------#
 	#-----test_populate_org
 
@@ -558,87 +600,87 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(org_dict['crises'][0][0], 'CRI_TITANS')
 
 
-# class viewsTest(TestCase):
+class viewsTest(TestCase):
 
-# #--------------------------------------------#
-# #-----Unit Tests for functions from views.py
-# #--------------------------------------------#
+#--------------------------------------------#
+#-----Unit Tests for functions from views.py
+#--------------------------------------------#
 
-# 	#---------------------------------------#
-# 	#-----test_crisisView
-# 	#---------------------------------------#
+	#---------------------------------------#
+	#-----test_crisisView
+	#---------------------------------------#
 
-# 	# tests that user can see our pages 
-# 	def test_indexView(self):
-# 		response = self.client.get("http://localhost:8000/")
-# 		self.assertEqual(response.status_code, 200)
+	# tests that user can see our pages 
+	def test_indexView(self):
+		response = self.client.get("http://localhost:8000/")
+		self.assertEqual(response.status_code, 200)
 
-# 	def test_crisisView0(self):
-# 		response = self.client.get("http://localhost:8000/crisis/1")
-# 		self.assertEqual(response.status_code, 200)
+	# def test_crisisView0(self):
+	# 	response = self.client.get("http://localhost:8000/crisis/1")
+	# 	self.assertEqual(response.status_code, 200)
 
-# 	def test_crisisView1(self):
-# 		response = self.client.get("http://localhost:8000/crisis/2")
-# 		self.assertEqual(response.status_code, 200)
+	# def test_crisisView1(self):
+	# 	response = self.client.get("http://localhost:8000/crisis/2")
+	# 	self.assertEqual(response.status_code, 200)
 
-# 	def test_crisisView2(self):
-# 		response = self.client.get("http://localhost:8000/crisis/3")
-# 		self.assertEqual(response.status_code, 200)
+	# def test_crisisView2(self):
+	# 	response = self.client.get("http://localhost:8000/crisis/3")
+	# 	self.assertEqual(response.status_code, 200)
 
-# 	def test_orgsView0(self):
-# 		response = self.client.get("http://localhost:8000/orgs/1")
-# 		self.assertEqual(response.status_code, 200)
+	# def test_orgsView0(self):
+	# 	response = self.client.get("http://localhost:8000/orgs/1")
+	# 	self.assertEqual(response.status_code, 200)
 
-# 	def test_orgsView1(self):
-# 		response = self.client.get("http://localhost:8000/orgs/2")
-# 		self.assertEqual(response.status_code, 200)
+	# def test_orgsView1(self):
+	# 	response = self.client.get("http://localhost:8000/orgs/2")
+	# 	self.assertEqual(response.status_code, 200)
 
-# 	def test_orgsView2(self):
-# 		response = self.client.get("http://localhost:8000/orgs/3")
-# 		self.assertEqual(response.status_code, 200)
+	# def test_orgsView2(self):
+	# 	response = self.client.get("http://localhost:8000/orgs/3")
+	# 	self.assertEqual(response.status_code, 200)
 
-# 	def test_peopleView0(self):
-# 		response = self.client.get("http://localhost:8000/people/1")
-# 		self.assertEqual(response.status_code, 200)
+	# def test_peopleView0(self):
+	# 	response = self.client.get("http://localhost:8000/people/1")
+	# 	self.assertEqual(response.status_code, 200)
 
-# 	def test_peopleView1(self):
-# 		response = self.client.get("http://localhost:8000/people/2")
-# 		self.assertEqual(response.status_code, 200)
+	# def test_peopleView1(self):
+	# 	response = self.client.get("http://localhost:8000/people/2")
+	# 	self.assertEqual(response.status_code, 200)
 
-# 	def test_peopleView2(self):
-# 		response = self.client.get("http://localhost:8000/people/3")
-# 		self.assertEqual(response.status_code, 200)
+	# def test_peopleView2(self):
+	# 	response = self.client.get("http://localhost:8000/people/3")
+	# 	self.assertEqual(response.status_code, 200)
 
-# 	"""
-# 	Creates an infinite loop!
-# 	def test_unittestView(self):
-# 		response = self.client.get("http://localhost:8000/unittests/")
-# 		self.assertEqual(response.status_code, 200)
-# 	"""
+	"""
+	Creates an infinite loop!
+	def test_unittestView(self):
+		response = self.client.get("http://localhost:8000/unittests/")
+		self.assertEqual(response.status_code, 200)
+	"""
 
-# 	def test_importView1(self):
-# 		response = self.client.get("http://localhost:8000/import/")
-# 		self.assertEqual(response.status_code, 200)
+	def test_importView1(self):
+		response = self.client.get("http://localhost:8000/import/")
+		self.assertEqual(response.status_code, 200)
 
-# 	def test_importView2(self):
-# 		c = Client()
-# 		with open('wcdb/xml0.xml') as upload:
-# 			response = self.client.post("http://localhost:8000/import/", {'password': "ateam", 'xmlvalue': upload}, follow = True)
-#         	self.assertEqual(response.status_code, 200) # Redirect on form success
+	def test_importView2(self):
+		c = Client()
+		with open('wcdb/xml0.xml') as upload:
+			response = self.client.post("http://localhost:8000/import/", {'password': "ateam", 'xmlvalue': upload}, follow = True)
+			self.assertEqual(response.status_code, 200) # Redirect on form success
 
-# 	def test_passwordValidate0(self):
-# 		pw = "ateam"
-# 		result = passwordValidate(pw)
-# 		self.assert_(result)
+	def test_passwordValidate0(self):
+		pw = "ateam"
+		result = passwordValidate(pw)
+		self.assert_(result)
 
-# 	def test_passwordValidate1(self):
-# 		pw = "someotherteam"
-# 		result = passwordValidate(pw)
-# 		self.assert_(not (result))
+	def test_passwordValidate1(self):
+		pw = "someotherteam"
+		result = passwordValidate(pw)
+		self.assert_(not (result))
 
-# 	def test_exportView(self):
-# 		response = self.client.get("http://127.0.0.1:8000/export/")
-# 		self.assertEqual(response.status_code, 200)
+	def test_exportView(self):
+		response = self.client.get("http://127.0.0.1:8000/export/")
+		self.assertEqual(response.status_code, 200)
 
 
 class getBdModelTest(TestCase):
