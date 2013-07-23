@@ -59,6 +59,24 @@
 	{% endfor %}
 </dl>
 
+<div id="myCarousel" class="carousel slide">
+	<div class="carousel-inner">
+		<!-- NEED TO FIX THE ACTIVE ITEM PROBLEM!!! -->
+		{% for i in common.Images %}
+			<div class="item">
+				<div class="inner-item">
+					<img src="{{ i.embed }}" alt="img not found">
+					<div class="carousel-caption">
+						<h4>{{ i.floating_text }}</h4>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
 {% for v in common.Videos %}
 	<iframe width="940" height="600" src="{{ v.embed }}" frameborder="0" allowfullscreen></iframe>
 	<br><br>
@@ -99,5 +117,7 @@
     <dt>Summary</dt>
 {% endif %}
 <dd>{{ common.Summary }}</dd>
+
+<script type="text/javascript" src="/static/js/imgStarter.js"></script>
 
 {% endblock content %}
