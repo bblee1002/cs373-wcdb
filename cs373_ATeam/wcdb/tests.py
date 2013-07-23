@@ -760,17 +760,53 @@ class viewsTest(TestCase):
 		response = self.client.get("http://localhost:8000/orgs/ORG_WATERO")
 		self.assertEqual(response.status_code, 200)
 
-	# def test_peopleView0(self):
-	# 	response = self.client.get("http://localhost:8000/people/1")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_peopleView1(self):
+		response = self.client.get("http://localhost:8000/people/PER_YYAMAD")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_peopleView1(self):
-	# 	response = self.client.get("http://localhost:8000/people/2")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_peopleView2(self):
+		response = self.client.get("http://localhost:8000/people/PER_HPASSS")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_peopleView2(self):
-	# 	response = self.client.get("http://localhost:8000/people/3")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_peopleView3(self):
+		response = self.client.get("http://localhost:8000/people/PER_TTHBLD")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView4(self):
+		response = self.client.get("http://localhost:8000/people/PER_DLVRUS")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView5(self):
+		response = self.client.get("http://localhost:8000/people/PER_ESNWDN")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView6(self):
+		response = self.client.get("http://localhost:8000/people/PER_RFLCRR")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView7(self):
+		response = self.client.get("http://localhost:8000/people/PER_GUZMAN")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView8(self):
+		response = self.client.get("http://localhost:8000/people/PER_RPERRY")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView9(self):
+		response = self.client.get("http://localhost:8000/people/PER_MMORSI")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView10(self):
+		response = self.client.get("http://localhost:8000/people/PER_XNSHNG")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView11(self):
+		response = self.client.get("http://localhost:8000/people/PER_NIKALX")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView12(self):
+		response = self.client.get("http://localhost:8000/people/PER_MTTDMN")
+		self.assertEqual(response.status_code, 200)
 
 	"""
 	Creates an infinite loop!
