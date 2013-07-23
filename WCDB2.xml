@@ -204,8 +204,8 @@
                 <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=texas&amp;aq=&amp;sll=30.110533,-97.315178&amp;sspn=0.146121,0.099049&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Texas&amp;z=5&amp;iwloc=A&amp;output=embed'></li>
             </Maps>
             <Feeds>
-                <li href="https://www.facebook.com/helptexaswildfires">Facebook</li>
-                <li href="https://twitter.com/texas_wildfires">Twitter</li>
+                <li href="https://www.facebook.com/helptexaswildfires">Help Texas Wildfires Facebook</li>
+                <li href="https://twitter.com/texas_wildfires">Texas Wildfires On Twitter</li>
             </Feeds>
             <Summary>Spurred on by the currently ongoing 2011 Southern US Drought, the 2011 Texas Wildfires, beginning on November 15, 2013 and ending on October 31, 2011, were some of the worst the state of Texas has ever seen. It included what is generally acknowledged to be the most catastrophic wildfire in Texas history - the Bastrop County Complex Fire which destroyed over 1600 homes and burned over 34,000 acres of land, killing two people. Declaring a State of Disaster on December 21, 2010, Texas Governor Rick Perry requested President Obama to send federal aid to help with the wildfires.</Summary>
         </Common>
@@ -798,8 +798,37 @@
     <Organizations>
         <Org ID="ORG_NSAAAA"/>
     </Organizations>
-    <Kind>President of the Republic of Ecuador</Kind>
-    <Location>Ecuador</Location><!-- More elements here -->
+    <Kind>President</Kind>
+    <Location>Ecuador</Location>
+	<Common>
+		<Citations>
+			<li href="http://en.wikipedia.org/wiki/Rafael_Correa">"Rafael Correa". Wikipedia. Updated: 15 July, 2013. Visited: 23 July, 2013.</li>
+			<li href="http://www.theaustralian.com.au/news/world/ecuador-leader-rafael-correa-urges-julian-assange-settlement/story-e6frg6so-1226580631223">"Ecuador Leader Rafael Correa Urges Julian Assange Settlement". The Australian. 19 February, 2013. Visited: 23 July, 2013.</li>
+		</Citations>
+		<ExternalLinks>
+			<li href="http://en.wikipedia.org/wiki/Rafael_Correa">Wikipedia: Rafael Correa</li>
+			<li href="http://en.mercopress.com/2011/05/10/president-correa-s-victory-margin-in-controversial-referendum-is-narrowing">Rafael Correa's Controversial Referendum</li>
+			<li href="http://www.theaustralian.com.au/news/world/ecuador-leader-rafael-correa-urges-julian-assange-settlement/story-e6frg6so-1226580631223">
+			Ecuadorian Leader Rafael Correa Urges Julian Assange Settlement</li>
+			<li href="http://www.politico.com/story/2013/06/edward-snowden-ecuador-93600.html">Rafael Correa On Edward Snowden's Situation</li>
+		</ExternalLinks>
+		<Images>
+			<li embed="http://cdn.informationnigeria.org/wp-content/uploads/2013/06/ecuador-rafael-correa.gif" text="img not found">Ecuadorian President Rafael Correa</li>
+			<li embed="http://en.mercopress.com/data/cache/noticias/31429/0x0/rafael-correa.jpg" text="img not found">Rafael Correa anxiously awaiting the results of a controversial referendum to ban cockfighting</li>
+		</Images>
+		<Videos>
+			<li embed="//www.youtube.com/embed/dAGjn547tcs" />
+			<li embed="//www.youtube.com/embed/ZvUwC5JTAJY" />
+		</Videos>
+		<Maps>
+			<li embed="https://maps.google.com/maps?q=ecuador&amp;ie=UTF8&amp;hq=&amp;hnear=Ecuador&amp;t=m&amp;ll=-1.845384,-78.134766&amp;spn=30.383735,37.353516&amp;z=4&amp;output=embed" />
+		</Maps>
+		<Feeds>
+			<li href="https://www.facebook.com/pages/Rafael-Correa/15525611124">Rafael Correa On Facebook</li>
+			<li href="https://twitter.com/MashiRafael">Rafael Correa On Twitter</li>
+		</Feeds>
+		<Summary>Rafael Correa is the president of the Republic of Ecuador. He is also the former president of the Union of South American Nations. Elected in 2006, he used his power as president of Ecuador to declare Ecuador's national debt illegitimate and successfully fought in international courts to have the debt reduced by 60%. He is currently famous, however, for offering to provide asylum to Edward Snowden, the whistleblower who leaked information about the American government's vast surveillance program known as PRISM and for protecting Wikileaks founder Julian Assange by allowing him to remain within the Ecuadorian embassy in the United Kingdom.</Summary>
+	</Common>
 </Person>
 
 <Person ID="PER_GUZMAN" Name="Joaquin Guzman Loera">
@@ -862,8 +891,8 @@
             <li embed="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/GovernorPerry">Facebook</li>
-            <li href="https://twitter.com/GovernorPerry">Twitter</li>
+            <li href="https://www.facebook.com/GovernorPerry">Governor Perry's Facebook</li>
+            <li href="https://twitter.com/GovernorPerry">Governor Perry On Twitter</li>
         </Feeds>
         <Summary>Born in Paint Creek, Texas on March 4, 1950, Rick Perry is currently the Governor of the state of Texas. He is a staunchly conservative politician who is famous for attempting to name 3 federal agencies he intended to end if he won the 2012 Presidential Election but failing to be able to name the third. He is also famous for holding 3 days of prayer in an attempt to end the Texas Wildfire crisis in 2011. Eventually, Texas firefighters were able to successfully put out the flames as the wildfire season drew to a close. Perry requested federal aid, and in response, FEMA reimbursed the state of Texas $48 million for fire suppression costs.</Summary>
     </Common>
@@ -898,8 +927,8 @@
             <li embed="//www.youtube.com/embed/TbnYc65pN_g"></li>
         </Videos>
         <Feeds>
-            <li href="https://www.facebook.com/pages/Mohamed-Morsy/264081660269685">Facebook</li>
-            <li href="https://twitter.com/MuhammadMorsi">Twitter</li>
+            <li href="https://www.facebook.com/pages/Mohamed-Morsy/264081660269685">Mohamed Morsi On Facebook</li>
+            <li href="https://twitter.com/MuhammadMorsi">Mohamed Morsi On Twitter</li>
         </Feeds>
         <Summary>Born on August 8, 1951, Mohamed Morsi was elected as President of Egypt and assumed office on April 30, 2011. However, many Egyptian citizens were unhappy with his heavy-handed approach to governance and with his strong leaning towards incorporating religion into law. They were especially displeased with his decision to significantly expand his presidential powers and remove judicial review of his decrees soon after being elected into office. As a result, he was deposed on July 3, 2013.</Summary>
     </Common>
@@ -923,7 +952,7 @@
             <li href="http://www.cbd.int/idb/doc/2013/messages/idb-2013-iucn-pres-message.pdf">IUCN: Zhang Xinsheng On Plan For Next Four Years</li>
         </ExternalLinks>
         <Images>
-            <li embed="http://cmsdata.iucn.org/img/zhang_xinsheng_51854.jpg" />
+            <li embed="http://cmsdata.iucn.org/img/zhang_xinsheng_51854.jpg" text="img not found">Newly elected President of the International Union for Conservation of Nature, Zhang Xinsheng</li>
         </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/o-rR4nKbUO8">Zhang Xinsheng</li>
@@ -1055,8 +1084,8 @@
         <Citations>
             <li href="http://en.wikipedia.org/wiki/National_Security_Agency">National Security Agency. Wikipedia. Updated: 7 July, 2013. Visited: 7 July, 2013.</li>
             <li href="http://www.guardian.co.uk/world/2013/jun/06/nsa-phone-records-verizon-court-order">Greenwald, Glenn. "NSA Collecting Phone Records of Millions of Verizon Customers Daily". The Guardian. 5 June, 2013. Visited: 7 July, 2013.</li>
-            <li href="//www.nytimes.com/2013/06/28/opinion/the-criminal-nsa.html?pagewanted=all&amp;_r=0">Granick, Jennifer Stisa; Sprigman, Christopher Jon. "The Criminal N.S.A.". The New York Times. 27 June, 2013. Visited: 7 July, 2013. </li>
-            <li href="http://en. wikipedia.org/wiki/Utah_Data_Center">Utah Data Center. Wikipedia. Updated: 6 July, 2013. Visited: 7 July, 2013.</li>
+            <li href="http://www.nytimes.com/2013/06/28/opinion/the-criminal-nsa.html?pagewanted=all&amp;_r=0">Granick, Jennifer Stisa; Sprigman, Christopher Jon. "The Criminal N.S.A.". The New York Times. 27 June, 2013. Visited: 7 July, 2013. </li>
+            <li href="http://en.wikipedia.org/wiki/Utah_Data_Center">Utah Data Center. Wikipedia. Updated: 6 July, 2013. Visited: 7 July, 2013.</li>
         </Citations>
         <ExternalLinks>
             <li href="http://www.nsa.gov/">National Security Agency</li>
@@ -1082,8 +1111,8 @@
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/NSACareers">Facebook</li>
-            <li href="https://twitter.com/nsa">Twitter</li>
+            <li href="https://www.facebook.com/NSACareers">NSA On Facebook</li>
+            <li href="https://twitter.com/nsa">NSA On Twitter</li>
         </Feeds>
     </Common>
 </Organization>
