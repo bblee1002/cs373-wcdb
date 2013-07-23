@@ -7,6 +7,11 @@ File containing definitions for our Django models and any relevant classes and f
 """
 
 def populate_li(root, modl_id, tag):
+    """
+    Function expects a root, model ID, and tag as parameters. Tag is used to look traverse 
+    the root's tree and find the correct parameters to pass to Li's populate method.Once an 
+    Li object is populated, the function saves it to the database
+    """
     outer_node = root.find(tag)
     if outer_node is not None:
         for li in outer_node or [] :
@@ -61,8 +66,9 @@ class Li(models.Model) :
 
     def populate(self, e_node, modl_id, item_type) :
         """
-        Non-static method expects an element node as a parameter.
-        Uses node to populate attributues of a Li object
+        Non-static method expects an element node, model id, and an Li type as parameters. Example 
+        values for type: citations, videos, images, etc. Uses node to populate attributues of a Li 
+        object.
         """
 
         if e_node.get("href") is not None:
@@ -133,7 +139,7 @@ class Common() :
 
     def populate(self, e_node, modl_id) :
         """
-        Non-static method expects an element node as a parameter.
+        Non-static method expects an element node and model ID as a parameter.
         Uses node to populate attributues of a Common object
         """
         populate_li(e_node, modl_id, "Citations")
