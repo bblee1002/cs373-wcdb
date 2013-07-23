@@ -246,27 +246,25 @@ class ModelsCrisisTest(TestCase):
 						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
 						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
 						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
-		print len(li_list)
 		for a in li_list :
 			common_dict[a.kind].append(a)
 		self.assertEqual(common_dict['Citations'][0].floating_text, "Kyoto News Network")
 
-	# def test_common_populate1(self):
-	# 	temp_com   = Common()
-	# 	xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
-	# 	e_root     = ET.fromstring(xml_string)
-	# 	temp_crisis = Crisis
-	# 	populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+	def test_common_populate1(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
 
-	# 	li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
-	# 	common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
-	# 					'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
-	# 					'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
-	# 					'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
-	# 	print len(li_list)
-	# 	for a in li_list :
-	# 		common_dict[a.kind].append(a)
-	# 	self.assertEqual(common_dict['Citations'][0].floating_text, "Kyoto News Network")
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['Images'][0].embed, "http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg")
 
 # 	#---------------------------------------#
 # 	#-----test_xml_from_li
