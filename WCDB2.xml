@@ -613,8 +613,8 @@
     </WaysToHelp>
     <Common>
         <Citations>
-            <li> "http://www.bbc.co.uk/news/world-asia-pacific-13598607"> Buerk, Roland. Japanese pensioners volunteer to tackle nuclear crisis. BBC News, Tokyo. 2011 May 31.</li>
-            <li>"http://www.pslweb.org/liberationnews/news/japan-nuclear-crisis.html"> Freeman, Sunil. Japan nuclear crisis highlights dangers of profit-before-people industry. 2011 Mar 27.</li>
+            <li href="http://www.bbc.co.uk/news/world-asia-pacific-13598607"> Buerk, Roland. Japanese pensioners volunteer to tackle nuclear crisis. BBC News, Tokyo. 2011 May 31.</li>
+            <li href="http://www.pslweb.org/liberationnews/news/japan-nuclear-crisis.html"> Freeman, Sunil. Japan nuclear crisis highlights dangers of profit-before-people industry. 2011 Mar 27.</li>
         </Citations>
         <ExternalLinks>
             <li href="https://en.wikipedia.org/wiki/Chernobyl_disaster"> Wikipedia Chernobyl disaster</li>
