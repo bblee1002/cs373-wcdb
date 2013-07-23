@@ -926,7 +926,7 @@
             <li embed="http://cmsdata.iucn.org/img/zhang_xinsheng_51854.jpg" />
         </Images>
         <Videos>
-            <li embed="//www.youtube.com/watch?v=o-rR4nKbUO8">Zhang Xinsheng</li>
+            <li embed="//www.youtube.com/embed/o-rR4nKbUO8">Zhang Xinsheng</li>
         </Videos>
         <Maps>
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4&amp;output=embed"></li>
@@ -1079,7 +1079,7 @@
             <li embed="//www.youtube.com/embed/qAPh5Pe1Iwk"></li>
         </Videos>
         <Maps>
-            <li> embed = "https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"</li>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/NSACareers">Facebook</li>
@@ -1119,7 +1119,7 @@
             <li embed="//www.youtube.com/embed/DpBDSbVClgQ?list=PL720Kw_OojlJMk-_Hk1T_gbcOgYJf7jGW" />
         </Videos>
         <Maps>
-            <li embed="https://maps.google.com/maps?q=500+C+Street+SW,+Washington,+DC+2047&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=68.344727,129.550781&amp;t=h&amp;hnear=500+C+St+SW,+Washington,+District+of+Columbia+20024&amp;z=17" />
+            <li embed="https://maps.google.com/maps?client=ubuntu&amp;channel=cs&amp;q=500+C+Street+SW,+Washington,+DC+2047&amp;ie=UTF8&amp;hq=&amp;hnear=500+C+St+SW,+Washington,+District+of+Columbia+20024&amp;gl=us&amp;t=h&amp;z=14&amp;ll=38.885446,-77.018576&amp;output=embed" />
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/FEMA">Facebook</li>
@@ -1164,7 +1164,6 @@
         </Videos>
         <Maps>
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=EPA&amp;aq=&amp;sll=38.894089,-77.028719&amp;sspn=0.008409,0.012381&amp;t=h&amp;ie=UTF8&amp;hq=EPA&amp;hnear=&amp;ll=38.894089,-77.028708&amp;spn=0.008016,0.013733&amp;z=16&amp;output=embed" />
-            <li embed="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=EPA&amp;aq=&amp;sll=38.894089,-77.028719&amp;sspn=0.008409,0.012381&amp;t=h&amp;ie=UTF8&amp;hq=EPA&amp;hnear=&amp;ll=38.894089,-77.028708&amp;spn=0.008016,0.013733&amp;z=16;source=embed" />
         </Maps>
         <Feeds>
             <li href="facebook.com">Facebook</li>
@@ -1258,11 +1257,11 @@
     </ContactInfo>
     <Common>
         <Videos>
-            <li embed="//www.youtube.com/watch?feature=player_embedded&amp;v=0uf5e9vsXWo#at=34">International Union for Conservation of Nature></li>
-            <li embed='//www.youtube.com/watch?v=cnth0SouJrA'>IUCN: Forests for the 21st Century></li>
+            <li embed="//www.youtube.com/embed/0uf5e9vsXWo">International Union for Conservation of Nature></li>
+            <li embed="//www.youtube.com/embed/cnth0SouJrA">IUCN: Forests for the 21st Century></li>
         </Videos>
         <Feeds>
-            <li embed="https://twitter.com/IUCN/status/245862086243139584" />
+            <li href="https://twitter.com/IUCN" />
         </Feeds>
     </Common>
 </Organization>
@@ -1324,7 +1323,6 @@
     </ContactInfo>
     <Common>
         <Images>
-            <li embed="http://www.google.com/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=images&amp;cd=&amp;docid=hVS6ItIEhPJogM&amp;tbnid=wHLVFT_OPH8X1M:&amp;ved=0CAUQjRw&amp;url=http%3A%2F%2Fvkb.isvg.org%2FWiki%2FGroups%2FLos_Zetas&amp;ei=kUXfUbqcIYS7ywHnrIHABA&amp;bvm=bv.48705608,d.aWc&amp;psig=AFQjCNEyZJnkGVjeNppw_WBUllfqCaxi8w&amp;ust=1373673220325731" />
             <li embed="http://www.cbc.ca/gfx/images/news/photos/2011/08/28/li-drug-cartels-bodies620-r.jpg" />
         </Images>
         <Videos>
