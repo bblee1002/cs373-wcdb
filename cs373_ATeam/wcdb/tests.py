@@ -615,29 +615,97 @@ class viewsTest(TestCase):
 		response = self.client.get("http://localhost:8000/")
 		self.assertEqual(response.status_code, 200)
 
-	# def test_crisisView0(self):
-	# 	response = self.client.get("http://localhost:8000/crisis/1")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView1(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_NSAWRT")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_crisisView1(self):
-	# 	response = self.client.get("http://localhost:8000/crisis/2")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView2(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_BEEDIE")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_crisisView2(self):
-	# 	response = self.client.get("http://localhost:8000/crisis/3")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView3(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_TXWDFR")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_orgsView0(self):
-	# 	response = self.client.get("http://localhost:8000/orgs/1")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView4(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_BRZLPR")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_orgsView1(self):
-	# 	response = self.client.get("http://localhost:8000/orgs/2")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView5(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_MEXDRG")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_orgsView2(self):
-	# 	response = self.client.get("http://localhost:8000/orgs/3")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView6(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_LGBTRU")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView7(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_UEGYPT")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView8(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_FWATER")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView9(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_FOREST")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView10(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_NUCDIS")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView1(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_UOCSCI")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView2(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_NSAAAA")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView3(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_FEMAAA")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView4(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_EPAAAA")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView5(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_MUSBRO")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView6(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_EGYGOV")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView7(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_IUCNAT")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView8(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_SINCAR")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView9(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_LOSZTA")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView10(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_MEXGOV")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView11(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_GAYRUS")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView12(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_BRAGOV")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView13(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_WATERO")
+		self.assertEqual(response.status_code, 200)
 
 	# def test_peopleView0(self):
 	# 	response = self.client.get("http://localhost:8000/people/1")
