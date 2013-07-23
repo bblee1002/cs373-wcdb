@@ -236,10 +236,6 @@ def export_xml() :
 	crises_xml_string.append("</WorldCrises>")
 	f = open('WCDBExportXML.xml', 'w')
 	exportstring = ''.join(crises_xml_string)
-	exportstring = exportstring.replace(u'\u2018', '\'')
-	exportstring = exportstring.replace(u'\u2019', '\'')
-	exportstring = exportstring.replace(u'\u201C', '\"')
-	exportstring = exportstring.replace(u'\u201D', '\"')
-	f.write(exportstring.encode('ascii'))
-	return exportstring.encode('ascii')
+	f.write(exportstring.encode('utf8'))
+	return exportstring
 
