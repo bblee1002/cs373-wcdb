@@ -29,7 +29,6 @@ def populate_li(root, modl_id, tag):
                 embed=embed, text=text, floating_text=floating_text, kind=tag)
 
             if len(check) == 0:
-                print "Populating an LI: " + modl_id + " " + tag
                 temp_li.populate(li, modl_id, tag)
                 temp_li.save()
 
