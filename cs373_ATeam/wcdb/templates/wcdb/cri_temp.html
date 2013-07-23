@@ -23,23 +23,37 @@
 </dl>
 
 <dl>
-	<dt>History</dt>
+	{% if common.History %}
+        <dt>History</dt>    
+    {% endif %}
 	{% for i in common.History %}
 		<dd>{{ i.floating_text }}</dd>
 	{% endfor %}
-	<dt>Economic Impact</dt>
+
+	{% if common.EconomicImpact %}
+        <dt>Economic Impact</dt>    
+    {% endif %}
 	{% for i in common.EconomicImpact %}
 		<dd>{{ i.floating_text }}</dd>
 	{% endfor %}
-	<dt>Human Impact</dt>
+
+	{% if common.HumanImpact %}
+    	<dt>Human Impact</dt>    
+    {% endif %}
 	{% for i in common.HumanImpact %}
 		<dd>{{ i.floating_text }}</dd>
 	{% endfor %}
-	<dt>Resources Needed</dt>
+
+	{% if common.ResourcesNeeded %}
+        <dt>Resources Needed</dt>    
+    {% endif %}
 	{% for i in common.ResourcesNeeded %}
 		<dd>{{ i.floating_text }}</dd>
 	{% endfor %}
-	<dt>Ways to help</dt>
+
+	{% if common.WaysToHelp %}
+        <dt>Ways to help</dt>    
+    {% endif %}
 	{% for i in common.WaysToHelp %}
 		<dd><a href="{{ i.href }}">{{ i.href }} </a>{{ i.floating_text }}</dd>
 	{% endfor %}
@@ -54,28 +68,36 @@
 	<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ map.embed }}"></iframe>
 {% endfor %}
 
-<dt>Feeds</dt>
+{% if common.Feeds %}
+    <dt>Feeds</dt>
+{% endif %}
 <ul>
 	{% for feed in common.Feeds %}
 		<li><a href="{{ feed.href }}">{{ feed.href }} </a>{{ feed.floating_text }}</li>
 	{% endfor %}
 </ul>
 
-<dt>Citations</dt>
+{% if common.Citations %}
+    <dt>Citations</dt>
+{% endif %}
 <ul>
 	{% for citation in common.Citations %}
 		<li><a href="{{ citation.href }}">{{ citation.href }}</a>{{ citation.floating_text }}</li>
 	{% endfor %}
 </ul>
 
-<dt>External Links</dt>
+{% if common.ExternalLinks %}
+    <dt>External Links</dt>
+{% endif %}
 <ul>
 	{% for link in common.ExternalLinks %}
 		<li><a href="{{ link.href }}">{{ link.href }} </a>{{ link.floating_text }}</li>
 	{% endfor %}
 </ul>
 
-<dt>Summary</dt>
+{% if common.Summary %}
+    <dt>Summary</dt>
+{% endif %}
 <dd>{{ common.Summary }}</dd>
 
 {% endblock content %}

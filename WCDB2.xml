@@ -781,7 +781,7 @@
             <li embed="//www.youtube.com/embed/qiWpJuUWqOA" />
         </Videos>
         <Maps>
-            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=30.245673,-97.768836&amp;sspn=0.141324,0.264187&amp;g=78704&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=61.52401,105.318756&amp;spn=47.221317,135.263672&amp;t=m&amp;z=4&amp;output=embed"</li>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=30.245673,-97.768836&amp;sspn=0.141324,0.264187&amp;g=78704&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=61.52401,105.318756&amp;spn=47.221317,135.263672&amp;t=m&amp;z=4&amp;output=embed"/>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook page</li>
@@ -817,19 +817,17 @@
             <li href="http://web.archive.org/web/20080315071013/http://www.state.gov/p/inl/narc/rewards/39413.htm">[2] US State Dept: Bounty</li>
             <li href="http://www.forbes.com/sites/nathanvardi/2011/06/15/joaquin-guzman-has-become-the-biggest-drug-lord-ever/">[3] Forbes: Biggest Drug Lord Ever</li>
         </ExternalLinks>
-
         <Images>
             <li embed="http://2.bp.blogspot.com/-u-TnjeTzz24/TsmuUHOMNdI/AAAAAAAAI0c/QHrUSxufOVw/s1600/chapo01.jpg" text="This is the alt element of the image." />
             <li embed="http://images.forbes.com/media/lists/10/2009/joaquin-guzman-loera.jpg" text="This is the alt element of the image." />
-
         </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/v7h3WkcEU00" />
             <li embed="//www.youtube.com/embed/H6X1nFa53uQ" />
         </Videos>
         <Summary>
-          Joaquin Guzman Loera, also known as "El Chapo Guzman" is the leader of Mexico's most powerful drug cartel, the Sinaloas.  According to Forbes, Guzman is a billionaire[1] and the "biggest drug lord ever."[3]  He is Mexico's wanted man with a US State Department reward of up to $5 million for information leading to his arrest.[2]
-      </Summary>
+            Joaquin Guzman Loera, also known as "El Chapo Guzman" is the leader of Mexico's most powerful drug cartel, the Sinaloas.  According to Forbes, Guzman is a billionaire[1] and the "biggest drug lord ever."[3]  He is Mexico's wanted man with a US State Department reward of up to $5 million for information leading to his arrest.[2]
+        </Summary>
   </Common>    
 </Person>
 
