@@ -228,7 +228,7 @@
         <li>Brasilia</li>
     </Locations>
     <HumanImpact>
-        <li>National Pact to improve Education, Health, &amp; Public Transportation</li>
+        <li>National Pact to improve Education, Health, and Public Transportation</li>
         <li>Visibility of votes for forfeit of office</li>
         <li>Criminalization of Corruption and Embezzlement</li>
     </HumanImpact>
@@ -387,7 +387,6 @@
 
     <Crisis ID="CRI_UEGYPT" Name="Political unrest in Egypt">
         <People>
-
             <Person ID="PER_MMORSI" />
         </People>
         <Organizations>
@@ -440,10 +439,10 @@
             <li embed="http://media.themalaysianinsider.com/images/uploads/2011/january/31/mubarak.jpg"> Down with Mubarak Protest sign</li>
         </Images>
         <Videos>
-            <li embed="http://www.youtube.com/watch?v=ze1hcPejorQ"> Egypt's president ousted in military coup"</li>
-            <li embed="http://www.youtube.com/watch?v=1dGDv7kzJEI"> Obama, staff huddle over Egypt</li>
-            <li embed="http://www.youtube.com/watch?v=bptZAPw2lgQ"> Analysis: Victory or a sad day for Egypt?</li>
-            <li embed="http://www.youtube.com/watch?v=GcLmi0ZdEpc"> Protest in Egypt - Jan 25, 2011</li>
+            <li embed="//www.youtube.com/embed/oo3T9bbsMT0"> Egypt's president ousted in military coup"</li>
+            <li embed="//www.youtube.com/embed/1dGDv7kzJEI"> Obama, staff huddle over Egypt</li>
+            <li embed="//www.youtube.com/embed/bptZAPw2lgQ"> Analysis: Victory or a sad day for Egypt?</li>
+            <li embed="//www.youtube.com/embed/GcLmi0ZdEpc"> Protest in Egypt - Jan 25, 2011</li>
         </Videos>
         <Summary>Egypt is on the brink of drastic political changes that will affect its future political systems and socioeconomic climate.</Summary>
     </Common>
@@ -558,19 +557,18 @@
     </WaysToHelp>
     <Common>
         <ExternalLinks>
-            <li href="http://news.bbc.co.uk/2/hi/science/nature/7424535.stm">1. BBC: Economic consequences of deforestation</li>
-            <li href='http://atlas.aaas.org/pdf/63-66.pdf'>2. Forest Products</li>
-            <li href='http://unfccc.int/files/essential_background/background_publications_htmlpdf/application/pdf/pub_07_financial_flows.pdf'>3. Investment and Financial Flows to Address Climate Change</li>
+            <li href="http://news.bbc.co.uk/2/hi/science/nature/7424535.stm"> BBC: Economic consequences of deforestation</li>
+            <li href='http://atlas.aaas.org/pdf/63-66.pdf'> Forest Products</li>
+            <li href='http://unfccc.int/files/essential_background/background_publications_htmlpdf/application/pdf/pub_07_financial_flows.pdf'> Investment and Financial Flows to Address Climate Change</li>
         </ExternalLinks>
 
         <Images>
             <li embed="http://upload.wikimedia.org/wikipedia/commons/4/4c/Global_Forest_Cover_Sub-Regional_Trends.png" text="This is the alt element of the image." />
             <li embed="http://blog.conservation.org/wp-content/uploads/2013/04/brazil-deforestation-map.jpg" text="This is the alt element of the image." />
-
         </Images>
         <Videos>
-            <li embed='//www.youtube.com/watch?v=ghp0_YB0osw'>Democracy Now: Deforestation Consequences in Africa</li>
-            <li embed='//www.youtube.com/watch?v=Fo4WXly4QYk'>Greenpeace: Stopping Amazon Deforestation</li>
+            <li embed="//www.youtube.com/embed/ghp0_YB0osw"> Democracy Now: Deforestation Consequences in Africa</li>
+            <li embed="//www.youtube.com/embed/Fo4WXly4QYk"> Greenpeace: Stopping Amazon Deforestation</li>
         </Videos>
     </Common>
 </Crisis>
@@ -584,7 +582,7 @@
         <Org ID="ORG_FEMAAA" />
         <Org ID="ORG_UOCSCI" />
     </Organizations>
-    <Kind>Catatrophic Radiation Event</Kind>
+    <Kind>Radioactive</Kind>
     <Date>2011-03-31</Date>
     <Time>09:00:00+05:30</Time>
     <Locations>
@@ -615,8 +613,8 @@
     </WaysToHelp>
     <Common>
         <Citations>
-            <li> "http://www.bbc.co.uk/news/world-asia-pacific-13598607"> Buerk, Roland. Japanese pensioners volunteer to tackle nuclear crisis. BBC News, Tokyo. 2011 May 31.</li>
-            <li>"http://www.pslweb.org/liberationnews/news/japan-nuclear-crisis.html"> Freeman, Sunil. Japan nuclear crisis highlights dangers of profit-before-people industry. 2011 Mar 27.</li>
+            <li href="http://www.bbc.co.uk/news/world-asia-pacific-13598607"> Buerk, Roland. Japanese pensioners volunteer to tackle nuclear crisis. BBC News, Tokyo. 2011 May 31.</li>
+            <li href="http://www.pslweb.org/liberationnews/news/japan-nuclear-crisis.html"> Freeman, Sunil. Japan nuclear crisis highlights dangers of profit-before-people industry. 2011 Mar 27.</li>
         </Citations>
         <ExternalLinks>
             <li href="https://en.wikipedia.org/wiki/Chernobyl_disaster"> Wikipedia Chernobyl disaster</li>
@@ -627,8 +625,8 @@
             <li embed="http://www.nation.com.pk/print_images/670/2013-04-15/iran-does-not-need-atomic-bomb-nejad-1366049651-3665.jpg"> Mushroom Cloud </li>
         </Images>
         <Videos>
-            <li embed="//www.youtube.com/watch?v=UHkGJEiDpdw"> Victory Gardens 1941 </li>
-            <li embed="//www.youtube.com/watch?v=LLCF7vPanrY"> Time lapse map of every nuclear explosion since 1945 </li>
+            <li embed="//www.youtube.com/embed/UHkGJEiDpdw"> Victory Gardens 1941 </li>
+            <li embed="//www.youtube.com/embed/LLCF7vPanrY"> Time lapse map of every nuclear explosion since 1945 </li>
         </Videos>
         <Maps>
             <li embed="http://cnnjohnkingusa.files.wordpress.com/2011/03/nuc-map-2.png"> US Nuclear Power Plants </li>
@@ -652,7 +650,7 @@
             <li href="http://interamericansecuritywatch.com/public-rage-catching-up-with-brazils-congress/">Fujita. "Japan Nuclear Crisis: Retirees Volunteer for Fukushima Duty". ABC News. Jun 1, 2011</li>
         </Citations>
         <Videos>
-            <li embed="//www.youtube.com/embed/I199ISU6lOEhttp://www.youtube.com/watch?v=enRGG1KJpWE" />
+            <li embed="//www.youtube.com/embed/enRGG1KJpWE" />
         </Videos>
         <Summary>
             Yasuteru Yamad is a Japanese engineer who attempted to gather retired engineers as volunteers to clean up Japan's nuclear fallout.He reasoned that older people are less likely to develop the devastating cancers associated with nuclear energy. 
@@ -783,9 +781,7 @@
             <li embed="//www.youtube.com/embed/qiWpJuUWqOA" />
         </Videos>
         <Maps>
-            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=bolivia&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bolivia&amp;z=5&amp;output=embed"</li>
-            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=hong+kong&amp;aq=&amp;sll=-16.299051,-63.588867&amp;sspn=39.46404,67.631836&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Hong+Kong&amp;z=9&amp;output=embed"</li>
-            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=22.395793,114.109497&amp;sspn=2.419894,4.22699&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=60.75916,91.933594&amp;spn=30.757311,74.707031&amp;z=3&amp;output=embed"</li>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=30.245673,-97.768836&amp;sspn=0.141324,0.264187&amp;g=78704&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=61.52401,105.318756&amp;spn=47.221317,135.263672&amp;t=m&amp;z=4&amp;output=embed"/>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook page</li>
@@ -821,19 +817,17 @@
             <li href="http://web.archive.org/web/20080315071013/http://www.state.gov/p/inl/narc/rewards/39413.htm">[2] US State Dept: Bounty</li>
             <li href="http://www.forbes.com/sites/nathanvardi/2011/06/15/joaquin-guzman-has-become-the-biggest-drug-lord-ever/">[3] Forbes: Biggest Drug Lord Ever</li>
         </ExternalLinks>
-
         <Images>
             <li embed="http://2.bp.blogspot.com/-u-TnjeTzz24/TsmuUHOMNdI/AAAAAAAAI0c/QHrUSxufOVw/s1600/chapo01.jpg" text="This is the alt element of the image." />
             <li embed="http://images.forbes.com/media/lists/10/2009/joaquin-guzman-loera.jpg" text="This is the alt element of the image." />
-
         </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/v7h3WkcEU00" />
             <li embed="//www.youtube.com/embed/H6X1nFa53uQ" />
         </Videos>
         <Summary>
-          Joaquin Guzman Loera, also known as "El Chapo Guzman" is the leader of Mexico's most powerful drug cartel, the Sinaloas.  According to Forbes, Guzman is a billionaire[1] and the "biggest drug lord ever."[3]  He is Mexico's wanted man with a US State Department reward of up to $5 million for information leading to his arrest.[2]
-      </Summary>
+            Joaquin Guzman Loera, also known as "El Chapo Guzman" is the leader of Mexico's most powerful drug cartel, the Sinaloas.  According to Forbes, Guzman is a billionaire[1] and the "biggest drug lord ever."[3]  He is Mexico's wanted man with a US State Department reward of up to $5 million for information leading to his arrest.[2]
+        </Summary>
   </Common>    
 </Person>
 
@@ -860,12 +854,12 @@
             <li embed="http://a.abcnews.com/images/Politics/ap_Rick_Perry_2_jt_110813_wg.jpg" text="img not found">Governor Rick Perry in the middle of a fiery speech</li>
         </Images>
         <Videos>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/0uvmKnFY4uk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/iESaX8YioyQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/iaXDrTGmCgU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed='//www.youtube.com/embed/0uvmKnFY4uk'></li>
+            <li embed='//www.youtube.com/embed/iESaX8YioyQ'></li>
+            <li embed='//www.youtube.com/embed/iaXDrTGmCgU'></li>
         </Videos>
         <Maps>
-            <li> embed="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed"</li>
+            <li embed="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/GovernorPerry">Facebook</li>
@@ -903,9 +897,6 @@
             <li embed="//www.youtube.com/embed/u0Trsszw1Uo"></li>
             <li embed="//www.youtube.com/embed/TbnYc65pN_g"></li>
         </Videos>
-        <Maps>
-            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=egypt&amp;aq=&amp;sll=33.870416,102.041016&amp;sspn=65.978644,50.712891&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Egypt&amp;ll=26.824071,30.805664&amp;spn=13.701404,18.676758&amp;z=5&amp;output=embed"</li>
-        </Maps>
         <Feeds>
             <li href="https://www.facebook.com/pages/Mohamed-Morsy/264081660269685">Facebook</li>
             <li href="https://twitter.com/MuhammadMorsi">Twitter</li>
@@ -935,14 +926,11 @@
             <li embed="http://cmsdata.iucn.org/img/zhang_xinsheng_51854.jpg" />
         </Images>
         <Videos>
-            <li embed="//www.youtube.com/watch?v=o-rR4nKbUO8">Zhang Xinsheng</li>
+            <li embed="//www.youtube.com/embed/o-rR4nKbUO8">Zhang Xinsheng</li>
         </Videos>
         <Maps>
-            <li> embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4&amp;output=embed"</li>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4&amp;output=embed"></li>
         </Maps>
-        <Feeds>
-            <li>No Social Feeds For Zhang Xinsheng</li>
-        </Feeds>
         <Summary>Zhang Xinsheng was recently elected to be President of the International Union for Conservation of Nature on September 12, 2012.</Summary>
     </Common>
 </Person>
@@ -1026,6 +1014,24 @@
         <li> A group that reports on safety issues at nuclear plants.</li>
         <li> Founded in 1969 by faculty and students of MIT. </li>
     </History>
+    <ContactInfo>
+        <li>Phone: (202) 223-6133</li>
+    </ContactInfo>
+    <Common>
+        <Citations>
+            <li href="http://topics.nytimes.com/topics/reference/timestopics/organizations/u/union_of_concerned_scientists/index.html"> Union of Concerned Scientists. The New York Times. 22 July, 2013. Times Topics.</li>
+        </Citations>
+        <ExternalLinks>
+            <li href="http://www.ucsusa.org/about/"> Union of Concerned Scientists : About page</li>
+        </ExternalLinks>
+        <Videos>
+            <li embed="//www.youtube.com/embed/7FBmfseoKeg?list=PLTsyt5jJvEGJQQa7Y2hI1-NYi8uYpmPdq"> David Lochbaum on Lessons Learned from Fukushima</li>
+            <li embed="//www.youtube.com/embed/XibS-W_loJ0"> Edwin Lyman explains the nuclear crisis in Japan on the Rachel Maddow Show, 3/11/2011.</li>
+        </Videos>
+        <Feeds>
+            <li href="https://twitter.com/CleanEnergyPrin">Twitter</li>
+        </Feeds>
+    </Common>
 </Organization>
 
 <Organization ID="ORG_NSAAAA" Name="National Security Agency">
@@ -1073,7 +1079,7 @@
             <li embed="//www.youtube.com/embed/qAPh5Pe1Iwk"></li>
         </Videos>
         <Maps>
-            <li> embed = "https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"</li>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/NSACareers">Facebook</li>
@@ -1110,11 +1116,10 @@
             <li embed="http://openir.media.mit.edu/main/wp-content/uploads/2012/08/FEMA_Clr.jpeg" text="img not found">FEMA</li>
         </Images>
         <Videos>
-            <li embed="https://www.youtube.com/user/FEMA" />
             <li embed="//www.youtube.com/embed/DpBDSbVClgQ?list=PL720Kw_OojlJMk-_Hk1T_gbcOgYJf7jGW" />
         </Videos>
         <Maps>
-            <li embed="https://maps.google.com/maps?q=500+C+Street+SW,+Washington,+DC+2047&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=68.344727,129.550781&amp;t=h&amp;hnear=500+C+St+SW,+Washington,+District+of+Columbia+20024&amp;z=17" />
+            <li embed="https://maps.google.com/maps?client=ubuntu&amp;channel=cs&amp;q=500+C+Street+SW,+Washington,+DC+2047&amp;ie=UTF8&amp;hq=&amp;hnear=500+C+St+SW,+Washington,+District+of+Columbia+20024&amp;gl=us&amp;t=h&amp;z=14&amp;ll=38.885446,-77.018576&amp;output=embed" />
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/FEMA">Facebook</li>
@@ -1159,7 +1164,6 @@
         </Videos>
         <Maps>
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=EPA&amp;aq=&amp;sll=38.894089,-77.028719&amp;sspn=0.008409,0.012381&amp;t=h&amp;ie=UTF8&amp;hq=EPA&amp;hnear=&amp;ll=38.894089,-77.028708&amp;spn=0.008016,0.013733&amp;z=16&amp;output=embed" />
-            <li embed="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=EPA&amp;aq=&amp;sll=38.894089,-77.028719&amp;sspn=0.008409,0.012381&amp;t=h&amp;ie=UTF8&amp;hq=EPA&amp;hnear=&amp;ll=38.894089,-77.028708&amp;spn=0.008016,0.013733&amp;z=16;source=embed" />
         </Maps>
         <Feeds>
             <li href="facebook.com">Facebook</li>
@@ -1181,6 +1185,24 @@
         <li>Founded in 1928.</li>
         <li>Largest political opposition organization across Arab states.</li>
     </History>
+    <ContactInfo>
+        <li>Email: mail@bro.org</li>
+    </ContactInfo>
+    <Common>
+        <ExternalLinks>
+            <li href="http://www.ikhwanweb.com/">The official English website of Muslim Brotherhood</li>      
+        </ExternalLinks>
+        <Videos>
+            <li embed="//www.youtube.com/embed/ra-Cvi6cT5E">Egypt: The future of the Muslim Brotherhood</li>
+            <li embed="//www.youtube.com/embed/D3ICP1hvbdo">Muslim Brotherhood representative realizes he's on same show with Israeli, gets hysterical</li>
+        </Videos>
+        <Feeds>
+            <li href="twitter.com">Twitter</li>
+        </Feeds>
+        <Summary>
+            The Muslim Brotherhood is assumed to encourage high levels of violence, and holds bigoted views to justify the anger that leads to attacks.
+        </Summary>
+    </Common>
 </Organization>
 
 <Organization ID="ORG_EGYGOV" Name="Egyptian Government">
@@ -1199,6 +1221,21 @@
         <li>Mohammed ElBaradei part of the ousting revolution of 2011 as the Vice President of Egypt.</li>
         <li>A military coup deposed Morsi  on July 3, 2013.</li>
     </History>
+    <Common>
+        <Citations>
+            <li href="http://abcnews.go.com/blogs/headlines/2013/07/egypts-interim-government-sworn-in-after-deadly-clashes/"> Hunter, Molly. Egypt’s Interim Government Sworn in After Deadly Clashes. 16 July, 2013. ABC News Blog.</li>
+        </Citations>
+        <ExternalLinks>
+            <li href="http://www.sis.gov.eg/en/">Egypt state information service</li>      
+        </ExternalLinks>
+        <Videos>
+            <li embed="//www.youtube.com/embed/pR95q8VmCOM">Egypt's anti-government protesters celebrate army's ultimatum</li>
+            <li embed="//www.youtube.com/embed/wTb6RtziZZs">Egypt swears in new interim government</li>
+        </Videos>
+        <Summary>
+            Right now Egypt's government structure is highly unstable and is largely influenced by the military and corrupt politicians.
+        </Summary>
+    </Common>
 </Organization>
 
 <Organization ID="ORG_IUCNAT" Name="International Union for Conservation of Nature">
@@ -1220,11 +1257,11 @@
     </ContactInfo>
     <Common>
         <Videos>
-            <li embed="//www.youtube.com/watch?feature=player_embedded&amp;v=0uf5e9vsXWo#at=34">International Union for Conservation of Nature></li>
-            <li embed='//www.youtube.com/watch?v=cnth0SouJrA'>IUCN: Forests for the 21st Century></li>
+            <li embed="//www.youtube.com/embed/0uf5e9vsXWo">International Union for Conservation of Nature></li>
+            <li embed="//www.youtube.com/embed/cnth0SouJrA">IUCN: Forests for the 21st Century></li>
         </Videos>
         <Feeds>
-            <li embed="https://twitter.com/IUCN/status/245862086243139584" />
+            <li href="https://twitter.com/IUCN" />
         </Feeds>
     </Common>
 </Organization>
@@ -1286,7 +1323,6 @@
     </ContactInfo>
     <Common>
         <Images>
-            <li embed="http://www.google.com/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=images&amp;cd=&amp;docid=hVS6ItIEhPJogM&amp;tbnid=wHLVFT_OPH8X1M:&amp;ved=0CAUQjRw&amp;url=http%3A%2F%2Fvkb.isvg.org%2FWiki%2FGroups%2FLos_Zetas&amp;ei=kUXfUbqcIYS7ywHnrIHABA&amp;bvm=bv.48705608,d.aWc&amp;psig=AFQjCNEyZJnkGVjeNppw_WBUllfqCaxi8w&amp;ust=1373673220325731" />
             <li embed="http://www.cbc.ca/gfx/images/news/photos/2011/08/28/li-drug-cartels-bodies620-r.jpg" />
         </Images>
         <Videos>
