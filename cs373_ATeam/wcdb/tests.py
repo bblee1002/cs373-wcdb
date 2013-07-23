@@ -9,7 +9,7 @@ from minixsv import pyxsval
 from genxmlif import GenXmlIfError
 from models import Crisis, Person, Org, list_add, Li, Common, Relations
 from loadModels import validate, populate_crisis, populate_person, populate_org, populate_models
-from unloadModels import clean_xml, export_crisis, export_person, export_crisis, export_organization, receive_import
+from unloadModels import clean_xml, export_crisis, export_person, export_crisis, export_organization
 import xml.etree.ElementTree as ET
 from django.test.client import Client
 from views import passwordValidate
@@ -651,7 +651,7 @@ class getBdModelTest(TestCase):
 # 	#-----test_getCrisis
 # 	#---------------------------------------#
 
-	def test_getCrisis(self):
+	def test_getCrisis1(self):
 		# create a person, crisis, and organization
 		temp_crisis           = Crisis()
 		#temp_relations        = []		# can't save a list to db table
@@ -693,8 +693,8 @@ class getBdModelTest(TestCase):
 		temp_crisis.save()
 
 		crisis = getCrisis("CRI_NSAWRT")
-		print crisis
-		print crisis.
+		#print crisis
+
 		self.assertEqual(temp_crisis.name, crisis.get('name'))
 		self.assertEqual(temp_crisis.kind, crisis.get('kind'))
 		self.assertEqual(temp_crisis.date, crisis.get('date'))
@@ -702,3 +702,563 @@ class getBdModelTest(TestCase):
 		self.assertEqual(relations1.org_ID, crisis.get('organizations')[0][0])
 		self.assertEqual(relations2.person_ID, crisis.get('people')[1][0])
 		self.assertEqual(relations2.org_ID, crisis.get('organizations')[1][0])
+		self.assertEqual(li1.href, crisis.get('common').get('Images')[0].href)
+		self.assertEqual(li1.text, crisis.get('common').get('Images')[0].text)
+		self.assertEqual(li1.kind, crisis.get('common').get('Images')[0].kind)
+		self.assertEqual(li1.model_id, crisis.get('common').get('Images')[0].model_id)
+
+
+	def test_getCrisis2(self):
+		# create a person, crisis, and organization
+		temp_crisis           = Crisis()
+		temp_crisis.crisis_ID = "CRI_BEEDIE"
+		temp_crisis.name      = "Bee Colony Collapse Disorder"
+		temp_crisis.kind      = "Environmental, Economical"
+		temp_crisis.date      = "2005-01-01"
+
+		# relations = [{'crisis_ID': "", 'person_ID': "", 'org_ID': ""}]
+		relations1 = Relations()
+		relations1.crisis_ID = "CRI_BEEDIE"
+		relations1.person_ID = "PER_TTHBLD"
+		relations1.org_ID = "ORG_EPAAAA"
+
+		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		li1 = Li()
+		li1.embed = "map"
+		li1.text = "some text"
+		li1.floating_text = "more text" 
+		li1.kind = "Maps"
+		li1.model_id = "CRI_BEEDIE"
+
+		relations1.save()
+		li1.save()
+		temp_crisis.save()
+
+		crisis = getCrisis("CRI_BEEDIE")
+		print crisis
+
+		self.assertEqual(temp_crisis.name, crisis.get('name'))
+		self.assertEqual(temp_crisis.kind, crisis.get('kind'))
+		self.assertEqual(temp_crisis.date, crisis.get('date'))
+		self.assertEqual(relations1.person_ID, crisis.get('people')[0][0])
+		self.assertEqual(relations1.org_ID, crisis.get('organizations')[0][0])
+		self.assertEqual(li1.embed, crisis.get('common').get('Maps')[0].embed)
+		self.assertEqual(li1.text, crisis.get('common').get('Maps')[0].text)
+		self.assertEqual(li1.floating_text, crisis.get('common').get('Maps')[0].floating_text)
+		self.assertEqual(li1.kind, crisis.get('common').get('Maps')[0].kind)
+		self.assertEqual(li1.model_id, crisis.get('common').get('Maps')[0].model_id)
+
+
+	def test_getCrisis3(self):
+		# create a person, crisis, and organization
+		temp_crisis           = Crisis()
+		temp_crisis.crisis_ID = "CRI_TXWDFR"
+		temp_crisis.name      = "Texas Wild Fires"
+		temp_crisis.kind      = "Natural disaster"
+		temp_crisis.date      = "2011-09-04"
+
+		# relations = [{'crisis_ID': "", 'person_ID': "", 'org_ID': ""}]
+		relations1 = Relations()
+		relations1.crisis_ID = "CRI_TXWDFR"
+		relations1.person_ID = "PER_RPERRY"
+		relations1.org_ID = "ORG_FEMAAA"
+
+		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		li1 = Li()
+		li1.embed = "something"
+		li1.floating_text = "text" 
+		li1.kind = "Citations"
+		li1.model_id = "CRI_TXWDFR"
+
+		relations1.save()
+		li1.save()
+		temp_crisis.save()
+
+		crisis = getCrisis("CRI_TXWDFR")
+		#ExternalLinks crisis
+
+		self.assertEqual(temp_crisis.name, crisis.get('name'))
+		self.assertEqual(temp_crisis.kind, crisis.get('kind'))
+		self.assertEqual(temp_crisis.date, crisis.get('date'))
+		self.assertEqual(relations1.person_ID, crisis.get('people')[0][0])
+		self.assertEqual(relations1.org_ID, crisis.get('organizations')[0][0])
+		self.assertEqual(li1.embed, crisis.get('common').get('Citations')[0].embed)
+		self.assertEqual(li1.text, crisis.get('common').get('Citations')[0].text)
+		self.assertEqual(li1.floating_text, crisis.get('common').get('Citations')[0].floating_text)
+		self.assertEqual(li1.kind, crisis.get('common').get('Citations')[0].kind)
+		self.assertEqual(li1.model_id, crisis.get('common').get('Citations')[0].model_id)
+
+
+# 	#---------------------------------------#
+# 	#-----test_getOrg
+# 	#---------------------------------------#
+
+	def test_getOrg1(self):
+		# create a person, crisis, and organization
+		temp_org           = Org()
+		temp_org.org_ID = "ORG_EPAAAA"
+		temp_org.name      = "Environmental Protection Agency"
+		temp_org.kind      = "Federal government agency"
+		temp_org.location      = "1200 Pennsylvania Ave. NW Washington, DC 20460"
+
+		# relations = [{'org_ID': "", 'person_ID': "", 'org_ID': ""}]
+		relations1 = Relations()
+		relations1.org_ID = "ORG_EPAAAA"
+		relations1.person_ID = "PER_TTHBLD"
+		relations1.crisis_ID = "CRI_BEEDIE"
+		relations2 = Relations()
+		relations2.org_ID = "ORG_EPAAAA"
+		relations2.person_ID = "PER_RPERRY"
+		relations2.crisis_ID = "CRI_TXWDFR"
+
+		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		li1 = Li()
+		li1.href = "linktosomething.com"
+		li1.text = "some text"
+		li1.kind = "Images"
+		li1.model_id = "ORG_EPAAAA"
+
+		relations1.save()
+		relations2.save()
+		li1.save()
+		temp_org.save()
+
+		org = getOrg("ORG_EPAAAA")
+		#print org
+
+		self.assertEqual(temp_org.name, org.get('name'))
+		self.assertEqual(temp_org.kind, org.get('kind'))
+		self.assertEqual(temp_org.location, org.get('location'))
+		self.assertEqual(relations1.person_ID, org.get('people')[0][0])
+		self.assertEqual(relations1.crisis_ID, org.get('crises')[0][0])
+		self.assertEqual(relations2.person_ID, org.get('people')[1][0])
+		self.assertEqual(relations2.crisis_ID, org.get('crises')[1][0])
+		self.assertEqual(li1.href, org.get('common').get('Images')[0].href)
+		self.assertEqual(li1.text, org.get('common').get('Images')[0].text)
+		self.assertEqual(li1.kind, org.get('common').get('Images')[0].kind)
+		self.assertEqual(li1.model_id, org.get('common').get('Images')[0].model_id)
+
+
+	def test_getOrg2(self):
+		# create a person, crisis, and organization
+		temp_org           = Org()
+		temp_org.org_ID = "ORG_NSAAAA"
+		temp_org.name      = "National Security Agency"
+		temp_org.kind      = "Government"
+		temp_org.location      = "Fort Meade, Maryland"
+
+		# relations = [{'org_ID': "", 'person_ID': "", 'org_ID': ""}]
+		relations1 = Relations()
+		relations1.org_ID = "ORG_NSAAAA"
+		relations1.person_ID = "PER_ESNWDN"
+		relations1.crisis_ID = "CRI_NSAWRT"
+
+		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		li1 = Li()
+		li1.href = "linktosomething.com"
+		li1.text = "some text"
+		li1.kind = "Images"
+		li1.model_id = "ORG_NSAAAA"
+
+		relations1.save()
+		li1.save()
+		temp_org.save()
+
+		org = getOrg("ORG_NSAAAA")
+		#print org
+
+		self.assertEqual(temp_org.name, org.get('name'))
+		self.assertEqual(temp_org.kind, org.get('kind'))
+		self.assertEqual(temp_org.location, org.get('location'))
+		self.assertEqual(relations1.person_ID, org.get('people')[0][0])
+		self.assertEqual(relations1.crisis_ID, org.get('crises')[0][0])
+		self.assertEqual(li1.href, org.get('common').get('Images')[0].href)
+		self.assertEqual(li1.text, org.get('common').get('Images')[0].text)
+		self.assertEqual(li1.kind, org.get('common').get('Images')[0].kind)
+		self.assertEqual(li1.model_id, org.get('common').get('Images')[0].model_id)
+
+
+	def test_getOrg3(self):
+		# create a person, crisis, and organization
+		temp_org           = Org()
+		temp_org.org_ID = "ORG_MUSBRO"
+		temp_org.name      = "The Muslim Brotherhood"
+		temp_org.kind      = "Islamic Movement"
+		temp_org.location      = "Egypt"
+
+		# relations = [{'org_ID': "", 'person_ID': "", 'org_ID': ""}]
+		relations1 = Relations()
+		relations1.org_ID = "ORG_MUSBRO"
+		relations1.person_ID = "PER_MMORSI"
+		relations1.crisis_ID = "CRI_UEGYPT"
+
+		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		li1 = Li()
+		li1.href = "linktosomething.com"
+		li1.text = "some text"
+		li1.kind = "ExternalLinks"
+		li1.model_id = "ORG_MUSBRO"
+
+		relations1.save()
+		li1.save()
+		temp_org.save()
+
+		org = getOrg("ORG_MUSBRO")
+		#print org
+
+		self.assertEqual(temp_org.name, org.get('name'))
+		self.assertEqual(temp_org.kind, org.get('kind'))
+		self.assertEqual(temp_org.location, org.get('location'))
+		self.assertEqual(relations1.person_ID, org.get('people')[0][0])
+		self.assertEqual(relations1.crisis_ID, org.get('crises')[0][0])
+		self.assertEqual(li1.href, org.get('common').get('ExternalLinks')[0].href)
+		self.assertEqual(li1.text, org.get('common').get('ExternalLinks')[0].text)
+		self.assertEqual(li1.kind, org.get('common').get('ExternalLinks')[0].kind)
+		self.assertEqual(li1.model_id, org.get('common').get('ExternalLinks')[0].model_id)
+
+
+# 	#---------------------------------------#
+# 	#-----test_getPerson
+# 	#---------------------------------------#
+
+	def test_getPerson1(self):
+		# create a person, crisis, and organization
+		temp_person           = Person()
+		temp_person.person_ID = "PER_ESNWDN"
+		temp_person.name      = "Edward Snowden"
+		temp_person.kind      = "Whistleblower"
+		temp_person.location  = "Moscow, Russia"
+
+		# relations = [{'person_ID': "", 'person_ID': "", 'org_ID': ""}]
+		relations1 = Relations()
+		relations1.person_ID = "PER_ESNWDN"
+		relations1.crisis_ID = "CRI_NSAWRT"
+		relations1.org_ID = "ORG_NSAAAA"
+
+		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		li1 = Li()
+		li1.href = "linktosomething.com"
+		li1.text = "some text"
+		li1.kind = "Images"
+		li1.model_id = "PER_ESNWDN"
+
+		relations1.save()
+		li1.save()
+		temp_person.save()
+
+		person = getPerson("PER_ESNWDN")
+		#print person
+
+		self.assertEqual(temp_person.name, person.get('name'))
+		self.assertEqual(temp_person.kind, person.get('kind'))
+		self.assertEqual(temp_person.location, person.get('location'))
+		self.assertEqual(relations1.crisis_ID, person.get('crises')[0][0])
+		self.assertEqual(relations1.org_ID, person.get('organizations')[0][0])
+		self.assertEqual(li1.href, person.get('common').get('Images')[0].href)
+		self.assertEqual(li1.text, person.get('common').get('Images')[0].text)
+		self.assertEqual(li1.kind, person.get('common').get('Images')[0].kind)
+		self.assertEqual(li1.model_id, person.get('common').get('Images')[0].model_id)
+
+
+	def test_getPerson2(self):
+		# create a person, crisis, and organization
+		temp_person           = Person()
+		temp_person.person_ID = "PER_RFLCRR"
+		temp_person.name      = "Rafael Correa"
+		temp_person.kind      = "President of the Republic of Ecuador"
+		temp_person.location  = "Ecuador"
+
+		# relations = [{'person_ID': "", 'person_ID': "", 'org_ID': ""}]
+		relations1 = Relations()
+		relations1.person_ID = "PER_RFLCRR"
+		relations1.crisis_ID = "CRI_NSAWRT"
+		relations1.org_ID = "ORG_NSAAAA"
+
+		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		li1 = Li()
+		li1.href = "linktosomething.com"
+		li1.text = "some text"
+		li1.kind = "Images"
+		li1.model_id = "PER_RFLCRR"
+
+		relations1.save()
+		li1.save()
+		temp_person.save()
+
+		person = getPerson("PER_RFLCRR")
+		#print person
+
+		self.assertEqual(temp_person.name, person.get('name'))
+		self.assertEqual(temp_person.kind, person.get('kind'))
+		self.assertEqual(temp_person.location, person.get('location'))
+		self.assertEqual(relations1.crisis_ID, person.get('crises')[0][0])
+		self.assertEqual(relations1.org_ID, person.get('organizations')[0][0])
+		self.assertEqual(li1.href, person.get('common').get('Images')[0].href)
+		self.assertEqual(li1.text, person.get('common').get('Images')[0].text)
+		self.assertEqual(li1.kind, person.get('common').get('Images')[0].kind)
+		self.assertEqual(li1.model_id, person.get('common').get('Images')[0].model_id)
+
+
+	def test_getPerson3(self):
+		# create a person, crisis, and organization
+		temp_person           = Person()
+		temp_person.person_ID = "PER_GUZMAN"
+		temp_person.name      = "Joaquin Guzman Loera"
+		temp_person.kind      = "Drug Cartel Leader"
+		temp_person.location  = "Mexico"
+
+		# relations = [{'person_ID': "", 'person_ID': "", 'org_ID': ""}]
+		relations1 = Relations()
+		relations1.person_ID = "PER_GUZMAN"
+		relations1.crisis_ID = "CRI_MEXDRG"
+		relations1.org_ID = "ORG_SINCAR"
+
+		temp_common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [],'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		li1 = Li()
+		li1.href = "facebook.com"
+		li1.floating_text = "some floating_text"
+		li1.kind = "Feeds"
+		li1.model_id = "PER_GUZMAN"
+
+		relations1.save()
+		li1.save()
+		temp_person.save()
+
+		person = getPerson("PER_GUZMAN")
+		#print person
+
+		self.assertEqual(temp_person.name, person.get('name'))
+		self.assertEqual(temp_person.kind, person.get('kind'))
+		self.assertEqual(temp_person.location, person.get('location'))
+		self.assertEqual(relations1.crisis_ID, person.get('crises')[0][0])
+		self.assertEqual(relations1.org_ID, person.get('organizations')[0][0])
+		self.assertEqual(li1.href, person.get('common').get('Feeds')[0].href)
+		self.assertEqual(li1.floating_text, person.get('common').get('Feeds')[0].floating_text)
+		self.assertEqual(li1.kind, person.get('common').get('Feeds')[0].kind)
+		self.assertEqual(li1.model_id, person.get('common').get('Feeds')[0].model_id)
+
+# 	#---------------------------------------#
+# 	#-----test_getCrisis
+# 	#---------------------------------------#
+
+	def test_getCrisisIDs1(self):
+		temp_crisis1          = Crisis()
+		temp_crisis1.crisis_ID = "CRI_NSAWRT"
+		temp_crisis1.name      = "NSA Wiretapping"
+		temp_crisis1.kind      = "Civil Liberties"
+		temp_crisis1.date      = "2013-06-06"
+
+		temp_crisis2          = Crisis()
+		temp_crisis2.crisis_ID = "CRI_BEEDIE"
+		temp_crisis2.name      = "Bee Colony Collapse Disorder"
+		temp_crisis2.kind      = "Economical, Environmental"
+		temp_crisis2.date      = "2006-01-01"
+
+		temp_crisis3          = Crisis()
+		temp_crisis3.crisis_ID = "CRI_TXWDFR"
+		temp_crisis3.name      = "Texas Wild Fires"
+		temp_crisis3.kind      = "Natural disaster"
+		temp_crisis3.date      = "2011-09-04"
+
+		temp_crisis1.save()
+		temp_crisis2.save()
+		temp_crisis3.save()
+
+		ids = getCrisisIDs()
+		# print "\n\n"
+		# print ids
+		# print ids.get('CRI_TXWDFR')
+
+		self.assertEqual(temp_crisis1.name, ids.get('CRI_NSAWRT'))
+		self.assertEqual(temp_crisis2.name, ids.get('CRI_BEEDIE'))
+		self.assertEqual(temp_crisis3.name, ids.get('CRI_TXWDFR'))
+
+
+	def test_getCrisisIDs2(self):
+		temp_crisis1          = Crisis()
+		temp_crisis1.crisis_ID = "CRI_BRZLPR"
+		temp_crisis1.name      = "Brazilian Protests"
+		temp_crisis1.kind      = "Socioeconomic Crisis"
+		temp_crisis1.date      = "2013-06-17"
+
+		temp_crisis2          = Crisis()
+		temp_crisis2.crisis_ID = "CRI_MEXDRG"
+		temp_crisis2.name      = "Mexican Drug Violence"
+		temp_crisis2.kind      = "Violent Conflict"
+		temp_crisis2.date      = "2006-01-01"
+
+		temp_crisis3          = Crisis()
+		temp_crisis3.crisis_ID = "CRI_LGBTRU"
+		temp_crisis3.name      = "LGBT Issues in Russia"
+		temp_crisis3.kind      = "Civil/Human Rights"
+		temp_crisis3.date      = "Russia"
+
+		temp_crisis1.save()
+		temp_crisis2.save()
+		temp_crisis3.save()
+
+		ids = getCrisisIDs()
+		# print "\n\n"
+		# print ids
+		# print ids.get('CRI_LGBTRU')
+
+		self.assertEqual(temp_crisis1.name, ids.get('CRI_BRZLPR'))
+		self.assertEqual(temp_crisis2.name, ids.get('CRI_MEXDRG'))
+		self.assertEqual(temp_crisis3.name, ids.get('CRI_LGBTRU'))
+
+
+	def test_getCrisisIDs3(self):
+		temp_crisis1          = Crisis()
+		temp_crisis1.crisis_ID = "CRI_FWATER"
+		temp_crisis1.name      = "Fresh Water Scarcity"
+		temp_crisis1.kind      = "Environmental"
+		temp_crisis1.date      = "1970-01-01"
+
+		temp_crisis1.save()
+
+		ids = getCrisisIDs()
+		# print "\n\n"
+		# print ids
+		# print ids.get('CRI_LGBTRU')
+
+		self.assertEqual(temp_crisis1.name, ids.get('CRI_FWATER'))
+
+
+# 	#---------------------------------------#
+# 	#-----test_getPeopleIDs
+# 	#---------------------------------------#
+
+	def test_getPeopleIDs1(self):
+		temp_person1           = Person()
+		temp_person1.person_ID = "PER_TTHBLD"
+		temp_person1.name      = "Tom Theobald"
+		temp_person1.kind      = "Beekeeper"
+		temp_person1.location  = "4802 Gatewood Dr, Colorado Springs, CO, USA"
+
+		temp_person2           = Person()
+		temp_person2.person_ID = "PER_DLVRUS"
+		temp_person2.name      = "Dilma Vana Rousseff"
+		temp_person2.kind      = "Politician"
+		temp_person2.location  = "Rio de Janeiro"
+
+		temp_person3           = Person()
+		temp_person3.person_ID = "PER_ESNWDN"
+		temp_person3.name      = "Edward Snowden"
+		temp_person3.kind      = "Whistleblower"
+		temp_person3.location  = "Moscow, Russia"
+
+		temp_person1.save()
+		temp_person2.save()
+		temp_person3.save()
+
+		ids = getPeopleIDs()
+
+		self.assertEqual(temp_person1.name, ids.get('PER_TTHBLD'))
+		self.assertEqual(temp_person2.name, ids.get('PER_DLVRUS'))
+		self.assertEqual(temp_person3.name, ids.get('PER_ESNWDN'))
+
+
+	def test_getPeopleIDs2(self):
+		temp_person1           = Person()
+		temp_person1.person_ID = "PER_YYAMAD"
+		temp_person1.name      = "Yasuteru Yamad"
+		temp_person1.kind      = "Proactive engineer"
+		temp_person1.location  = "Japan"
+
+		temp_person2           = Person()
+		temp_person2.person_ID = "PER_HPASSS"
+		temp_person2.name      = "Hildebrando Pascoal"
+		temp_person2.kind      = "Former Politician"
+		temp_person2.location  = "Rio de Janeiro"
+
+		temp_person1.save()
+		temp_person2.save()
+
+		ids = getPeopleIDs()
+
+		self.assertEqual(temp_person1.name, ids.get('PER_YYAMAD'))
+		self.assertEqual(temp_person2.name, ids.get('PER_HPASSS'))
+
+
+	def test_getPeopleIDs3(self):
+		temp_person1           = Person()
+		temp_person1.person_ID = "PER_XNSHNG"
+		temp_person1.name      = "Zhang Xinsheng"
+		temp_person1.kind      = "President of International Union for Conservation of Nature"
+		temp_person1.location  = "China"
+
+		temp_person1.save()
+
+		ids = getPeopleIDs()
+
+		self.assertEqual(temp_person1.name, ids.get('PER_XNSHNG'))
+
+
+# 	#---------------------------------------#
+# 	#-----test_getOrgIDs
+# 	#---------------------------------------#
+
+	def test_getOrgIDs1(self):
+		temp_org1           = Org()
+		temp_org1.org_ID    = "ORG_UOCSCI"
+		temp_org1.name      = "The Union of Concerned Scientists"
+		temp_org1.kind      = "Government Fund"
+		temp_org1.location  = "USA"
+
+		temp_org2           = Org()
+		temp_org2.org_ID    = "ORG_NSAAAA"
+		temp_org2.name      = "National Security Agency"
+		temp_org2.kind      = "Government"
+		temp_org2.location  = "Fort Meade, Maryland"
+
+		temp_org3           = Org()
+		temp_org3.org_ID    = "ORG_FEMAAA"
+		temp_org3.name      = "Federal Emergency Management Service"
+		temp_org3.kind      = "Government Organization"
+		temp_org3.location  = "500 C Street SW, Washington, DC 20472"
+
+		temp_org1.save()
+		temp_org2.save()
+		temp_org3.save()
+
+		ids = getOrgIDs()
+
+		self.assertEqual(temp_org1.name, ids.get('ORG_UOCSCI'))
+		self.assertEqual(temp_org2.name, ids.get('ORG_NSAAAA'))
+		self.assertEqual(temp_org3.name, ids.get('ORG_FEMAAA'))
+
+
+	def test_getOrgIDs2(self):
+		temp_org1           = Org()
+		temp_org1.org_ID    = "ORG_GAYRUS"
+		temp_org1.name      = "LGBT Human Rights Project GayRussia.Ru"
+		temp_org1.kind      = "Activist Group"
+		temp_org1.location  = "Russia"
+
+		temp_org2           = Org()
+		temp_org2.org_ID    = "ORG_WATERO"
+		temp_org2.name      = "Water.org"
+		temp_org2.kind      = "Nonprofit Developmental Aid Organization"
+		temp_org2.location  = "United States"
+
+		temp_org1.save()
+		temp_org2.save()
+
+		ids = getOrgIDs()
+
+		self.assertEqual(temp_org1.name, ids.get('ORG_GAYRUS'))
+		self.assertEqual(temp_org2.name, ids.get('ORG_WATERO'))
+
+
+	def test_getOrgIDs3(self):
+		temp_org1           = Org()
+		temp_org1.org_ID    = "ORG_LOSZTA"
+		temp_org1.name      = "Los Zetas Cartel"
+		temp_org1.kind      = "Drug Cartel"
+		temp_org1.location  = "Mexico"
+
+		temp_org1.save()
+
+		ids = getOrgIDs()
+
+		self.assertEqual(temp_org1.name, ids.get('ORG_LOSZTA'))
