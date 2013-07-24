@@ -113,6 +113,16 @@ def exportView(request) :
   output = export_xml()
 
   return render(request, 'wcdb/Export.html', {'output': output})
+
+def downloadView(request) :
+  """
+  Returns an XML document of what is in the models.
+  """
+  response = HttpResponse('', mimetype="application/force-download")
+  response.write(open('WCDBExportXML.xml', 'r').read())
+  response['Content-Disposition'] = 'attachment; filename="wcdb.xml"'
+
+  return response
   
 class XMLUploadForm(forms.Form):
   """
