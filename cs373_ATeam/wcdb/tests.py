@@ -657,7 +657,15 @@ class unloadModelsCrisisTest(TestCase):
 		s = '<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n'
 		self.assertEqual(org_xml, s)
 
+# 	#---------------------------------------#
+# 	#-----test_export_xml
 
+	# def test_export_xml0(self):
+	# 	print getCrisisIDs()
+	# 	print getOrgIDs()
+	# 	print getPeopleIDs()
+	# 	xml_string = export_xml()
+	# 	print xml_string
 
 class loadModelsCrisisTest(TestCase):
 
@@ -1016,7 +1024,7 @@ class viewsTest(TestCase):
 		self.assertEqual(response.status_code, 200)
 
 
-class getBdModelTest(TestCase):
+class getDdModelTest(TestCase):
 
 # #--------------------------------------------#
 # #-----Unit Tests for functions from getDbModel.py
