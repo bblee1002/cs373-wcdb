@@ -21,6 +21,11 @@ from getDbModel import getCrisis, getPerson, getOrg, getCrisisIDs, getOrgIDs, ge
 #	xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
 
 class ModelsCrisisTest(TestCase):
+
+	"""
+	Contains the unit tests for models.py, the file where we define our Django files. These unit 
+	tests mostly test that the models' populate methods work.
+	"""
 	
 
 #--------------------------------------------#
@@ -669,6 +674,10 @@ class unloadModelsCrisisTest(TestCase):
 
 class loadModelsCrisisTest(TestCase):
 
+	"""
+	Contains the unit tests for loadModels.py, the import facility.These unit tests mostly 
+	confirm that models are properly populated and stored in the database.
+	"""
 # #------------------------------------------------#
 # #-----Unit Tests for functions from loadModels.py
 # #------------------------------------------------#
