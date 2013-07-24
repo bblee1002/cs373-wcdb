@@ -212,29 +212,50 @@ class ModelsCrisisTest(TestCase):
 			common_dict[a.kind].append(a)
 		self.assertEqual(common_dict['Citations'][0].floating_text, "The Hindustan Times")
 
-# 	def test_common_populate1(self):
-# 		temp_com = Common()
-# 		xml_string = '<Common><Citations><li>Random Citation</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Summary>Random Summary</Summary></Common>'
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
+	def test_common_populate1(self):
+		temp_com   = Common()
+		xml_string = "<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href=\"http://en.wikipedia.org/wiki/2013_North_India_floods\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://timesofindia.indiatimes.com/photo/15357310.cms\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common>"
+		e_root     = ET.fromstring(xml_string)
+		temp       = Common()
+		temp.populate(e_root, "CRI_JOEJOE")
 
-# 		self.assertEqual(temp_com.citations[0].floating_text, "Random Citation")
-# 		self.assertEqual(temp_com.external_links[0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
-# 		self.assertEqual(temp_com.images[0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
-# 		#self.assertEqual(temp_com.videos[0], "Random Summary")
+
+		populate_li(e_root, "CRI_JOEJOE", "Feeds")
+		li_list = Li.objects.filter(model_id = "CRI_JOEJOE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
 	
-# 	def test_common_populate2(self):
-# 		temp_com = Common()
-# 		xml_string = "<Common><Citations><li>Random Citation</li></Citations><Summary>Random Summary</Summary></Common>"
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
+	def test_common_populate2(self):
+		temp_com   = Common()
+		xml_string = "<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href=\"http://en.wikipedia.org/wiki/2013_North_India_floods\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://timesofindia.indiatimes.com/photo/15357310.cms\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common>"
+		e_root     = ET.fromstring(xml_string)
+		temp       = Common()
+		temp.populate(e_root, "CRI_JOEJOE")
 
-# 		self.assertEqual(temp_com.citations[0].floating_text, "Random Citation")
+
+		populate_li(e_root, "CRI_JOEJOE", "Feeds")
+		li_list = Li.objects.filter(model_id = "CRI_JOEJOE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['Images'][0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
+		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
+		self.assertEqual(common_dict['Maps'][0].embed, "https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&sspn=3.2522150867582833,7.2072687770004205&t=m&q=uttarakhand&dg=opt&ie=UTF8&hq=&hnear=Uttarakhand,+India&ll=30.066753,79.0193&spn=2.77128,5.07019&z=8&output=embed")
+		
+
 
 	#---------------------------------------#
 	#-----test_populate_common
 
-	def test_common_populate0(self):
+	def test_populate_common0(self):
 		temp_com   = Common()
 		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
 		e_root     = ET.fromstring(xml_string)
@@ -250,7 +271,7 @@ class ModelsCrisisTest(TestCase):
 			common_dict[a.kind].append(a)
 		self.assertEqual(common_dict['Citations'][0].floating_text, "Kyoto News Network")
 
-	def test_common_populate1(self):
+	def test_populate_common1(self):
 		temp_com   = Common()
 		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
 		e_root     = ET.fromstring(xml_string)
@@ -265,6 +286,24 @@ class ModelsCrisisTest(TestCase):
 		for a in li_list :
 			common_dict[a.kind].append(a)
 		self.assertEqual(common_dict['Images'][0].embed, "http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg")
+
+	def test_populate_common2(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/PkXw1iBgzoY\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"twitter.com/kiraisgod\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://myanimelist.net/anime/1535/Death_Note")
+		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/PkXw1iBgzoY")
+		self.assertEqual(common_dict['Feeds'][0].embed, "twitter.com/kiraisgod")
 
 # 	#---------------------------------------#
 # 	#-----test_xml_from_li
