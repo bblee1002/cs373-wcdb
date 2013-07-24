@@ -557,20 +557,33 @@ class unloadModelsCrisisTest(TestCase):
 # 	#---------------------------------------#
 # 	#-----test_make_common_string
 
-	# def test_make_common_string0(self):
- # 		xml_string = "<WC><Crisis ID=\"CRI_random\" Name=\"random\"><People><Person ID=\"PER_random\" /></People><Organizations><Org ID=\"ORG_random\" /></Organizations><Kind>random</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>random</li></Locations><HumanImpact><li>random</li></HumanImpact><EconomicImpact><li>random</li></EconomicImpact><ResourcesNeeded><li>random</li></ResourcesNeeded><WaysToHelp><li> href=\"http://random\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis></WC>"
- # 		crisis_list1 = []
- # 		root1 = ET.fromstring(xml_string)
+	def test_make_common_string0(self):
+		common_dict = getOrg('ORG_ORGORG')['common']
+		common_string = make_common_string(common_dict)
+		s = '\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n'
+		self.assertEqual(common_string, s)
 
- # 		crisis = Crisis()
-	# 	crisis.crisis_id = 'CRI_CRISIS'
+	def test_make_common_string1(self):
+		common_dict = getPerson('PER_PERSON')['common']
+		li1 = Li()
+		li1.href = 'href'
+		li1.model_id = 'PER_PERSON'
+		li1.kind = 'ExternalLinks'
+		common_dict[li1.kind] = [li1]
+		common_string = make_common_string(common_dict)
+		s = '\t<Common>\n\t\t<ExternalLinks>\n\t\t\t<li href="href"></li>\n\t\t</ExternalLinks>\n\t\t<Summary>summary</Summary>\n\t</Common>\n'
+		self.assertEqual(common_string, s)
 
-
-	# 	crisis_dict = {'crisis_id': crisis.crisis_id}
-		#make_common_string(crisis_dict)
-
-		#common_string = make_common_string({})
-		#self.assertEqual(common_string, "")
+	def test_make_common_string2(self):
+		common_dict = getCrisis('CRI_CRISIS')['common']
+		li1 = Li()
+		li1.embed = 'embed'
+		li1.model_id = 'CRI_CRISIS'
+		li1.kind = 'Images'
+		common_dict[li1.kind] = [li1]
+		common_string = make_common_string(common_dict)
+		s = '\t<Common>\n\t\t<Images>\n\t\t\t<li embed="embed"></li>\n\t\t</Images>\n\t\t<Summary>summary</Summary>\n\t</Common>\n'
+		self.assertEqual(common_string, s)
 
 # 	#---------------------------------------#
 # 	#-----test_export_crisis
