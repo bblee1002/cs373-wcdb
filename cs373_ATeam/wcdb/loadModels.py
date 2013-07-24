@@ -34,6 +34,11 @@ def populate_models(tree) :
 
 
 def populate_common(node, modl_id, model_instance):
+	"""
+	Function expects an element node, model ID, and a model instance as parameters.
+	Searches through node's tree for common node and calls common's populate method
+	on it. 
+	"""
 	found_common = node.find('Common')
 	if found_common is not None:
 		common = Common()
@@ -45,8 +50,8 @@ def populate_common(node, modl_id, model_instance):
 
 def populate_crisis(root) :
 	"""
-	Function expects a node in an element tree and a list as parameters. Find instances of crisis
-	in the tree and adds it to the list
+	Function expects a node in an element tree as a parameter. Finds instances of Crisis 
+	and saves them to the database
 	"""
 	for crisis in root.findall("Crisis"):
 		temp_crisis           =                 Crisis()
@@ -82,25 +87,12 @@ def populate_crisis(root) :
 		populate_common(crisis, crisis.get("ID"), temp_crisis)
 		temp_crisis.save()
 
-		# # for location in crisis.find("Locations") or [] :
-		# # 	temp_li = Li()
-		# # 	temp_li.populate(location, crisis.get("ID"), "Locations")
-		# # 	list_add(temp_crisis.locations, temp_li)
-
-		# #populating common fields
-		# found_common = crisis.find('Common')
-		# if found_common is not None:
-		# 	temp_crisis.common.populate(found_common)
-
-
-
-		#add populated crisis model to list
 
 
 def populate_person(root) :
 	"""
-	Function expects a node in an element tree and a list as parameters. Find instances of person
-	in the tree and adds it to the list
+Function expects a node in an element tree as a parameter. Finds instances of Person
+	and saves them to the database
 	"""
 	for person in root.findall("Person"):
 		temp_person             =                     Person()
@@ -131,8 +123,8 @@ def populate_person(root) :
 
 def populate_org(root) :
 	"""
-	Function expects a node in an element tree and a list as parameters. Find instances of organization
-	in the tree and adds it to the list
+	Function expects a node in an element tree as a parameter. Finds instances of Organization 
+	and saves them to the database
 	"""
 	for org in root.findall("Organization") :
 		temp_org          =                     Org()

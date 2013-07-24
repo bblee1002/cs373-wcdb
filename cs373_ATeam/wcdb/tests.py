@@ -8,7 +8,7 @@ from django.test import TestCase
 from minixsv import pyxsval
 from genxmlif import GenXmlIfError
 from models import Crisis, Person, Org, list_add, Li, Common, Relations, populate_li
-from loadModels import validate, populate_crisis, populate_person, populate_org, populate_models
+from loadModels import validate, populate_crisis, populate_person, populate_org, populate_models, populate_common
 from unloadModels import clean_xml, export_crisis, export_person, export_crisis, export_organization
 import xml.etree.ElementTree as ET
 from django.test.client import Client
@@ -65,16 +65,28 @@ class ModelsCrisisTest(TestCase):
 	#---------------------------------------#
 	#-----test_populate_li
 
-	# def test_populate_li(self):
-	# 	li_string = "<WC><li href=\"http://www.guardian.co.uk/world/2013/jul/04/european-us-internet-providers-nsa\">Traynor, Ian. \"European Firms \'Could Quit US Internet Providers Over NSA Scandal\'\". The Guardian. 4 July, 2013. Visited: 7 July, 2013.</li></WC>"
-	# 	e_root    = ET.fromstring(li_string)
-	# 	temp      = ET.Element('li')
-	# 	temp.set("href", "href_stuff")
-	# 	temp.text = "randomfloatingtext"
-	# 	temp_li   = Li()
-	# 	temp_li.populate(temp, "PER_MMORSI", "Videos")
-	# 	self.assertEqual(temp_li.href, "href_stuff")
-	# 	self.assertEqual(temp_li.floating_text, "randomfloatingtext")
+	def test_populate_li0(self):
+		li_string = "<Crisis ID=\"CRI_NSAWRT\" Name=\"NSAWiretapping\"><People><Person ID=\"PER_ESNWDN\"/></People><Organizations><Org ID=\"ORG_NSAAAA\"/></Organizations><WaysToHelp><li href = \"http://www.restorethefourth.net/protests/\">Restore The Fourth</li></WaysToHelp></Crisis>"
+		e_root    = ET.fromstring(li_string)
+		populate_li(e_root, "CRI_NSAWRT", "WaysToHelp")
+		li_list = Li.objects.filter(model_id = "CRI_NSAWRT")
+		self.assertEqual(li_list[0].href, "http://www.restorethefourth.net/protests/")
+
+	def test_populate_li1(self):
+		li_string = "<Crisis ID=\"CRI_NSAWRT\" Name=\"NSAWiretapping\"><People><Person ID=\"PER_ESNWDN\"/></People><Organizations><Org ID=\"ORG_NSAAAA\"/></Organizations><WaysToHelp><li href = \"http://www.restorethefourth.net/protests/\">Restore The Fourth</li></WaysToHelp></Crisis>"
+		e_root    = ET.fromstring(li_string)
+		populate_li(e_root, "CRI_NSAWRT", "WaysToHelp")
+		li_list = Li.objects.filter(model_id = "CRI_NSAWRT")
+		self.assertEqual(li_list[0].floating_text, "Restore The Fourth")
+
+	def test_populate_li2(self):
+		li_string = "<Crisis ID=\"CRI_JOEJOE\" Name=\"Joe Johnson's contract\"><People><Person ID=\"PER_JOEJOE\"/></People><Organizations><Org ID=\"ORG_BRKNET\"/></Organizations><WaysToHelp><li href = \"http://www.joejohnsonsucks.net/protests/\">Joe Johnson's contract probably violates the Geneva Convention</li></WaysToHelp></Crisis>"
+		e_root    = ET.fromstring(li_string)
+		populate_li(e_root, "CRI_JOEJOE", "WaysToHelp")
+		li_list = Li.objects.filter(model_id = "CRI_JOEJOE")
+		self.assertEqual(li_list[0].href, "http://www.joejohnsonsucks.net/protests/")
+		self.assertEqual(li_list[0].floating_text, "Joe Johnson's contract probably violates the Geneva Convention")
+
 
 
 # 	#---------------------------------------#
@@ -182,38 +194,116 @@ class ModelsCrisisTest(TestCase):
 	#---------------------------------------#
 	#-----test_common_populate
 
-	# def test_common_populate0(self):
-	# 	temp_com = Common()
-	# 	xml_string = '<Crisis ID=CRI_NSAWRT Name=NSA Wiretapping><Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Videos><li embed="//www.youtube.com/embed/qV3s7Sa6B6w" /></Videos><Maps><li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" /></Maps><Feeds><li embed="[WHATEVER A FEED URL LOOKS LIKE]" /></Feeds><Summary>Lorem ipsum...</Summary></Common>'
-	# 	root = ET.fromstring(xml_string)
-	# 	temp_com.populate(root, "PER_EDDIES")
+	def test_common_populate0(self):
+		temp_com   = Common()
+		xml_string = "<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href=\"http://en.wikipedia.org/wiki/2013_North_India_floods\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://timesofindia.indiatimes.com/photo/15357310.cms\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common>"
+		e_root     = ET.fromstring(xml_string)
+		temp       = Common()
+		temp.populate(e_root, "CRI_JOEJOE")
 
-	# 	self.assertEqual(temp_com.citations[0].floating_text, "The Hindustan Times")
-		# self.assertEqual(temp_com.external_links[0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
-		# self.assertEqual(temp_com.images[0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
-		# self.assertEqual(temp_com.videos[0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
-		# #self.assertEqual(temp_com.maps[0].href, "https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed")
-		# self.assertEqual(temp_com.feeds[0].embed, "[WHATEVER A FEED URL LOOKS LIKE]")
-		# self.assertEqual(temp_com.videos[0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
 
-# 	def test_common_populate1(self):
-# 		temp_com = Common()
-# 		xml_string = '<Common><Citations><li>Random Citation</li></Citations><ExternalLinks><li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li></ExternalLinks><Images><li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" /></Images><Summary>Random Summary</Summary></Common>'
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
+		populate_li(e_root, "CRI_JOEJOE", "Feeds")
+		li_list = Li.objects.filter(model_id = "CRI_JOEJOE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['Citations'][0].floating_text, "The Hindustan Times")
 
-# 		self.assertEqual(temp_com.citations[0].floating_text, "Random Citation")
-# 		self.assertEqual(temp_com.external_links[0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
-# 		self.assertEqual(temp_com.images[0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
-# 		#self.assertEqual(temp_com.videos[0], "Random Summary")
+	def test_common_populate1(self):
+		temp_com   = Common()
+		xml_string = "<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href=\"http://en.wikipedia.org/wiki/2013_North_India_floods\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://timesofindia.indiatimes.com/photo/15357310.cms\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common>"
+		e_root     = ET.fromstring(xml_string)
+		temp       = Common()
+		temp.populate(e_root, "CRI_JOEJOE")
+
+
+		populate_li(e_root, "CRI_JOEJOE", "Feeds")
+		li_list = Li.objects.filter(model_id = "CRI_JOEJOE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
 	
-# 	def test_common_populate2(self):
-# 		temp_com = Common()
-# 		xml_string = "<Common><Citations><li>Random Citation</li></Citations><Summary>Random Summary</Summary></Common>"
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
+	def test_common_populate2(self):
+		temp_com   = Common()
+		xml_string = "<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href=\"http://en.wikipedia.org/wiki/2013_North_India_floods\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://timesofindia.indiatimes.com/photo/15357310.cms\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common>"
+		e_root     = ET.fromstring(xml_string)
+		temp       = Common()
+		temp.populate(e_root, "CRI_JOEJOE")
 
-# 		self.assertEqual(temp_com.citations[0].floating_text, "Random Citation")
+
+		populate_li(e_root, "CRI_JOEJOE", "Feeds")
+		li_list = Li.objects.filter(model_id = "CRI_JOEJOE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['Images'][0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
+		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
+		self.assertEqual(common_dict['Maps'][0].embed, "https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&sspn=3.2522150867582833,7.2072687770004205&t=m&q=uttarakhand&dg=opt&ie=UTF8&hq=&hnear=Uttarakhand,+India&ll=30.066753,79.0193&spn=2.77128,5.07019&z=8&output=embed")
+		
+
+
+	#---------------------------------------#
+	#-----test_populate_common
+
+	def test_populate_common0(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['Citations'][0].floating_text, "Kyoto News Network")
+
+	def test_populate_common1(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['Images'][0].embed, "http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg")
+
+	def test_populate_common2(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/PkXw1iBgzoY\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"twitter.com/kiraisgod\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://myanimelist.net/anime/1535/Death_Note")
+		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/PkXw1iBgzoY")
+		self.assertEqual(common_dict['Feeds'][0].embed, "twitter.com/kiraisgod")
 
 # 	#---------------------------------------#
 # 	#-----test_xml_from_li
@@ -615,41 +705,145 @@ class viewsTest(TestCase):
 		response = self.client.get("http://localhost:8000/")
 		self.assertEqual(response.status_code, 200)
 
-	# def test_crisisView0(self):
-	# 	response = self.client.get("http://localhost:8000/crisis/1")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView1(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_NSAWRT")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_crisisView1(self):
-	# 	response = self.client.get("http://localhost:8000/crisis/2")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView2(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_BEEDIE")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_crisisView2(self):
-	# 	response = self.client.get("http://localhost:8000/crisis/3")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView3(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_TXWDFR")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_orgsView0(self):
-	# 	response = self.client.get("http://localhost:8000/orgs/1")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView4(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_BRZLPR")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_orgsView1(self):
-	# 	response = self.client.get("http://localhost:8000/orgs/2")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView5(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_MEXDRG")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_orgsView2(self):
-	# 	response = self.client.get("http://localhost:8000/orgs/3")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView6(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_LGBTRU")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_peopleView0(self):
-	# 	response = self.client.get("http://localhost:8000/people/1")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView7(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_UEGYPT")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_peopleView1(self):
-	# 	response = self.client.get("http://localhost:8000/people/2")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView8(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_FWATER")
+		self.assertEqual(response.status_code, 200)
 
-	# def test_peopleView2(self):
-	# 	response = self.client.get("http://localhost:8000/people/3")
-	# 	self.assertEqual(response.status_code, 200)
+	def test_crisisView9(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_FOREST")
+		self.assertEqual(response.status_code, 200)
+
+	def test_crisisView10(self):
+		response = self.client.get("http://localhost:8000/crisis/CRI_NUCDIS")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView1(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_UOCSCI")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView2(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_NSAAAA")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView3(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_FEMAAA")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView4(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_EPAAAA")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView5(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_MUSBRO")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView6(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_EGYGOV")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView7(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_IUCNAT")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView8(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_SINCAR")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView9(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_LOSZTA")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView10(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_MEXGOV")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView11(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_GAYRUS")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView12(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_BRAGOV")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgsView13(self):
+		response = self.client.get("http://localhost:8000/orgs/ORG_WATERO")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView1(self):
+		response = self.client.get("http://localhost:8000/people/PER_YYAMAD")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView2(self):
+		response = self.client.get("http://localhost:8000/people/PER_HPASSS")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView3(self):
+		response = self.client.get("http://localhost:8000/people/PER_TTHBLD")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView4(self):
+		response = self.client.get("http://localhost:8000/people/PER_DLVRUS")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView5(self):
+		response = self.client.get("http://localhost:8000/people/PER_ESNWDN")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView6(self):
+		response = self.client.get("http://localhost:8000/people/PER_RFLCRR")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView7(self):
+		response = self.client.get("http://localhost:8000/people/PER_GUZMAN")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView8(self):
+		response = self.client.get("http://localhost:8000/people/PER_RPERRY")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView9(self):
+		response = self.client.get("http://localhost:8000/people/PER_MMORSI")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView10(self):
+		response = self.client.get("http://localhost:8000/people/PER_XNSHNG")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView11(self):
+		response = self.client.get("http://localhost:8000/people/PER_NIKALX")
+		self.assertEqual(response.status_code, 200)
+
+	def test_peopleView12(self):
+		response = self.client.get("http://localhost:8000/people/PER_MTTDMN")
+		self.assertEqual(response.status_code, 200)
 
 	"""
 	Creates an infinite loop!
@@ -777,7 +971,7 @@ class getBdModelTest(TestCase):
 		temp_crisis.save()
 
 		crisis = getCrisis("CRI_BEEDIE")
-		print crisis
+		 #print crisis
 
 		self.assertEqual(temp_crisis.name, crisis.get('name'))
 		self.assertEqual(temp_crisis.kind, crisis.get('kind'))
