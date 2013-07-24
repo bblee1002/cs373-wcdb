@@ -1,240 +1,241 @@
 import sys
 import xml.etree.ElementTree as ET
 from models import Crisis, Person, Org, Li, Common
-
+from getDbModel import  *
 
 
 def clean_xml (dirty) :
 	"""
 	Check for presence of "&" invalid XML char in everything but Li() instances.
 	Returns a new string w/out any tag information
-	"""	
-	dirty_clean = dirty.split("&")
-	for dirty_piece in dirty_clean:
-		if dirty_piece is dirty_clean[0] :
-			dirty_new = dirty_piece
-		else :
-			dirty_new += "&amp;" + dirty_piece
-	return dirty_new
+	"""
+	if dirty is None:
+		return ''
+	return dirty.replace('&', '&amp;')
+
+def make_non_li_string(clean_string, tag):
+	return "	<" + tag + ">" + clean_string + "</" + tag + ">\n"
+
+def make_li_string(li_list, tag, coming_from_common = False):
+	if len(li_list) == 0:
+		return ''
+	item_string = ''
+	if coming_from_common:
+		item_string += "	"
+	item_string += 	"	<" + tag + ">\n"
+	for item in li_list:
+		if coming_from_common:
+			item_string += "	"
+		item_string = ''.join([item_string,"		<li"])
+		if item.href != u'':
+			href = clean_xml(item.href)
+			item_string = ''.join([item_string," href=\"" + href + "\""])
+
+		if item.embed != u'':
+			embed = clean_xml(item.embed)
+			item_string = ''.join([item_string," embed=\"" + embed + "\""])
+
+		if item.text != u'':
+			text = clean_xml(item.text)
+			item_string = ''.join([item_string, " text=\"" + text + "\""])
+		item_string = ''.join([item_string, ">"])
+
+		if item.floating_text != u'':
+			floating_text = clean_xml(item.floating_text)
+			item_string = ''.join([item_string, floating_text])
+		item_string = ''.join([item_string, "</li>\n"])
+	if not coming_from_common:
+		item_string = ''.join([item_string, "	</" + tag + ">\n"])
+	else:
+		item_string = ''.join([item_string, "		</" + tag + ">\n"])
+	return item_string
+
+
+def make_common_string(common_dict):
+	strings = []
+	strings.append("	<Common>\n")
+	strings.append(make_li_string(common_dict["Citations"], "Citations", True))
+	strings.append(make_li_string(common_dict["ExternalLinks"], "ExternalLinks", True))
+	strings.append(make_li_string(common_dict["Images"], "Images", True))
+	strings.append(make_li_string(common_dict["Videos"], "Videos", True))
+	strings.append(make_li_string(common_dict["Maps"], "Maps", True))
+	strings.append(make_li_string(common_dict["Feeds"], "Feeds", True))
+	if common_dict["Summary"] != u'':
+		strings.append("		<Summary>")
+		strings.append(common_dict["Summary"])
+		strings.append("</Summary>\n")
+	strings.append("	</Common>\n")
+	if strings == ["	<Common>\n", "", "", "", "", "", "", "	</Common>\n"]:
+		return ""
+	return ''.join(strings)
+
 
 
 #-----Export CRISIS models-----#
-def export_crisis (crisis) :
+def export_crisis (crisis_dict, crisis_id) :
 	"""
 	Export CRISIS models by extracting information from the relevant class.
 	Builds a string to return at the end as parse elements of crisis.
 	"""
 	#assumes all crises have an id and name
-	assert crisis.crisis_ID != None
-	assert crisis.name != None
 
 	#Start indiv crisis xml string
-	crisis_string = "<Crisis ID=\"" + crisis.crisis_ID + "\" Name=\"" + crisis.name + "\">"
-	
+	strings = []
+	strings.append("<Crisis ID=\"" + crisis_id + "\" Name=\"" + str(crisis_dict["name"])+ "\">\n")
+
 	#if there are people listed
-	if crisis.people        != [] :
-		p_string = "<People>"
-		for person in crisis.people :
-			clean_person = clean_xml(person)
-			p_string += "<Person ID=\"" + clean_person + "\" />"
-		p_string +="</People>"
-		crisis_string += p_string
+	if crisis_dict["people"]        != [] :
+		strings.append("	<People>\n")
+		for person in crisis_dict["people"] :
+			clean_person = clean_xml(str(person[0]))
+			strings.append("		<Person ID=\"" + clean_person + "\" />\n")
+		strings.append("	</People>\n")
 	
 	#if there are orgs listed
-	if crisis.organizations != [] :
-		o_string = "<Organizations>"
-		for org in crisis.organizations :
-			clean_org = clean_xml(org)
-			o_string += "<Org ID=\"" + clean_org + "\" />"
-		o_string += "</Organizations>"
-		crisis_string += o_string
+	if crisis_dict["organizations"] != [] :
+		strings.append("	<Organizations>\n")
+		for org in crisis_dict["organizations"] :
+			clean_org = clean_xml(str(org[0]))
+			strings.append("		<Org ID=\"" + clean_org + "\" />\n")
+		strings.append("	</Organizations>\n")
 
-	if crisis.kind is not None :
-		clean_k = clean_xml(crisis.kind)
-		k = "<Kind>" + clean_k + "</Kind>"
-		crisis_string += k
-	if crisis.date is not None :
-		clean_d = clean_xml(crisis.date)
-		d = "<Date>" + clean_d + "</Date>"
-		crisis_string += d
-	if crisis.time is not None :
-		clean_t = clean_xml(crisis.time)
-		t = "<Time>" + clean_t + "</Time>"
-		crisis_string += t
-		
+	try:
+		if crisis_dict["kind"] != '' and crisis_dict["kind"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(crisis_dict["kind"])), "Kind"))
+	except:
+		pass
+	try:
+		if crisis_dict["date"] != '' and crisis_dict["date"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(crisis_dict["date"])), "Date"))
+	except:
+		pass
+	try:
+		if crisis_dict["time"] != '' and crisis_dict["time"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(crisis_dict["time"])), "Time"))
+	except:
+		pass
+	li_dict = crisis_dict["common"]
+	strings.append(make_li_string(li_dict["Locations"], "Locations"))
+	strings.append(make_li_string(li_dict["HumanImpact"], "HumanImpact"))
+	strings.append(make_li_string(li_dict["EconomicImpact"], "EconomicImpact"))
+	strings.append(make_li_string(li_dict["ResourcesNeeded"], "ResourcesNeeded"))
+	strings.append(make_li_string(li_dict["WaysToHelp"], "WaysToHelp"))
 
-	#handle li lists
-	if crisis.locations        != [] :
-		root = "Locations"
-		xml_locations = crisis.common.xml_from_li(root, crisis.locations)
-		crisis_string += xml_locations
-	if crisis.human_impact     != [] :
-		root = "HumanImpact"
-		xml_human_impact = crisis.common.xml_from_li(root, crisis.human_impact)
-		crisis_string += xml_human_impact
-	if crisis.economic_impact  != [] :
-		root = "EconomicImpact"
-		xml_economic_impact = crisis.common.xml_from_li(root, crisis.economic_impact)
-		crisis_string += xml_economic_impact
-	if crisis.resources_needed != [] :
-		root = "ResourcesNeeded"
-		xml_resources_needed = crisis.common.xml_from_li(root, crisis.resources_needed)
-		crisis_string += xml_resources_needed
-	if crisis.ways_to_help     != [] :
-		root = "WaysToHelp"
-		xml_ways_to_help = crisis.common.xml_from_li(root, crisis.ways_to_help)
-		crisis_string += xml_ways_to_help
-
-	#Export info from the common class
-	if crisis.common is not None :
-		crisis_string += crisis.common.print_xml()
-
-	#Conclude crisis xml
-	crisis_string += "</Crisis>"
-	return crisis_string
-
-
+	strings.append(make_common_string(li_dict))
+	
+	strings.append("</Crisis>\n\n")
+	return ''.join(strings)
 
 #-----Export PERSON models-----#
-def export_person (person) :
+def export_person (person_dict, person_id) :
 	"""
 	Export Person models by extracting information from the relevant class.
 	Builds a string to return at the end as parse elements of crisis.
-	"""
-	#assumes all people have an id and name
-	assert person.person_ID != None
-	assert person.name != None
+	""" 
 
-	#Start indiv person xml string
-	person_string = "<Person ID=\"" + person.person_ID + "\" Name=\"" + person.name + "\">"
-	
-	#if there are crises listed
-	if person.crises        != [] :
-		pc_string = "<Crises>"
-		for p_crisis in person.crises :
-			clean_person = clean_xml(p_crisis)
-			pc_string += "<Crisis ID=\"" + clean_person + "\" />"
-		pc_string +="</Crises>"
-		person_string += pc_string
-	
-	#if there are orgs listed
-	if person.organizations != [] :
-		o_string = "<Organizations>"
-		for org in person.organizations :
-			clean_org = clean_xml(org)
-			o_string += "<Org ID=\"" + clean_org + "\" />"
-		o_string += "</Organizations>"
-		person_string += o_string
+	strings = []
+	strings.append("<Person ID=\"" + person_id +  "\" Name=\"" + str(person_dict["name"]) + "\">\n")
 
-	if person.kind is not None :
-		clean_k = clean_xml(person.kind)
-		k = "<Kind>" + clean_k + "</Kind>"
-		person_string += k
+	if person_dict["crises"] != [] :
+		strings.append("	<Crises>\n")
+		for crisis in person_dict["crises"] :
+			clean_crisis = clean_xml(str(crisis[0]))
+			strings.append("		<Crisis ID=\"" + clean_crisis + "\" />\n")
+		strings.append("	</Crises>\n")
 
-	if person.location is not None :
-		clean_l = clean_xml(person.location)
-		l = "<Location>" + clean_l + "</Location>"
-		person_string += l
-	
-	#Export info from the common class
-	if person.common is not None :
-		person_string += person.common.print_xml()
+	if person_dict["organizations"] != [] :
+		strings.append("	<Organizations>\n")
+		for org in person_dict["organizations"] :
+			clean_org = clean_xml(str(org[0]))
+			strings.append("		<Org ID=\"" + clean_org + "\" />\n")
+		strings.append("	</Organizations>\n")
 
-	#Conclude person xml
-	person_string += "</Person>"
-	return person_string
+	try:
+		if person_dict["kind"] != '' and person_dict["kind"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(person_dict["kind"])), "Kind"))
+	except:
+		pass
+	try:
+		if person_dict["location"] != '' and person_dict["location"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(person_dict["location"])), "Location"))
+	except:
+		pass
 
-
+	strings.append(make_common_string(person_dict["common"]))
+	strings.append("</Person>\n\n")
+	return ''.join(strings)
 
 #-----Export ORGANIZATIONS models-----#
-def export_organization (org) :
+def export_organization (org_dict, org_id) :
 	"""
 	Export Org models by extracting information from the relevant class.
 	Builds a string to return at the end as parse elements of crisis.
 	"""
-	#assumes all orgs have an id and name
-	assert org.org_ID != None
-	assert org.name != None
 
-	#Start indiv org xml string
-	org_string = "<Organization ID=\"" + org.org_ID + "\" Name=\"" + org.name + "\">"
-	
-	#if there are crises listed
-	if org.crises        != [] :
-		oc_string = "<Crises>"
-		for o_crisis in org.crises :
-			clean_crisis = clean_xml(o_crisis)
-			oc_string += "<Crisis ID=\"" + clean_crisis + "\" />"
-		oc_string +="</Crises>"
-		#ADD to current org xml string
-		org_string += oc_string
-	
+	strings = []
+	strings.append("<Organization ID=\"" + org_id + "\" Name=\"" + str(org_dict["name"]) + "\">\n")
+
+	if org_dict["crises"] != [] :
+		strings.append("	<Crises>\n")
+		for crisis in org_dict["crises"] :
+			clean_crisis = clean_xml(str(crisis[0]))
+			strings.append("		<Crisis ID=\"" + clean_crisis + "\" />\n")
+		strings.append("	</Crises>\n")
+
 	#if there are people listed
-	if org.people != [] :
-		op_string = "<People>"
-		for org_person in org.people :
-			clean_person = clean_xml(org_person)
-			op_string += "<Person ID=\"" + clean_person + "\" />"
-		op_string += "</People>"
-		#ADD to current org xml string
-		org_string += op_string
+	if org_dict["people"]        != [] :
+		strings.append("	<People>\n")
+		for person in org_dict["people"] :
+			clean_person = clean_xml(str(person[0]))
+			strings.append("		<Person ID=\"" + clean_person + "\" />\n")
+		strings.append("	</People>\n")
 
-	if org.kind is not None :
-		clean_k = clean_xml(org.kind)
-		k = "<Kind>" + clean_k + "</Kind>"
-		#ADD to current org xml string
-		org_string += k
+	try:
+		if org_dict["time"] != '' and org_dict["time"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(org_dict["kind"])), "Kind"))
+	except:
+		pass
+	try:
+		if org_dict["location"] != '' and org_dict["location"] is not None:
+			strings.append(make_non_li_string(clean_xml(str(org_dict["location"])), "Location"))
+	except:
+		pass
+	
+	li_dict = org_dict["common"]
+	strings.append(make_li_string(li_dict["History"], "History"))
+	strings.append(make_li_string(li_dict["ContactInfo"], "ContactInfo"))	
 
-	if org.location is not None :
-		clean_l = clean_xml(org.location)
-		l = "<Location>" + clean_l + "</Location>"
-		#ADD to current org xml string
-		org_string += l
-
-	#handle li lists of models
-	if org.history        != [] :
-		root = "History"
-		xml_history = org.common.xml_from_li(root, org.history)
-		#ADD to current org xml string
-		org_string += xml_history
-	if org.contact     != [] :
-		root = "ContactInfo"
-		xml_contact = org.common.xml_from_li(root, org.contact)
-		#ADD to current org xml string
-		org_string += xml_contact
-
-	#Export info from the common class
-	if org.common is not None :
-		org_string += org.common.print_xml()
-
-	#Conclude organization xml
-	org_string += "</Organization>"
-	return org_string
-
+	strings.append(make_common_string(li_dict))
+	strings.append("</Organization>\n\n")
+	return ''.join(strings)
 
 #Access models thrgh arg model_dict = {Crises : [], Orgs : [], Ppl : []}
 #Called from from views.py
-def receive_import(model_dict) :
+def export_xml() :
 	"""
 	Exports models into an xml string.
 	"""
 
-	#collect xml versions of all CRISIS models
-	crises_xml_string = ""
-	for crisis in model_dict["crises"] :
-		crises_xml_string += export_crisis (crisis)
+	crisis_ids = getCrisisIDs()
+	org_ids = getOrgIDs()
+	person_ids = getPeopleIDs()
 
-	#collect xml versions of all PERSON models
-	people_xml_string = ""
-	for person in model_dict["people"] :
-		people_xml_string += export_person (person)
+	crises_xml_string = ["<WorldCrises>\n"]
+	for crisis_id in crisis_ids.keys():
+		crisis_dict = getCrisis(crisis_id)
+		crises_xml_string.append(export_crisis(crisis_dict, crisis_id))
 
-	#collect xml versions of all ORGANIZATION models
-	organizations_xml_string = ""
-	for org in model_dict["organizations"] :
-		organizations_xml_string += export_organization (org)
+	for person_id in person_ids.keys():
+		person_dict = getPerson(person_id)
+		crises_xml_string.append(export_person(person_dict, person_id))
 
-	return "<WorldCrises>" + crises_xml_string + people_xml_string + organizations_xml_string + "</WorldCrises>"
+	for org_id in org_ids.keys():
+		org_dict = getOrg(org_id)
+		crises_xml_string.append(export_organization(org_dict, org_id))
 
-
+	crises_xml_string.append("</WorldCrises>")
+	f = open('WCDBExportXML.xml', 'w')
+	exportstring = ''.join(crises_xml_string)
+	f.write(exportstring.encode('utf8'))
+	return exportstring
 
