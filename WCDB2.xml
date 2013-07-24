@@ -145,6 +145,16 @@
             <li embed="http://ucanr.edu/blogs/bugsquad/blogfiles/10810.jpg" text="img not found">Bees have abandoned the hive in an apparent colony collapse disorder.</li>
             <li embed="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2013/06/honey-bee-food-colony-collapse-537x405.jpg" text="img not found">Honeyees</li>
         </Images>
+        <Videos>
+                <li embed='//www.youtube.com/embed/BRGrI4AQG70'></li>
+                <li embed='//www.youtube.com/embed/Y0i8A2zCxWM'></li>
+                <li embed='//www.youtube.com/embed/unca1QR3nLs'></li>
+            </Videos>
+            <Maps>
+                <li embed='https://maps.google.com/maps?client=ubuntu&amp;channel=fs&amp;q=usa&amp;oe=utf-8&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=United+States&amp;t=h&amp;ll=37.09024,-95.712891&amp;spn=33.435463,56.25&amp;z=4&amp;output=embed'></li>
+                <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Belgium&amp;aq=&amp;sll=37.09024,-95.712891&amp;sspn=68.344727,101.425781&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Belgium&amp;ll=50.502946,4.471436&amp;spn=1.677083,3.515625&amp;z=8&amp;output=embed'></li>
+                <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=France&amp;aq=&amp;sll=50.503887,4.469936&amp;sspn=3.518451,6.339111&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=France&amp;ll=46.225453,2.219238&amp;spn=7.296992,14.0625&amp;z=6&amp;output=embed'></li>
+            </Maps>
     </Common>
 </Crisis>
 

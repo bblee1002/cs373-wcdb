@@ -8,9 +8,10 @@ Views.py renders the view specified by a url.
 
 def getCrisis(id):
   """
-  Added for Phase2 implementation
-  Returns dictionary of individual crisis data
-  dict of form = 
+  Accesses information about specific crisis from the db
+  Queries db using ID of the crisis
+  Returns dictionary of individual crisis data of form:
+  {name : *, kind : *, date : *, time : *, people : [], organizations : [], Common : ?}
   """
   try:
     crisis = Crisis.objects.get(crisis_ID = id)
@@ -69,8 +70,7 @@ def getCrisis(id):
 
 def getPerson(id):
   """
-  Added for Phase2 implementation
-  Accesses information about individ person from the db 
+  Accesses information about individ person from the db
   Queries db using ID of person
   Returns dictionary of individual person data of form:
   {name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
@@ -133,9 +133,10 @@ def getPerson(id):
 
 def getOrg(id):
   """
-  Added for Phase2 implementation
-  Returns dictionary of individual organization data
-  dict of form = 
+  Accesses information about individ organization from the db
+  Queries db using ID of the organization
+  Returns dictionary of individual organization data of form:
+  {name : *, kind : *, location : *, crises : [], people : [], Common : ?}
   """
   try:
     org = Org.objects.get(org_ID = id)
@@ -190,10 +191,12 @@ def getOrg(id):
   return org_dict
 
 def getCrisisIDs():
-  '''
-  return {"crisis_ID": "crisisName"}
-  returns a dict of the crisis IDs so that front-end can present correct url
-  '''
+  """
+  doesn't take anything as parameters.
+  Searches through Crises table in database, returns all of the crises 
+  stored there, and saves them in a dictionary where key value pares are
+  crisis_ID and crisisName
+  """
   objects = Crisis.objects.all()
   ids = {}
   for o in objects:
@@ -202,10 +205,12 @@ def getCrisisIDs():
   return ids
 
 def getOrgIDs():
-  '''
-  return {"org_ID": "orgName"}
-  returns a dict of the org IDs so that front-end can present correct url
-  '''
+  """
+  doesn't take anything as parameters.
+  Searches through Orgs table in database, reaturns all of the orgs 
+  stored there, and saves them in a dictionary where key value pares are
+  org_ID and orgName
+  """
   objects = Org.objects.all()
   ids = {}
   for o in objects:
@@ -214,10 +219,12 @@ def getOrgIDs():
   return ids
 
 def getPeopleIDs():
-  '''
-  return {"person_ID": "personName"}
-  returns a dict of the person IDs so that front-end can present correct url
-  '''
+  """
+  doesn't take anything as parameters.
+  Searches through People table in database, reaturns all of the people 
+  stored there, and saves them in a dictionary where key value pares are
+  person_ID and personName
+  """
   objects = Person.objects.all()
   ids = {}
   for o in objects:
