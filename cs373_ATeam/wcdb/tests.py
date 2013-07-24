@@ -305,6 +305,33 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/PkXw1iBgzoY")
 		self.assertEqual(common_dict['Feeds'][0].embed, "twitter.com/kiraisgod")
 
+
+
+	#---------------------------------------#
+	#-----test_relations_populate
+
+	def test_relation_populate0(self):
+		crisis_id = "CRI_BEEDIE"
+		org_id = "ORG_NSAAAA"
+		relations1 = Relations()
+		relations1.populate(c_id = crisis_id, o_id = org_id)
+		self.assertEqual(relations1.crisis_ID, crisis_id)
+		self.assertEqual(relations1.org_ID, org_id)
+
+
+	def test_relation_populate1(self):
+		relations1 = Relations()
+		relations1.populate(c_id = "CRI_UEGYPT", p_id = "PER_MMORSI", o_id = "ORG_EGYGOV")
+		self.assertEqual(relations1.crisis_ID, "CRI_UEGYPT")
+		self.assertEqual(relations1.org_ID, "ORG_EGYGOV")
+		self.assertEqual(relations1.person_ID, "PER_MMORSI")
+
+
+	def test_relation_populate2(self):
+		relations1 = Relations()
+		relations1.populate(c_id = "CRI_NSAWRT")
+		self.assertEqual(relations1.crisis_ID, "CRI_NSAWRT")
+
 # 	#---------------------------------------#
 # 	#-----test_xml_from_li
 
@@ -1597,3 +1624,4 @@ class getBdModelTest(TestCase):
 		ids = getOrgIDs()
 
 		self.assertEqual(temp_org1.name, ids.get('ORG_LOSZTA'))
+
