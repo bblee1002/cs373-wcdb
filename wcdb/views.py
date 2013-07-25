@@ -57,7 +57,7 @@ def unittestsView(request):
   Renders view for unit tests as well as runs the unit tests.
   """
   output = subprocess.check_output(['python', 'manage.py', 'test', 'wcdb'],
-    stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=False)
+    stderr=subprocess.STDOUT, shell=False)
   return render(request, 'wcdb/Unittests.html', {'output': output})
 
 def passwordValidate(pw_input):
