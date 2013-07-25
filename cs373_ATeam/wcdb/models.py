@@ -37,12 +37,6 @@ def populate_li(root, modl_id, tag):
                 temp_li.populate(li, modl_id, tag)
                 temp_li.save()
 
-def list_add(m_list, id) :
-    """
-    Function expects a list and some object
-    The object is appended to the list
-    """
-    m_list.append(id)
 
 
 
@@ -212,6 +206,9 @@ class Relations(models.Model) :
     person_ID = models.CharField(max_length=200)
     org_ID    = models.CharField(max_length=200)
     def populate(self, c_id = None, p_id = None, o_id = None) :
+        """
+        Non-static method expects a crisis ID, person ID, and organization ID as optional parameters.
+        """
         if c_id is not None :
             self.crisis_ID = c_id
         if p_id is not None :

@@ -7,7 +7,7 @@ Replace this with more appropriate tests for your application.
 from django.test import TestCase
 from minixsv import pyxsval
 from genxmlif import GenXmlIfError
-from models import Crisis, Person, Org, list_add, Li, Common, Relations, populate_li
+from models import Crisis, Person, Org, Li, Common, Relations, populate_li
 from loadModels import validate, populate_crisis, populate_person, populate_org, populate_models, populate_common
 from unloadModels import *
 import xml.etree.ElementTree as ET
@@ -22,7 +22,10 @@ from getDbModel import getCrisis, getPerson, getOrg, getCrisisIDs, getOrgIDs, ge
 
 class ModelsCrisisTest(TestCase):
 
-
+	"""
+	Contains the unit tests for models.py, the file where we define our Django files. These unit 
+	tests mostly test that the models' populate methods work.
+	"""
 #--------------------------------------------#
 #-----Unit Tests for functions from models.py
 #--------------------------------------------#
@@ -230,7 +233,13 @@ class ModelsCrisisTest(TestCase):
 
 
 class unloadModelsCrisisTest(TestCase):
-
+	'''
+	unloadModelsCrisisTest tests the functions unloadModels.py, which handles the export function.
+	setUp() adds several Crisis, Person, and Org objects to the database for testing purposes.
+	export_crisis(), export_person(), and export_org() get an object from the database and return a string with its information.
+	export_xml() uses export_crisis(), export_person(), and export_org() to form an xml string
+	clean_xml(), make_non_li_string(), make_li_string(), make_common_string() are auxiliary functions used for formatting.
+	'''
 	def setUp(self):
 		self.crisis = Crisis.objects.create(crisis_ID='CRI_CRISIS', name='name',
 			kind='kind', date='date', time='time', common_summary='summary')
@@ -490,13 +499,7 @@ class unloadModelsCrisisTest(TestCase):
 		xml_string = export_xml()
 		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_ORFOUR" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
 		self.assertEqual(xml_string, s)
-'''
-unloadModelsCrisisTest tests the functions unloadModels.py, which handles the export function.
-setUp() adds several Crisis, Person, and Org objects to the database for testing purposes.
-export_crisis(), export_person(), and export_org() get an object from the database and return a string with its information.
-export_xml() uses export_crisis(), export_person(), and export_org() to form an xml string
-clean_xml(), make_non_li_string(), make_li_string(), make_common_string() are auxiliary functions used for formatting.
-'''
+
 
 class loadModelsCrisisTest(TestCase):
 
@@ -505,7 +508,7 @@ class loadModelsCrisisTest(TestCase):
 # #------------------------------------------------#
 	"""
 	Contains the unit tests for loadModels.py, the import facility.These unit tests mostly 
-        confirm that models are properly populated and stored in the database.
+    confirm that models are properly populated and stored in the database.
 	"""
 
 	#---------------------------------------#
@@ -673,7 +676,9 @@ class loadModelsCrisisTest(TestCase):
 
 
 class viewsTest(TestCase):
-
+	"""
+	Contains the unit tests for the views.py file. Tests that views return a correct reponse.
+	"""
 #--------------------------------------------#
 #-----Unit Tests for functions from views.py
 #--------------------------------------------#
@@ -860,6 +865,11 @@ class viewsTest(TestCase):
 
 
 class getDdModelTest(TestCase):
+	"""
+	Contains the unit tests for getDbModel.py. The tests use import functions to save modelt to 
+	the database, then check that the getDbModel functions properly retrieve information from 
+	the database
+	"""
 
 # #--------------------------------------------#
 # #-----Unit Tests for functions from getDbModel.py
