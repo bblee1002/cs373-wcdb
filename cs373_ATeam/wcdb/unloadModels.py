@@ -14,9 +14,20 @@ def clean_xml (dirty) :
 	return dirty.replace('&', '&amp;')
 
 def make_non_li_string(clean_string, tag):
+	"""
+	clean_string is the text to enclose with xml tags
+	tag is the name of the xml tag to enclose the clean_string with
+	return an xml string with text enclosed by tags
+	"""
 	return "	<" + tag + ">" + clean_string + "</" + tag + ">\n"
 
 def make_li_string(li_list, tag, coming_from_common = False):
+	"""
+	li_list is a list of li objects
+	tag is the xml tag to use
+	coming_from_common is a boolean defaulted to False.  If True, extra white space will be added.
+	return an xml string from li objects
+	"""
 	if len(li_list) == 0:
 		return ''
 	item_string = ''
@@ -52,6 +63,10 @@ def make_li_string(li_list, tag, coming_from_common = False):
 
 
 def make_common_string(common_dict):
+	"""
+	common_dict contains lists of li objects and a summary
+	returns a string with information from common_dict
+	"""
 	strings = []
 	strings.append("	<Common>\n")
 	strings.append(make_li_string(common_dict["Citations"], "Citations", True))
