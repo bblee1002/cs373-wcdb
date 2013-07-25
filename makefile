@@ -22,7 +22,7 @@ WCDB2.html: WCDB2.py
 	pydoc -w WCDB2
 
 WCDB2.log:
-	git log > WCDB1.log
+	git log > WCDB2.log
 
 # add other .html and .py files
 
