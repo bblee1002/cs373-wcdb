@@ -14,9 +14,6 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -88,25 +85,10 @@ The floating_text attribute is to catch any text not in attributes.
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.__init__">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models.Common-class.html#populate" class="summary-sig-name">populate</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">e_node</span>)</span><br />
-      Non-static method expects an element node as a parameter.</td>
+        <span class="summary-sig-arg">e_node</span>,
+        <span class="summary-sig-arg">modl_id</span>)</span><br />
+      Non-static method expects an element node and model ID as a parameter.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.populate">source&nbsp;code</a></span>
             
@@ -153,73 +135,6 @@ The floating_text attribute is to catch any text not in attributes.
     </td>
   </tr>
 </table>
-<!-- ==================== CLASS VARIABLES ==================== -->
-<a name="section-ClassVariables"></a>
-<table class="summary" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Class Variables</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-ClassVariables"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="citations"></a><span class="summary-name">citations</span> = <code title="[]">[]</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="external_links"></a><span class="summary-name">external_links</span> = <code title="[]">[]</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="images"></a><span class="summary-name">images</span> = <code title="[]">[]</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="videos"></a><span class="summary-name">videos</span> = <code title="[]">[]</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="maps"></a><span class="summary-name">maps</span> = <code title="[]">[]</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="feeds"></a><span class="summary-name">feeds</span> = <code title="[]">[]</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="summary"></a><span class="summary-name">summary</span> = <code title="None">None</code>
-    </td>
-  </tr>
-</table>
 <!-- ==================== METHOD DETAILS ==================== -->
 <a name="section-MethodDetails"></a>
 <table class="details" border="1" cellpadding="3"
@@ -246,7 +161,8 @@ The floating_text attribute is to catch any text not in attributes.
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">populate</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">e_node</span>)</span>
+        <span class="sig-arg">e_node</span>,
+        <span class="sig-arg">modl_id</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.populate">source&nbsp;code</a></span>&nbsp;
@@ -255,7 +171,7 @@ The floating_text attribute is to catch any text not in attributes.
   
   <pre class="literalblock">
 
-Non-static method expects an element node as a parameter.
+Non-static method expects an element node and model ID as a parameter.
 Uses node to populate attributues of a Common object
 
 </pre>
@@ -295,9 +211,6 @@ concatenating the output to a string. The root string is concatenated around thi
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -317,7 +230,7 @@ concatenating the output to a string. The root string is concatenated around thi
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Fri Jul 12 17:42:37 2013
+    Generated by Epydoc 3.0.1 on Thu Jul 25 14:17:24 2013
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

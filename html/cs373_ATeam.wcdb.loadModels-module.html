@@ -14,9 +14,6 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -97,9 +94,27 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_crisis" class="summary-sig-name">populate_crisis</a>(<span class="summary-sig-arg">root</span>,
-        <span class="summary-sig-arg">list</span>)</span><br />
-      Function expects a node in an element tree and a list as parameters.</td>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_common" class="summary-sig-name">populate_common</a>(<span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">modl_id</span>,
+        <span class="summary-sig-arg">model_instance</span>)</span><br />
+      Function expects an element node, model ID, and a model instance as parameters.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_common">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_crisis" class="summary-sig-name">populate_crisis</a>(<span class="summary-sig-arg">root</span>)</span><br />
+      Function expects a node in an element tree as a parameter.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_crisis">source&nbsp;code</a></span>
             
@@ -115,9 +130,8 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_person" class="summary-sig-name">populate_person</a>(<span class="summary-sig-arg">root</span>,
-        <span class="summary-sig-arg">list</span>)</span><br />
-      Function expects a node in an element tree and a list as parameters.</td>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_person" class="summary-sig-name">populate_person</a>(<span class="summary-sig-arg">root</span>)</span><br />
+      Function expects a node in an element tree as a parameter.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_person">source&nbsp;code</a></span>
             
@@ -133,9 +147,8 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_org" class="summary-sig-name">populate_org</a>(<span class="summary-sig-arg">root</span>,
-        <span class="summary-sig-arg">list</span>)</span><br />
-      Function expects a node in an element tree and a list as parameters.</td>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_org" class="summary-sig-name">populate_org</a>(<span class="summary-sig-arg">root</span>)</span><br />
+      Function expects a node in an element tree as a parameter.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_org">source&nbsp;code</a></span>
             
@@ -207,6 +220,33 @@ this funciton.
   </dl>
 </td></tr></table>
 </div>
+<a name="populate_common"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate_common</span>(<span class="sig-arg">node</span>,
+        <span class="sig-arg">modl_id</span>,
+        <span class="sig-arg">model_instance</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_common">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Function expects an element node, model ID, and a model instance as parameters.
+Searches through node's tree for common node and calls common's populate method
+on it. 
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
 <a name="populate_crisis"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -214,8 +254,7 @@ this funciton.
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate_crisis</span>(<span class="sig-arg">root</span>,
-        <span class="sig-arg">list</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate_crisis</span>(<span class="sig-arg">root</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_crisis">source&nbsp;code</a></span>&nbsp;
@@ -224,8 +263,8 @@ this funciton.
   
   <pre class="literalblock">
 
-Function expects a node in an element tree and a list as parameters. Find instances of crisis
-in the tree and adds it to the list
+Function expects a node in an element tree as a parameter. Finds instances of Crisis 
+and saves them to the database
 
 </pre>
   <dl class="fields">
@@ -239,8 +278,7 @@ in the tree and adds it to the list
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate_person</span>(<span class="sig-arg">root</span>,
-        <span class="sig-arg">list</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate_person</span>(<span class="sig-arg">root</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_person">source&nbsp;code</a></span>&nbsp;
@@ -249,8 +287,9 @@ in the tree and adds it to the list
   
   <pre class="literalblock">
 
-Function expects a node in an element tree and a list as parameters. Find instances of person
-in the tree and adds it to the list
+Function expects a node in an element tree as a parameter. Finds instances of Person
+        and saves them to the database
+        
 
 </pre>
   <dl class="fields">
@@ -264,8 +303,7 @@ in the tree and adds it to the list
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate_org</span>(<span class="sig-arg">root</span>,
-        <span class="sig-arg">list</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate_org</span>(<span class="sig-arg">root</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_org">source&nbsp;code</a></span>&nbsp;
@@ -274,8 +312,8 @@ in the tree and adds it to the list
   
   <pre class="literalblock">
 
-Function expects a node in an element tree and a list as parameters. Find instances of organization
-in the tree and adds it to the list
+Function expects a node in an element tree as a parameter. Finds instances of Organization 
+and saves them to the database
 
 </pre>
   <dl class="fields">
@@ -311,9 +349,6 @@ Returns False if not, and an element tree built from the file if it is valid.
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -333,7 +368,7 @@ Returns False if not, and an element tree built from the file if it is valid.
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Fri Jul 12 17:42:37 2013
+    Generated by Epydoc 3.0.1 on Thu Jul 25 14:17:24 2013
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>cs373_ATeam.wcdb.tests</title>
+  <title>cs373_ATeam.wcdb.models.Relations</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -36,7 +36,8 @@
       <span class="breadcrumbs">
         Package&nbsp;cs373_ATeam ::
         <a href="cs373_ATeam.wcdb-module.html">Package&nbsp;wcdb</a> ::
-        Module&nbsp;tests
+        <a href="cs373_ATeam.wcdb.models-module.html">Module&nbsp;models</a> ::
+        Class&nbsp;Relations
       </span>
     </td>
     <td>
@@ -46,34 +47,38 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.tests-module.html"
+            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.models.Relations-class.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
-<!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module tests</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html">source&nbsp;code</a></span></p>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Relations</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Relations">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+django.db.models.Model --+
+                         |
+                        <strong class="uidshort">Relations</strong>
+</pre>
+
+<hr />
 <pre class="literalblock">
 
-This file demonstrates writing tests using the unittest module. These will pass
-when you run &quot;manage.py test&quot;.
-
-Replace this with more appropriate tests for your application.
+Relation model maintaining relationships between Crisis, Person, and Org models
 
 </pre>
 
-<!-- ==================== CLASSES ==================== -->
-<a name="section-Classes"></a>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
 <table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr bgcolor="#70b0f0" class="table-header">
   <td colspan="2" class="table-header">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr valign="top">
-        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="left"><span class="table-header">Instance Methods</span></td>
         <td align="right" valign="top"
-         ><span class="options">[<a href="#section-Classes"
+         ><span class="options">[<a href="#section-InstanceMethods"
          class="privatelink" onclick="toggle_private();"
          >hide private</a>]</span></td>
       </tr>
@@ -84,41 +89,59 @@ Replace this with more appropriate tests for your application.
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="cs373_ATeam.wcdb.tests.ModelsCrisisTest-class.html" class="summary-name">ModelsCrisisTest</a><br />
-      Contains the unit tests for models.py, the file where we define our Django files.
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="populate"></a><span class="summary-sig-name">populate</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">c_id</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">p_id</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">o_id</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Non-static method expects a crisis ID, person ID, and organization ID as optional parameters.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Relations.populate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="crisis_ID"></a><span class="summary-name">crisis_ID</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="cs373_ATeam.wcdb.tests.unloadModelsCrisisTest-class.html" class="summary-name">unloadModelsCrisisTest</a><br />
-      unloadModelsCrisisTest tests the functions unloadModels.py, which handles the export function.
+        <a name="person_ID"></a><span class="summary-name">person_ID</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="cs373_ATeam.wcdb.tests.loadModelsCrisisTest-class.html" class="summary-name">loadModelsCrisisTest</a><br />
-      Contains the unit tests for loadModels.py, the import facility.These unit tests mostly 
-confirm that models are properly populated and stored in the database.
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="cs373_ATeam.wcdb.tests.viewsTest-class.html" class="summary-name">viewsTest</a><br />
-      Contains the unit tests for the views.py file.
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="cs373_ATeam.wcdb.tests.getDdModelTest-class.html" class="summary-name">getDdModelTest</a><br />
-      Contains the unit tests for getDbModel.py.
+        <a name="org_ID"></a><span class="summary-name">org_ID</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
     </td>
   </tr>
 </table>

@@ -14,9 +14,6 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -58,6 +55,13 @@
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class Li</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Li">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+django.db.models.Model --+
+                         |
+                        <strong class="uidshort">Li</strong>
+</pre>
+
+<hr />
 <pre class="literalblock">
 
 Class for the List tag in the unified xml schema. Contains a field for an href, embedded link, 
@@ -88,25 +92,11 @@ and alt text. The floating_text attribute is to catch any text not in attributes
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Li.__init__">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models.Li-class.html#populate" class="summary-sig-name">populate</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">e_node</span>)</span><br />
-      Non-static method expects an element node as a parameter.</td>
+        <span class="summary-sig-arg">e_node</span>,
+        <span class="summary-sig-arg">modl_id</span>,
+        <span class="summary-sig-arg">item_type</span>)</span><br />
+      Non-static method expects an element node, model id, and an Li type as parameters.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Li.populate">source&nbsp;code</a></span>
             
@@ -173,28 +163,42 @@ and alt text. The floating_text attribute is to catch any text not in attributes
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="href"></a><span class="summary-name">href</span> = <code title="None">None</code>
+        <a name="href"></a><span class="summary-name">href</span> = <code title="models.CharField(max_length= 2000)">models.CharField(max_length= 2000)</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="embed"></a><span class="summary-name">embed</span> = <code title="None">None</code>
+        <a name="embed"></a><span class="summary-name">embed</span> = <code title="models.CharField(max_length= 2000)">models.CharField(max_length= 2000)</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="text"></a><span class="summary-name">text</span> = <code title="None">None</code>
+        <a name="text"></a><span class="summary-name">text</span> = <code title="models.CharField(max_length= 2000)">models.CharField(max_length= 2000)</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="floating_text"></a><span class="summary-name">floating_text</span> = <code title="None">None</code>
+        <a name="floating_text"></a><span class="summary-name">floating_text</span> = <code title="models.CharField(max_length= 4000)">models.CharField(max_length= 4000)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="model_id"></a><span class="summary-name">model_id</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="kind"></a><span class="summary-name">kind</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
     </td>
   </tr>
 </table>
@@ -224,7 +228,9 @@ and alt text. The floating_text attribute is to catch any text not in attributes
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">populate</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">e_node</span>)</span>
+        <span class="sig-arg">e_node</span>,
+        <span class="sig-arg">modl_id</span>,
+        <span class="sig-arg">item_type</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Li.populate">source&nbsp;code</a></span>&nbsp;
@@ -233,8 +239,9 @@ and alt text. The floating_text attribute is to catch any text not in attributes
   
   <pre class="literalblock">
 
-Non-static method expects an element node as a parameter.
-Uses node to populate attributues of a Li object
+Non-static method expects an element node, model id, and an Li type as parameters. Example 
+values for type: citations, videos, images, etc. Uses node to populate attributues of a Li 
+object.
 
 </pre>
   <dl class="fields">
@@ -271,9 +278,6 @@ Searches string for ampersands and escapes them to convert them to valid xml
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -293,7 +297,7 @@ Searches string for ampersands and escapes them to convert them to valid xml
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Fri Jul 12 17:42:37 2013
+    Generated by Epydoc 3.0.1 on Thu Jul 25 14:17:24 2013
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

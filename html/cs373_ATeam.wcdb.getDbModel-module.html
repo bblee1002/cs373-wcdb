@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>cs373_ATeam.wcdb.unloadModels</title>
+  <title>cs373_ATeam.wcdb.getDbModel</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -36,7 +36,7 @@
       <span class="breadcrumbs">
         Package&nbsp;cs373_ATeam ::
         <a href="cs373_ATeam.wcdb-module.html">Package&nbsp;wcdb</a> ::
-        Module&nbsp;unloadModels
+        Module&nbsp;getDbModel
       </span>
     </td>
     <td>
@@ -46,14 +46,14 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.unloadModels-module.html"
+            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.getDbModel-module.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module unloadModels</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html">source&nbsp;code</a></span></p>
+<h1 class="epydoc">Module getDbModel</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html">source&nbsp;code</a></span></p>
 <!-- ==================== FUNCTIONS ==================== -->
 <a name="section-Functions"></a>
 <table class="summary" border="1" cellpadding="3"
@@ -77,10 +77,10 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#clean_xml" class="summary-sig-name">clean_xml</a>(<span class="summary-sig-arg">dirty</span>)</span><br />
-      Check for presence of &quot;&amp;&quot; invalid XML char in everything but Li() instances.</td>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.getDbModel-module.html#getCrisis" class="summary-sig-name">getCrisis</a>(<span class="summary-sig-arg">id</span>)</span><br />
+      Accesses information about specific crisis from the db...</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#clean_xml">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getCrisis">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -94,11 +94,10 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#make_non_li_string" class="summary-sig-name">make_non_li_string</a>(<span class="summary-sig-arg">clean_string</span>,
-        <span class="summary-sig-arg">tag</span>)</span><br />
-      clean_string is the text to enclose with xml tags...</td>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.getDbModel-module.html#getPerson" class="summary-sig-name">getPerson</a>(<span class="summary-sig-arg">id</span>)</span><br />
+      Accesses information about individ person from the db...</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_non_li_string">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getPerson">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -112,14 +111,10 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#make_li_string" class="summary-sig-name">make_li_string</a>(<span class="summary-sig-arg">li_list</span>,
-        <span class="summary-sig-arg">tag</span>,
-        <span class="summary-sig-arg">coming_from_common</span>=<span class="summary-sig-default">False</span>)</span><br />
-      li_list is a list of li objects
-tag is the xml tag to use
-coming_from_common is a boolean defaulted to False.</td>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.getDbModel-module.html#getOrg" class="summary-sig-name">getOrg</a>(<span class="summary-sig-arg">id</span>)</span><br />
+      Accesses information about individ organization from the db...</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_li_string">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getOrg">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -133,10 +128,10 @@ coming_from_common is a boolean defaulted to False.</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#make_common_string" class="summary-sig-name">make_common_string</a>(<span class="summary-sig-arg">common_dict</span>)</span><br />
-      common_dict contains lists of li objects and a summary...</td>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.getDbModel-module.html#getCrisisIDs" class="summary-sig-name">getCrisisIDs</a>()</span><br />
+      doesn't take anything as parameters.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_common_string">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getCrisisIDs">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -150,11 +145,10 @@ coming_from_common is a boolean defaulted to False.</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#export_crisis" class="summary-sig-name">export_crisis</a>(<span class="summary-sig-arg">crisis_dict</span>,
-        <span class="summary-sig-arg">crisis_id</span>)</span><br />
-      Export CRISIS models by extracting information from the relevant class.</td>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.getDbModel-module.html#getOrgIDs" class="summary-sig-name">getOrgIDs</a>()</span><br />
+      doesn't take anything as parameters.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_crisis">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getOrgIDs">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -168,46 +162,10 @@ coming_from_common is a boolean defaulted to False.</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#export_person" class="summary-sig-name">export_person</a>(<span class="summary-sig-arg">person_dict</span>,
-        <span class="summary-sig-arg">person_id</span>)</span><br />
-      Export Person models by extracting information from the relevant class.</td>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.getDbModel-module.html#getPeopleIDs" class="summary-sig-name">getPeopleIDs</a>()</span><br />
+      doesn't take anything as parameters.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_person">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#export_organization" class="summary-sig-name">export_organization</a>(<span class="summary-sig-arg">org_dict</span>,
-        <span class="summary-sig-arg">org_id</span>)</span><br />
-      Export Org models by extracting information from the relevant class.</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_organization">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="export_xml"></a><span class="summary-sig-name">export_xml</span>()</span><br />
-      Exports models into an xml string.</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_xml">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getPeopleIDs">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -234,177 +192,156 @@ coming_from_common is a boolean defaulted to False.</td>
   </td>
 </tr>
 </table>
-<a name="clean_xml"></a>
+<a name="getCrisis"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">clean_xml</span>(<span class="sig-arg">dirty</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getCrisis</span>(<span class="sig-arg">id</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#clean_xml">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getCrisis">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
   <pre class="literalblock">
 
-Check for presence of &quot;&amp;&quot; invalid XML char in everything but Li() instances.
-Returns a new string w/out any tag information
+Accesses information about specific crisis from the db
+Queries db using ID of the crisis
+Returns dictionary of individual crisis data of form:
+{name : *, kind : *, date : *, time : *, people : [], organizations : [], Common : ?}
 
 </pre>
   <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
-<a name="make_non_li_string"></a>
+<a name="getPerson"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_non_li_string</span>(<span class="sig-arg">clean_string</span>,
-        <span class="sig-arg">tag</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getPerson</span>(<span class="sig-arg">id</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_non_li_string">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getPerson">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
   <pre class="literalblock">
 
-clean_string is the text to enclose with xml tags
-tag is the name of the xml tag to enclose the clean_string with
-return an xml string with text enclosed by tags
+Accesses information about individ person from the db
+Queries db using ID of person
+Returns dictionary of individual person data of form:
+{name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
 
 </pre>
   <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
-<a name="make_li_string"></a>
+<a name="getOrg"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_li_string</span>(<span class="sig-arg">li_list</span>,
-        <span class="sig-arg">tag</span>,
-        <span class="sig-arg">coming_from_common</span>=<span class="sig-default">False</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getOrg</span>(<span class="sig-arg">id</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_li_string">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getOrg">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
   <pre class="literalblock">
 
-li_list is a list of li objects
-tag is the xml tag to use
-coming_from_common is a boolean defaulted to False.  If True, extra white space will be added.
-return an xml string from li objects
+Accesses information about individ organization from the db
+Queries db using ID of the organization
+Returns dictionary of individual organization data of form:
+{name : *, kind : *, location : *, crises : [], people : [], Common : ?}
 
 </pre>
   <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
-<a name="make_common_string"></a>
+<a name="getCrisisIDs"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_common_string</span>(<span class="sig-arg">common_dict</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getCrisisIDs</span>()</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_common_string">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getCrisisIDs">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
   <pre class="literalblock">
 
-common_dict contains lists of li objects and a summary
-returns a string with information from common_dict
+doesn't take anything as parameters.
+Searches through Crises table in database, returns all of the crises 
+stored there, and saves them in a dictionary where key value pares are
+crisis_ID and crisisName
 
 </pre>
   <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
-<a name="export_crisis"></a>
+<a name="getOrgIDs"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">export_crisis</span>(<span class="sig-arg">crisis_dict</span>,
-        <span class="sig-arg">crisis_id</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getOrgIDs</span>()</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_crisis">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getOrgIDs">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
   <pre class="literalblock">
 
-Export CRISIS models by extracting information from the relevant class.
-Builds a string to return at the end as parse elements of crisis.
+doesn't take anything as parameters.
+Searches through Orgs table in database, reaturns all of the orgs 
+stored there, and saves them in a dictionary where key value pares are
+org_ID and orgName
 
 </pre>
   <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
-<a name="export_person"></a>
+<a name="getPeopleIDs"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">export_person</span>(<span class="sig-arg">person_dict</span>,
-        <span class="sig-arg">person_id</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getPeopleIDs</span>()</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_person">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.getDbModel-pysrc.html#getPeopleIDs">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
   <pre class="literalblock">
 
-Export Person models by extracting information from the relevant class.
-Builds a string to return at the end as parse elements of crisis.
-
-</pre>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="export_organization"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">export_organization</span>(<span class="sig-arg">org_dict</span>,
-        <span class="sig-arg">org_id</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_organization">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-
-Export Org models by extracting information from the relevant class.
-Builds a string to return at the end as parse elements of crisis.
+doesn't take anything as parameters.
+Searches through People table in database, reaturns all of the people 
+stored there, and saves them in a dictionary where key value pares are
+person_ID and personName
 
 </pre>
   <dl class="fields">
