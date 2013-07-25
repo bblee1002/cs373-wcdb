@@ -503,6 +503,10 @@ class loadModelsCrisisTest(TestCase):
 # #------------------------------------------------#
 # #-----Unit Tests for functions from loadModels.py
 # #------------------------------------------------#
+	"""
+	Contains the unit tests for loadModels.py, the import facility.These unit tests mostly 
+        confirm that models are properly populated and stored in the database.
+	"""
 
 	#---------------------------------------#
 	#-----test_validate
