@@ -9,7 +9,7 @@ from minixsv import pyxsval
 from genxmlif import GenXmlIfError
 from models import Crisis, Person, Org, list_add, Li, Common, Relations, populate_li
 from loadModels import validate, populate_crisis, populate_person, populate_org, populate_models, populate_common
-from unloadModels import clean_xml, export_crisis, export_person, export_crisis, export_organization
+from unloadModels import *
 import xml.etree.ElementTree as ET
 from django.test.client import Client
 from views import passwordValidate
@@ -21,7 +21,7 @@ from getDbModel import getCrisis, getPerson, getOrg, getCrisisIDs, getOrgIDs, ge
 #	xmlIfClass=pyxsval.XMLIF_ELEMENTTREE)
 
 class ModelsCrisisTest(TestCase):
-	
+
 
 #--------------------------------------------#
 #-----Unit Tests for functions from models.py
@@ -86,110 +86,6 @@ class ModelsCrisisTest(TestCase):
 		li_list = Li.objects.filter(model_id = "CRI_JOEJOE")
 		self.assertEqual(li_list[0].href, "http://www.joejohnsonsucks.net/protests/")
 		self.assertEqual(li_list[0].floating_text, "Joe Johnson's contract probably violates the Geneva Convention")
-
-
-
-# 	#---------------------------------------#
-# 	#-----test_clean_li_xml
-	
-# 	def test_clean_li_xml0(self):
-# 		dirt = "happy&go&lucky&&&go&happy"
-# 		temp      = ET.Element('li')
-# 		temp.set("href", dirt)
-# 		temp.set("embed", dirt)
-# 		temp.set("text", dirt)
-# 		temp.text = dirt
-# 		temp_li   = Li()
-# 		temp_li.populate(temp)
-# 		href_clean = temp_li.clean_li_xml(temp_li.href)
-# 		embed_clean = temp_li.clean_li_xml(temp_li.embed)
-# 		text_clean = temp_li.clean_li_xml(temp_li.text)
-# 		floating_text_clean = temp_li.clean_li_xml(temp_li.floating_text)
-# 		standard_clean = "happy&amp;go&amp;lucky&amp;&amp;&amp;go&amp;happy"
-
-# 		self.assertEqual(href_clean, standard_clean)
-# 		self.assertEqual(embed_clean, standard_clean)
-# 		self.assertEqual(text_clean, standard_clean)
-# 		self.assertEqual(floating_text_clean, standard_clean)
-
-# 	def test_clean_li_xml1(self):
-# 		dirt = "randomdirtwithoutescape"
-# 		temp      = ET.Element('li')
-# 		temp.set("href", dirt)
-# 		temp.set("embed", dirt)
-# 		temp.set("text", dirt)
-# 		temp.text = dirt
-# 		temp_li   = Li()
-# 		temp_li.populate(temp)
-# 		href_clean = temp_li.clean_li_xml(temp_li.href)
-# 		embed_clean = temp_li.clean_li_xml(temp_li.embed)
-# 		text_clean = temp_li.clean_li_xml(temp_li.text)
-# 		floating_text_clean = temp_li.clean_li_xml(temp_li.floating_text)
-# 		standard_clean = "randomdirtwithoutescape"
-
-# 		self.assertEqual(href_clean, standard_clean)
-# 		self.assertEqual(embed_clean, standard_clean)
-# 		self.assertEqual(text_clean, standard_clean)
-# 		self.assertEqual(floating_text_clean, standard_clean)
-
-# 	def test_clean_li_xml2(self):
-# 		dirt = "me&myself&i"
-# 		temp      = ET.Element('li')
-# 		temp.set("href", dirt)
-# 		temp.set("embed", dirt)
-# 		temp.set("text", dirt)
-# 		temp.text = dirt
-# 		temp_li   = Li()
-# 		temp_li.populate(temp)
-# 		href_clean = temp_li.clean_li_xml(temp_li.href)
-# 		embed_clean = temp_li.clean_li_xml(temp_li.embed)
-# 		text_clean = temp_li.clean_li_xml(temp_li.text)
-# 		floating_text_clean = temp_li.clean_li_xml(temp_li.floating_text)
-# 		standard_clean = "me&amp;myself&amp;i"
-
-# 		self.assertEqual(href_clean, standard_clean)
-# 		self.assertEqual(embed_clean, standard_clean)
-# 		self.assertEqual(text_clean, standard_clean)
-# 		self.assertEqual(floating_text_clean, standard_clean)
-
-# 	#---------------------------------------#
-# 	#-----test_li_print_xml
-	
-# 	def test_li_print_xml0(self):
-# 		temp      = ET.Element('li')
-# 		temp.set("href", "href_stuff")
-# 		temp.set("embed", "embed_stuff")
-# 		temp.set("text", "text_stuff")
-# 		temp.text = "randomfloatingtext"
-# 		temp_li   = Li()
-# 		temp_li.populate(temp)
-# 		temp_string = temp_li.print_xml()
-# 		correct_string = "<li> href=\"href_stuff\"</li><li> embed=\"embed_stuff\"</li><li>text_stuff</li><li>randomfloatingtext</li>"
-# 		self.assertEqual(temp_string, correct_string)
-
-# 	def test_li_print_xml1(self):
-# 		temp      = ET.Element('li')
-# 		temp.set("href", "HELLO")
-# 		temp.set("embed", "EMBED")
-# 		temp.set("text", "TEXT")
-# 		temp.text = "RANDOMTEXT"
-# 		temp_li   = Li()
-# 		temp_li.populate(temp)
-# 		temp_string = temp_li.print_xml()
-# 		correct_string = "<li> href=\"HELLO\"</li><li> embed=\"EMBED\"</li><li>TEXT</li><li>RANDOMTEXT</li>"
-# 		self.assertEqual(temp_string, correct_string)
-
-# 	def test_li_print_xml2(self):
-# 		temp      = ET.Element('li')
-# 		temp.set("href", "fee")
-# 		temp.set("embed", "foo")
-# 		temp.set("text", "fi")
-# 		temp.text = "fum"
-# 		temp_li   = Li()
-# 		temp_li.populate(temp)
-# 		temp_string = temp_li.print_xml()
-# 		correct_string = "<li> href=\"fee\"</li><li> embed=\"foo\"</li><li>fi</li><li>fum</li>"
-# 		self.assertEqual(temp_string, correct_string)
 
 	#---------------------------------------#
 	#-----test_common_populate
@@ -305,94 +201,55 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/PkXw1iBgzoY")
 		self.assertEqual(common_dict['Feeds'][0].embed, "twitter.com/kiraisgod")
 
-# 	#---------------------------------------#
-# 	#-----test_xml_from_li
-
-# 	def test_xml_from_li0(self):
-# 		temp_com = Common()
-# 		xml_string = "<Common><Citations><li>RandomCitation</li></Citations><ExternalLinks><li>RandomLink</li></ExternalLinks><Images><li>RandomImage</li></Images><Videos><li>RandomVideo</li></Videos></Common>"
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
-# 		li_xml = "<Common>"
-# 		c_cites = temp_com.xml_from_li("Citations", temp_com.citations)
-# 		li_xml += c_cites
-# 		c_links = temp_com.xml_from_li("ExternalLinks", temp_com.external_links)
-# 		li_xml += c_links
-# 		c_ims = temp_com.xml_from_li("Images", temp_com.images)
-# 		li_xml += c_ims
-# 		c_vids = temp_com.xml_from_li("Videos", temp_com.videos)
-# 		li_xml += c_vids
-# 		li_xml += "</Common>"
-# 		self.assertEqual(li_xml, xml_string )
-
-# 	def test_xml_from_li1(self):
-# 		temp_com = Common()
-# 		xml_string = "<Common><Citations><li>Citation</li></Citations><ExternalLinks><li>Link</li></ExternalLinks><Images><li>Image</li></Images><Videos><li>Video</li></Videos></Common>"
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
-# 		li_xml = "<Common>"
-# 		c_cites = temp_com.xml_from_li("Citations", temp_com.citations)
-# 		li_xml += c_cites
-# 		c_links = temp_com.xml_from_li("ExternalLinks", temp_com.external_links)
-# 		li_xml += c_links
-# 		c_ims = temp_com.xml_from_li("Images", temp_com.images)
-# 		li_xml += c_ims
-# 		c_vids = temp_com.xml_from_li("Videos", temp_com.videos)
-# 		li_xml += c_vids
-# 		li_xml += "</Common>"
-# 		self.assertEqual(li_xml, xml_string )
-
-# 	def test_xml_from_li2(self):
-# 		temp_com = Common()
-# 		xml_string = "<Common><Citations><li>dvfjnkjdnv</li></Citations><ExternalLinks><li>sdcbkjsnbd</li></ExternalLinks><Images><li>efvdjkjnfv</li></Images><Videos><li>dfvnldkfjvnbo</li></Videos></Common>"
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
-# 		li_xml = "<Common>"
-# 		c_cites = temp_com.xml_from_li("Citations", temp_com.citations)
-# 		li_xml += c_cites
-# 		c_links = temp_com.xml_from_li("ExternalLinks", temp_com.external_links)
-# 		li_xml += c_links
-# 		c_ims = temp_com.xml_from_li("Images", temp_com.images)
-# 		li_xml += c_ims
-# 		c_vids = temp_com.xml_from_li("Videos", temp_com.videos)
-# 		li_xml += c_vids
-# 		li_xml += "</Common>"
-# 		self.assertEqual(li_xml, xml_string )
-
-# 	#---------------------------------------#
-# 	#-----test_print_xml
-	
-# 	def test_print_xml0(self):
-# 		temp_com = Common()
-# 		xml_string = "<Common><Citations><li>RandomCitation</li></Citations><ExternalLinks><li>RandomLink</li></ExternalLinks><Images><li>RandomImage</li></Images><Videos><li>RandomVideo</li></Videos><Summary>Random Summary</Summary></Common>"
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
-# 		common_xml = temp_com.print_xml()
-
-# 		self.assertEqual(xml_string, common_xml)
-
-# 	def test_print_xml1(self):
-# 		temp_com = Common()
-# 		xml_string = "<Common><Citations><li>Citation</li></Citations><ExternalLinks><li>Link</li></ExternalLinks><Images><li>Image</li></Images><Videos><li>Video</li></Videos></Common>"
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
-# 		common_xml = temp_com.print_xml()
-
-# 		self.assertEqual(xml_string, common_xml)
-
-# 	def test_print_xml2(self):
-# 		temp_com = Common()
-# 		xml_string = "<Common><Citations><li>dvfjnkjdnv</li></Citations><ExternalLinks><li>sdcbkjsnbd</li></ExternalLinks><Images><li>efvdjkjnfv</li></Images><Videos><li>dfvnldkfjvnbo</li></Videos></Common>"
-# 		root = ET.fromstring(xml_string)
-# 		temp_com.populate(root)
-# 		common_xml = temp_com.print_xml()
-
-# 		self.assertEqual(xml_string, common_xml)
 
 
+	#---------------------------------------#
+	#-----test_relations_populate
+
+	def test_relation_populate0(self):
+		crisis_id = "CRI_BEEDIE"
+		org_id = "ORG_NSAAAA"
+		relations1 = Relations()
+		relations1.populate(c_id = crisis_id, o_id = org_id)
+		self.assertEqual(relations1.crisis_ID, crisis_id)
+		self.assertEqual(relations1.org_ID, org_id)
 
 
-# class unloadModelsCrisisTest(TestCase):
+	def test_relation_populate1(self):
+		relations1 = Relations()
+		relations1.populate(c_id = "CRI_UEGYPT", p_id = "PER_MMORSI", o_id = "ORG_EGYGOV")
+		self.assertEqual(relations1.crisis_ID, "CRI_UEGYPT")
+		self.assertEqual(relations1.org_ID, "ORG_EGYGOV")
+		self.assertEqual(relations1.person_ID, "PER_MMORSI")
+
+
+	def test_relation_populate2(self):
+		relations1 = Relations()
+		relations1.populate(c_id = "CRI_NSAWRT")
+		self.assertEqual(relations1.crisis_ID, "CRI_NSAWRT")
+
+
+class unloadModelsCrisisTest(TestCase):
+
+	def setUp(self):
+		self.crisis = Crisis.objects.create(crisis_ID='CRI_CRISIS', name='name',
+			kind='kind', date='date', time='time', common_summary='summary')
+		self.crisis2 = Crisis.objects.create(crisis_ID='CRI_CRITWO', name='',
+			kind='', date='', time='', common_summary='')
+		self.crisis3 = Crisis.objects.create(crisis_ID='CRI_CTHREE', name='name',
+			kind='', date='date', time='', common_summary='summary')
+		self.person = Person.objects.create(person_ID='PER_PERSON', name='name',
+			kind='kind', location='location', common_summary='summary')
+		self.person2 = Person.objects.create(person_ID='PER_PERTWO', name='',
+			kind='', location='', common_summary='')
+		self.person3 = Person.objects.create(person_ID='PER_PTHREE', name='name',
+			kind='', location='location', common_summary='')
+		self.org = Org.objects.create(org_ID='ORG_ORGORG', name='name',
+			kind='kind', location='location', common_summary='summary')
+		self.org2 = Org.objects.create(org_ID='ORG_ORGTWO', name='',
+			kind='', location='', common_summary='')
+		self.org3 = Org.objects.create(org_ID='ORG_OTHREE', name='name',
+			kind='', location='', common_summary='summary')
 
 # #---------------------------------------------------#
 # #-----Unit Tests for functions from unloadModels.py
@@ -401,124 +258,245 @@ class ModelsCrisisTest(TestCase):
 # 	#---------------------------------------#
 # 	#-----test_clean_xml (paranoid clean for things that are not li objects)
 	
-# 	def test_clean_xml0(self):
-# 		dirt = "happy&go&lucky&&&go&happy"
-# 		dirt_to_clean = clean_xml(dirt)
-# 		standard_clean = "happy&amp;go&amp;lucky&amp;&amp;&amp;go&amp;happy"
-# 		self.assertEqual(dirt_to_clean, standard_clean)
+ 	def test_clean_xml0(self):
+ 		dirt = "happy&go&lucky&&&go&happy"
+ 		dirt_to_clean = clean_xml(dirt)
+ 		standard_clean = "happy&amp;go&amp;lucky&amp;&amp;&amp;go&amp;happy"
+ 		self.assertEqual(dirt_to_clean, standard_clean)
 
-# 	def test_clean_xml1(self):
-# 		dirt = "randomdirtwithoutescape"
-# 		dirt_to_clean = clean_xml(dirt)
-# 		standard_clean = "randomdirtwithoutescape"
-# 		self.assertEqual(dirt_to_clean, standard_clean)
+ 	def test_clean_xml1(self):
+ 		dirt = "randomdirtwithoutescape"
+ 		dirt_to_clean = clean_xml(dirt)
+ 		standard_clean = "randomdirtwithoutescape"
+ 		self.assertEqual(dirt_to_clean, standard_clean)
 
-# 	def test_clean_xml2(self):
-# 		dirt = "me&myself&i"
-# 		dirt_to_clean = clean_xml(dirt)
-# 		standard_clean = "me&amp;myself&amp;i"
-# 		self.assertEqual(dirt_to_clean, standard_clean)
-	
+ 	def test_clean_xml2(self):
+ 		dirt = "me&myself&i"
+ 		dirt_to_clean = clean_xml(dirt)
+ 		standard_clean = "me&amp;myself&amp;i"
+ 		self.assertEqual(dirt_to_clean, standard_clean)
+
+# 	#---------------------------------------#
+# 	#-----test_make_non_li_string
+
+	def test_make_non_li_string0(self):
+		tag = 'tag'
+		clean_string = 'clean_string'
+		non_li_string = make_non_li_string(clean_string, tag)
+		self.assertEqual(non_li_string, "	<" + tag + ">" + clean_string + "</" + tag + ">\n")
+
+	def test_make_non_li_string1(self):
+		tag = 'tag'
+		clean_string = 'clean_string'
+		non_li_string = make_non_li_string(clean_string, tag)
+		self.assertNotEqual(non_li_string, "	<" + tag + ">" + clean_string + "</" + tag + ">")
+
+	def test_make_non_li_string2(self):
+		tag = 'tag'
+		clean_string = 'clean_string'
+		non_li_string = make_non_li_string(tag, tag)
+		self.assertEqual(non_li_string, "	<" + tag + ">" + tag + "</" + tag + ">\n")
+
+	def test_make_non_li_string3(self):
+		result = make_non_li_string("Test", "Summary")
+		self.assertEqual(result, "\t<Summary>Test</Summary>\n")
+
+# 	#---------------------------------------#
+# 	#-----test_make_li_string
+
+	def test_make_li_string0(self):
+		li1 = Li()
+		li1.href="http://"
+		li1.embed=u'';
+		li1.text=u'';
+		li1.floating_text=u'';
+		result = make_li_string([li1], "History")
+		self.assertEqual(result, "\t<History>\n\t\t<li href=\"http://\"></li>\n\t</History>\n")
+
+	def test_make_li_string1(self):
+		result = make_li_string([], "History")
+		self.assertEqual(result, "")
+
+	def test_make_li_string2(self):
+		li1 = Li()
+		li1.href=u''
+		li1.embed='youtube.com/embed';
+		li1.text='img not found';
+		li1.floating_text="Testing methods";
+		result = make_li_string([li1], "Loc")
+		self.assertEqual(result, "\t<Loc>\n\t\t<li embed=\"youtube.com/embed\" text=\"img not found\">Testing methods</li>\n\t</Loc>\n")
+
+	def test_make_li_string3(self):
+		li1 = Li()
+		li1.href="http://www.google.com"
+		li1.embed="youtube.com/embed";
+		li1.text=u'';
+		li1.floating_text=u'';
+		result = make_li_string([li1], "ContactInfo")
+		self.assertEqual(result, "\t<ContactInfo>\n\t\t<li href=\"http://www.google.com\" embed=\"youtube.com/embed\"></li>\n\t</ContactInfo>\n")
+
+	def test_make_li_string4(self):
+		li1 = Li()
+		li1.href="http://www.google.com"
+		li1.embed="youtube.com/embed";
+		li1.text=u'';
+		li1.floating_text=u'';
+		result = make_li_string([li1], "ContactInfo", True)
+		self.assertEqual(result, "\t\t<ContactInfo>\n\t\t\t<li href=\"http://www.google.com\" embed=\"youtube.com/embed\"></li>\n\t\t</ContactInfo>\n")
+
+	def test_make_li_string5(self):
+		li1 = Li()
+		li1.href=u''
+		li1.embed='youtube.com/embed';
+		li1.text='img not found';
+		li1.floating_text="Testing methods";
+		result = make_li_string([li1], "Loc", True)
+		self.assertEqual(result, "\t\t<Loc>\n\t\t\t<li embed=\"youtube.com/embed\" text=\"img not found\">Testing methods</li>\n\t\t</Loc>\n")
+
+	def test_make_li_string6(self):
+		result = make_li_string([], "History", True)
+		self.assertEqual(result, "")
+
+	def test_make_li_string7(self):
+		li1 = Li()
+		li1.href="http://"
+		li1.embed=u'';
+		li1.text=u'';
+		li1.floating_text=u'';
+		result = make_li_string([li1], "History", True)
+		self.assertEqual(result, "\t\t<History>\n\t\t\t<li href=\"http://\"></li>\n\t\t</History>\n")
+
+# 	#---------------------------------------#
+# 	#-----test_make_common_string
+
+	def test_make_common_string0(self):
+		common_dict = getOrg('ORG_ORGORG')['common']
+		common_string = make_common_string(common_dict)
+		s = '\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n'
+		self.assertEqual(common_string, s)
+
+	def test_make_common_string1(self):
+		common_dict = getPerson('PER_PERSON')['common']
+		li1 = Li()
+		li1.href = 'href'
+		li1.model_id = 'PER_PERSON'
+		li1.kind = 'ExternalLinks'
+		common_dict[li1.kind] = [li1]
+		common_string = make_common_string(common_dict)
+		s = '\t<Common>\n\t\t<ExternalLinks>\n\t\t\t<li href="href"></li>\n\t\t</ExternalLinks>\n\t\t<Summary>summary</Summary>\n\t</Common>\n'
+		self.assertEqual(common_string, s)
+
+	def test_make_common_string2(self):
+		common_dict = getCrisis('CRI_CRISIS')['common']
+		li1 = Li()
+		li1.embed = 'embed'
+		li1.model_id = 'CRI_CRISIS'
+		li1.kind = 'Images'
+		common_dict[li1.kind] = [li1]
+		common_string = make_common_string(common_dict)
+		s = '\t<Common>\n\t\t<Images>\n\t\t\t<li embed="embed"></li>\n\t\t</Images>\n\t\t<Summary>summary</Summary>\n\t</Common>\n'
+		self.assertEqual(common_string, s)
+
 # 	#---------------------------------------#
 # 	#-----test_export_crisis
 
-# 	def test_export_crisis0(self):
-# 		xml_string = "<WC><Crisis ID=\"CRI_random\" Name=\"random\"><People><Person ID=\"PER_random\" /></People><Organizations><Org ID=\"ORG_random\" /></Organizations><Kind>random</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>random</li></Locations><HumanImpact><li>random</li></HumanImpact><EconomicImpact><li>random</li></EconomicImpact><ResourcesNeeded><li>random</li></ResourcesNeeded><WaysToHelp><li> href=\"http://random\"</li><li>random</li></WaysToHelp><Common><Citations><li> href= random</li></Citations><ExternalLinks><li> href=\"http:random.html\"</li></ExternalLinks><Images><li> embed=\"http:random.jpg\"</li></Images><Summary>random</Summary></Common></Crisis></WC>"
-# 		crisis_list1 = []
-# 		root1 = ET.fromstring(xml_string)
-# 		populate_crisis(root1, crisis_list1)
-		
-# 		crisis_xml = export_crisis(crisis_list1[0])
-# 		check_string = xml_string [4:-5]
-# 		self.assertEqual(check_string, crisis_xml)
+	def test_export_crisis0(self):
+		crisis_dict = getCrisis(self.crisis.crisis_ID)
+		crisis_xml = export_crisis(crisis_dict, self.crisis.crisis_ID)
+		s = '<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n'
+		self.assertEqual(crisis_xml, s)
 
-# 	def test_export_crisis1(self):
-# 		xml_string = "<WC><Crisis ID=\"CRI_CRISISCHECK\" Name=\"CRISISCHECK\"><People><Person ID=\"PER_CRISISCHECK\" /></People><Organizations><Org ID=\"ORG_CRISISCHECK\" /></Organizations><Kind>CRISISCHECK</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>CRISISCHECK</li></Locations><HumanImpact><li>CRISISCHECK</li></HumanImpact><EconomicImpact><li>CRISISCHECK</li></EconomicImpact><ResourcesNeeded><li>CRISISCHECK</li></ResourcesNeeded><WaysToHelp><li> href=\"http://CRISISCHECK\"</li><li>CRISISCHECK</li></WaysToHelp><Common><Citations><li> href= CRISISCHECK</li></Citations><ExternalLinks><li> href=\"http:CRISISCHECK.html\"</li></ExternalLinks><Images><li> embed=\"http:CRISISCHECK.jpg\"</li></Images><Summary>CRISISCHECK</Summary></Common></Crisis></WC>"
-# 		crisis_list1 = []
-# 		root1 = ET.fromstring(xml_string)
-# 		populate_crisis(root1, crisis_list1)
-		
-# 		crisis_xml = export_crisis(crisis_list1[0])
-# 		check_string = xml_string [4:-5]
-# 		self.assertEqual(check_string, crisis_xml)
+	def test_export_crisis1(self):
+		cid = self.crisis2.crisis_ID
+		crisis_dict = getCrisis(cid)
+		crisis_xml = export_crisis(crisis_dict, cid)
+		s = '<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n'
+		self.assertEqual(crisis_xml, s)
 
-# 	def test_export_crisis2(self):
-# 		xml_string = "<WC><Crisis ID=\"CRI_important\" Name=\"important\"><People><Person ID=\"PER_important\" /></People><Organizations><Org ID=\"ORG_important\" /></Organizations><Kind>important</Kind><Date>2011-01-25</Date><Time>09:00:00+05:30</Time><Locations><li>important</li></Locations><HumanImpact><li>important</li></HumanImpact><EconomicImpact><li>important</li></EconomicImpact><ResourcesNeeded><li>important</li></ResourcesNeeded><WaysToHelp><li> href=\"http://important\"</li><li>important</li></WaysToHelp><Common><Citations><li> href= important</li></Citations><ExternalLinks><li> href=\"http:important.html\"</li></ExternalLinks><Images><li> embed=\"http:important.jpg\"</li></Images><Summary>important</Summary></Common></Crisis></WC>"
-# 		crisis_list1 = []
-# 		root1 = ET.fromstring(xml_string)
-# 		populate_crisis(root1, crisis_list1)
-		
-# 		crisis_xml = export_crisis(crisis_list1[0])
-# 		check_string = xml_string [4:-5]
-# 		self.assertEqual(check_string, crisis_xml)
+	def test_export_crisis2(self):
+		cid = self.crisis3.crisis_ID
+		crisis_dict = getCrisis(cid)
+		crisis_xml = export_crisis(crisis_dict, cid)
+		s = '<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n'
+		self.assertEqual(crisis_xml, s)
 
 
 # 	#---------------------------------------#
 # 	#-----test_export_person
 
-# 	def test_export_person0(self):
-# 		person_string = "<WC><Person ID=\"PER_HMUBAR\" Name=\"Hosni Mubarak\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_MUSBRO\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person></WC>"
-# 		person_list = []
-# 		root = ET.fromstring(person_string)
-# 		populate_person(root, person_list)
-# 		person_xml = export_person(person_list[0])
-# 		check_string = person_string [4:-5]
+	def test_export_person0(self):
+		pid = self.person.person_ID
+		person_dict = getPerson(pid)
+		person_xml = export_person(person_dict, pid)
+		s = '<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n'
+		self.assertEqual(person_xml, s)
 
-# 		self.assertEqual(check_string, person_xml)
+	def test_export_person1(self):
+		pid = self.person2.person_ID
+		person_dict = getPerson(pid)
+		person_xml = export_person(person_dict, pid)
+		s = '<Person ID="PER_PERTWO" Name="">\n</Person>\n\n'
+		self.assertEqual(person_xml, s)
 
-# 	def test_export_person1(self):
-# 		person_string = "<WC><Person ID=\"PER_ELBARA\" Name=\"Mohamed ElBaradei\"><Crises><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_EGYGOV\" /><Org ID=\"ORG_EGYGOV\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person></WC>"
-# 		person_list = []
-# 		root = ET.fromstring(person_string)
-# 		populate_person(root, person_list)
-# 		person_xml = export_person(person_list[0])
-# 		check_string = person_string [4:-5]
-
-# 		self.assertEqual(check_string, person_xml)
-
-# 	def test_export_person2(self):
-# 		person_string = "<WC><Person ID=\"PER_MMORSI\" Name=\"Mohammed Morsi\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><Organizations><Org ID=\"ORG_EGYGOV\" /><Org ID=\"ORG_MUSBRO\" /></Organizations><Kind>Politician</Kind><Location>Egypt</Location><Common></Common></Person></WC>"
-# 		person_list = []
-# 		root = ET.fromstring(person_string)
-# 		populate_person(root, person_list)
-# 		person_xml = export_person(person_list[0])
-# 		check_string = person_string [4:-5]
-
-# 		self.assertEqual(check_string, person_xml)
+	def test_export_person2(self):
+		pid = self.person3.person_ID
+		person_dict = getPerson(pid)
+		person_xml = export_person(person_dict, pid)
+		s = '<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n'
+		self.assertEqual(person_xml, s)
 
 # 	#---------------------------------------#
 # 	#-----test_export_organization
 
-# 	def test_export_org0(self):
-# 		org_string = "<WC><Organization ID=\"ORG_MUSBRO\" Name=\"The Muslim Brotherhood\"><Crises><Crisis ID=\"CRI_UEGYPT\" /></Crises><People><Person ID=\"PER_ELBARA\" /><Person ID=\"PER_HMUBAR\" /><Person ID=\"PER_RLAKAH\" /><Person ID=\"PER_MMORSI\" /></People><Kind>Islamic Movement</Kind><Location>Egypt</Location><Common></Common></Organization></WC>"
-# 		org_list = []
-# 		root8 = ET.fromstring(org_string)
-# 		populate_org(root8, org_list)
-# 		org_xml = export_organization(org_list[0])
-# 		check_string = org_string [4:-5]
+	def test_export_org0(self):
+		oid = self.org.org_ID
+		org_dict = getOrg(oid)
+		org_xml = export_organization(org_dict, oid)
+		s = '<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n'
+		self.assertEqual(org_xml, s)
 
-# 		self.assertEqual(check_string, org_xml)
+	def test_export_org1(self):
+		oid = self.org2.org_ID
+		org_dict = getOrg(oid)
+		org_xml = export_organization(org_dict, oid)
+		s = '<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n'
+		self.assertEqual(org_xml, s)
 
-# 	def test_export_org1(self):
-# 		org_string = "<WC><Organization ID=\"ORG_random\" Name=\"random\"><Crises><Crisis ID=\"CRI_random\" /></Crises><People><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /><Person ID=\"PER_random\" /></People><Kind>random</Kind><Location>random</Location><Common></Common></Organization></WC>"
-# 		check_string = org_string [4:-5]
-# 		org_list = []
-# 		root8 = ET.fromstring(org_string)
-# 		populate_org(root8, org_list)
-# 		org_xml = export_organization(org_list[0])
+	def test_export_org2(self):
+		oid = self.org3.org_ID
+		org_dict = getOrg(oid)
+		org_xml = export_organization(org_dict, oid)
+		s = '<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n'
+		self.assertEqual(org_xml, s)
 
-# 		self.assertEqual(check_string, org_xml)
+# 	#---------------------------------------#
+# 	#-----test_export_xml
 
-# 	def test_export_org2(self):
-# 		org_string = "<WC><Organization ID=\"ORG_ORGANIZE\" Name=\"ORGANIZE\"><Crises><Crisis ID=\"CRI_ORGANIZE\" /></Crises><People><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /><Person ID=\"PER_ORGANIZE\" /></People><Kind>ORGANIZE</Kind><Location>ORGANIZE</Location><Common></Common></Organization></WC>"
-# 		check_string = org_string [4:-5]
-# 		org_list = []
-# 		root8 = ET.fromstring(org_string)
-# 		populate_org(root8, org_list)
-# 		org_xml = export_organization(org_list[0])
+	def test_export_xml0(self):
+		xml_string = export_xml()
+		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
+		self.assertEqual(xml_string, s)
 
-# 		self.assertEqual(check_string, org_xml)
+	def test_export_xml1(self):
+		Crisis.objects.create(crisis_ID='CRI_CRFOUR', name='name4',
+			kind='kind', date='date', time='time', common_summary='summary')
+		xml_string = export_xml()
+		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CRFOUR" Name="name4">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
+		self.assertEqual(xml_string, s)
 
+	def test_export_xml2(self):
+		Org.objects.create(org_ID='ORG_ORFOUR', name='name',
+			kind='kind', location='location', common_summary='summary')
+		xml_string = export_xml()
+		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_ORFOUR" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
+		self.assertEqual(xml_string, s)
+'''
+unloadModelsCrisisTest tests the functions unloadModels.py, which handles the export function.
+setUp() adds several Crisis, Person, and Org objects to the database for testing purposes.
+export_crisis(), export_person(), and export_org() get an object from the database and return a string with its information.
+export_xml() uses export_crisis(), export_person(), and export_org() to form an xml string
+clean_xml(), make_non_li_string(), make_li_string(), make_common_string() are auxiliary functions used for formatting.
+'''
 
 class loadModelsCrisisTest(TestCase):
 
@@ -877,7 +855,7 @@ class viewsTest(TestCase):
 		self.assertEqual(response.status_code, 200)
 
 
-class getBdModelTest(TestCase):
+class getDdModelTest(TestCase):
 
 # #--------------------------------------------#
 # #-----Unit Tests for functions from getDbModel.py
@@ -1498,3 +1476,4 @@ class getBdModelTest(TestCase):
 		ids = getOrgIDs()
 
 		self.assertEqual(temp_org1.name, ids.get('ORG_LOSZTA'))
+
