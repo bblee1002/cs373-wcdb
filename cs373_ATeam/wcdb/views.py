@@ -70,6 +70,18 @@ def passwordValidate(pw_input):
   else:
     return False
 
+def search(search_form):
+  """
+  searches WCDB and returns new page of links with respective contexts
+  receives a search form of text parsed into a lists
+  returns list of IDs and context info
+  """
+  search_form = True
+  if search_form :
+    return True
+  else:
+    return False
+
 def importView(request):
   """
   Renders view for import page, kicks off the import facility, reports
