@@ -1,3 +1,5 @@
+/* Sets attributes for main portion of page
+For example, sets font-size for elements on page */
 body {
 	font-family: 'Open Sans', sans-serif;
 	background-color: #f7f7f7;
@@ -7,6 +9,18 @@ body {
 	padding: 0px;
 	/*-webkit-font-smoothing: antialiased;*/
 }
+
+/* Pads Elements on Page for Indentation and Alignment */
+#pad-wrapper {
+	padding: 0px 25px;
+	margin-top: 55px;
+}
+#pad-wrapper h4 {
+	margin: 0 0 0 20px;
+	color: #696d73;
+	font-style: italic;
+}
+
 h1,h2,h3,h4,h5 {
 	margin: 0;
 	line-height: inherit;
@@ -18,7 +32,7 @@ h1 small,h2 small,h3 small,h4 small,h5 small {
 }
 
 input.search{
-	background: url("../img/lens.png") #fcfcfc no-repeat 95%;
+	background: url("static/img/lens.png") #fcfcfc no-repeat 95%;
 	box-shadow: none;
 	height: 19px;
 	font-size: 13px;
@@ -45,7 +59,7 @@ input.search{
 
 /* search input */
 .navbar-inverse input.search {
-	background: url("../img/lens.png") #0f1217 no-repeat 95%;
+	background: url("/static/img/lens.png") #FFFFFF no-repeat 95%;
 	border: 1px solid #0f1217;
 	position: relative;
 	border-radius: 4px;
@@ -396,16 +410,6 @@ input.search{
 	text-shadow: none;
 }
 
-
-#pad-wrapper {
-	padding: 0px 25px;
-	margin-top: 55px;
-}
-#pad-wrapper h4 {
-	margin: 0 0 0 20px;
-	color: #696d73;
-	font-style: italic;
-}
 .content {
 	min-width: 400px;
 	min-height: 620px;
