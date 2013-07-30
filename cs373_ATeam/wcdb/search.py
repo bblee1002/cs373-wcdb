@@ -1,17 +1,35 @@
 from models import *
+from getDbModel import *
 
 def search(query):
 	searchTerms = query.split()
 
 	numTerms = len(searchTerms)
 
+	crises = Crisis.objects.all()
+	people = Person.objects.all()
+	orgs = Org.objects.all()
 
+	for crisis in crises:
+
+
+
+	# or case
+	for term in searchTerms:
+		crises = Crisis.objects.filter(crisis_ID__iregex = term or name__iregex = term or kind__iregex = term or date__iregex = term or time__iregex = term or common_summary__iregex = term)
+		people = Person.objects.filter(person_ID__iregex = term or name__iregex = term or kind__iregex = term or location__iregex = term or common_summary__iregex = term)
+		orgs = Org.objects.filter(org_ID__iregex = term or name__iregex = term or kind__iregex = term or location__iregex = term or common_summary__iregex = term)
+
+
+
+'''
 	crises = []
 	people = []
 	orgs = []
 
 	matches = set()
 
+	# exact match
 	crises += Crisis.objects.filter(name__iregex = query)
 	for i in crises:
 		matches.add(match(i.crisis_ID))
@@ -24,8 +42,7 @@ def search(query):
 	for i in crises:
 		matches.add(match(i.crisis_ID))
 
-	orset = set()
-
+	# and case
 	for term in searchTerms:
 		crises = Crisis.objects.filter(name__iregex = term)
 		countIncrement(crises, orObjects)
@@ -34,6 +51,8 @@ def search(query):
 		orgs = Org.objects.filter(name__iregex = term)
 		countIncrement(orgs, orObjects)
 
+
+	orset = set()
 	
 
 
@@ -44,7 +63,7 @@ def search(query):
 		print x.name
 
 	return matches
-
+'''
 
 def countIncrement(container, orObjects):
 	found = False
@@ -53,7 +72,7 @@ def countIncrement(container, orObjects):
 			if object == match:
 				object.count += 1
 				found = True
-		if !found:
+		if not found:
 			matches.add(i)
 
 
