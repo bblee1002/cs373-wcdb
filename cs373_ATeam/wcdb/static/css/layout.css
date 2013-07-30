@@ -18,7 +18,7 @@ h1 small,h2 small,h3 small,h4 small,h5 small {
 }
 
 input.search{
-	background: url("/static/img/lens.png") #fcfcfc no-repeat 95%;
+	background: url("/static/img/lens.png") #ffffff no-repeat 95%;
 	box-shadow: none;
 	height: 19px;
 	font-size: 13px;
@@ -45,7 +45,7 @@ input.search{
 
 /* search input */
 .navbar-inverse input.search {
-	background: url("../img/lens.png") #0f1217 no-repeat 95%;
+	background: url("/static/img/lens.png") #ffffff no-repeat 95%;
 	border: 1px solid #0f1217;
 	position: relative;
 	border-radius: 4px;
