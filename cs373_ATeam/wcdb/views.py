@@ -41,7 +41,6 @@ def peopleView(request, people_id):
   #   return HttpResponse('person does not exist')
   return render(request, 'wcdb/per_temp.html', per_dict)
 
-
 def index(request):
   """
   Renders view for homepage.
@@ -70,17 +69,29 @@ def passwordValidate(pw_input):
   else:
     return False
 
-def search(search_form):
+
+def exportView(request) :
   """
-  searches WCDB and returns new page of links with respective contexts
-  receives a search form of text parsed into a lists
-  returns list of IDs and context info
+  Renders view for export page, kicks off export facility.
   """
-  search_form = True
-  if search_form :
-    return True
-  else:
-    return False
+  # output = "You have to import something before you export!"
+  # global imported_models
+  # if imported_models != {}:
+  #   output = receive_import(imported_models)
+
+  output = export_xml()
+
+  return render(request, 'wcdb/Export.html', {'output': output})
+
+def downloadView(request) :
+  """
+  Returns an XML document of what is in the models.
+  """
+  response = HttpResponse('', mimetype="application/force-download")
+  response.write(open('WCDBExportXML.xml', 'r').read())
+  response['Content-Disposition'] = 'attachment; filename="wcdb.xml"'
+
+  return response
 
 def importView(request):
   """
@@ -113,32 +124,19 @@ def importView(request):
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': False})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
-def exportView(request) :
-  """
-  Renders view for export page, kicks off export facility.
-  """
-  # output = "You have to import something before you export!"
-  # global imported_models
-  # if imported_models != {}:
-  #   output = receive_import(imported_models)
+def searchView(request):
+  sform = SearchForm(request.POST)
+  if not sform.is_valid():
+    return index(request)
+  return render(request, 'wcdb/search.html', {"query": sform.cleaned_data['search_query']})
 
-  output = export_xml()
 
-  return render(request, 'wcdb/Export.html', {'output': output})
-
-def downloadView(request) :
-  """
-  Returns an XML document of what is in the models.
-  """
-  response = HttpResponse('', mimetype="application/force-download")
-  response.write(open('WCDBExportXML.xml', 'r').read())
-  response['Content-Disposition'] = 'attachment; filename="wcdb.xml"'
-
-  return response
-  
 class XMLUploadForm(forms.Form):
   """
   XMLUploadForm that has an upload file field along with a password field.
   """
   xmlfile = forms.FileField()
   password = forms.CharField(max_length=8, widget=forms.PasswordInput) 
+
+class SearchForm(forms.Form):
+    search_query = forms.CharField(max_length = 200)

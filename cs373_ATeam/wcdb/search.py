@@ -1,25 +1,38 @@
 from models import *
 from getDbModel import *
+from django.db.models import Q
 
 def search(query):
 	searchTerms = query.split()
 
 	numTerms = len(searchTerms)
 
-	crises = Crisis.objects.all()
-	people = Person.objects.all()
-	orgs = Org.objects.all()
+	crises = set()
+	people = set()
+	orgs = set()
 
-	for crisis in crises:
+
+	'''
+	# and case
+	for term in searchTerms:
+		crises = Crisis.objects.filter(Q(crisis_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(date__iregex = term) | Q(time__iregex = term) | Q(common_summary__iregex = term))
+		people = Person.objects.filter(Q(person_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term))
+		orgs = Org.objects.filter(Q(org_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term))
+	'''
 
 
 
 	# or case
 	for term in searchTerms:
-		crises = Crisis.objects.filter(crisis_ID__iregex = term or name__iregex = term or kind__iregex = term or date__iregex = term or time__iregex = term or common_summary__iregex = term)
-		people = Person.objects.filter(person_ID__iregex = term or name__iregex = term or kind__iregex = term or location__iregex = term or common_summary__iregex = term)
-		orgs = Org.objects.filter(org_ID__iregex = term or name__iregex = term or kind__iregex = term or location__iregex = term or common_summary__iregex = term)
+		crises = crises.union(Crisis.objects.filter(Q(crisis_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(date__iregex = term) | Q(time__iregex = term) | Q(common_summary__iregex = term)))
+		people = people.union(Person.objects.filter(Q(person_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term)))
+		orgs = orgs.union(Org.objects.filter(Q(org_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term)))
 
+
+	matches = set()
+	matches = crises.union(people)
+	matches = matches.union(orgs)
+	return matches
 
 
 '''
