@@ -3,80 +3,68 @@ from getDbModel import *
 from django.db.models import Q
 
 def search(query):
+	query = query.upper()
 	searchTerms = query.split()
 
 	numTerms = len(searchTerms)
 
-	crises = set()
-	people = set()
-	orgs = set()
+	orCrises = set()
+	orPeople = set()
+	orOrgs = set()
 
-
-	'''
-	# and case
-	for term in searchTerms:
-		crises = Crisis.objects.filter(Q(crisis_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(date__iregex = term) | Q(time__iregex = term) | Q(common_summary__iregex = term))
-		people = Person.objects.filter(Q(person_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term))
-		orgs = Org.objects.filter(Q(org_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term))
-	'''
-
+	matchingCount = {}
 
 
 	# or case
 	for term in searchTerms:
-		crises = crises.union(Crisis.objects.filter(Q(crisis_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(date__iregex = term) | Q(time__iregex = term) | Q(common_summary__iregex = term)))
-		people = people.union(Person.objects.filter(Q(person_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term)))
-		orgs = orgs.union(Org.objects.filter(Q(org_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term)))
+		orCrises = orCrises.union(Crisis.objects.filter(Q(crisis_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(date__iregex = term) | Q(time__iregex = term) | Q(common_summary__iregex = term)))
+		orPeople = orPeople.union(Person.objects.filter(Q(person_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term)))
+		orOrgs = orOrgs.union(Org.objects.filter(Q(org_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term)))
 
 
-	matches = set()
-	matches = crises.union(people)
-	matches = matches.union(orgs)
-	return matches
+	for crisis in orCrises:
+		matchingCount[crisis.crisis_ID] = 0
 
+	for person in orPeople:
+		matchingCount[person.person_ID] = 0
 
-'''
-	crises = []
-	people = []
-	orgs = []
+	for org in orOrgs:
+		matchingCount[org.org_ID] = 0
 
-	matches = set()
-
-	# exact match
-	crises += Crisis.objects.filter(name__iregex = query)
-	for i in crises:
-		matches.add(match(i.crisis_ID))
-
-	people += Person.objects.filter(name__iregex = query)
-	for i in people:
-		matches.add(match(i.crisis_ID))
-
-	orgs += Org.objects.filter(name__iregex = query)
-	for i in crises:
-		matches.add(match(i.crisis_ID))
+	print matchingCount
 
 	# and case
-	for term in searchTerms:
-		crises = Crisis.objects.filter(name__iregex = term)
-		countIncrement(crises, orObjects)
-		people = Person.objects.filter(name__iregex = term)
-		countIncrement(people, orObjects)
-		orgs = Org.objects.filter(name__iregex = term)
-		countIncrement(orgs, orObjects)
+	for crisis in orCrises:
+		crisisString = str(getCrisis(crisis.crisis_ID)).upper()
+		for term in searchTerms:
+			if term in crisisString:
+				matchingCount[crisis.crisis_ID] += 1
+
+	for person in orPeople:
+		termCount = 0
+		personString = str(getPerson(person.person_ID)).upper()
+		for term in searchTerms:
+			if term in personString:
+				matchingCount[person.person_ID] += 1
+
+	for org in orOrgs:
+		termCount = 0
+		orgString = str(getOrg(org.org_ID)).upper()
+		for term in searchTerms:
+			if term in orgString:
+				matchingCount[org.org_ID] += 1
+
+	print matchingCount
+
+	orSet = orCrises.union(orPeople)
+	orSet = orSet.union(orOrgs)
 
 
-	orset = set()
-	
-
-
-	matches += orset
-
-
-	for x in matches:
-		print x.name
-
+	matches = orCrises.union(orPeople)
+	matches = matches.union(orOrgs)
 	return matches
-'''
+
+
 
 def countIncrement(container, orObjects):
 	found = False
