@@ -8,14 +8,14 @@ def search(query):
 	numTerms    = len(searchTerms)
 
 	#exact matching case
-	exactCrises = searchCrisis([query], orCrises)
-	exactPeople = searchPerson([query], orPeople)
-	exactOrgs   =      searchOrg([query], orOrgs)
+	exactCrises = searchCrisis([query])
+	exactPeople = searchPerson([query])
+	exactOrgs   =      searchOrg([query])
 
 	#or case
-	orCrises = searchCrisis(searchTerms, orCrises).difference(exactCrises)
-	orPeople = searchPerson(searchTerms, orPeople).difference(exactPeople)
-	orOrgs   =        searchOrg(searchTerms, orOrgs).difference(exactOrgs)
+	orCrises = searchCrisis(searchTerms).difference(exactCrises)
+	orPeople = searchPerson(searchTerms).difference(exactPeople)
+	orOrgs   =      searchOrg(searchTerms).difference(exactOrgs)
 
 	matchingCount = {}
 	
