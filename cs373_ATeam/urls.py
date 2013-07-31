@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^export/$', 'wcdb.views.exportView'),
     url(r'^unittests/$', 'wcdb.views.unittestsView'),
     url(r'^download/$', 'wcdb.views.downloadView'),
+    url(r'^search/$', 'wcdb.views.searchView')
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

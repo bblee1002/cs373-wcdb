@@ -23,8 +23,9 @@
 	            </ul>
 	            <ul class="nav pull-right">
               		<li class="hidden-phone">
-						<form name="search_input" url="/search" method="get">
-							<input class="search" type="text" />
+						<form name="search_input" action="/search/" method="post">
+							{% csrf_token %}
+							<input class="search" type="text" name="search_query"/>
 						</form>
               		</li>
 				</ul>	            
