@@ -8,14 +8,24 @@ def search(query):
 	numTerms    = len(searchTerms)
 
 	#exact matching case
+	# print "EXACT CASES"
 	exactCrises = searchCrisis([query])
 	exactPeople = searchPerson([query])
-	exactOrgs   =      searchOrg([query])
+	exactOrgs   =    searchOrg([query])
+	exactLis    =     searchLi([query])
+	# print exactCrises
+	# print exactPeople
+	# print exactOrgs
 
 	#or case
+	# print "OR CASES"
 	orCrises = searchCrisis(searchTerms).difference(exactCrises)
 	orPeople = searchPerson(searchTerms).difference(exactPeople)
 	orOrgs   =      searchOrg(searchTerms).difference(exactOrgs)
+	orLi     =        searchLi(searchTerms).difference(exactLis)
+	# print orCrises
+	# print orPeople
+	# print orOrgs
 
 	matchingCount = {}
 	
@@ -50,15 +60,22 @@ def search(query):
 			if term in orgString:
 				matchingCount[org.org_ID] += 1
 
+	#dependent on what paul decides to do
+	# for li in orLis:
+	# 	liString = str(getOrg(org.org_ID)).upper()
+	# 	for term in searchTerms:
+	# 		if term in liString:
+	# 			matchingCount[li.model_id] += 1
+
 	print matchingCount
 
 	orSet = orCrises.union(orPeople)
 	orSet = orSet.union(orOrgs)
 
 
-	matches = orCrises.union(orPeople)
-	matches = matches.union(orOrgs)
-	return matches
+	# matches = orCrises.union(orPeople)
+	# matches = matches.union(orOrgs)
+	# return matches
 
 
 
@@ -73,19 +90,27 @@ def countIncrement(container, orObjects):
 			matches.add(i)
 
 def searchCrisis(searchTerms) :
-	modelSet = {}
+	modelSet = set()
 	for term in searchTerms :
 		modelSet = modelSet.union(Crisis.objects.filter(Q(crisis_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(date__iregex = term) | Q(time__iregex = term) | Q(common_summary__iregex = term)))	
 	return modelSet
+
 def searchPerson(searchTerms) :
-	modelSet = {}
+	modelSet = set()
 	for term in searchTerms :
 		modelSet = modelSet.union(Person.objects.filter(Q(person_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term)))
 	return modelSet			
+
 def searchOrg(searchTerms) :
-	modelSet = {}
+	modelSet = set()
 	for term in searchTerms :
 		modelSet = modelSet.union(Org.objects.filter(Q(org_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term)))
+	return modelSet	
+
+def searchLi(searchTerms) :
+	modelSet = set()
+	for term in searchTerms :
+		modelSet = modelSet.union(Li.objects.filter(Q(href__iregex = term) | Q(embed__iregex = term) | Q(text__iregex = term) | Q(floating_text__iregex = term)))
 	return modelSet		
 
 class match():
