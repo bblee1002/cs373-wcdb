@@ -67,15 +67,15 @@
                 <li embed="http://media.cagle.com/29/2013/06/07/132863_600.jpg" text="img not found">The Government's Always Listening...</li>
             </Images>
             <Videos>
-                 <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/wB4Gn0u4DSE" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-                 <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/FHN8D5bExtU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-                 <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/Rz6rd_q2SYM" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-                 <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/mRoVxUL5X7Q" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-                 <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/6H_ENrJNEi8" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+                 <li embed='//www.youtube.com/embed/wB4Gn0u4DSE'></li>
+                 <li embed='//www.youtube.com/embed/FHN8D5bExtU'></li>
+                 <li embed='//www.youtube.com/embed/Rz6rd_q2SYM'></li>
+                 <li embed='//www.youtube.com/embed/mRoVxUL5X7Q'></li>
+                 <li embed='//www.youtube.com/embed/6H_ENrJNEi8'></li>
             </Videos>
             <Maps>
-                <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+headquarters&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.108518,-76.771774&amp;spn=0.007992,0.013733&amp;z=16&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+headquarters&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.108518,-76.771774&amp;spn=0.007992,0.013733&amp;z=16" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
-                <li embed='&lt;frame width="426" height="320" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=united+states&amp;aq=&amp;sll=39.110046,-76.77074&amp;sspn=0.015867,0.033023&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.09024,-95.712891&amp;spn=16.79998,28.125&amp;z=5&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=united+states&amp;aq=&amp;sll=39.110046,-76.77074&amp;sspn=0.015867,0.033023&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.09024,-95.712891&amp;spn=16.79998,28.125&amp;z=5" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+                <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+headquarters&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.108518,-76.771774&amp;spn=0.007992,0.013733&amp;z=16&amp;output=embed'></li>
+                <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=united+states&amp;aq=&amp;sll=39.110046,-76.77074&amp;sspn=0.015867,0.033023&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.09024,-95.712891&amp;spn=16.79998,28.125&amp;z=5&amp;output=embed'></li>
             </Maps>
             <Feeds>
                 <li href="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook</li>
@@ -94,7 +94,7 @@
         <Organizations>
             <Org ID="ORG_EPAAAA" />
         </Organizations>
-      <Kind>agency of the U.S. federal government which was created for the purpose of protecting human health and the environment by writing and enforcing regulations based on laws passed by Congress</Kind>
+      <Kind>Environmental</Kind>
       <Date>2005-01-01</Date>
       <Locations>
         <li>Belgium</li>
@@ -145,6 +145,16 @@
             <li embed="http://ucanr.edu/blogs/bugsquad/blogfiles/10810.jpg" text="img not found">Bees have abandoned the hive in an apparent colony collapse disorder.</li>
             <li embed="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2013/06/honey-bee-food-colony-collapse-537x405.jpg" text="img not found">Honeyees</li>
         </Images>
+        <Videos>
+                <li embed='//www.youtube.com/embed/BRGrI4AQG70'></li>
+                <li embed='//www.youtube.com/embed/Y0i8A2zCxWM'></li>
+                <li embed='//www.youtube.com/embed/unca1QR3nLs'></li>
+            </Videos>
+            <Maps>
+                <li embed='https://maps.google.com/maps?client=ubuntu&amp;channel=fs&amp;q=usa&amp;oe=utf-8&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=United+States&amp;t=h&amp;ll=37.09024,-95.712891&amp;spn=33.435463,56.25&amp;z=4&amp;output=embed'></li>
+                <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Belgium&amp;aq=&amp;sll=37.09024,-95.712891&amp;sspn=68.344727,101.425781&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Belgium&amp;ll=50.502946,4.471436&amp;spn=1.677083,3.515625&amp;z=8&amp;output=embed'></li>
+                <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=France&amp;aq=&amp;sll=50.503887,4.469936&amp;sspn=3.518451,6.339111&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=France&amp;ll=46.225453,2.219238&amp;spn=7.296992,14.0625&amp;z=6&amp;output=embed'></li>
+            </Maps>
     </Common>
 </Crisis>
 
@@ -195,17 +205,17 @@
                 <li embed="http://cdn.theatlantic.com/static/infocus/texasfire042011/s_t05_19010027.jpg" text="img not found">Smoke rises from wildfire near Possum Kingdom, Texas</li>
             </Images>
             <Videos>
-                <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/pqr2DNaMLiQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-                <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/m67ZokFYl2A" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-                <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/PyG-m8Pd0r8" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+                <li embed='//www.youtube.com/embed/pqr2DNaMLiQ'></li>
+                <li embed='//www.youtube.com/embed/m67ZokFYl2A'></li>
+                <li embed='//www.youtube.com/embed/PyG-m8Pd0r8'></li>
             </Videos>
             <Maps>
-                <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Bastrop,+TX&amp;aq=0&amp;oq=bastrop+county&amp;sll=30.307761,-97.753401&amp;sspn=1.166617,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bastrop,+Texas&amp;ll=30.110385,-97.315178&amp;spn=0.103948,0.145912&amp;z=12&amp;iwloc=A&amp;output=embed">&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Bastrop,+TX&amp;aq=0&amp;oq=bastrop+county&amp;sll=30.307761,-97.753401&amp;sspn=1.166617,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bastrop,+Texas&amp;ll=30.110385,-97.315178&amp;spn=0.103948,0.145912&amp;z=12&amp;iwloc=A" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
-                <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=texas&amp;aq=&amp;sll=30.110533,-97.315178&amp;sspn=0.146121,0.099049&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Texas&amp;z=5&amp;iwloc=A&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=texas&amp;aq=&amp;sll=30.110533,-97.315178&amp;sspn=0.146121,0.099049&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Texas&amp;z=5&amp;iwloc=A" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+                <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Bastrop,+TX&amp;aq=0&amp;oq=bastrop+county&amp;sll=30.307761,-97.753401&amp;sspn=1.166617,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bastrop,+Texas&amp;ll=30.110385,-97.315178&amp;spn=0.103948,0.145912&amp;z=12&amp;iwloc=A&amp;output=embed'></li>
+                <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=texas&amp;aq=&amp;sll=30.110533,-97.315178&amp;sspn=0.146121,0.099049&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Texas&amp;z=5&amp;iwloc=A&amp;output=embed'></li>
             </Maps>
             <Feeds>
-                <li href="https://www.facebook.com/helptexaswildfires">Facebook</li>
-                <li href="https://twitter.com/texas_wildfires">Twitter</li>
+                <li href="https://www.facebook.com/helptexaswildfires">Help Texas Wildfires Facebook</li>
+                <li href="https://twitter.com/texas_wildfires">Texas Wildfires On Twitter</li>
             </Feeds>
             <Summary>Spurred on by the currently ongoing 2011 Southern US Drought, the 2011 Texas Wildfires, beginning on November 15, 2013 and ending on October 31, 2011, were some of the worst the state of Texas has ever seen. It included what is generally acknowledged to be the most catastrophic wildfire in Texas history - the Bastrop County Complex Fire which destroyed over 1600 homes and burned over 34,000 acres of land, killing two people. Declaring a State of Disaster on December 21, 2010, Texas Governor Rick Perry requested President Obama to send federal aid to help with the wildfires.</Summary>
         </Common>
@@ -228,7 +238,7 @@
         <li>Brasilia</li>
     </Locations>
     <HumanImpact>
-        <li>National Pact to improve Education, Health, &amp; Public Transportation</li>
+        <li>National Pact to improve Education, Health, and Public Transportation</li>
         <li>Visibility of votes for forfeit of office</li>
         <li>Criminalization of Corruption and Embezzlement</li>
     </HumanImpact>
@@ -264,7 +274,7 @@
             <li embed="//www.youtube.com/embed/Mic0AYK8F-c" />
         </Videos>
         <Maps>
-            <li embed="https://maps.google.com/maps?q=map+brazil&amp;client=ubuntu&amp;channel=cs&amp;hnear=Brazil&amp;gl=us&amp;t=m&amp;z=4"></li>
+            <li embed="https://maps.google.com/maps?client=ubuntu&amp;channel=cs&amp;q=map+of+brazil&amp;ie=UTF8&amp;hq=&amp;hnear=Brazil&amp;gl=us&amp;t=m&amp;z=4&amp;ll=-14.235004,-51.92528&amp;output=embed"></li>
         </Maps>
         <Summary>The 2013 Brazilian protests started as upset citizens protesting the increase of fares of public transportation methods. Lately the protests have evolved into demanding a better oversite of government workers, better public transportation with lesser cost, and controversy over hosting the 2015 World Cup.</Summary>
     </Common>
@@ -287,7 +297,7 @@
     <HumanImpact>
         <li>The Mexican drug war is not a conventional war, but with more than 60,000 killed in Mexico in the last several years [1] it has a high enough death toll to be one.
             At least 106 US residents killed by April 2011.[3]
-            An additional 230,000 people have been displaced, half internally and half in US. [2]  The US State Department considers Mexico to be a Tier 2 country for human trafficking.[4]  While not entirely responsible for the situation, drug cartels exacerbate it, both by directly by subjecting captives to forced labor and prostitution and through the general atmosphere of lawlessness.[4]  Central Americans make up a significant portion of the victims as they pass through Mexico on their way to the United States.[4]</li>
+            An additional 230,000 people have been displaced, half internally and half in US. [2]  The US State Department considers Mexico to be a Tier 2 country for human trafficking.[4]  While not entirely responsible for the situation, drug cartels exacerbate it, both by directly by subjecting captives to forced labor and prostitution and through the general atmosphere of lawlessness.[4]  Central Americans passing through Mexico on their way to the United States make up a significant portion of the human trafficking victims.[4]</li>
         </HumanImpact>
         <EconomicImpact>
             <li>Although the drug trade injects billions of dollars into the Mexican economy each year and employs many people, it is generally considered to be detrimental to the Mexican economy.  Mexico's economy has enjoyed strong growth during the conflict, but a 1% reduction to economic growth each year [5] and total economic losses of $4.3 billion dollars per year due to violence, lost investment, and drug use [6] are attributed to it.</li>
@@ -387,7 +397,6 @@
 
     <Crisis ID="CRI_UEGYPT" Name="Political unrest in Egypt">
         <People>
-
             <Person ID="PER_MMORSI" />
         </People>
         <Organizations>
@@ -440,10 +449,10 @@
             <li embed="http://media.themalaysianinsider.com/images/uploads/2011/january/31/mubarak.jpg"> Down with Mubarak Protest sign</li>
         </Images>
         <Videos>
-            <li embed="https://www.youtube.com/watch?v=ze1hcPejorQ"> Egypt's president ousted in military coup" </li>
-            <li embed="https://www.youtube.com/watch?v=1dGDv7kzJEI"> Obama, staff huddle over Egypt</li>
-            <li embed="https://www.youtube.com/watch?v=bptZAPw2lgQ"> Analysis: Victory or a sad day for Egypt?</li>
-            <li embed="https://www.youtube.com/watch?v=GcLmi0ZdEpc"> Protest in Egypt - Jan 25, 2011</li>
+            <li embed="//www.youtube.com/embed/oo3T9bbsMT0"> Egypt's president ousted in military coup"</li>
+            <li embed="//www.youtube.com/embed/1dGDv7kzJEI"> Obama, staff huddle over Egypt</li>
+            <li embed="//www.youtube.com/embed/bptZAPw2lgQ"> Analysis: Victory or a sad day for Egypt?</li>
+            <li embed="//www.youtube.com/embed/GcLmi0ZdEpc"> Protest in Egypt - Jan 25, 2011</li>
         </Videos>
         <Summary>Egypt is on the brink of drastic political changes that will affect its future political systems and socioeconomic climate.</Summary>
     </Common>
@@ -513,9 +522,9 @@
             <Videos>
                 <!-- Put youtube link here (pull this URL out of the src="[GET THIS LINK]" attribute in the embed object given by youtube) -->
                 <!-- Embed example for your site: <iframe width="420" height="315" src="[THIS LINK]" frameborder="0" allowfullscreen></iframe> -->
-                <li embed="//www.youtube.com/embed/djOX_GZmJ6s" />
-                <li embed="//www.youtube.com/embed/jscOuWpw_iU" />
-                <li embed="//www.youtube.com/embed/_9OGvcVA3Gw" />
+                <li embed="//www.youtube.com/embed/djOX_GZmJ6s"></li>
+                <li embed="//www.youtube.com/embed/jscOuWpw_iU"></li>
+                <li embed="//www.youtube.com/embed/_9OGvcVA3Gw"></li>
             </Videos>
 
             <!-- Optional summary field for extra random data -->
@@ -543,11 +552,9 @@
     <HumanImpact>
         <li>Natural systems account for about half of GDP of poor.[1]</li>
         <li>Almost 3 billion people rely on wood for fuel and timber.[2]</li>
-        <li></li>
     </HumanImpact>
     <EconomicImpact>
         <li>7% reduction to world GDP by 2050.[1]</li>
-        <li></li>
     </EconomicImpact>
     <ResourcesNeeded>
         <li>Land-efficient agriculture.  Modern technology and plants offer greater yields than subsistence agriculture and the raising of livestock.  48% of deforestation is due to subsistence and 32% due to commercial agriculture.3</li>
@@ -560,19 +567,18 @@
     </WaysToHelp>
     <Common>
         <ExternalLinks>
-            <li href="http://news.bbc.co.uk/2/hi/science/nature/7424535.stm">1. BBC: Economic consequences of deforestation</li>
-            <li href='http://atlas.aaas.org/pdf/63-66.pdf'>2. Forest Products</li>
-            <li href='http://unfccc.int/files/essential_background/background_publications_htmlpdf/application/pdf/pub_07_financial_flows.pdf'>3. Investment and Financial Flows to Address Climate Change</li>
+            <li href="http://news.bbc.co.uk/2/hi/science/nature/7424535.stm"> BBC: Economic consequences of deforestation</li>
+            <li href='http://atlas.aaas.org/pdf/63-66.pdf'> Forest Products</li>
+            <li href='http://unfccc.int/files/essential_background/background_publications_htmlpdf/application/pdf/pub_07_financial_flows.pdf'> Investment and Financial Flows to Address Climate Change</li>
         </ExternalLinks>
 
         <Images>
             <li embed="http://upload.wikimedia.org/wikipedia/commons/4/4c/Global_Forest_Cover_Sub-Regional_Trends.png" text="This is the alt element of the image." />
             <li embed="http://blog.conservation.org/wp-content/uploads/2013/04/brazil-deforestation-map.jpg" text="This is the alt element of the image." />
-
         </Images>
         <Videos>
-            <li embed='https://www.youtube.com/watch?v=ghp0_YB0osw'>Democracy Now: Deforestation Consequences in Africa</li>
-            <li embed='https://www.youtube.com/watch?v=Fo4WXly4QYk'>Greenpeace: Stopping Amazon Deforestation</li>
+            <li embed="//www.youtube.com/embed/ghp0_YB0osw"> Democracy Now: Deforestation Consequences in Africa</li>
+            <li embed="//www.youtube.com/embed/Fo4WXly4QYk"> Greenpeace: Stopping Amazon Deforestation</li>
         </Videos>
     </Common>
 </Crisis>
@@ -586,7 +592,7 @@
         <Org ID="ORG_FEMAAA" />
         <Org ID="ORG_UOCSCI" />
     </Organizations>
-    <Kind>Catatrophic Radiation Event</Kind>
+    <Kind>Radioactive</Kind>
     <Date>2011-03-31</Date>
     <Time>09:00:00+05:30</Time>
     <Locations>
@@ -617,8 +623,8 @@
     </WaysToHelp>
     <Common>
         <Citations>
-            <li> "http://www.bbc.co.uk/news/world-asia-pacific-13598607"> Buerk, Roland. Japanese pensioners volunteer to tackle nuclear crisis. BBC News, Tokyo. 2011 May 31.</li>
-            <li>"http://www.pslweb.org/liberationnews/news/japan-nuclear-crisis.html"> Freeman, Sunil. Japan nuclear crisis highlights dangers of profit-before-people industry. 2011 Mar 27.</li>
+            <li href="http://www.bbc.co.uk/news/world-asia-pacific-13598607"> Buerk, Roland. Japanese pensioners volunteer to tackle nuclear crisis. BBC News, Tokyo. 2011 May 31.</li>
+            <li href="http://www.pslweb.org/liberationnews/news/japan-nuclear-crisis.html"> Freeman, Sunil. Japan nuclear crisis highlights dangers of profit-before-people industry. 2011 Mar 27.</li>
         </Citations>
         <ExternalLinks>
             <li href="https://en.wikipedia.org/wiki/Chernobyl_disaster"> Wikipedia Chernobyl disaster</li>
@@ -629,8 +635,8 @@
             <li embed="http://www.nation.com.pk/print_images/670/2013-04-15/iran-does-not-need-atomic-bomb-nejad-1366049651-3665.jpg"> Mushroom Cloud </li>
         </Images>
         <Videos>
-            <li embed="http://www.youtube.com/watch?v=UHkGJEiDpdw"> Victory Gardens 1941 </li>
-            <li embed="http://www.youtube.com/watch?v=LLCF7vPanrY"> Time lapse map of every nuclear explosion since 1945 </li>
+            <li embed="//www.youtube.com/embed/UHkGJEiDpdw"> Victory Gardens 1941 </li>
+            <li embed="//www.youtube.com/embed/LLCF7vPanrY"> Time lapse map of every nuclear explosion since 1945 </li>
         </Videos>
         <Maps>
             <li embed="http://cnnjohnkingusa.files.wordpress.com/2011/03/nuc-map-2.png"> US Nuclear Power Plants </li>
@@ -649,6 +655,17 @@
     </Organizations>
     <Kind>Proactive engineer</Kind>
     <Location>Japan</Location>
+    <Common>
+        <Citations>
+            <li href="http://interamericansecuritywatch.com/public-rage-catching-up-with-brazils-congress/">Fujita. "Japan Nuclear Crisis: Retirees Volunteer for Fukushima Duty". ABC News. Jun 1, 2011</li>
+        </Citations>
+        <Videos>
+            <li embed="//www.youtube.com/embed/enRGG1KJpWE" />
+        </Videos>
+        <Summary>
+            Yasuteru Yamad is a Japanese engineer who attempted to gather retired engineers as volunteers to clean up Japan's nuclear fallout.He reasoned that older people are less likely to develop the devastating cancers associated with nuclear energy. 
+        </Summary>
+    </Common>
 </Person>
 
 <Person ID="PER_HPASSS" Name="Hildebrando Pascoal">
@@ -670,7 +687,7 @@
         </ExternalLinks>
         <Images>
             <li embed="http://upload.wikimedia.org/wikipedia/commons/d/d0/Hildebrando.jpg" text="img not found">Hildebrando Pascoal arriving at court to be tried.</li>
-            <li href="http://graphics8.nytimes.com/images/2013/06/28/world/jp-brazil2/jp-brazil2-popup.jpg">Hildebrando Pascoal</li>
+            <li embed="http://graphics8.nytimes.com/images/2013/06/28/world/jp-brazil2/jp-brazil2-popup.jpg">Hildebrando Pascoal</li>
         </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/I199ISU6lOE" />
@@ -687,6 +704,7 @@
         <Crisis ID="CRI_BEEDIE" />
     </Crises>
     <Organizations><Org ID="ORG_EPAAAA" /></Organizations>
+    <Kind>Beekeeper</Kind>
     <Location>4802 Gatewood Dr, Colorado Springs, CO, USA</Location>
     <Common>
         <Citations>
@@ -769,13 +787,11 @@
             <li embed="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/6/11/1370966794013/Lindsay-Mills-girlfriend--010.jpg" text="img not found">Edward Snowden's Girlfriend Lindsay</li>
         </Images>
         <Videos>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/wB4Gn0u4DSE" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/qiWpJuUWqOA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed="//www.youtube.com/embed/wB4Gn0u4DSE" />
+            <li embed="//www.youtube.com/embed/qiWpJuUWqOA" />
         </Videos>
         <Maps>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=bolivia&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bolivia&amp;z=5&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=bolivia&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Bolivia&amp;z=5" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=hong+kong&amp;aq=&amp;sll=-16.299051,-63.588867&amp;sspn=39.46404,67.631836&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Hong+Kong&amp;z=9&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=hong+kong&amp;aq=&amp;sll=-16.299051,-63.588867&amp;sspn=39.46404,67.631836&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Hong+Kong&amp;z=9" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=22.395793,114.109497&amp;sspn=2.419894,4.22699&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=60.75916,91.933594&amp;spn=30.757311,74.707031&amp;z=3&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=22.395793,114.109497&amp;sspn=2.419894,4.22699&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=60.75916,91.933594&amp;spn=30.757311,74.707031&amp;z=3" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=30.245673,-97.768836&amp;sspn=0.141324,0.264187&amp;g=78704&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=61.52401,105.318756&amp;spn=47.221317,135.263672&amp;t=m&amp;z=4&amp;output=embed"/>
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook page</li>
@@ -792,7 +808,37 @@
     <Organizations>
         <Org ID="ORG_NSAAAA"/>
     </Organizations>
-    <!-- More elements here -->
+    <Kind>President</Kind>
+    <Location>Ecuador</Location>
+	<Common>
+		<Citations>
+			<li href="http://en.wikipedia.org/wiki/Rafael_Correa">"Rafael Correa". Wikipedia. Updated: 15 July, 2013. Visited: 23 July, 2013.</li>
+			<li href="http://www.theaustralian.com.au/news/world/ecuador-leader-rafael-correa-urges-julian-assange-settlement/story-e6frg6so-1226580631223">"Ecuador Leader Rafael Correa Urges Julian Assange Settlement". The Australian. 19 February, 2013. Visited: 23 July, 2013.</li>
+		</Citations>
+		<ExternalLinks>
+			<li href="http://en.wikipedia.org/wiki/Rafael_Correa">Wikipedia: Rafael Correa</li>
+			<li href="http://en.mercopress.com/2011/05/10/president-correa-s-victory-margin-in-controversial-referendum-is-narrowing">Rafael Correa's Controversial Referendum</li>
+			<li href="http://www.theaustralian.com.au/news/world/ecuador-leader-rafael-correa-urges-julian-assange-settlement/story-e6frg6so-1226580631223">
+			Ecuadorian Leader Rafael Correa Urges Julian Assange Settlement</li>
+			<li href="http://www.politico.com/story/2013/06/edward-snowden-ecuador-93600.html">Rafael Correa On Edward Snowden's Situation</li>
+		</ExternalLinks>
+		<Images>
+			<li embed="http://cdn.informationnigeria.org/wp-content/uploads/2013/06/ecuador-rafael-correa.gif" text="img not found">Ecuadorian President Rafael Correa</li>
+			<li embed="http://en.mercopress.com/data/cache/noticias/31429/0x0/rafael-correa.jpg" text="img not found">Rafael Correa anxiously awaiting the results of a controversial referendum to ban cockfighting</li>
+		</Images>
+		<Videos>
+			<li embed="//www.youtube.com/embed/dAGjn547tcs" />
+			<li embed="//www.youtube.com/embed/ZvUwC5JTAJY" />
+		</Videos>
+		<Maps>
+			<li embed="https://maps.google.com/maps?q=ecuador&amp;ie=UTF8&amp;hq=&amp;hnear=Ecuador&amp;t=m&amp;ll=-1.845384,-78.134766&amp;spn=30.383735,37.353516&amp;z=4&amp;output=embed" />
+		</Maps>
+		<Feeds>
+			<li href="https://www.facebook.com/pages/Rafael-Correa/15525611124">Rafael Correa On Facebook</li>
+			<li href="https://twitter.com/MashiRafael">Rafael Correa On Twitter</li>
+		</Feeds>
+		<Summary>Rafael Correa is the president of the Republic of Ecuador. He is also the former president of the Union of South American Nations. Elected in 2006, he used his power as president of Ecuador to declare Ecuador's national debt illegitimate and successfully fought in international courts to have the debt reduced by 60%. He is currently famous, however, for offering to provide asylum to Edward Snowden, the whistleblower who leaked information about the American government's vast surveillance program known as PRISM and for protecting Wikileaks founder Julian Assange by allowing him to remain within the Ecuadorian embassy in the United Kingdom.</Summary>
+	</Common>
 </Person>
 
 <Person ID="PER_GUZMAN" Name="Joaquin Guzman Loera">
@@ -810,19 +856,17 @@
             <li href="http://web.archive.org/web/20080315071013/http://www.state.gov/p/inl/narc/rewards/39413.htm">[2] US State Dept: Bounty</li>
             <li href="http://www.forbes.com/sites/nathanvardi/2011/06/15/joaquin-guzman-has-become-the-biggest-drug-lord-ever/">[3] Forbes: Biggest Drug Lord Ever</li>
         </ExternalLinks>
-
         <Images>
             <li embed="http://2.bp.blogspot.com/-u-TnjeTzz24/TsmuUHOMNdI/AAAAAAAAI0c/QHrUSxufOVw/s1600/chapo01.jpg" text="This is the alt element of the image." />
             <li embed="http://images.forbes.com/media/lists/10/2009/joaquin-guzman-loera.jpg" text="This is the alt element of the image." />
-
         </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/v7h3WkcEU00" />
             <li embed="//www.youtube.com/embed/H6X1nFa53uQ" />
         </Videos>
         <Summary>
-          Joaquin Guzman Loera, also known as "El Chapo Guzman" is the leader of Mexico's most powerful drug cartel, the Sinaloas.  According to Forbes, Guzman is a billionaire[1] and the "biggest drug lord ever."[3]  He is Mexico's wanted man with a US State Department reward of up to $5 million for information leading to his arrest.[2]
-      </Summary>
+            Joaquin Guzman Loera, also known as "El Chapo Guzman" is the leader of Mexico's most powerful drug cartel, the Sinaloas.  According to Forbes, Guzman is a billionaire[1] and the "biggest drug lord ever."[3]  He is Mexico's wanted man with a US State Department reward of up to $5 million for information leading to his arrest.[2]
+        </Summary>
   </Common>    
 </Person>
 
@@ -849,16 +893,16 @@
             <li embed="http://a.abcnews.com/images/Politics/ap_Rick_Perry_2_jt_110813_wg.jpg" text="img not found">Governor Rick Perry in the middle of a fiery speech</li>
         </Images>
         <Videos>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/0uvmKnFY4uk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/iESaX8YioyQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/iaXDrTGmCgU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed='//www.youtube.com/embed/0uvmKnFY4uk'></li>
+            <li embed='//www.youtube.com/embed/iESaX8YioyQ'></li>
+            <li embed='//www.youtube.com/embed/iaXDrTGmCgU'></li>
         </Videos>
         <Maps>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+            <li embed="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/GovernorPerry">Facebook</li>
-            <li href="https://twitter.com/GovernorPerry">Twitter</li>
+            <li href="https://www.facebook.com/GovernorPerry">Governor Perry's Facebook</li>
+            <li href="https://twitter.com/GovernorPerry">Governor Perry On Twitter</li>
         </Feeds>
         <Summary>Born in Paint Creek, Texas on March 4, 1950, Rick Perry is currently the Governor of the state of Texas. He is a staunchly conservative politician who is famous for attempting to name 3 federal agencies he intended to end if he won the 2012 Presidential Election but failing to be able to name the third. He is also famous for holding 3 days of prayer in an attempt to end the Texas Wildfire crisis in 2011. Eventually, Texas firefighters were able to successfully put out the flames as the wildfire season drew to a close. Perry requested federal aid, and in response, FEMA reimbursed the state of Texas $48 million for fire suppression costs.</Summary>
     </Common>
@@ -888,16 +932,13 @@
             <li embed="http://i.telegraph.co.uk/multimedia/archive/02613/egypt-morsi_2613799b.jpg" text="img not found">Crowds rallying for the deposing of Egyptian President Mohamed Morsi</li>
         </Images>
         <Videos>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/LyDOAQNsTrI" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/u0Trsszw1Uo" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/TbnYc65pN_g" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed="//www.youtube.com/embed/LyDOAQNsTrI"></li>
+            <li embed="//www.youtube.com/embed/u0Trsszw1Uo"></li>
+            <li embed="//www.youtube.com/embed/TbnYc65pN_g"></li>
         </Videos>
-        <Maps>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=egypt&amp;aq=&amp;sll=33.870416,102.041016&amp;sspn=65.978644,50.712891&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Egypt&amp;ll=26.824071,30.805664&amp;spn=13.701404,18.676758&amp;z=5&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=egypt&amp;aq=&amp;sll=33.870416,102.041016&amp;sspn=65.978644,50.712891&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Egypt&amp;ll=26.824071,30.805664&amp;spn=13.701404,18.676758&amp;z=5" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
-        </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/pages/Mohamed-Morsy/264081660269685">Facebook</li>
-            <li href="https://twitter.com/MuhammadMorsi">Twitter</li>
+            <li href="https://www.facebook.com/pages/Mohamed-Morsy/264081660269685">Mohamed Morsi On Facebook</li>
+            <li href="https://twitter.com/MuhammadMorsi">Mohamed Morsi On Twitter</li>
         </Feeds>
         <Summary>Born on August 8, 1951, Mohamed Morsi was elected as President of Egypt and assumed office on April 30, 2011. However, many Egyptian citizens were unhappy with his heavy-handed approach to governance and with his strong leaning towards incorporating religion into law. They were especially displeased with his decision to significantly expand his presidential powers and remove judicial review of his decrees soon after being elected into office. As a result, he was deposed on July 3, 2013.</Summary>
     </Common>
@@ -921,17 +962,14 @@
             <li href="http://www.cbd.int/idb/doc/2013/messages/idb-2013-iucn-pres-message.pdf">IUCN: Zhang Xinsheng On Plan For Next Four Years</li>
         </ExternalLinks>
         <Images>
-            <li embed="http://cmsdata.iucn.org/img/zhang_xinsheng_51854.jpg" />
+            <li embed="http://cmsdata.iucn.org/img/zhang_xinsheng_51854.jpg" text="img not found">Newly elected President of the International Union for Conservation of Nature, Zhang Xinsheng</li>
         </Images>
         <Videos>
-            <li embed="http://www.youtube.com/watch?v=o-rR4nKbUO8">Zhang Xinsheng</li>
+            <li embed="//www.youtube.com/embed/o-rR4nKbUO8">Zhang Xinsheng</li>
         </Videos>
         <Maps>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4" style="color:#0000FF;text-align:left">View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=china&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.110889,0.792389&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=China&amp;z=4&amp;output=embed"></li>
         </Maps>
-        <Feeds>
-            <li>No Social Feeds For Zhang Xinsheng</li>
-        </Feeds>
         <Summary>Zhang Xinsheng was recently elected to be President of the International Union for Conservation of Nature on September 12, 2012.</Summary>
     </Common>
 </Person>
@@ -996,7 +1034,7 @@
         </Videos>
         <Feeds>
             <!-- Put feed URL here and embed on your site in your own cool way-->
-            <li embed="https://twitter.com/OfficialMDamon" />
+            <li href="https://twitter.com/OfficialMDamon" />
         </Feeds>
         <Summary>Matt Damon was born on October 8, 1970. He co-founded Water.org in July 2009 to help bring potable water to those less fortunate </Summary>
     </Common>
@@ -1015,6 +1053,24 @@
         <li> A group that reports on safety issues at nuclear plants.</li>
         <li> Founded in 1969 by faculty and students of MIT. </li>
     </History>
+    <ContactInfo>
+        <li>Phone: (202) 223-6133</li>
+    </ContactInfo>
+    <Common>
+        <Citations>
+            <li href="http://topics.nytimes.com/topics/reference/timestopics/organizations/u/union_of_concerned_scientists/index.html"> Union of Concerned Scientists. The New York Times. 22 July, 2013. Times Topics.</li>
+        </Citations>
+        <ExternalLinks>
+            <li href="http://www.ucsusa.org/about/"> Union of Concerned Scientists : About page</li>
+        </ExternalLinks>
+        <Videos>
+            <li embed="//www.youtube.com/embed/7FBmfseoKeg?list=PLTsyt5jJvEGJQQa7Y2hI1-NYi8uYpmPdq"> David Lochbaum on Lessons Learned from Fukushima</li>
+            <li embed="//www.youtube.com/embed/XibS-W_loJ0"> Edwin Lyman explains the nuclear crisis in Japan on the Rachel Maddow Show, 3/11/2011.</li>
+        </Videos>
+        <Feeds>
+            <li href="https://twitter.com/CleanEnergyPrin">Twitter</li>
+        </Feeds>
+    </Common>
 </Organization>
 
 <Organization ID="ORG_NSAAAA" Name="National Security Agency">
@@ -1038,8 +1094,8 @@
         <Citations>
             <li href="http://en.wikipedia.org/wiki/National_Security_Agency">National Security Agency. Wikipedia. Updated: 7 July, 2013. Visited: 7 July, 2013.</li>
             <li href="http://www.guardian.co.uk/world/2013/jun/06/nsa-phone-records-verizon-court-order">Greenwald, Glenn. "NSA Collecting Phone Records of Millions of Verizon Customers Daily". The Guardian. 5 June, 2013. Visited: 7 July, 2013.</li>
-            <li href="//www.nytimes.com/2013/06/28/opinion/the-criminal-nsa.html?pagewanted=all&amp;_r=0">Granick, Jennifer Stisa; Sprigman, Christopher Jon. "The Criminal N.S.A.". The New York Times. 27 June, 2013. Visited: 7 July, 2013. </li>
-            <li href="http://en. wikipedia.org/wiki/Utah_Data_Center">Utah Data Center. Wikipedia. Updated: 6 July, 2013. Visited: 7 July, 2013.</li>
+            <li href="http://www.nytimes.com/2013/06/28/opinion/the-criminal-nsa.html?pagewanted=all&amp;_r=0">Granick, Jennifer Stisa; Sprigman, Christopher Jon. "The Criminal N.S.A.". The New York Times. 27 June, 2013. Visited: 7 July, 2013. </li>
+            <li href="http://en.wikipedia.org/wiki/Utah_Data_Center">Utah Data Center. Wikipedia. Updated: 6 July, 2013. Visited: 7 July, 2013.</li>
         </Citations>
         <ExternalLinks>
             <li href="http://www.nsa.gov/">National Security Agency</li>
@@ -1056,17 +1112,17 @@
             <li embed="http://media.cagle.com/29/2013/06/07/132863_600.jpg" text="img not found">Big Brother is Always Listening...</li>
         </Images>
         <Videos>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/FHN8D5bExtU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/Rz6rd_q2SYM" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/mRoVxUL5X7Q" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
-            <li embed='&lt;iframe width="560" height="315" src="//www.youtube.com/embed/qAPh5Pe1Iwk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'></li>
+            <li embed="//www.youtube.com/embed/FHN8D5bExtU"></li>
+            <li embed="//www.youtube.com/embed/Rz6rd_q2SYM"></li>
+            <li embed="//www.youtube.com/embed/mRoVxUL5X7Q"></li>
+            <li embed="//www.youtube.com/embed/qAPh5Pe1Iwk"></li>
         </Videos>
         <Maps>
-            <li embed='&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;'></li>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/NSACareers">Facebook</li>
-            <li href="https://twitter.com/nsa">Twitter</li>
+            <li href="https://www.facebook.com/NSACareers">NSA On Facebook</li>
+            <li href="https://twitter.com/nsa">NSA On Twitter</li>
         </Feeds>
     </Common>
 </Organization>
@@ -1099,11 +1155,10 @@
             <li embed="http://openir.media.mit.edu/main/wp-content/uploads/2012/08/FEMA_Clr.jpeg" text="img not found">FEMA</li>
         </Images>
         <Videos>
-            <li embed="https://www.youtube.com/user/FEMA" />
             <li embed="//www.youtube.com/embed/DpBDSbVClgQ?list=PL720Kw_OojlJMk-_Hk1T_gbcOgYJf7jGW" />
         </Videos>
         <Maps>
-            <li embed="https://maps.google.com/maps?q=500+C+Street+SW,+Washington,+DC+2047&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=68.344727,129.550781&amp;t=h&amp;hnear=500+C+St+SW,+Washington,+District+of+Columbia+20024&amp;z=17" />
+            <li embed="https://maps.google.com/maps?client=ubuntu&amp;channel=cs&amp;q=500+C+Street+SW,+Washington,+DC+2047&amp;ie=UTF8&amp;hq=&amp;hnear=500+C+St+SW,+Washington,+District+of+Columbia+20024&amp;gl=us&amp;t=h&amp;z=14&amp;ll=38.885446,-77.018576&amp;output=embed" />
         </Maps>
         <Feeds>
             <li href="https://www.facebook.com/FEMA">Facebook</li>
@@ -1148,7 +1203,6 @@
         </Videos>
         <Maps>
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=EPA&amp;aq=&amp;sll=38.894089,-77.028719&amp;sspn=0.008409,0.012381&amp;t=h&amp;ie=UTF8&amp;hq=EPA&amp;hnear=&amp;ll=38.894089,-77.028708&amp;spn=0.008016,0.013733&amp;z=16&amp;output=embed" />
-            <li embed="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=EPA&amp;aq=&amp;sll=38.894089,-77.028719&amp;sspn=0.008409,0.012381&amp;t=h&amp;ie=UTF8&amp;hq=EPA&amp;hnear=&amp;ll=38.894089,-77.028708&amp;spn=0.008016,0.013733&amp;z=16;source=embed" />
         </Maps>
         <Feeds>
             <li href="facebook.com">Facebook</li>
@@ -1170,6 +1224,24 @@
         <li>Founded in 1928.</li>
         <li>Largest political opposition organization across Arab states.</li>
     </History>
+    <ContactInfo>
+        <li>Email: mail@bro.org</li>
+    </ContactInfo>
+    <Common>
+        <ExternalLinks>
+            <li href="http://www.ikhwanweb.com/">The official English website of Muslim Brotherhood</li>      
+        </ExternalLinks>
+        <Videos>
+            <li embed="//www.youtube.com/embed/ra-Cvi6cT5E">Egypt: The future of the Muslim Brotherhood</li>
+            <li embed="//www.youtube.com/embed/D3ICP1hvbdo">Muslim Brotherhood representative realizes he's on same show with Israeli, gets hysterical</li>
+        </Videos>
+        <Feeds>
+            <li href="twitter.com">Twitter</li>
+        </Feeds>
+        <Summary>
+            The Muslim Brotherhood is assumed to encourage high levels of violence, and holds bigoted views to justify the anger that leads to attacks.
+        </Summary>
+    </Common>
 </Organization>
 
 <Organization ID="ORG_EGYGOV" Name="Egyptian Government">
@@ -1188,6 +1260,21 @@
         <li>Mohammed ElBaradei part of the ousting revolution of 2011 as the Vice President of Egypt.</li>
         <li>A military coup deposed Morsi  on July 3, 2013.</li>
     </History>
+    <Common>
+        <Citations>
+            <li href="http://abcnews.go.com/blogs/headlines/2013/07/egypts-interim-government-sworn-in-after-deadly-clashes/"> Hunter, Molly. Egypt’s Interim Government Sworn in After Deadly Clashes. 16 July, 2013. ABC News Blog.</li>
+        </Citations>
+        <ExternalLinks>
+            <li href="http://www.sis.gov.eg/en/">Egypt state information service</li>      
+        </ExternalLinks>
+        <Videos>
+            <li embed="//www.youtube.com/embed/pR95q8VmCOM">Egypt's anti-government protesters celebrate army's ultimatum</li>
+            <li embed="//www.youtube.com/embed/wTb6RtziZZs">Egypt swears in new interim government</li>
+        </Videos>
+        <Summary>
+            Right now Egypt's government structure is highly unstable and is largely influenced by the military and corrupt politicians.
+        </Summary>
+    </Common>
 </Organization>
 
 <Organization ID="ORG_IUCNAT" Name="International Union for Conservation of Nature">
@@ -1209,11 +1296,11 @@
     </ContactInfo>
     <Common>
         <Videos>
-            <li embed="http://www.youtube.com/watch?feature=player_embedded&amp;v=0uf5e9vsXWo#at=34">International Union for Conservation of Nature</li>
-            <li embed='https://www.youtube.com/watch?v=cnth0SouJrA'>IUCN: Forests for the 21st Century</li>
+            <li embed="//www.youtube.com/embed/0uf5e9vsXWo">International Union for Conservation of Nature></li>
+            <li embed="//www.youtube.com/embed/cnth0SouJrA">IUCN: Forests for the 21st Century></li>
         </Videos>
         <Feeds>
-            <li embed="https://twitter.com/IUCN/status/245862086243139584" />
+            <li href="https://twitter.com/IUCN" />
         </Feeds>
     </Common>
 </Organization>
@@ -1275,7 +1362,6 @@
     </ContactInfo>
     <Common>
         <Images>
-            <li embed="http://www.google.com/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=images&amp;cd=&amp;docid=hVS6ItIEhPJogM&amp;tbnid=wHLVFT_OPH8X1M:&amp;ved=0CAUQjRw&amp;url=http%3A%2F%2Fvkb.isvg.org%2FWiki%2FGroups%2FLos_Zetas&amp;ei=kUXfUbqcIYS7ywHnrIHABA&amp;bvm=bv.48705608,d.aWc&amp;psig=AFQjCNEyZJnkGVjeNppw_WBUllfqCaxi8w&amp;ust=1373673220325731" />
             <li embed="http://www.cbc.ca/gfx/images/news/photos/2011/08/28/li-drug-cartels-bodies620-r.jpg" />
         </Images>
         <Videos>
@@ -1390,7 +1476,7 @@
             <li embed="//www.youtube.com/embed/08P0i-TAI0c" />
             </Videos>
             <Maps>
-            <li embed="https://maps.google.com/maps?q=brazil&amp;hl=en&amp;client=ubuntu&amp;channel=fs&amp;oe=utf-8&amp;hnear=Brazil&amp;t=h&amp;z=4" />
+            <li embed="https://maps.google.com/maps?client=ubuntu&amp;channel=cs&amp;q=map+of+brazil&amp;ie=UTF8&amp;hq=&amp;hnear=Brazil&amp;gl=us&amp;t=m&amp;z=4&amp;ll=-14.235004,-51.92528&amp;output=embed" />
             </Maps>
             <Feeds>
             <li href="https://www.facebook.com/pages/Brazilian-military-government/119755061404595?nr">Facebook</li>

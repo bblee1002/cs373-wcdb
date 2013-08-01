@@ -38,19 +38,40 @@ def peopleView(request, people_id):
   Renders view for people.
   """
   per_dict = getPerson(people_id)
-  if (people_id == 'PER_GUZMAN') :
-    print "Hello"
-    return render(request, 'wcdb/per_temp.html', per_dict)
   # if len(per_dict) == 0
   #   return HttpResponse('person does not exist')
   return render(request, 'wcdb/per_temp.html', per_dict)
 
-def crisesPage(request):
+def crisesPage(request, kind):
   """
   Displays all imported crises. 
   """
+  print kind
   crisisIDs = getCrisisIDs()
-  return render(request, 'wcdb/crisesPage.html', {'crisisIDs': crisisIDs})
+  query_result_set = Crisis.objects.all()
+  query_result_set2 = []
+  kinds = []
+  for obj in query_result_set:
+    found = False
+    for kind_li in kinds:
+      if kind_li.upper() == obj.kind.upper():
+        found = True
+    if not found:
+      kinds.append(obj.kind)
+  if kind != '' :
+    query_result_set = Crisis.objects.filter(kind=kind)
+    for obj in query_result_set:
+      print "KIND: " + obj.kind
+    # for obj in query_result_set :
+    #   print "Obj Kind: " + obj.kind #+ "Object.kind length : " + str(len(obj.kind))
+    #   print "Kind: " + kind #+ "Kind length: " + str(len(kind))
+    #   if obj.kind.upper() == kind.upper():
+    #     print "Added to result"
+    #     query_result_set2.append(obj)
+#    query_result_set = Crisis.objects.filter(kind=(u'' + kind))
+  print kind
+
+  return render(request, 'wcdb/crisesPage.html', {'crisisIDs' : crisisIDs, 'kinds' : kinds, 'kind' : kind })
 
 def orgPage(request):
   """
