@@ -45,6 +45,28 @@ def peopleView(request, people_id):
   #   return HttpResponse('person does not exist')
   return render(request, 'wcdb/per_temp.html', per_dict)
 
+def crisesPage(request):
+  """
+  Displays all imported crises. 
+  """
+  crisisIDs = getCrisisIDs()
+  return render(request, 'wcdb/crisesPage.html', {'crisisIDs': crisisIDs})
+
+def orgPage(request):
+  """
+  Displays all imported organizations. 
+  """
+  orgIDs = getOrgIDs()
+  return render(request, 'wcdb/orgPage.html', {'orgIDs': orgIDs})
+
+def pplPage(request):
+  """
+  Displays all imported people. 
+  """
+  peopleIDs = getPeopleIDs()
+  return render(request, 'wcdb/pplPage.html', {'peopleIDs': peopleIDs})
+
+
 def index(request):
   """
   Renders view for homepage.

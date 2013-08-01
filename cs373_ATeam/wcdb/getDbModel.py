@@ -5,6 +5,34 @@ import collections
 Views.py renders the view specified by a url.
 """
 
+def getLi(id):
+  """
+  Accesses information about specific list item from the db
+  Queries db using model_id of the list item
+  Returns dictionary of individual list item's data of form:
+  {href : [], embed : [], text : [], floating_text : [], model_id : *, kind: []}
+  """
+  try:
+    list_items = Li.objects.filter(model_id = id)
+  except:
+    return {}
+
+  li_dict = {}
+  li_dict['href'] = []
+  li_dict['embed'] = []
+  li_dict['floating_text'] = []
+  li_dict['model_id'] = id
+
+  # #Create keys of dict and give values
+  for li in list_items:
+    if li.href is not None and li.href != '':
+      li_dict['href'].append(li.href)
+    if li.embed is not None and li.embed != '':
+      li_dict['embed'].append(li.embed)
+    if li.floating_text is not None and li.floating_text != '':
+      li_dict['floating_text'].append(li.floating_text)
+
+  return li_dict
 
 def getCrisis(id):
   """
@@ -194,7 +222,7 @@ def getCrisisIDs():
   """
   doesn't take anything as parameters.
   Searches through Crises table in database, returns all of the crises 
-  stored there, and saves them in a dictionary where key value pares are
+  stored there, and saves them in a dictionary where key value pairs are
   crisis_ID and crisisName
   """
   objects = Crisis.objects.all()
@@ -207,8 +235,8 @@ def getCrisisIDs():
 def getOrgIDs():
   """
   doesn't take anything as parameters.
-  Searches through Orgs table in database, reaturns all of the orgs 
-  stored there, and saves them in a dictionary where key value pares are
+  Searches through Orgs table in database, returns all of the orgs 
+  stored there, and saves them in a dictionary where key value pairs are
   org_ID and orgName
   """
   objects = Org.objects.all()
@@ -221,8 +249,8 @@ def getOrgIDs():
 def getPeopleIDs():
   """
   doesn't take anything as parameters.
-  Searches through People table in database, reaturns all of the people 
-  stored there, and saves them in a dictionary where key value pares are
+  Searches through People table in database, returns all of the people 
+  stored there, and saves them in a dictionary where key value pairs are
   person_ID and personName
   """
   objects = Person.objects.all()
