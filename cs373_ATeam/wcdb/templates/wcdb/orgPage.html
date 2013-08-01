@@ -1,0 +1,39 @@
+{% extends "wcdb/default.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/user-list.css"></link>
+
+
+
+    <!-- Crises table -->
+    <div class="row-fluid table">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="span4 sortable">
+                        Organizations
+                    </th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+
+        	{% for k, v in orgIDs.items %}
+            <!-- row -->
+            <tr class="first">
+                <td>
+                    <img src="img/lens.png" class="img-circle avatar hidden-phone" />
+                    <a href="/orgs/{{ k }}">{{ v }}</a>
+                    
+                </td>
+            {% empty %}
+					<li>IMPORT SOME DATA!</li>    
+        	{% endfor %}   
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- end users table -->
+
+{% endblock content %}
