@@ -21,7 +21,7 @@ def getLi(id):
   li_dict['href'] = []
   li_dict['embed'] = []
   li_dict['floating_text'] = []
-  li_dict['model_id'] = id
+  #li_dict['model_id'] = id
 
   # #Create keys of dict and give values
   for li in list_items:

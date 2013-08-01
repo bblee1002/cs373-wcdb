@@ -1,4 +1,15 @@
 {% extends "wcdb/default.html" %}
 {% block content %}
-
+	{% for query in queries_dict.items %}
+		<dd>{{ query.0 }}</dd>
+		<dd>Sequel Query: {{ query.1.0 }} </dd>
+		<br>
+		{% for obj in query.1.1 %}
+			<dd> {{ obj.floating_text }} </dd>
+		{% endfor %}
+		{% for obj in query.1.1 %}
+			<dd> {{ obj.name }} </dd>
+		{% endfor %}
+		<br>
+	{% endfor %}
 {% endblock content %}
