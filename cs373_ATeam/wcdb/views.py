@@ -58,8 +58,10 @@ def crisesPage(request):
     crisis = Crisis.objects.get(crisis_ID = li.model_id)
     if type(crisisIDs[li.model_id]) != tuple:
       summary = crisis.common_summary[0:101] + '...'
-      crisisIDs[li.model_id] = (crisisIDs[li.model_id], li.embed, summary)
-
+      if li.embed != '':
+        crisisIDs[li.model_id] = (crisisIDs[li.model_id], li.embed, summary)
+      else:
+        crisisIDs[li.model_id] = (crisisIDs[li.model_id], '/static/img/white-space1.jpg', summary)
   return render(request, 'wcdb/crisesPage.html', {'crisisIDs': crisisIDs})
 
 def orgPage(request):
@@ -67,6 +69,18 @@ def orgPage(request):
   Displays all imported organizations. 
   """
   orgIDs = getOrgIDs()
+
+  liObjects = Li.objects.filter(kind = 'Images', model_id__istartswith='ORG_')
+
+  for li in liObjects:
+    org = Org.objects.get(org_ID = li.model_id)
+    if type(orgIDs[li.model_id]) != tuple:
+      summary = org.common_summary[0:101] + '...'
+      if li.embed != '':
+        orgIDs[li.model_id] = (orgIDs[li.model_id], li.embed, summary)
+      else:
+        orgIDs[li.model_id] = (orgIDs[li.model_id], '/static/img/white-space1.jpg', summary)
+
   return render(request, 'wcdb/orgPage.html', {'orgIDs': orgIDs})
 
 def pplPage(request):
@@ -74,6 +88,18 @@ def pplPage(request):
   Displays all imported people. 
   """
   peopleIDs = getPeopleIDs()
+
+  liObjects = Li.objects.filter(kind = 'Images', model_id__istartswith='PER_')
+
+  for li in liObjects:
+    person = Person.objects.get(person_ID = li.model_id)
+    if type(peopleIDs[li.model_id]) != tuple:
+      summary = person.common_summary[0:101] + '...'
+      if li.embed != '':
+        peopleIDs[li.model_id] = (peopleIDs[li.model_id], li.embed, summary)
+      else:
+        peopleIDs[li.model_id] = (peopleIDs[li.model_id], '/static/img/white-space1.jpg', summary)
+
   return render(request, 'wcdb/pplPage.html', {'peopleIDs': peopleIDs})
 
 
