@@ -81,7 +81,6 @@
 	    </div>
 	</div>
 
-
 	<!-- orders table -->
     <div class="table-wrapper orders-table section">
         <div class="row-fluid head">
@@ -90,7 +89,9 @@
         </div>
 
         <div class="row-fluid filter-block">
-         
+            <div class="pull-right">
+                <input type="text" class="search order-search" placeholder="Search.." />
+            </div>
         </div>
 
         <div class="row-fluid">
@@ -133,11 +134,12 @@
 								<li>IMPORT SOME DATA!</li>
 							{% endfor %}
                         </td>
+                        <td>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 	        <!-- end orders table -->
-
 {% endblock content %}

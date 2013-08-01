@@ -1,0 +1,39 @@
+{% extends "wcdb/default.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/user-list.css"></link>
+
+
+
+    <!-- Crises table -->
+    <div class="row-fluid table">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="span4 sortable">
+                        People
+                    </th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+
+        	{% for k, v in peopleIDs.items %}
+            <!-- row -->
+            <tr class="first">
+                <td>
+                    <img width="100" height="10" src="/static/img/white-space1.jpg" class="img-box" />
+                    <a href="/people/{{ k }}">{{ v }}</a>
+                    
+                </td>
+            {% empty %}
+					<li>IMPORT SOME DATA!</li>    
+        	{% endfor %}   
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- end users table -->
+
+{% endblock content %}
