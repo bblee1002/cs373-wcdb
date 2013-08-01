@@ -3,11 +3,12 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from loadModels import validate, populate_models
 from unloadModels import export_xml
+from models import *
 import subprocess
 from getDbModel import  getCrisisIDs, getOrgIDs, getPeopleIDs
 from getDbModel import getCrisis, getPerson, getOrg
+import collections
 from models import *
-
 
 """
 Views.py renders the view specified by a url.
@@ -46,8 +47,16 @@ def crisesPage(request, kind):
   """
   Displays all imported crises. 
   """
-  print kind
   crisisIDs = getCrisisIDs()
+
+  liObjects = Li.objects.filter(kind = 'Images', model_id__istartswith='CRI_')
+
+  for li in liObjects:
+    crisis = Crisis.objects.get(crisis_ID = li.model_id)
+    if type(crisisIDs[li.model_id]) != tuple:
+      summary = crisis.common_summary[0:101] + '...'
+      crisisIDs[li.model_id] = (crisisIDs[li.model_id], li.embed, summary)
+
   query_result_set = Crisis.objects.all()
   query_result_set2 = []
   kinds = []
@@ -62,14 +71,6 @@ def crisesPage(request, kind):
     query_result_set = Crisis.objects.filter(kind=kind)
     for obj in query_result_set:
       print "KIND: " + obj.kind
-    # for obj in query_result_set :
-    #   print "Obj Kind: " + obj.kind #+ "Object.kind length : " + str(len(obj.kind))
-    #   print "Kind: " + kind #+ "Kind length: " + str(len(kind))
-    #   if obj.kind.upper() == kind.upper():
-    #     print "Added to result"
-    #     query_result_set2.append(obj)
-#    query_result_set = Crisis.objects.filter(kind=(u'' + kind))
-  print kind
 
   return render(request, 'wcdb/crisesPage.html', {'crisisIDs' : crisisIDs, 'kinds' : kinds, 'kind' : kind })
 

@@ -13,6 +13,28 @@ def search(query):
 	exactPeople = searchPerson([query])
 	exactOrgs   =    searchOrg([query])
 	exactLis    =     searchLi([query])
+
+	result = []
+
+	for item in exactCrises :
+		match = Match(item.crisis_ID, numTerms)
+		result.append(match)
+
+	for item in exactPeople :
+		match = Match(item.person_ID, numTerms)
+		result.append(match)
+
+	for item in exactOrgs :
+		match = Match(item.org_ID, numTerms)
+		result.append(match)
+
+	for exactItem in exactLis :
+		for resultItem in result :
+			if resultItem.id != exactItem.model_id :
+				match = Match(exactItem.model_id, numTerms)
+				result.append(match)
+
+
 	# print exactCrises
 	# print exactPeople
 	# print exactOrgs
@@ -22,13 +44,12 @@ def search(query):
 	orCrises = searchCrisis(searchTerms).difference(exactCrises)
 	orPeople = searchPerson(searchTerms).difference(exactPeople)
 	orOrgs   =      searchOrg(searchTerms).difference(exactOrgs)
-	orLi     =        searchLi(searchTerms).difference(exactLis)
+	orLis    =        searchLi(searchTerms).difference(exactLis)
 	# print orCrises
 	# print orPeople
 	# print orOrgs
 
 	matchingCount = {}
-	
 
 	for crisis in orCrises:
 		matchingCount[crisis.crisis_ID] = 0
@@ -61,33 +82,45 @@ def search(query):
 				matchingCount[org.org_ID] += 1
 
 	#dependent on what paul decides to do
-	# for li in orLis:
-	# 	liString = str(getOrg(org.org_ID)).upper()
-	# 	for term in searchTerms:
-	# 		if term in liString:
-	# 			matchingCount[li.model_id] += 1
+	for li in orLis:
+		liString = str(getLi(li.model_id)).upper()
+		for term in searchTerms:
+			if term in liString:
+				matchingCount[li.model_id] += 1
 
 	print matchingCount
 
 	orSet = orCrises.union(orPeople)
 	orSet = orSet.union(orOrgs)
+	orSet = orSet.union(orLis)
 
+	sortedCounts = [[]] * numTerms
 
+	for item in matchingCount :
+		sortedCounts[matchingCount[item] - 1].append(item)
+
+	for index in reversed(xrange(numTerms)):
+		for innerSorted in sortedCounts[index] :
+			match = Match(innerSorted, index)
+			result.append(match)
+
+	print len(result)
+	
 	# matches = orCrises.union(orPeople)
 	# matches = matches.union(orOrgs)
 	# return matches
 
 
 
-def countIncrement(container, orObjects):
-	found = False
-	for object in orObjects:
-		for match in matches:
-			if object == match:
-				object.count += 1
-				found = True
-		if not found:
-			matches.add(i)
+# def countIncrement(container, orObjects):
+# 	found = False
+# 	for object in orObjects:
+# 		for match in matches:
+# 			if object == match:
+# 				object.count += 1
+# 				found = True
+# 		if not found:
+# 			matches.add(i)
 
 def searchCrisis(searchTerms) :
 	modelSet = set()
@@ -113,8 +146,8 @@ def searchLi(searchTerms) :
 		modelSet = modelSet.union(Li.objects.filter(Q(href__iregex = term) | Q(embed__iregex = term) | Q(text__iregex = term) | Q(floating_text__iregex = term)))
 	return modelSet		
 
-class match():
-	def __init__(self, id):
-		self.id = id
-		self.context
-		self.count
+class Match():
+	def __init__(self, id, count):
+		self.id = id 
+		self.count = count
+		self.context = None
