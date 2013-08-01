@@ -3,9 +3,11 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from loadModels import validate, populate_models
 from unloadModels import export_xml
+from models import *
 import subprocess
 from getDbModel import  getCrisisIDs, getOrgIDs, getPeopleIDs
 from getDbModel import getCrisis, getPerson, getOrg
+import collections
 
 
 """
@@ -46,6 +48,20 @@ def crisesPage(request):
   Displays all imported crises. 
   """
   crisisIDs = getCrisisIDs()
+
+  liObjects = Li.objects.filter(kind = 'Images', model_id__istartswith='CRI_')
+
+  for li in liObjects:
+    crisis = Crisis.objects.get(crisis_ID = li.model_id)
+    print len(crisisIDs[li.model_id])
+    print crisisIDs[li.model_id]
+    print type(crisisIDs[li.model_id])
+    if type(crisisIDs[li.model_id]) != tuple:
+      summary = crisis.common_summary[0:101] + '...'
+      crisisIDs[li.model_id] = (crisisIDs[li.model_id], li.embed, summary)
+
+  print crisisIDs
+
   return render(request, 'wcdb/crisesPage.html', {'crisisIDs': crisisIDs})
 
 def orgPage(request):
