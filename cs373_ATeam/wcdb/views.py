@@ -56,14 +56,9 @@ def crisesPage(request):
 
   for li in liObjects:
     crisis = Crisis.objects.get(crisis_ID = li.model_id)
-    print len(crisisIDs[li.model_id])
-    print crisisIDs[li.model_id]
-    print type(crisisIDs[li.model_id])
     if type(crisisIDs[li.model_id]) != tuple:
       summary = crisis.common_summary[0:101] + '...'
       crisisIDs[li.model_id] = (crisisIDs[li.model_id], li.embed, summary)
-
-  print crisisIDs
 
   return render(request, 'wcdb/crisesPage.html', {'crisisIDs': crisisIDs})
 
