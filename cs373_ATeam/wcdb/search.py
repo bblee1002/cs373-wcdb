@@ -61,32 +61,44 @@ def search(query):
 		matchingCount[org.org_ID] = 0
 
 	print matchingCount
-
+	#list of booleans to help li know if it's parent kmodel has found the term
+	
 	# and case
 	for crisis in orCrises:
 		crisisString = str(getCrisis(crisis.crisis_ID)).upper()
 		for term in searchTerms:
 			if term in crisisString:
-				matchingCount[crisis.crisis_ID] += 1
+				if crisis.crisis_ID in matchingCount :
+					matchingCount[crisis.crisis_ID] += 1
+				else :
+					matchingCount[crisis.crisis_ID] = 1
 
 	for person in orPeople:
 		personString = str(getPerson(person.person_ID)).upper()
 		for term in searchTerms:
 			if term in personString:
-				matchingCount[person.person_ID] += 1
+				if person.person_ID in matchingCount :
+					matchingCount[person.person_ID] += 1
+				else :
+					matchingCount[person.person_ID] = 1
 
 	for org in orOrgs:
 		orgString = str(getOrg(org.org_ID)).upper()
 		for term in searchTerms:
 			if term in orgString:
-				matchingCount[org.org_ID] += 1
+				if org.org_ID in matchingCount :
+					matchingCount[org.org_ID] += 1
+				else :
+					matchingCount[org.org_ID] = 1
 
 	#dependent on what paul decides to do
 	for li in orLis:
 		liString = str(getLi(li.model_id)).upper()
 		for term in searchTerms:
 			if term in liString:
-				matchingCount[li.model_id] += 1
+				if li.model_id not in matchingCount :
+					matchingCount[li.model_id] = 1
+
 
 	print matchingCount
 
@@ -97,6 +109,7 @@ def search(query):
 	sortedCounts = [[]] * numTerms
 
 	for item in matchingCount :
+		print "ERROR: ", matchingCount[item] - 1
 		sortedCounts[matchingCount[item] - 1].append(item)
 
 	for index in reversed(xrange(numTerms)):
