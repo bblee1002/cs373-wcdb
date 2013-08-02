@@ -653,7 +653,7 @@
     <Organizations>
         <Org ID="ORG_UOCSCI" />
     </Organizations>
-    <Kind>Proactive engineer</Kind>
+    <Kind>Proactive citizen</Kind>
     <Location>Japan</Location>
     <Common>
         <Citations>
@@ -675,7 +675,7 @@
     <Organizations>
         <Org ID="ORG_BRAGOV"/>
     </Organizations>
-    <Kind>Former Politician</Kind>
+    <Kind>Politician</Kind>
     <Location>Rio de Janeiro</Location>
     <Common>
         <Citations>
@@ -704,7 +704,7 @@
         <Crisis ID="CRI_BEEDIE" />
     </Crises>
     <Organizations><Org ID="ORG_EPAAAA" /></Organizations>
-    <Kind>Beekeeper</Kind>
+    <Kind>Proactive citizen</Kind>
     <Location>4802 Gatewood Dr, Colorado Springs, CO, USA</Location>
     <Common>
         <Citations>
@@ -730,6 +730,7 @@
         <Feeds>
             <li href="https://twitter.com/MrTomTheobald">Twitter</li>
         </Feeds>
+        <Summary>Tom Theobald is a beekeeper in Colorado. His farm has suffered from colony colapse disorder, where worker bees disappear from the hive.</Summary>
     </Common>
 </Person>
 
@@ -767,7 +768,7 @@
     <Crisis ID="CRI_NSAWRT"></Crisis>
     </Crises>
     <Organizations><Org ID="ORG_NSAAAA"/></Organizations>
-    <Kind>Whistleblower</Kind>
+    <Kind>Proactive citizen</Kind>
     <Location>Moscow, Russia</Location>
     <!-- More elements here -->
     <Common>
@@ -808,7 +809,7 @@
     <Organizations>
         <Org ID="ORG_NSAAAA"/>
     </Organizations>
-    <Kind>President</Kind>
+    <Kind>Politician</Kind>
     <Location>Ecuador</Location>
 	<Common>
 		<Citations>
@@ -877,7 +878,7 @@
     <Organizations>
         <Org ID="ORG_FEMAAA" />
     </Organizations>
-    <Kind>Governor of Texas</Kind>
+    <Kind>Politician</Kind>
     <Location>Texas</Location>
     <Common>
         <Citations>
@@ -951,7 +952,7 @@
     <Organizations>
         <Org ID="ORG_IUCNAT" />
     </Organizations>
-    <Kind>President of International Union for Conservation of Nature</Kind>
+    <Kind>Politician</Kind>
     <Location>China</Location>
     <Common>
         <Citations>
@@ -981,7 +982,7 @@
     <Organizations>
         <Org ID="ORG_GAYRUS" />
     </Organizations>
-    <Kind>Activist/Lawyer/Journalist</Kind>
+    <Kind>Proactive citizen</Kind>
     <Location>Russia</Location>
     <Common>
         <Citations>
@@ -1000,7 +1001,7 @@
             <li embed="//www.youtube.com/embed/EXxdYH5USwQ" />
         </Videos>
 
-        <Summary>Nikolay Alexeyev was born on December 23, 2013 and is head of the Russian LGBT Human Rights Project GayRussia.Ru</Summary>
+        <Summary>Nikolay Alexeyev was born on December 23, 2013 and is head of the Russian LGBT Human Rights Project GayRussia. He is a Activist/Lawyer/Journalist.</Summary>
     </Common>
 </Person>
 
@@ -1011,7 +1012,7 @@
     <Organizations>
         <Org ID="ORG_WATERO" />
     </Organizations>
-    <Kind>Actor/Environmentalist</Kind>
+    <Kind>Proactive citizen</Kind>
     <Location>United States</Location>
     <Common>
         <Citations>
@@ -1036,7 +1037,7 @@
             <!-- Put feed URL here and embed on your site in your own cool way-->
             <li href="https://twitter.com/OfficialMDamon" />
         </Feeds>
-        <Summary>Matt Damon was born on October 8, 1970. He co-founded Water.org in July 2009 to help bring potable water to those less fortunate </Summary>
+        <Summary>Matt Damon was born on October 8, 1970. He co-founded Water.org in July 2009 to help bring potable water to those less fortunate. In addition to being a famous actor he is also an Actor/Environmentalist. </Summary>
     </Common>
 </Person>
 
