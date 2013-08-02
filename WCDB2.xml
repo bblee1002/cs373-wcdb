@@ -1048,7 +1048,7 @@
     <People>
         <Person ID="PER_YYAMAD" />
     </People>
-    <Kind>Government Fund</Kind>
+    <Kind>Activist organization</Kind>
     <Location>USA</Location>
     <History>
         <li> A group that reports on safety issues at nuclear plants.</li>
@@ -1081,7 +1081,7 @@
     <People>
         <Person ID="PER_ESNWDN" />
     </People>
-    <Kind>Government</Kind>
+    <Kind>Government organization</Kind>
     <Location>Fort Meade, Maryland</Location>
     <History>
         <li>The National Security Agency (NSA) was originally known as Armed Forces Security Agency (AFSA), which was created on May 20, 1949. AFSA, however, failed to achieve its goal of a centralized intelligence community due to its inability to coordinate properly with civilian agencies with similar goals, such as the FBI. In light of this failure, the agency was overhauled, strengthened, and rebranded as the NSA in 1952. It has a storied history of protecting the United States from its enemies, providing it with the intelligence needed to capture and remove the threat of enemy spies within its borders while also providing the government with insight into what the USAs enemies are thinking and planning. However, spurred by the recent emergence of terrorism as a significant threat to national security on September 11, 2011, the NSA has steadily grown its intelligence gathering capabilities to the point where it has begun ignoring the Constitution and American law by wiretapping American citizens without first obtaining a warrant and by obtaining massive amounts of metadata about what American citizens are doing over the internet. In order to manage these expanded operations, the NSA has begun building a new facility in Utah said to be capable of storing data at the level of yottabytes (1 yottabyte = 1 trillion terabytes) of data.</li>
@@ -1136,7 +1136,7 @@
     <People>
         <Person ID="PER_RPERRY" />
     </People>
-    <Kind>Government Organization</Kind>
+    <Kind>Government organization</Kind>
     <Location>500 C Street SW, Washington, DC 20472</Location>
     <History>
         <li>Federal emergency management in the U.S. has existed in one form or another for over 200 years.</li>
@@ -1176,7 +1176,7 @@
     <People>
         <Person ID="PER_TTHBLD" />
     </People>
-    <Kind>agency of the U.S. federal government which was created for the purpose of protecting human health and the environment by writing and enforcing regulations based on laws passed by Congress</Kind>
+    <Kind>Government organization</Kind>
     <Location>1200 Pennsylvania Ave. NW Washington, DC 20460</Location>
     <History>
         <li>The EPA was proposed by President Richard Nixon and began operation on December 2, 1970, after Nixon signed an executive order. The order establishing the EPA was ratified by committee hearings in the House and Senate.</li>
@@ -1209,6 +1209,7 @@
             <li href="facebook.com">Facebook</li>
             <li href="twitter.com">Twitter</li>
         </Feeds>
+        <Summary> The EPA of the U.S. Federal Government was created for the purpose of protecting human health and the environment by writing and enforcing regulations based on laws passed by Congress. </Summary>
     </Common>
 </Organization>
 
@@ -1219,7 +1220,7 @@
     <People>
         <Person ID="PER_MMORSI" />
     </People>
-    <Kind>Islamic Movement</Kind>
+    <Kind>Activist organization</Kind>
     <Location>Egypt</Location>
     <History>
         <li>Founded in 1928.</li>
@@ -1252,7 +1253,7 @@
     <People>
         <Person ID="PER_MMORSI" />
     </People>
-    <Kind>Semi-presidental government</Kind>
+    <Kind>Government organization</Kind>
     <Location>Egypt</Location>
     <History>
         <li>The Egyptian Revolution of 2011 led to the resignation of President Hosni Mubarak.</li>
@@ -1285,7 +1286,7 @@
     <People>
         <Person ID="PER_XNSHNG" />
     </People>
-    <Kind>Conservation Organization</Kind>
+    <Kind>Activist organization</Kind>
     <Location>Global</Location>
     <History>
         <li>Founded in 1948.</li>
@@ -1313,7 +1314,7 @@
     <People>
         <Person ID="PER_GUZMAN" />
     </People>
-    <Kind>Mexican Drug Cartel</Kind>
+    <Kind>Drug cartel</Kind>
     <Location>Mexico</Location>
     <History>
         <li>Founded in 1989, the Sinaloa Cartel has become the most powerful cartel in the last few years.[2] It's success has come in part from infiltrating and bribing Mexican officals and being less confrontational than other cartels.[1]  While minimizing direct conflict with the Mexican government, the Sinaloa Cartel is at war with rival cartels, including Los Zetas, and is a big part of the Mexican drug violence.</li>
@@ -1352,7 +1353,7 @@
     <People>
         <Person ID="PER_GUZMAN" />
     </People>
-    <Kind>Drug Cartel</Kind>
+    <Kind>Drug cartel</Kind>
     <Location>Mexico</Location>
     <History>
         <li>Founded in 1999</li>
@@ -1383,7 +1384,7 @@
     <People>
         <Person ID="PER_GUZMAN" />
     </People>
-    <Kind>Government</Kind>
+    <Kind>Government organization</Kind>
     <Location>Mexico</Location>
     <History>
         <li>Involved in violent conflict with drug cartels since a government crackdown in 2006.  Over 1000 Mexican police and prosecutors have been killed.[1]</li>
@@ -1415,7 +1416,7 @@
     <People>
         <Person ID="PER_NIKALX" />
     </People>
-    <Kind>Activist Group</Kind>
+    <Kind>Activist organization</Kind>
     <Location>Russia</Location>
     <History>
         <li>Founded in 2005.</li>
@@ -1451,7 +1452,7 @@
             <Person ID="PER_DLVRUS" />
             <Person ID="PER_HPASSS" />
         </People>
-        <Kind>Presidential Representative Democratic Republic</Kind>
+        <Kind>Government organization</Kind>
         <Location>Brasilia, Brazil</Location>
         <History>
             <li>Current constitution which was passed in 1988 is very democratic</li>
@@ -1482,7 +1483,7 @@
             <Feeds>
             <li href="https://www.facebook.com/pages/Brazilian-military-government/119755061404595?nr">Facebook</li>
             </Feeds>
-            <Summary>The governing body of the country of the state of Brazil</Summary>
+            <Summary>The governing body of the country of the state of Brazil, Presidential Representative Democratic Republic.</Summary>
         </Common>
     </Organization>
 
@@ -1493,7 +1494,7 @@
     <People>
         <Person ID="PER_NIKALX" />
     </People>
-    <Kind>Nonprofit Developmental Aid Organization</Kind>
+    <Kind>Activist organization</Kind>
     <Location>United States</Location>
     <History>
         <li>Water.org is an American nonprofit developmental aid organization resulting from the merger between H2O Africa, co-founded by Matt Damon, and WaterPartners, co-founded by Gary White in July 2009. </li>
@@ -1523,7 +1524,7 @@
             <!-- Put feed URL here and embed on your site in your own cool way-->
             <li embed="https://twitter.com/Water" />
         </Feeds>
-        <Summary>Its goal is to provide aid to regions of developing countries that do not have access to safe drinking water and sanitation.</Summary>
+        <Summary>A nonprofit developmental aide organization whose goal is to provide aid to regions of developing countries that do not have access to safe drinking water and sanitation.</Summary>
     </Common>
 </Organization>
 
