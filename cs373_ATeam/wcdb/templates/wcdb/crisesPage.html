@@ -22,18 +22,18 @@
             {% for kind in kinds %}            
                 <dd><a href="/crisespage/{{ kind }}">{{ kind }}</a></dd>
             {% endfor %}
-        	{% for k, v in crisisIDs.items %}
 
+            {% for k, v in crisisIDs.items %}
             <!-- row -->
             <tr class="first">
                 <td>
                     <img width="100" height="10" src='{{ v.1 }}' class="img-box" />
-                    <a href="/crisis/{{ k }}">{{ v.0 }}</a>
+                    <a href="/crisis/{{ k }}">{{ v.0.name }}</a>
                     <span class="subtext">{{ v.2 }}</span>
                 </td>
             {% empty %}
-					<li>IMPORT SOME DATA!</li>    
-        	{% endfor %}   
+                    <li>IMPORT SOME DATA!</li>    
+            {% endfor %} 
             </tr>
             </tbody>
         </table>

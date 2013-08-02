@@ -47,19 +47,9 @@ def crisesPage(request, kind):
   """
   Displays all imported crises. 
   """
-  crisisIDs = getCrisisIDs()
-
-  liObjects = Li.objects.filter(kind = 'Images', model_id__istartswith='CRI_')
-
-  for li in liObjects:
-    crisis = Crisis.objects.get(crisis_ID = li.model_id)
-    if type(crisisIDs[li.model_id]) != tuple:
-      summary = crisis.common_summary[0:101] + '...'
-      crisisIDs[li.model_id] = (crisisIDs[li.model_id], li.embed, summary)
 
   query_result_set = Crisis.objects.all()
-  query_result_set2 = []
-  kinds = []
+  kinds = ['All']
   for obj in query_result_set:
     found = False
     for kind_li in kinds:
@@ -67,26 +57,91 @@ def crisesPage(request, kind):
         found = True
     if not found:
       kinds.append(obj.kind)
-  if kind != '' :
+  if kind != 'All' :
     query_result_set = Crisis.objects.filter(kind=kind)
     for obj in query_result_set:
       print "KIND: " + obj.kind
 
-  return render(request, 'wcdb/crisesPage.html', {'crisisIDs' : crisisIDs, 'kinds' : kinds, 'kind' : kind })
+  crisisIDs = {}
+  for cri_obj in query_result_set :
+    crisisIDs[cri_obj.crisis_ID] = (cri_obj,)
 
-def orgPage(request):
+  for crisis in crisisIDs.items() :
+    liObjects = Li.objects.filter(kind = 'Images', model_id=(crisis[1])[0].crisis_ID)
+    summary = (crisis[1])[0].common_summary[0:101] + '...'
+    if len(liObjects) != 0 :
+      crisisIDs[(crisis[1])[0].crisis_ID] += ((liObjects[0]).embed, summary)
+    else :
+      crisisIDs[(crisis[1])[0].crisis_ID] += ('/static/img/whitespace.jpg', summary)
+
+  return render(request, 'wcdb/crisesPage.html', {'crisisIDs' : crisisIDs, 'kinds' : kinds})
+
+def orgPage(request, kind):
   """
   Displays all imported organizations. 
   """
-  orgIDs = getOrgIDs()
-  return render(request, 'wcdb/orgPage.html', {'orgIDs': orgIDs})
 
-def pplPage(request):
+  query_result_set = Org.objects.all()
+
+  kinds = ['All']
+  for obj in query_result_set:
+    found = False
+    for kind_li in kinds:
+      if kind_li.upper() == obj.kind.upper():
+        found = True
+    if not found:
+      kinds.append(obj.kind)
+  if kind != 'All' :
+    query_result_set = Org.objects.filter(kind=kind)
+    for obj in query_result_set:
+      print "KIND: " + obj.kind
+
+  orgIDs = {}
+  for org_obj in query_result_set :
+    orgIDs[org_obj.org_ID] = (org_obj,)
+
+  for org in orgIDs.items() :
+    liObjects = Li.objects.filter(kind = 'Images', model_id=(org[1])[0].org_ID)
+    summary = (org[1])[0].common_summary[0:101] + '...'
+    if len(liObjects) != 0 :
+      orgIDs[(org[1])[0].org_ID] += ((liObjects[0]).embed, summary)
+    else :
+      orgIDs[(org[1])[0].org_ID] += ('/static/img/whitespace.jpg', summary)
+
+  return render(request, 'wcdb/orgPage.html', {'orgIDs': orgIDs, 'kinds' : kinds})
+
+def pplPage(request, kind):
   """
   Displays all imported people. 
   """
-  peopleIDs = getPeopleIDs()
-  return render(request, 'wcdb/pplPage.html', {'peopleIDs': peopleIDs})
+  query_result_set = Person.objects.all()
+
+  kinds = ['All']
+  for obj in query_result_set:
+    found = False
+    for kind_li in kinds:
+      if kind_li.upper() == obj.kind.upper():
+        found = True
+    if not found:
+      kinds.append(obj.kind)
+  if kind != 'All' :
+    query_result_set = Person.objects.filter(kind=kind)
+    for obj in query_result_set:
+      print "KIND: " + obj.kind
+
+  peopleIDs = {}
+  for per_obj in query_result_set :
+    peopleIDs[per_obj.person_ID] = (per_obj,)
+
+  for person in peopleIDs.items() :
+    liObjects = Li.objects.filter(kind = 'Images', model_id=(person[1])[0].person_ID)
+    summary = (person[1])[0].common_summary[0:101] + '...'
+    if len(liObjects) != 0 :
+      peopleIDs[(person[1])[0].person_ID] += ((liObjects[0]).embed, summary)
+    else :
+      peopleIDs[(person[1])[0].person_ID] += ('/static/img/whitespace.jpg', summary)
+
+  return render(request, 'wcdb/pplPage.html', {'peopleIDs': peopleIDs, 'kinds': kinds})
 
 
 def index(request):
