@@ -45,67 +45,104 @@ def search(query):
 	orPeople = searchPerson(searchTerms).difference(exactPeople)
 	orOrgs   =      searchOrg(searchTerms).difference(exactOrgs)
 	orLis    =        searchLi(searchTerms).difference(exactLis)
-	# print orCrises
-	# print orPeople
-	# print orOrgs
-
-	matchingCount = {}
-
-	for crisis in orCrises:
-		matchingCount[crisis.crisis_ID] = 0
-
-	for person in orPeople:
-		matchingCount[person.person_ID] = 0
-
-	for org in orOrgs:
-		matchingCount[org.org_ID] = 0
-
-	print matchingCount
-
-	# and case
-	for crisis in orCrises:
-		crisisString = str(getCrisis(crisis.crisis_ID)).upper()
-		for term in searchTerms:
-			if term in crisisString:
-				matchingCount[crisis.crisis_ID] += 1
-
-	for person in orPeople:
-		personString = str(getPerson(person.person_ID)).upper()
-		for term in searchTerms:
-			if term in personString:
-				matchingCount[person.person_ID] += 1
-
-	for org in orOrgs:
-		orgString = str(getOrg(org.org_ID)).upper()
-		for term in searchTerms:
-			if term in orgString:
-				matchingCount[org.org_ID] += 1
-
-	#dependent on what paul decides to do
-	for li in orLis:
-		liString = str(getLi(li.model_id)).upper()
-		for term in searchTerms:
-			if term in liString:
-				matchingCount[li.model_id] += 1
-
-	print matchingCount
 
 	orSet = orCrises.union(orPeople)
 	orSet = orSet.union(orOrgs)
 	orSet = orSet.union(orLis)
+	# print orCrises
+	# print orPeople
+	# print orOrgs
 
-	sortedCounts = [[]] * numTerms
+	matchFound = {}
 
-	for item in matchingCount :
-		sortedCounts[matchingCount[item] - 1].append(item)
+	#matchingCount = {}
 
-	for index in reversed(xrange(numTerms)):
-		for innerSorted in sortedCounts[index] :
-			match = Match(innerSorted, index)
-			result.append(match)
+	# initializing lists of booleans for each ID
+	for crisis in orCrises:
+		matchFound[crisis.crisis_ID] = [False] * numTerms
 
-	print len(result)
-	
+	for person in orPeople:
+		matchFound[person.person_ID] = [False] * numTerms
+
+	for org in orOrgs:
+		matchFound[org.org_ID] = [False] * numTerms
+
+	for li in orLis:
+		matchFound[li.model_id] = [False] * numTerms
+
+	# for crisis in orCrises:
+	# 	matchingCount[crisis.crisis_ID] = 0
+
+	# for person in orPeople:
+	# 	matchingCount[person.person_ID] = 0
+
+	# for org in orOrgs:
+	# 	matchingCount[org.org_ID] = 0
+
+	# print matchingCount
+
+	for crisis in orCrises:
+		crisisString = str(getCrisis(crisis.crisis_ID)).upper()
+		count = 0
+		for term in searchTerms:
+			if term in crisisString:
+				matchFound[crisis.crisis_ID][count] = True
+			count += 1
+				#matchingCount[crisis.crisis_ID] += 1
+
+	for person in orPeople:
+		personString = str(getPerson(person.person_ID)).upper()
+		count = 0
+		for term in searchTerms:
+			if term in personString:
+				matchFound[person.person_ID][count] = True
+			count += 1
+
+
+	for org in orOrgs:
+		orgString = str(getOrg(org.org_ID)).upper()
+		count = 0
+		for term in searchTerms:
+			if term in orgString:
+				matchFound[org.org_ID][count] = True
+			count += 1
+
+	#dependent on what paul decides to do
+	for li in orLis:
+		liString = str(getLi(li.model_id)).upper()
+		count = 0
+		for term in searchTerms:
+			if term in liString:
+				matchFound[li.model_id][count] = True
+			count += 1
+
+	print matchFound
+
+	sortedCounts = []
+	for i in xrange(numTerms):
+		sortedCounts.append([])
+
+	for idref in matchFound:
+		count = 0
+		for boolean in matchFound[idref]:
+			if boolean:
+				count += 1
+		match = Match(idref, count)
+		sortedCounts[count - 1].append(match)
+	print sortedCounts
+
+
+	# for item in matchingCount :
+	# 	sortedCounts[matchingCount[item] - 1].append(item)
+
+	# for index in reversed(xrange(numTerms)):
+	# 	for innerSorted in sortedCounts[index] :
+	# 		match = Match(innerSorted, index)
+	# 		result.append(match)
+
+	# print len(result)
+	# print result
+
 	# matches = orCrises.union(orPeople)
 	# matches = matches.union(orOrgs)
 	# return matches
