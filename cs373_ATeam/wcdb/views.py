@@ -78,8 +78,15 @@ def orgPage(request):
       summary = org.common_summary[0:101] + '...'
       if li.embed != '':
         orgIDs[li.model_id] = (orgIDs[li.model_id], li.embed, summary)
-      else:
-        orgIDs[li.model_id] = (orgIDs[li.model_id], '/static/img/white-space1.jpg', summary)
+
+  for org in orgIDs:
+    print orgID
+    if type(org) == str:
+      print "***********STRING STRING STRING*********************"
+      org = Org.objects.get(org_ID = org.orgID)
+      summary = org.common_summary[0:101] + '...'
+
+      orgIDs[li.model_id] = (orgIDs[li.model_id], '/static/img/white-space1.jpg', summary)
 
   return render(request, 'wcdb/orgPage.html', {'orgIDs': orgIDs})
 
