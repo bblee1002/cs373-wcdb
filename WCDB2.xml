@@ -849,7 +849,7 @@
     <Organizations>
         <Org ID="ORG_SINCAR" />
     </Organizations>
-    <Kind>Drug Cartel Leader</Kind>
+    <Kind>Criminal organization leader</Kind>
     <Location>Mexico</Location>
     <Common>
         <ExternalLinks>
@@ -1314,7 +1314,7 @@
     <People>
         <Person ID="PER_GUZMAN" />
     </People>
-    <Kind>Drug cartel</Kind>
+    <Kind>Criminal organization</Kind>
     <Location>Mexico</Location>
     <History>
         <li>Founded in 1989, the Sinaloa Cartel has become the most powerful cartel in the last few years.[2] It's success has come in part from infiltrating and bribing Mexican officals and being less confrontational than other cartels.[1]  While minimizing direct conflict with the Mexican government, the Sinaloa Cartel is at war with rival cartels, including Los Zetas, and is a big part of the Mexican drug violence.</li>
@@ -1353,7 +1353,7 @@
     <People>
         <Person ID="PER_GUZMAN" />
     </People>
-    <Kind>Drug cartel</Kind>
+    <Kind>Criminal organization</Kind>
     <Location>Mexico</Location>
     <History>
         <li>Founded in 1999</li>
