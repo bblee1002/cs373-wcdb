@@ -114,6 +114,7 @@ def pplPage(request, kind):
   """
   Displays all imported people. 
   """
+
   query_result_set = Person.objects.all()
 
   kinds = ['All']
@@ -142,7 +143,6 @@ def pplPage(request, kind):
       peopleIDs[(person[1])[0].person_ID] += ('/static/img/whitespace.jpg', summary)
 
   return render(request, 'wcdb/pplPage.html', {'peopleIDs': peopleIDs, 'kinds': kinds})
-
 
 def index(request):
   """
