@@ -233,63 +233,93 @@ def searchView(request):
     return index(request)
   return render(request, 'wcdb/search.html', {"query": sform.cleaned_data['search_query']})
 
-def queriesView(request):
-  query1_string =  "SELECT crisis_ID, name FROM (SELECT name, count(name) as Count, crisis_ID FROM wcdb_crisis c INNER JOIN wcdb_li l ON c.crisis_ID = l.model_id WHERE l.kind = 'Locations' GROUP BY name ORDER BY Count DESC) AS sub LIMIT 1;"
-  query_result_set = Crisis.objects.raw(query1_string)
-  query1_tuple = (query1_string, query_result_set)
+def queriesView(request, query_num):
+  query_string = ''
+  query_string1 = ''
+  query_string2 = ''
+  query_string3 = ''
+  query_strings = []
+  query_result_set = []
+  query_dict = {}
+  id_list = []
+  set_of_unique_IDs = set([])
 
-  query2_string =  "SELECT crisis_ID, name, common_summary FROM wcdb_crisis WHERE crisis_ID in (SELECT model_id FROM (SELECT model_id, count(*) AS count FROM wcdb_li WHERE kind = 'Citations' GROUP BY model_id HAVING count >= 3) AS counts);"
-  query_result_set = Crisis.objects.raw(query2_string)
-  query2_tuple = (query2_string, query_result_set)
+  try:
+    query_num = int(query_num)
+  except ValueError:
+    query_num = 0
 
-  # query3_string =  "SELECT model_id, floating_text FROM wcdb_li WHERE model_id in (SELECT org_ID FROM (SELECT org_ID, count(*) AS count FROM wcdb_relations WHERE org_ID <> '' AND crisis_ID <> '' GROUP BY org_ID HAVING count >= 2) AS counter) AND kind = 'ContactInfo';"
-  # query_result_set = Li.objects.raw(query3_string)
-  # query3_tuple = (query3_string, query_result_set)
+  if query_num == 1 :
+    query_string =  "SELECT crisis_ID, name FROM (SELECT name, count(name) as Count, crisis_ID FROM wcdb_crisis c INNER JOIN wcdb_li l ON c.crisis_ID = l.model_id WHERE l.kind = 'Locations' GROUP BY name ORDER BY Count DESC) AS sub LIMIT 1;"
+    query_result_set = Crisis.objects.raw(query_string)
 
-  query4_string =  "SELECT crisis_ID, name FROM wcdb_crisis WHERE date > '1990-01-01';"
-  query_result_set = Crisis.objects.raw(query4_string)
-  query4_tuple = (query4_string, query_result_set)
+  elif query_num == 2 :
+    query_string =  "SELECT crisis_ID, name, common_summary FROM wcdb_crisis WHERE crisis_ID in (SELECT model_id FROM (SELECT model_id, count(*) AS count FROM wcdb_li WHERE kind = 'Citations' GROUP BY model_id HAVING count >= 3) AS counts);"
+    query_result_set = Crisis.objects.raw(query_string)
 
-  # query5_stringC =  "SELECT crisis_ID, name,common_summary FROM wcdb_crisis WHERE crisis_ID = 'CRI_TXWDFR';"
-  # query_result_setC = Crisis.objects.raw(query5_stringC)
-  # query5_stringP = "SELECT person_ID, name, common_summary FROM wcdb_person WHERE person_ID IN (SELECT DISTINCT person_ID FROM wcdb_relations where person_ID <> '' AND crisis_ID = 'CRI_TXWDFR');"
-  # query_result_setP = Person.objects.raw(query5_stringP)
-  # query5_stringO = "SELECT org_ID, name, common_summary FROM wcdb_org WHERE org_ID IN (SELECT DISTINCT org_ID FROM wcdb_relations where org_ID <> '' AND crisis_ID = 'CRI_TXWDFR');"
-  # query_result_setO = Org.objects.raw(query5_stringO)
-  # query5_dict = {"CrisisObjects" : query_result_setC, "PersonObjects" : query_result_setP, "OrgObjects" : query_result_setO}
-  # query1_tuple = (query1_string, query_result_set)
+  elif query_num == 3 :
+    query_string =  "SELECT id, model_id, floating_text, href FROM wcdb_li WHERE model_id in (SELECT org_ID FROM (SELECT org_ID, count(*) AS count FROM wcdb_relations WHERE org_ID <> '' AND crisis_ID <> '' GROUP BY org_ID HAVING count >= 2) AS counter) AND kind = 'ContactInfo';"
+    query_string1 = "SELECT id, model_id FROM wcdb_li WHERE model_id in (SELECT org_ID FROM (SELECT org_ID, count(*) AS count FROM wcdb_relations WHERE org_ID <> '' AND crisis_ID <> '' GROUP BY org_ID HAVING count >= 2) AS counter) AND kind = 'ContactInfo';"
+    query_string2 = "SELECT DISTINCT model_id FROM wcdb_li WHERE model_id in (SELECT org_ID FROM (SELECT org_ID, count(*) AS count FROM wcdb_relations WHERE org_ID <> '' AND crisis_ID <> '' GROUP BY org_ID HAVING count >= 2) AS counter) AND kind = 'ContactInfo';"
+    id_list = Li.objects.raw(query_string1)    
+    for obj in id_list :
+      set_of_unique_IDs.add(obj.model_id)
+    query_result_set = (Li.objects.raw(query_string), set_of_unique_IDs)
 
-  query6_string =  "SELECT person_ID, name FROM wcdb_person WHERE person_ID IN (SELECT DISTINCT person_ID FROM wcdb_relations WHERE person_ID <> ''  AND crisis_ID IN(SELECT crisis_ID FROM wcdb_crisis WHERE date > '2000-01-01'));"
-  query_result_set = Person.objects.raw(query6_string)
-  query6_tuple = (query6_string, query_result_set)
+  elif query_num == 4 :
+    query_string =  "SELECT crisis_ID, name FROM wcdb_crisis WHERE date > '1990-01-01';"
+    query_result_set = Crisis.objects.raw(query_string)
 
-  query7_string =  "SELECT org_ID, name FROM wcdb_org WHERE org_ID IN (SELECT model_id FROM (SELECT model_id, count(*) AS count FROM wcdb_li WHERE kind = 'Videos' GROUP BY model_id HAVING count >= 2) AS counter);"
-  query_result_set = Org.objects.raw(query7_string)
-  query7_tuple = (query7_string, query_result_set)
-  
-  query8_string =  "SELECT person_ID, name FROM wcdb_person WHERE person_ID IN (SELECT person_ID FROM (SELECT person_ID, count(*) AS count FROM wcdb_relations WHERE person_ID <> '' AND crisis_ID <> '' GROUP BY person_ID HAVING count >= 2) AS counter);"
-  query_result_set = Person.objects.raw(query8_string)
-  query8_tuple = (query8_string, query_result_set)
-  
-  query9_string =  "SELECT org_ID, name FROM wcdb_org WHERE org_ID IN (SELECT org_ID FROM wcdb_relations WHERE org_ID <> '' AND crisis_ID IN (SELECT crisis_ID FROM wcdb_crisis WHERE upper(kind) = 'NATURAL DISASTER'));"
-  query_result_set = Org.objects.raw(query9_string)
-  query9_tuple = (query9_string, query_result_set)
-  
-  query10_string =  "SELECT person_ID, name FROM wcdb_person WHERE person_ID IN (SELECT DISTINCT person_ID FROM wcdb_relations WHERE person_ID <> '' AND person_ID <> 'PER_ESNWDN' AND (crisis_ID IN (SELECT crisis_ID FROM wcdb_relations WHERE crisis_ID <> '' AND person_ID = 'PER_ESNWDN') OR org_ID IN (SELECT org_ID FROM wcdb_relations WHERE org_ID <> '' AND person_ID = 'PER_ESNWDN')))"
-  query_result_set = Person.objects.raw(query10_string)
-  query10_tuple = (query10_string, query_result_set)
+  elif query_num == 5 :
+    query_string1 =  "SELECT crisis_ID, name,common_summary FROM wcdb_crisis WHERE crisis_ID = 'CRI_TXWDFR';"
+    query_result_setC = Crisis.objects.raw(query_string1)
+    query_string2 = "SELECT person_ID, name, common_summary FROM wcdb_person WHERE person_ID IN (SELECT DISTINCT person_ID FROM wcdb_relations where person_ID <> '' AND crisis_ID = 'CRI_TXWDFR');"
+    query_result_setP = Person.objects.raw(query_string2)
+    query_string3 = "SELECT org_ID, name, common_summary FROM wcdb_org WHERE org_ID IN (SELECT DISTINCT org_ID FROM wcdb_relations where org_ID <> '' AND crisis_ID = 'CRI_TXWDFR');"
+    query_result_setO = Org.objects.raw(query_string3)
+    query_result_set = {"CrisisObjects" : query_result_setC, "PersonObjects" : query_result_setP, "OrgObjects" : query_result_setO}
 
-  queries_dict = {"queries_dict": { "Show the crisis that is the most widespread (occurs in the most locations)." : query1_tuple, 
-                                    "Show the name and summary of crises with 3 or more citations (crises that are well-documented information-wise)." : query2_tuple,
-                                    # "Show the ID and contact info for organizations associated with multiple crises." : query3_tuple,
-                                    "Show all crises that began after 1990 (recent crises)." : query4_tuple,
-                                    # "Show the name and summary for the Texas Wildfire crisis and the name/summary for all people involved with it and the name/history of all organizations involved with it." : query5_tuple,
-                                    "Show all people involved in crises that happened in the 21st century." : query6_tuple,
-                                    "Show all organizations that have at least 2 related videos." : query7_tuple,
-                                    "Show all people linked to at least 2 crises." : query8_tuple,
-                                    "Show all organizations related to crises that are natural disasters." : query9_tuple,
-                                    "Show all people related to a crisis or organization that is related to Obama." : query10_tuple,
-                                    } }
+  elif query_num == 6 :
+    query_string =  "SELECT person_ID, name FROM wcdb_person WHERE person_ID IN (SELECT DISTINCT person_ID FROM wcdb_relations WHERE person_ID <> ''  AND crisis_ID IN(SELECT crisis_ID FROM wcdb_crisis WHERE date > '2000-01-01'));"
+    query_result_set = Person.objects.raw(query_string)
+
+  elif query_num == 7 :
+    query_string =  "SELECT org_ID, name FROM wcdb_org WHERE org_ID IN (SELECT model_id FROM (SELECT model_id, count(*) AS count FROM wcdb_li WHERE kind = 'Videos' GROUP BY model_id HAVING count >= 2) AS counter);"
+    query_result_set = Org.objects.raw(query_string)
+
+  elif query_num == 8 :  
+    query_string =  "SELECT person_ID, name FROM wcdb_person WHERE person_ID IN (SELECT person_ID FROM (SELECT person_ID, count(*) AS count FROM wcdb_relations WHERE person_ID <> '' AND crisis_ID <> '' GROUP BY person_ID HAVING count >= 2) AS counter);"
+    query_result_set = Person.objects.raw(query_string)
+
+  elif query_num == 9 :
+    query_string =  "SELECT org_ID, name FROM wcdb_org WHERE org_ID IN (SELECT org_ID FROM wcdb_relations WHERE org_ID <> '' AND crisis_ID IN (SELECT crisis_ID FROM wcdb_crisis WHERE upper(kind) = 'NATURAL DISASTER'));"
+    query_result_set = Org.objects.raw(query_string)
+
+  elif query_num == 10 :
+    query_string =  "SELECT person_ID, name FROM wcdb_person WHERE person_ID IN (SELECT DISTINCT person_ID FROM wcdb_relations WHERE person_ID <> '' AND person_ID <> 'PER_BROBMA' AND (crisis_ID IN (SELECT crisis_ID FROM wcdb_relations WHERE crisis_ID <> '' AND person_ID = 'PER_BROBMA') OR org_ID IN (SELECT org_ID FROM wcdb_relations WHERE org_ID <> '' AND person_ID = 'PER_BROBMA')))"
+    query_result_set = Person.objects.raw(query_string)
+
+  query_strings.append(query_string)
+  query_strings.append(query_string1)
+  query_strings.append(query_string2)
+  query_strings.append(query_string3)
+
+  query_tuple = (query_strings, query_result_set)
+
+  queries_dict = {"queries": {  "Show the crisis that is the most widespread (occurs in the most locations)." : 1, 
+                                "Show the name and summary of crises with 3 or more citations (crises that are well-documented information-wise)." : 2,
+                                "Show the ID and contact info for organizations associated with multiple crises." : 3,
+                                "Show all crises that began after 1990 (recent crises)." : 4,
+                                "Show the name and summary for the Texas Wildfire crisis and the name/summary for all people involved with it and the name/history of all organizations involved with it." : 5,
+                                "Show all people involved in crises that happened in the 21st century." : 6,
+                                "Show all organizations that have at least 2 related videos." : 7,
+                                "Show all people linked to at least 2 crises." : 8,
+                                "Show all organizations related to crises that are natural disasters." : 9,
+                                "Show all people related to a crisis or organization that is related to Obama." : 10
+                              },
+                  "num" : query_num,
+                  "results" : query_tuple,
+                }
   return render(request, 'wcdb/queries.html', queries_dict)
 
 class XMLUploadForm(forms.Form):
