@@ -1,6 +1,7 @@
 from models import *
 from getDbModel import *
 from django.db.models import Q
+import re
 
 
 def search(query) :
@@ -31,7 +32,7 @@ def search(query) :
 	for item in exactLis :
 		repeat = False
 		for resultItem in result :
-			if resultItem.id == item.model_id :
+			if resultItem.idref == item.model_id :
 				repeat = True
 				break
 		if repeat == False :
@@ -46,7 +47,7 @@ def search(query) :
 	for li in searchLi(searchTerms).difference(exactLis) :
 		repeat = False
 		for resultItem in result :
-			if li.model_id == resultItem.id :
+			if li.model_id == resultItem.idref :
 				orLis.remove(li)
 
 
@@ -70,16 +71,22 @@ def search(query) :
 		match = Match(idref, count)
 		sortedCounts[count - 1].append(match)
 
-	print "BEFORE ADDING ORS"
-	for res in result :
-		print res.id
+	# print "BEFORE ADDING ORS"
+	# for res in result :
+	# 	print res.id
 	for index in reversed(xrange(numTerms)) :
 		for match in sortedCounts[index] :
 			result.append(match)
 	#print result
-	print "\nAFTER ADDING ORS"
-	for res in result :
-		print res.id
+	# print "\nAFTER ADDING ORS"
+	# for res in result :
+	# 	print res.id
+	getContext(result, matchFound, searchTerms, numTerms)
+	for match in result:
+		for context in match.contexts:
+			print "begin: ", context.begin 
+			print "bold: ", context.bold 
+			print "end: ", context.end
 
 
 def searchCrisis(searchTerms) :
@@ -152,27 +159,89 @@ def populateMatchFound(searchTerms, numTerms, matchFound, orCrises, orPeople, or
 				matchFound[li.model_id][count] = True
 			count += 1
 
-def getContext(result, matchFound, searchTerms):
+def getContext(result, matchFound, searchTerms, numTerms):
 	for match in result :
-		#modelDict = match.getModel()
-		#tempContext = Context()
-
-		# modelDict = {"CRI_BEEDIE": {href : [], embed : [], text : [], floating_text : [], model_id : *, kind: []}}
-		
 		# iterate through model:
-		if idref[0:3] == "CRI" :
-			modelDict = {"model" : getCrisis(idref), "li": getLi(idref)}
+		#crisis_dict = {name : *, kind : *, date : *, time : *, people : [], organizations : [], Common : ?}
+		if match.idref[0:3] == "CRI" :
+			modelDict = getCrisis(match.idref)
+			liDict    = getLi(match.idref)
 
-			for i in searchTerms:
-				modelDict.model.name
+			for index in xrange(numTerms) :
+				if matchFound[match.idref][index] == False :
+					continue
+
+				found = modelDict['name'].upper().find(searchTerms[index])
+				if found >= 0 :
+					tempContext = Context()
+					tempContext.begin =  'NAME...'
+					if found > 0 :
+						regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict['name'][found-1::-1]).group(0)
+						print "SUBSTRING: ", modelDict['name'][found-1::-1]
+						print "BEFORE CONCATENATION: ", regex
+						tempContext.begin += regex[::-1]
+						print "TESTING: ", tempContext.begin
+					tempContext.bold  =  modelDict['name'][found:(found + len(searchTerms[index]))]
+					tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict['name'][found + len(searchTerms[index]): found + 100]).group(0)
+					match.contexts.append(tempContext)
+					continue
+
+				found = modelDict['kind'].upper().find(searchTerms[index])
+				if found >= 0 :
+					tempContext = Context()
+					tempContext.begin =  'KIND...'
+					if found > 0 :
+						regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict['kind'][found-1::-1]).group(0)
+						tempContext.begin += regex[::-1]
+					tempContext.bold  =  modelDict['kind'][found:(found + len(searchTerms[index]))]
+					tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict['kind'][found + len(searchTerms[index]): found + 100]).group(0)
+					match.contexts.append(tempContext)
+					continue
+
+				found = modelDict['date'].upper().find(searchTerms[index])
+				if found >= 0 :
+					tempContext = Context()
+					tempContext.begin =  'DATE...'
+					if found > 0 :
+						regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict['date'][found-1::-1]).group(0)
+						tempContext.begin += regex[::-1]
+					tempContext.bold  =  modelDict['date'][found:(found + len(searchTerms[index]))]
+					tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict['date'][found + len(searchTerms[index]): found + 100]).group(0)
+					match.contexts.append(tempContext)
+					continu
+
+				found = modelDict['time'].upper().find(searchTerms[index])
+				if found >= 0 :
+					tempContext = Context()
+					tempContext.begin =  'TIME...'
+					if found > 0 :
+						regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict['time'][found-1::-1]).group(0)
+						tempContext.begin += regex[::-1]
+					tempContext.bold  =  modelDict['time'][found:(found + len(searchTerms[index]))]
+					tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict['time'][found + len(searchTerms[index]): found + 100]).group(0)
+					match.contexts.append(tempContext)
+					continue
+
+				found = modelDict['common']['Summary'].upper().find(searchTerms[index])
+				if found >= 0 :
+					tempContext = Context()
+					tempContext.begin =  'DATE...'
+					if found > 0 :
+						regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict['common']['Summary'][found-1::-1]).group(0)
+						tempContext.begin += regex[::-1]
+					tempContext.bold  =  modelDict['common']['Summary'][found:(found + len(searchTerms[index]))]
+					tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict['common']['Summary'][found + len(searchTerms[index]): found + 100]).group(0)
+					match.contexts.append(tempContext)
+					continue
+
 
 
 
 		# iterate through Li:
 
 class Match() :
-	def __init__(self, id, count) :
-		self.id = id 
+	def __init__(self, idref, count) :
+		self.idref = idref 
 		self.count = count
 		self.contexts = []
 
@@ -185,7 +254,7 @@ class Match() :
 			return {"model" : getOrg(idref), "li": getLi(idref)}
 
 class Context() :
-	def __init__(self, begin, bold, end) :
-		self.begin = begin
-		self.bold  = bold
-		self.end   = end
+	def __init__(self) :
+		self.begin = ''
+		self.bold  = ''
+		self.end   = ''
