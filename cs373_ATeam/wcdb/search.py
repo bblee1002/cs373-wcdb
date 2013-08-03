@@ -28,12 +28,15 @@ def search(query) :
 		match = Match(item.org_ID, numTerms)
 		result.append(match)
 
-	for exactItem in exactLis :
+	for item in exactLis :
+		repeat = False
 		for resultItem in result :
-			if resultItem.id != exactItem.model_id :
-				match = Match(exactItem.model_id, numTerms)
-				result.append(match)
-
+			if resultItem.id == item.model_id :
+				repeat = True
+				break
+		if repeat == False :
+			match = Match(item.model_id, numTerms)
+			result.append(match)
 	#or case
 	orCrises = searchCrisis(searchTerms).difference(exactCrises)
 	orPeople = searchPerson(searchTerms).difference(exactPeople)
