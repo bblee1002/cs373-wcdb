@@ -152,6 +152,23 @@ def populateMatchFound(searchTerms, numTerms, matchFound, orCrises, orPeople, or
 				matchFound[li.model_id][count] = True
 			count += 1
 
+def getContext(result, matchFound, searchTerms):
+	for match in result :
+		#modelDict = match.getModel()
+		#tempContext = Context()
+
+		# modelDict = {"CRI_BEEDIE": {href : [], embed : [], text : [], floating_text : [], model_id : *, kind: []}}
+		
+		# iterate through model:
+		if idref[0:3] == "CRI" :
+			modelDict = {"model" : getCrisis(idref), "li": getLi(idref)}
+
+			for i in searchTerms:
+				modelDict.model.name
+
+
+
+		# iterate through Li:
 
 class Match() :
 	def __init__(self, id, count) :
