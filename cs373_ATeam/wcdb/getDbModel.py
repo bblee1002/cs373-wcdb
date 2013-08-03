@@ -21,6 +21,7 @@ def getLi(id):
   li_dict['href'] = []
   li_dict['embed'] = []
   li_dict['floating_text'] = []
+  li_dict['kind'] = []
   #li_dict['model_id'] = id
 
   # #Create keys of dict and give values
@@ -29,8 +30,9 @@ def getLi(id):
       li_dict['href'].append(li.href)
     if li.embed is not None and li.embed != '':
       li_dict['embed'].append(li.embed)
-    if li.floating_text is not None and li.floating_text != '':
-      li_dict['floating_text'].append(li.floating_text)
+    #if li.floating_text is not None and li.floating_text != '':
+    li_dict['floating_text'].append(li.floating_text)
+    li_dict['kind'].append(li.kind)
 
   return li_dict
 

@@ -165,7 +165,7 @@ def getContext(result, matchFound, searchTerms, numTerms):
 		#crisis_dict = {name : *, kind : *, date : *, time : *, people : [], organizations : [], Common : ?}
 		if match.idref[0:3] == "CRI" :
 			modelDict = getCrisis(match.idref)
-			liDict    = getLi(match.idref)
+			
 
 			for index in xrange(numTerms) :
 				if matchFound[match.idref][index] == False :
@@ -234,8 +234,25 @@ def getContext(result, matchFound, searchTerms, numTerms):
 					match.contexts.append(tempContext)
 					continue
 
+		liDict = getLi(match.idref)
+		for index in xrange(numTerms) :
+			if matchFound[match.idref][index] == False :
+				continue
 
-
+			found = liDict['floating_text'][index].upper().find(searchTerms[index])
+			if found >= 0 :
+				tempContext = Context()
+				tempContext.begin = liDict['kind'][index] + '...'
+				if found > 0 :
+					regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", liDict['floating_text'][index][found-1::-1]).group(0)
+					#print "SUBSTRING: ", liDict['floating_text'][index][found-1::-1]
+					#print "BEFORE CONCATENATION: ", regex
+					tempContext.begin += regex[::-1]
+					#print "TESTING: ", tempContext.begin
+				tempContext.bold  =  liDict['floating_text'][index][found:(found + len(searchTerms[index]))]
+				tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", liDict['floating_text'][index][found + len(searchTerms[index]): found + 100]).group(0)
+				match.contexts.append(tempContext)
+				continue
 
 		# iterate through Li:
 
