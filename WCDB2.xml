@@ -395,7 +395,7 @@
         </Common>
     </Crisis>
 
-    <Crisis ID="CRI_UEGYPT" Name="Political unrest in Egypt">
+    <Crisis ID="CRI_EGYPTR" Name="Political unrest in Egypt">
         <People>
             <Person ID="PER_MMORSI" />
         </People>
@@ -910,7 +910,7 @@
 
 <Person ID="PER_MMORSI" Name="Mohammed Morsi">
     <Crises>
-        <Crisis ID="CRI_UEGYPT" />
+        <Crisis ID="CRI_EGYPTR" />
     </Crises>
     <Organizations>
         <Org ID="ORG_EGYGOV" />
@@ -1213,7 +1213,7 @@
 
 <Organization ID="ORG_MUSBRO" Name="The Muslim Brotherhood">
     <Crises>
-        <Crisis ID="CRI_UEGYPT" />
+        <Crisis ID="CRI_EGYPTR" />
     </Crises>
     <People>
         <Person ID="PER_MMORSI" />
@@ -1246,7 +1246,7 @@
 
 <Organization ID="ORG_EGYGOV" Name="Egyptian Government">
     <Crises>
-        <Crisis ID="CRI_UEGYPT" />
+        <Crisis ID="CRI_EGYPTR" />
     </Crises>
     <People>
         <Person ID="PER_MMORSI" />
