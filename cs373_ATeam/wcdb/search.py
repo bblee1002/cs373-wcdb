@@ -42,10 +42,16 @@ def search(query) :
 	orPeople = searchPerson(searchTerms).difference(exactPeople)
 	orOrgs   =      searchOrg(searchTerms).difference(exactOrgs)
 	orLis    =        searchLi(searchTerms).difference(exactLis)
+	temp = orLis.copy()
+	for li in orLis :
+		repeat = False
+		for resultItem in result :
+			if li.model_id == resultItem.id :
+				temp.remove(li)
+	orLis = temp
+
 
 	matchFound = {}
-
-
 	# initializing lists of booleans for each ID
 	initMatchFound(numTerms, matchFound, orCrises, orPeople, orOrgs, orLis)
 	#populating the dictionary
@@ -64,8 +70,17 @@ def search(query) :
 				count += 1
 		match = Match(idref, count)
 		sortedCounts[count - 1].append(match)
-	print sortedCounts
 
+	print "BEFORE ADDING ORS"
+	for res in result :
+		print res.id
+	for index in reversed(xrange(numTerms)) :
+		for match in sortedCounts[index] :
+			result.append(match)
+	#print result
+	print "\nAFTER ADDING ORS"
+	for res in result :
+		print res.id
 
 
 def searchCrisis(searchTerms) :
