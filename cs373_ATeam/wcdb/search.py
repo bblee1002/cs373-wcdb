@@ -42,13 +42,12 @@ def search(query) :
 	orPeople = searchPerson(searchTerms).difference(exactPeople)
 	orOrgs   =      searchOrg(searchTerms).difference(exactOrgs)
 	orLis    =        searchLi(searchTerms).difference(exactLis)
-	temp = orLis.copy()
-	for li in orLis :
+	
+	for li in searchLi(searchTerms).difference(exactLis) :
 		repeat = False
 		for resultItem in result :
 			if li.model_id == resultItem.id :
-				temp.remove(li)
-	orLis = temp
+				orLis.remove(li)
 
 
 	matchFound = {}
