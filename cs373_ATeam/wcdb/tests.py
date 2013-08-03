@@ -233,13 +233,13 @@ class ModelsCrisisTest(TestCase):
 
 
 class unloadModelsCrisisTest(TestCase):
-	'''
+	"""
 	unloadModelsCrisisTest tests the functions unloadModels.py, which handles the export function.
 	setUp() adds several Crisis, Person, and Org objects to the database for testing purposes.
 	export_crisis(), export_person(), and export_org() get an object from the database and return a string with its information.
 	export_xml() uses export_crisis(), export_person(), and export_org() to form an xml string
 	clean_xml(), make_non_li_string(), make_li_string(), make_common_string() are auxiliary functions used for formatting.
-	'''
+	"""
 	def setUp(self):
 		self.crisis = Crisis.objects.create(crisis_ID='CRI_CRISIS', name='name',
 			kind='kind', date='date', time='time', common_summary='summary')
@@ -874,6 +874,52 @@ class getDdModelTest(TestCase):
 # #--------------------------------------------#
 # #-----Unit Tests for functions from getDbModel.py
 # #--------------------------------------------#
+
+# 	#---------------------------------------#
+# 	#-----test_getLi
+# 	#---------------------------------------#
+	def test_getLi1(self):
+		li1 = Li()
+		li1.href = 'linktosomething.com'
+		li1.floating_text = 'link text'
+		li1.kind = 'ExternalLinks'
+		li1.model_id = 'CRI_NSAWRT'
+		li1.save()
+
+		li = getLi('CRI_NSAWRT')
+
+		self.assertEqual(li['floating_text'], 'link text')
+		self.assertEqual(li['embed'], '')
+		self.assertEqual(li['href'], 'linktosomething.com')
+
+	def test_getLi2(self):
+		li1 = Li()
+		li1.embed = 'linktoimage'
+		li1.floating_text = 'image link text'
+		li1.kind = 'Images'
+		li1.model_id = 'CRI_NSAWRT'
+		li1.save()
+
+		li = getLi('CRI_NSAWRT')
+
+		self.assertEqual(li['floating_text'], 'image link text')
+		self.assertEqual(li['embed'], 'linktoimage')
+		self.assertEqual(li['href'], '')
+
+	def test_getLi3(self):
+		li1 = Li()
+		li1.href = 'linktosomething.com'
+		li1.embed = 'embedlink'
+		li1.floating_text = 'floating text'
+		li1.kind = 'ExternalLinks'
+		li1.model_id = 'CRI_NSAWRT'
+		li1.save()
+
+		li = getLi('CRI_NSAWRT')
+
+		self.assertEqual(li['floating_text'], 'floating text')
+		self.assertEqual(li['embed'], 'embedlink')
+		self.assertEqual(li['href'], 'linktosomething.com')
 
 # 	#---------------------------------------#
 # 	#-----test_getCrisis
