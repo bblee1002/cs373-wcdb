@@ -85,7 +85,15 @@ def getCrisis(id):
   li_list = Li.objects.filter(model_id = id)
 
   for a in li_list :
-    common_dict[a.kind].append(a)
+    if a.kind == "Feeds" :
+      if a.embed[0:20] == "https://twitter.com/" :
+        common_dict[a.kind].append([a, "Twitter", a.embed[20:]])
+      elif a.embed[0:20] == "https://www.facebook" :
+        common_dict[a.kind].append([a, "Facebook"])
+      else :
+        common_dict[a.kind].append([a, ''])
+    else :
+      common_dict[a.kind].append(a)
 
   crisis_dict['common'] = common_dict
 
@@ -147,7 +155,15 @@ def getPerson(id):
   li_list = Li.objects.filter(model_id = id)
 
   for a in li_list :
-    common_dict[a.kind].append(a)
+    if a.kind == "Feeds" :
+      if a.embed[0:20] == "https://twitter.com/" :
+        common_dict[a.kind].append([a, "Twitter", a.embed[20:]])
+      elif a.embed[0:20] == "https://www.facebook" :
+        common_dict[a.kind].append([a, "Facebook"])
+      else :
+        common_dict[a.kind].append([a, ''])
+    else :
+      common_dict[a.kind].append(a)
 
   person_dict['common'] = common_dict
 
@@ -207,7 +223,15 @@ def getOrg(id):
   li_list = Li.objects.filter(model_id = id)
 
   for a in li_list :
-    common_dict[a.kind].append(a)
+    if a.kind == "Feeds" :
+      if a.embed[0:20] == "https://twitter.com/" :
+        common_dict[a.kind].append([a, "Twitter", a.embed[20:]])
+      elif a.embed[0:20] == "https://www.facebook" :
+        common_dict[a.kind].append([a, "Facebook"])
+      else :
+        common_dict[a.kind].append([a, ''])
+    else :
+      common_dict[a.kind].append(a)
 
   org_dict['common'] = common_dict
 
