@@ -78,8 +78,8 @@
                 <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=united+states&amp;aq=&amp;sll=39.110046,-76.77074&amp;sspn=0.015867,0.033023&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.09024,-95.712891&amp;spn=16.79998,28.125&amp;z=5&amp;output=embed'></li>
             </Maps>
             <Feeds>
-                <li href="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook</li>
-                <li href="https://www.facebook.com/NSACareers">NSA's Facebook</li>
+                <li embed="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook</li>
+                <li embed="https://www.facebook.com/NSACareers">NSA's Facebook</li>
                 <li embed="https://twitter.com/EJosephSnowden">Edward Snowden's Twitter</li>
                 <li embed="https://twitter.com/nsa">NSA's Twitter</li>
             </Feeds>
@@ -217,7 +217,7 @@
             <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=texas&amp;aq=&amp;sll=30.110533,-97.315178&amp;sspn=0.146121,0.099049&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Texas&amp;z=5&amp;iwloc=A&amp;output=embed'></li>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/helptexaswildfires">Help Texas Wildfires Facebook</li>
+            <li embed="https://www.facebook.com/helptexaswildfires">Help Texas Wildfires Facebook</li>
             <li embed="https://twitter.com/texas_wildfires">Texas Wildfires On Twitter</li>
         </Feeds>
         <Summary>Spurred on by the currently ongoing 2011 Southern US Drought, the 2011 Texas Wildfires, beginning on November 15, 2013 and ending on October 31, 2011, were some of the worst the state of Texas has ever seen. It included what is generally acknowledged to be the most catastrophic wildfire in Texas history - the Bastrop County Complex Fire which destroyed over 1600 homes and burned over 34,000 acres of land, killing two people. Declaring a State of Disaster on December 21, 2010, Texas Governor Rick Perry requested President Obama to send federal aid to help with the wildfires.</Summary>
@@ -281,7 +281,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/BR_Protests'>Brazilian Protests on Twitter</li>
-            <li href='https://www.facebook.com/BrazilianProtests'>Brazilian Protests on Facebook</li>
+            <li embed='https://www.facebook.com/BrazilianProtests'>Brazilian Protests on Facebook</li>
         </Feeds>
         <Summary>The 2013 Brazilian protests started as upset citizens protesting the increase of fares of public transportation methods. Lately the protests have evolved into demanding a better oversite of government workers, better public transportation with lesser cost, and controversy over hosting the 2015 World Cup.</Summary>
     </Common>
@@ -359,7 +359,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/MexicoDrugWars'>Mexican Drug Wars on Twitter</li>
-            <li href='https://www.facebook.com/pages/Mexican-Drug-War/103067133066401?rf=106631902709695'>Mexican Drug Wars on Facebook</li>
+            <li embed='https://www.facebook.com/pages/Mexican-Drug-War/103067133066401?rf=106631902709695'>Mexican Drug Wars on Facebook</li>
         </Feeds>
         <Summary>With so much money on the line, the drug cartels refuse to be pushed out of Mexico. At the same time, the government is unwilling to allow them to continue to wield such massive influence within the country. The result has been a truly blood conflict.</Summary>
     </Common>
@@ -417,7 +417,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/rightsinrussia'>Rights In Russia on Twitter</li>
-            <li href='https://www.facebook.com/pages/LGBT-rights-in-Russia/138632246166786?v=wall&amp;rf=119897371389669'>LGBT Rights in Russia on Facebook</li>
+            <li embed='https://www.facebook.com/pages/LGBT-rights-in-Russia/138632246166786?v=wall&amp;rf=119897371389669'>LGBT Rights in Russia on Facebook</li>
         </Feeds>
         <Summary>As a result of religion and a deep seated dislike of homosexuals, there have been a number of laws passed restricting the rights of LGBT people in Russia.</Summary>
     </Common>
@@ -487,7 +487,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/egyptianuprise'>Egyptian Revolution on Twitter</li>
-            <li href='https://www.facebook.com/egyptianrevolution25'>Egyptian Revolution on Facebook</li>
+            <li embed='https://www.facebook.com/egyptianrevolution25'>Egyptian Revolution on Facebook</li>
         </Feeds>
         <Summary>Egypt is on the brink of drastic political changes that will affect its future political systems and socioeconomic climate.</Summary>
     </Common>
@@ -567,7 +567,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/SaveTheWater'>Save the Water on Twitter</li>
-            <li href='https://www.facebook.com/GlobalWaterCrisisInformationCommunity'>Global Water Crisis on Facebook</li>
+            <li embed='https://www.facebook.com/GlobalWaterCrisisInformationCommunity'>Global Water Crisis on Facebook</li>
         </Feeds>
 
         <!-- Optional summary field for extra random data -->
@@ -628,7 +628,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/DeforestationW'>Deforestation on Twitter</li>
-            <li href='https://www.facebook.com/DeforestationEducation'>Deforestation on Facebook</li>
+            <li embed='https://www.facebook.com/DeforestationEducation'>Deforestation on Facebook</li>
         </Feeds>
         <Summary>As the human race continues to expand both in population and, as a result, in space occupied, the need for land grows, which has led to a rapid decrease in the size of our world's forests. If this keeps up, it is only a short matter of time before the forests are all but gone</Summary>
     </Common>
@@ -696,7 +696,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/fukushimarising'>Fukushima Disaster on Twitter</li>
-            <li href='https://www.facebook.com/FukushimaResponseCampaign'>Fukushima Disaster on Facebook</li>
+            <li embed='https://www.facebook.com/FukushimaResponseCampaign'>Fukushima Disaster on Facebook</li>
         </Feeds>
         <Summary>Ever since the invention of nuclear technology, there has existed the possibility of catastrophic events occurring. Unfortunately, such events have already occurred more than just once.</Summary>
     </Common>
@@ -829,7 +829,7 @@
         </Maps>
         <Feeds>
             <li embed="https://twitter.com/dilmabr">Dilma Rousseff Twitter</li>
-            <li href="https://www.facebook.com/SiteDilmaRousseff">Dilma Rousseff on Facebook</li>
+            <li embed="https://www.facebook.com/SiteDilmaRousseff">Dilma Rousseff on Facebook</li>
         </Feeds>
         <Summary>Dilma Rousseff is the current president of Brazil.</Summary>
     </Common>
@@ -867,7 +867,7 @@
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Russia&amp;aq=&amp;sll=30.245673,-97.768836&amp;sspn=0.141324,0.264187&amp;g=78704&amp;ie=UTF8&amp;hq=&amp;hnear=Russia&amp;ll=61.52401,105.318756&amp;spn=47.221317,135.263672&amp;t=m&amp;z=4&amp;output=embed"/>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook page</li>
+            <li embed="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook page</li>
             <li embed="https://twitter.com/EJosephSnowden">Edward Snowden's Twitter page</li>
         </Feeds>
         <Summary>Edward Snowden is a whistleblower who revealed the NSA's PRISM surveillance program. Throughout his life, he has had a history of working in defense of the US government, first as a Special Forces recruit, then as an NSA security guard, and finally as a private contractor working for Booz Allen Hamilton inside the NSA at the Kunia Regional SIGINT Operations Center in Hawaii. He grew increasingly unsettled as he learned just how far the US government was going with its surveillance program and believed that the decision of how far the US government was allowed to go lay with the American people and not with the NSA or the executive branch. In an attempt to correct the situation, he released information about the NSA's PRISM surveillance program to The Guardian's Glenn Greenwald and fled the US to first Hong Kong and later Russia. Currently, he is trapped in Moscow Airport, attempting to gain political asylum and safe transport to another country.</Summary>
@@ -907,7 +907,7 @@
 			<li embed="https://maps.google.com/maps?q=ecuador&amp;ie=UTF8&amp;hq=&amp;hnear=Ecuador&amp;t=m&amp;ll=-1.845384,-78.134766&amp;spn=30.383735,37.353516&amp;z=4&amp;output=embed" />
 		</Maps>
 		<Feeds>
-			<li href="https://www.facebook.com/pages/Rafael-Correa/15525611124">Rafael Correa On Facebook</li>
+			<li embed="https://www.facebook.com/pages/Rafael-Correa/15525611124">Rafael Correa On Facebook</li>
 			<li embed="https://twitter.com/MashiRafael">Rafael Correa On Twitter</li>
 		</Feeds>
 		<Summary>Rafael Correa is the president of the Republic of Ecuador. He is also the former president of the Union of South American Nations. Elected in 2006, he used his power as president of Ecuador to declare Ecuador's national debt illegitimate and successfully fought in international courts to have the debt reduced by 60%. He is currently famous, however, for offering to provide asylum to Edward Snowden, the whistleblower who leaked information about the American government's vast surveillance program known as PRISM and for protecting Wikileaks founder Julian Assange by allowing him to remain within the Ecuadorian embassy in the United Kingdom.</Summary>
@@ -942,7 +942,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/_elchapo'>Joaquin Guzman on Twitter</li>
-            <li href='https://www.facebook.com/pages/Joaquin-Guzman-Loera/192872947436040'>Joaquin Guzman on Facebook</li>
+            <li embed='https://www.facebook.com/pages/Joaquin-Guzman-Loera/192872947436040'>Joaquin Guzman on Facebook</li>
         </Feeds>
         <Summary>
             Joaquin Guzman Loera, also known as "El Chapo Guzman" is the leader of Mexico's most powerful drug cartel, the Sinaloas.  According to Forbes, Guzman is a billionaire and the "biggest drug lord ever." He is Mexico's wanted man with a US State Department reward of up to $5 million for information leading to his arrest.
@@ -981,7 +981,7 @@
             <li embed="https://maps.google.com/maps?q=texas&amp;client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=Texas&amp;t=h&amp;z=5&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/GovernorPerry">Governor Perry's Facebook</li>
+            <li embed="https://www.facebook.com/GovernorPerry">Governor Perry's Facebook</li>
             <li embed="https://twitter.com/GovernorPerry">Governor Perry On Twitter</li>
         </Feeds>
         <Summary>Born in Paint Creek, Texas on March 4, 1950, Rick Perry is currently the Governor of the state of Texas. He is a staunchly conservative politician who is famous for attempting to name 3 federal agencies he intended to end if he won the 2012 Presidential Election but failing to be able to name the third. He is also famous for holding 3 days of prayer in an attempt to end the Texas Wildfire crisis in 2011. Eventually, Texas firefighters were able to successfully put out the flames as the wildfire season drew to a close. Perry requested federal aid, and in response, FEMA reimbursed the state of Texas $48 million for fire suppression costs.</Summary>
@@ -1020,7 +1020,7 @@
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=cairo,+egypt&amp;aq=&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;ie=UTF8&amp;hq=&amp;hnear=Cairo,+Cairo+Governorate,+Egypt&amp;t=m&amp;z=12&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/pages/Mohamed-Morsy/264081660269685">Mohamed Morsi On Facebook</li>
+            <li embed="https://www.facebook.com/pages/Mohamed-Morsy/264081660269685">Mohamed Morsi On Facebook</li>
             <li embed="https://twitter.com/MuhammadMorsi">Mohamed Morsi On Twitter</li>
         </Feeds>
         <Summary>Born on August 8, 1951, Mohamed Morsi was elected as President of Egypt and assumed office on April 30, 2011. However, many Egyptian citizens were unhappy with his heavy-handed approach to governance and with his strong leaning towards incorporating religion into law. They were especially displeased with his decision to significantly expand his presidential powers and remove judicial review of his decrees soon after being elected into office. As a result, he was deposed on July 3, 2013.</Summary>
@@ -1086,7 +1086,7 @@
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=moscow,+russia&amp;aq=&amp;sll=30.04443,31.235847&amp;sspn=0.283224,0.528374&amp;ie=UTF8&amp;hq=&amp;hnear=Moscow,+gorod+Moskva,+Russia&amp;t=m&amp;z=9&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/pages/Nikolay-Alexeyev/144202175592298?rf=105798632785952">Nikolay Alexeyev on Facebook</li>
+            <li embed="https://www.facebook.com/pages/Nikolay-Alexeyev/144202175592298?rf=105798632785952">Nikolay Alexeyev on Facebook</li>
             <li embed="https://twitter.com/n_alexeyev">Nikolay Alexeyev on Twitter</li>
         </Feeds>
         <Summary>Nikolay Alexeyev was born on December 23, 2013 and is head of the Russian LGBT Human Rights Project GayRussia. He is a Activist/Lawyer/Journalist.</Summary>
@@ -1127,7 +1127,7 @@
         <Feeds>
             <!-- Put feed URL here and embed on your site in your own cool way-->
             <li embed="https://twitter.com/OfficialMDamon">Matt Damon on Twitter</li>
-            <li href="https://www.facebook.com/mattdamaonoff">Matt Damon on Facebook</li>
+            <li embed="https://www.facebook.com/mattdamaonoff">Matt Damon on Facebook</li>
         </Feeds>
         <Summary>Matt Damon was born on October 8, 1970. He co-founded Water.org in July 2009 to help bring potable water to those less fortunate. In addition to being a famous actor he is also an Actor/Environmentalist. </Summary>
     </Common>
@@ -1226,7 +1226,7 @@
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+head&amp;sll=61.52401,105.318756&amp;sspn=88.368649,270.527344&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.110316,-76.771903&amp;spn=0.011655,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/NSACareers">NSA On Facebook</li>
+            <li embed="https://www.facebook.com/NSACareers">NSA On Facebook</li>
             <li embed="https://twitter.com/nsa">NSA On Twitter</li>
         </Feeds>
         <Summary>A United States Government organization that specializes in information gathering</Summary>
@@ -1266,7 +1266,7 @@
             <li embed="https://maps.google.com/maps?client=ubuntu&amp;channel=cs&amp;q=500+C+Street+SW,+Washington,+DC+2047&amp;ie=UTF8&amp;hq=&amp;hnear=500+C+St+SW,+Washington,+District+of+Columbia+20024&amp;gl=us&amp;t=h&amp;z=14&amp;ll=38.885446,-77.018576&amp;output=embed" />
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/FEMA">Facebook</li>
+            <li embed="https://www.facebook.com/FEMA">Facebook</li>
             <li embed="https://twitter.com/fema">Twitter</li>
         </Feeds>
         <Summary>Agency of the United States Department of Homeland Security which primary purpose is to coordinate the response to a disaster that has occurred in the United States and that overwhelms the resources of local and state authorities. </Summary>
@@ -1310,7 +1310,7 @@
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=EPA&amp;aq=&amp;sll=38.894089,-77.028719&amp;sspn=0.008409,0.012381&amp;t=h&amp;ie=UTF8&amp;hq=EPA&amp;hnear=&amp;ll=38.894089,-77.028708&amp;spn=0.008016,0.013733&amp;z=16&amp;output=embed" />
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/EPA">EPA on Facebook</li>
+            <li embed="https://www.facebook.com/EPA">EPA on Facebook</li>
             <li embed="https://twitter.com/EPA">EPA on Twitter</li>
         </Feeds>
         <Summary> The EPA of the U.S. Federal Government was created for the purpose of protecting human health and the environment by writing and enforcing regulations based on laws passed by Congress. </Summary>
@@ -1352,7 +1352,7 @@
         </Maps>
         <Feeds>
             <li embed="https://twitter.com/ikhwan">Muslim Brotherhood on Twitter</li>
-            <li href="https://www.facebook.com/ikhwanweb.official">Muslim Brotherhood on Facebook</li>
+            <li embed="https://www.facebook.com/ikhwanweb.official">Muslim Brotherhood on Facebook</li>
         </Feeds>
         <Summary>
             The Muslim Brotherhood is believed to encourage high levels of violence, and holds bigoted views to justify the anger that leads to attacks.
@@ -1484,7 +1484,7 @@
         </Maps>
         <Feeds>
             <li embed="https://twitter.com/mariana_nak">Sinaloa Cartel on Twitter</li>
-            <li href="https://www.facebook.com/media/set/?set=a.141773145921091.27797.141757162589356&amp;type=3">Sinaloa Cartel on Facebook</li>
+            <li embed="https://www.facebook.com/media/set/?set=a.141773145921091.27797.141757162589356&amp;type=3">Sinaloa Cartel on Facebook</li>
         </Feeds>
         <Summary>Sinaloa Cartel is the premiere drug cartel in Mexico</Summary>
     </Common>            
@@ -1569,7 +1569,7 @@
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Mexico+City,+Mexico&amp;aq=0&amp;oq=mexico+city&amp;sll=27.470506,-99.534073&amp;sspn=0.580588,1.056747&amp;ie=UTF8&amp;hq=&amp;hnear=Mexico+City,+Federal+District,+Mexico&amp;t=m&amp;ll=19.432924,-99.133759&amp;spn=0.453269,0.583649&amp;z=10&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/pages/Mexican-government/110832085611816?nr">Mexican Government on Facebook</li>
+            <li embed="https://www.facebook.com/pages/Mexican-government/110832085611816?nr">Mexican Government on Facebook</li>
         </Feeds>
         <Summary>The Mexican government is the institution that runs the country of Mexico. Ever since 2006, they have been locked in a violent struggle against the drug cartels that have gained power in the country. The result has been a bloody conflict leaving tens of thousands dead. Part of the problem is that the government has become so corrupt that officials are often caught aiding the cartels.</Summary>
     </Common>
@@ -1610,7 +1610,7 @@
         </Maps>
         <Feeds>
             <li embed="https://twitter.com/GayRussians">Gay Russia on Twitter</li>
-            <li href="https://www.facebook.com/pages/GayRussia/186774548004688">GayRussia.ru on Facebook</li>
+            <li embed="https://www.facebook.com/pages/GayRussia/186774548004688">GayRussia.ru on Facebook</li>
         </Feeds>
         <Summary>Founded in 2005, LGBT Human Rights Project GayRussia.Ru (Gayrussia.ru) is an LGBT Advocate organization in Russia. </Summary>
     </Common>
@@ -1653,7 +1653,7 @@
             <li embed="https://maps.google.com/maps?client=ubuntu&amp;channel=cs&amp;q=map+of+brazil&amp;ie=UTF8&amp;hq=&amp;hnear=Brazil&amp;gl=us&amp;t=m&amp;z=4&amp;ll=-14.235004,-51.92528&amp;output=embed" />
         </Maps>
         <Feeds>
-            <li href="https://www.facebook.com/pages/Brazilian-military-government/119755061404595?nr">Brazilian Government on Facebook</li>
+            <li embed="https://www.facebook.com/pages/Brazilian-military-government/119755061404595?nr">Brazilian Government on Facebook</li>
         </Feeds>
         <Summary>The governing body of the country of the state of Brazil, Presidential Representative Democratic Republic.</Summary>
     </Common>
@@ -1698,7 +1698,7 @@
         <Feeds>
             <!-- Put feed URL here and embed on your site in your own cool way-->
             <li embed="https://twitter.com/Water">Water.org on Twitter</li>
-            <li href="https://www.facebook.com/water">Water.org on Facebook</li>
+            <li embed="https://www.facebook.com/water">Water.org on Facebook</li>
         </Feeds>
         <Summary>A nonprofit developmental aide organization whose goal is to provide aid to regions of developing countries that do not have access to safe drinking water and sanitation.</Summary>
     </Common>
