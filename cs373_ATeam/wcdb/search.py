@@ -18,15 +18,15 @@ def search(query) :
 
 
 	for item in exactCrises :
-		match = Match(item.crisis_ID, numTerms)
+		match = Match(item.crisis_ID, numTerms + 1)
 		result.append(match)
 
 	for item in exactPeople :
-		match = Match(item.person_ID, numTerms)
+		match = Match(item.person_ID, numTerms + 1)
 		result.append(match)
 
 	for item in exactOrgs :
-		match = Match(item.org_ID, numTerms)
+		match = Match(item.org_ID, numTerms + 1)
 		result.append(match)
 
 	for item in exactLis :
@@ -36,7 +36,7 @@ def search(query) :
 				repeat = True
 				break
 		if repeat == False :
-			match = Match(item.model_id, numTerms)
+			match = Match(item.model_id, numTerms + 1)
 			result.append(match)
 	#or case
 	orCrises = searchCrisis(searchTerms).difference(exactCrises)
@@ -57,7 +57,7 @@ def search(query) :
 	#populating the dictionary
 	populateMatchFound(searchTerms, numTerms, matchFound, orCrises, orPeople, orOrgs, orLis)
 
-	print matchFound
+	#print matchFound
 
 	sortedCounts = []
 	for i in xrange(numTerms) :
@@ -81,14 +81,15 @@ def search(query) :
 	# print "\nAFTER ADDING ORS"
 	# for res in result :
 	# 	print res.id
+	getContext(result, matchFound, [query], 1)
 	getContext(result, matchFound, searchTerms, numTerms)
-	for match in result:
-		print match.idref
-		for context in match.contexts:
-			print "begin: ", context.begin 
-			print "bold: ", context.bold 
-			print "end: ", context.end
-
+	# for match in result:
+	# 	print match.idref
+	# 	for context in match.contexts:
+	# 		print "begin: ", context.begin 
+	# 		print "bold: ", context.bold 
+	# 		print "end: ", context.end
+	return result
 
 def searchCrisis(searchTerms) :
 	modelSet = set()
@@ -111,7 +112,7 @@ def searchOrg(searchTerms) :
 def searchLi(searchTerms) :
 	modelSet = set()
 	for term in searchTerms :
-		modelSet = modelSet.union(Li.objects.filter(Q(href__iregex = term) | Q(embed__iregex = term) | Q(text__iregex = term) | Q(floating_text__iregex = term)))
+		modelSet = modelSet.union(Li.objects.filter(Q(floating_text__iregex = term)))
 	return modelSet		
 
 def initMatchFound(numTerms, matchFound, orCrises, orPeople, orOrgs, orLis) :
@@ -183,8 +184,13 @@ def getContext(result, matchFound, searchTerms, numTerms):
 
 		for index in xrange(numTerms) :
 			#checks to see if this page has a match for this term
-			if matchFound[match.idref][index] == False :
-				continue
+			if (match.count > numTerms) or (matchFound[match.idref][index] == False) :
+				#only = 1 when an exact is passed in
+				if numTerms == 1 :
+					pass
+				else:
+					continue
+				#continue
 			for key in keyList :
 				if key != 'common' :
 					found = modelDict[key].upper().find(searchTerms[index])
@@ -218,6 +224,27 @@ def getContext(result, matchFound, searchTerms, numTerms):
 		# 		continue
 
 		# iterate through Li:
+
+def getExactContext(result, matchFound, query, numTerms):
+	for match in result :
+		if match.count > numTerms :
+			modelDict = {}
+			keyList = []
+			#crisis_dict = {name : *, kind : *, date : *, time : *, people : [], organizations : [], Common : ?}
+			if match.idref[0:3] == "CRI" :
+				modelDict = getCrisis(match.idref)
+				keyList = ['name', 'kind', 'date', 'time','common']
+
+			#person_dict = {name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
+			if match.idref[0:3] == "PER" :
+				modelDict = getPerson(match.idref)
+				keyList = ['name', 'kind', 'location', 'common']
+
+			#org_dict = {name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
+			if match.idref[0:3] == "PER" :
+				modelDict = getPerson(match.idref)
+				keyList = ['name', 'kind', 'location', 'common']
+
 def getContextFromModel(match, modelDict, searchTerms, index, attribute) :
 	found = modelDict[attribute].upper().find(searchTerms[index])
 	tempContext = Context()

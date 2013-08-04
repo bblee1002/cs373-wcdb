@@ -10,7 +10,7 @@ def getLi(id):
   Accesses information about specific list item from the db
   Queries db using model_id of the list item
   Returns dictionary of individual list item's data of form:
-  {href : [], embed : [], text : [], floating_text : [], model_id : *, kind: []}
+  {floating_text : [], model_id : *, kind: []}
   """
   try:
     list_items = Li.objects.filter(model_id = id)
@@ -18,19 +18,12 @@ def getLi(id):
     return {}
 
   li_dict = {}
-  li_dict['href'] = []
-  li_dict['embed'] = []
   li_dict['floating_text'] = []
   li_dict['kind'] = []
   #li_dict['model_id'] = id
 
   # #Create keys of dict and give values
   for li in list_items:
-    if li.href is not None and li.href != '':
-      li_dict['href'].append(li.href)
-    if li.embed is not None and li.embed != '':
-      li_dict['embed'].append(li.embed)
-    #if li.floating_text is not None and li.floating_text != '':
     li_dict['floating_text'].append(li.floating_text)
     li_dict['kind'].append(li.kind)
 
