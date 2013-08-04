@@ -4,8 +4,10 @@
 <link rel="stylesheet" type="text/css" href="/static/css/user-list.css"></link>
 
 
-<div class="container-fluid">
-    <div class="users-list">
+<div class="row-fluid profile">
+    <!-- bio, new note & orders column -->
+<div class="profile-box">
+<div id="pad-wrapper" class="users-list">
     <!-- Crises table -->
     <div class="row-fluid table">
         <table class="table table-hover">
@@ -30,6 +32,7 @@
                 <td>
                     <img width="100" height="10" src='{{ v.1 }}' class="img-box" />
                     <a href="/crisis/{{ k }}">{{ v.0.name }}</a>
+
                     <span class="subtext">{{ v.2 }}</span>
                 </td>
             {% empty %}
@@ -39,6 +42,7 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>
 </div>    
     <!-- end users table -->
