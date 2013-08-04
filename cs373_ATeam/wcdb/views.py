@@ -162,17 +162,6 @@ def unittestsView(request):
     stderr=subprocess.STDOUT, shell=False)
   return render(request, 'wcdb/Unittests.html', {'output': output})
 
-def passwordValidate(pw_input):
-  """
-  Validates that the password for the XMLUploadForm is correct.
-  """
-  password = "ateam"
-  if password == pw_input:
-    return True
-  else:
-    return False
-
-
 def exportView(request) :
   """
   Renders view for export page, kicks off export facility.
@@ -196,15 +185,27 @@ def downloadView(request) :
 
   return response
 
-def importView(request):
+def passwordValidate(pw_input, kind):
+  """
+  Validates that the password for the XMLUploadForm is correct.
+  """
+  if pw_input == "ateam2" and kind == "clear" :
+    return True
+  elif pw_input == "ateam" and kind == "":
+    return True
+  else:
+    return False
+
+def importView(request, kind):
   """
   Renders view for import page, kicks off the import facility, reports
   back to the user success or failure.
   """
+
   form = XMLUploadForm()
   if request.method == 'POST':
     form = XMLUploadForm(request.POST, request.FILES)
-    if form.is_valid() and passwordValidate(form.cleaned_data['password']):
+    if form.is_valid() and passwordValidate(form.cleaned_data['password'], kind):
       # process data
       upload = request.FILES['xmlfile']
       e_tree = validate(upload)
@@ -215,6 +216,14 @@ def importView(request):
         #populate models returns a dictionary where the keys are 'crises', 'organizations' , 'people'
         #and the values are corresponding lists of crisis, organization, and person models
         #filled_models = populate_models(e_tree)
+
+          # Clear Database if Clear Import was selected and XML file was valid
+        if kind == 'clear' :
+          Crisis.objects.all().delete()
+          Person.objects.all().delete()
+          Org.objects.all().delete()
+          Li.objects.all().delete()
+          Relations.objects.all().delete()
 
         #populate models should be changed to not return anything
         #everything that used to be returned by the dict should be accessed through the db

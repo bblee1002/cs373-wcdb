@@ -4,99 +4,99 @@
 
 <WorldCrises>
 
-    <Crisis ID="CRI_NSAWRT" Name="NSA Wiretapping">
-        <People>
-            <Person ID="PER_ESNWDN" />
-        </People>
-        <Organizations>
-            <Org ID="ORG_NSAAAA" />
-        </Organizations>
-        <Kind>Civil Liberties</Kind>
-        <Date>2013-06-06</Date>
-        <Locations>
-            <li>United States of America</li>
-            <li>Hong Kong</li>
-            <li>Moscow</li>
-            <li>Ecuador</li>
-        </Locations>
-        <HumanImpact>
-            <li>By conducting massive surveillance operations over hundreds of millions of Americans and millions of others overseas and insisting that it has the right to do so whenever it feels American interests may be involved, the United States Government has violated the Fourth Amendment of the United States Constitution. The willingness of Congress, the Executive Branch, and even the Courts to go along with this program bodes ill for the future of our civil liberties. While it likely can be truthfully said that this surveillance program is not currently being abused to do things like shut down political opposition, the US Government has a history of doing such things in the past (COINTELPRO, Alien and Sedition Acts, Japanese Internment, etc.), and blindly trusting that such immense power would never be abused or wielded against the interests of the American people will not end well.</li>
-        </HumanImpact>
-        <EconomicImpact>
-            <li>As a result of the United States Government's decision to implement an extensive surveillance program not only on its own citizens, but also on foreign allies, there has been significant damage to the USA's relations with other countries. As a result, relations between them have become strained, resulting in countries becoming less willing to encourage economic interactions with America.</li>
-            <li>In addition, fear that the US government may be spying on them has led many European businesses and entities associated with European governments to drop or consider dropping American telecommunications service providers such as Verizon and ATT.</li>
-        </EconomicImpact>
-        <ResourcesNeeded>
-            <li>Money</li>
-            <li>Time</li>
-            <li>Effort</li>
-            <li>Passion</li>
-            <li>Awareness</li>
-        </ResourcesNeeded>
-        <WaysToHelp>
-            <li href="http://www.restorethefourth.net/protests/">Restore The Fourth</li>
-            <li href="https://donate.fightforthefuture.org/donate/fftf?amount=">Donate To Fight For The Future</li>
-            <li href="https://supporters.eff.org/donate">Donate To Electronic Frontier Foundation</li>
-            <li href="http://cms.fightforthefuture.org/call-for-freedom/">Contact Your Representative Through Fight For The Future</li>
-            <li href="https://action.eff.org/o/9042/p/dia/action3/common/public/?action_KEY=9260">Contact Your Representative Through Electronic Frontier Foundation</li>
-        </WaysToHelp>
-        <Common>
-            <Citations>
-                <li href="http://www.guardian.co.uk/world/2013/jul/04/european-us-internet-providers-nsa">Traynor, Ian. "European Firms 'Could Quit US Internet Providers Over NSA Scandal'". The Guardian. 4 July, 2013. Visited: 7 July, 2013.</li>
-                <li href="http://www.nytimes.com/2013/06/28/opinion/the-criminal-nsa.html?pagewanted=all&amp;_r=0">Granick, Jennifer Stisa; Sprigman, Christopher Jon. "The Criminal N.S.A.". The New York Times. 27 June, 2013. Visited: 7 July, 2013.</li>
-                <li href="http://www.huffingtonpost.com/peter-h-schuck/national-security_b_3543312.html">Schuck, Peter H. "The Courts and National Security: A False Hope". The Huffington Post. 3 July, 2013. Visited: 7 July, 2013.</li>
+<Crisis ID="CRI_NSAWRT" Name="NSA Wiretapping">
+    <People>
+        <Person ID="PER_ESNWDN" />
+    </People>
+    <Organizations>
+        <Org ID="ORG_NSAAAA" />
+    </Organizations>
+    <Kind>Civil Liberties</Kind>
+    <Date>2013-06-06</Date>
+    <Locations>
+        <li>United States of America</li>
+        <li>Hong Kong</li>
+        <li>Moscow</li>
+        <li>Ecuador</li>
+    </Locations>
+    <HumanImpact>
+        <li>By conducting massive surveillance operations over hundreds of millions of Americans and millions of others overseas and insisting that it has the right to do so whenever it feels American interests may be involved, the United States Government has violated the Fourth Amendment of the United States Constitution. The willingness of Congress, the Executive Branch, and even the Courts to go along with this program bodes ill for the future of our civil liberties. While it likely can be truthfully said that this surveillance program is not currently being abused to do things like shut down political opposition, the US Government has a history of doing such things in the past (COINTELPRO, Alien and Sedition Acts, Japanese Internment, etc.), and blindly trusting that such immense power would never be abused or wielded against the interests of the American people will not end well.</li>
+    </HumanImpact>
+    <EconomicImpact>
+        <li>As a result of the United States Government's decision to implement an extensive surveillance program not only on its own citizens, but also on foreign allies, there has been significant damage to the USA's relations with other countries. As a result, relations between them have become strained, resulting in countries becoming less willing to encourage economic interactions with America.</li>
+        <li>In addition, fear that the US government may be spying on them has led many European businesses and entities associated with European governments to drop or consider dropping American telecommunications service providers such as Verizon and ATT.</li>
+    </EconomicImpact>
+    <ResourcesNeeded>
+        <li>Money</li>
+        <li>Time</li>
+        <li>Effort</li>
+        <li>Passion</li>
+        <li>Awareness</li>
+    </ResourcesNeeded>
+    <WaysToHelp>
+        <li href="http://www.restorethefourth.net/protests/">Restore The Fourth</li>
+        <li href="https://donate.fightforthefuture.org/donate/fftf?amount=">Donate To Fight For The Future</li>
+        <li href="https://supporters.eff.org/donate">Donate To Electronic Frontier Foundation</li>
+        <li href="http://cms.fightforthefuture.org/call-for-freedom/">Contact Your Representative Through Fight For The Future</li>
+        <li href="https://action.eff.org/o/9042/p/dia/action3/common/public/?action_KEY=9260">Contact Your Representative Through Electronic Frontier Foundation</li>
+    </WaysToHelp>
+    <Common>
+        <Citations>
+            <li href="http://www.guardian.co.uk/world/2013/jul/04/european-us-internet-providers-nsa">Traynor, Ian. "European Firms 'Could Quit US Internet Providers Over NSA Scandal'". The Guardian. 4 July, 2013. Visited: 7 July, 2013.</li>
+            <li href="http://www.nytimes.com/2013/06/28/opinion/the-criminal-nsa.html?pagewanted=all&amp;_r=0">Granick, Jennifer Stisa; Sprigman, Christopher Jon. "The Criminal N.S.A.". The New York Times. 27 June, 2013. Visited: 7 July, 2013.</li>
+            <li href="http://www.huffingtonpost.com/peter-h-schuck/national-security_b_3543312.html">Schuck, Peter H. "The Courts and National Security: A False Hope". The Huffington Post. 3 July, 2013. Visited: 7 July, 2013.</li>
 
-            </Citations>
-            <ExternalLinks>
-                <li href="http://en.wikipedia.org/wiki/PRISM_(surveillance_program)">Wikipedia: PRISM</li>
-                <li href="http://www.businessweek.com/news/2013-06-30/europe-shocked-as-spiegel-publishes-report-of-nsa-wiretapping">Business Week: Europe Shocked as Speigel Publishes Report of NSA Wiretapping</li>
-                <li href="http://en.wikipedia.org/wiki/NSA_warrantless_surveillance_controversy">Wikipedia: Warrantless Surveillance Controversy</li>
-                <li href="http://en.wikipedia.org/wiki/NSA_call_database">Wikipedia: NSA Call Database</li>
-                <li href="http://www.huffingtonpost.com/peter-h-schuck/national-security_b_3543312.html">Huffington Post: The Courts and National Security</li>
-                <li href="http://www.guardian.co.uk/world/2013/jun/06/nsa-phone-records-verizon-court-order">The Guardian: NSA Collecting Phone Records of Verizon Customers</li>
-                <li href="http://www.washingtonpost.com/www.washingtonpost.com/investigations/us-intelligence-mining-data-from-nine-us-internet-companies-in-broad-secret-program/2013/06/06/3a0c0da8-cebf-11e2-8845-d970ccb04497_story.html">The Washington Post: US, British Intelligence Mining Data From US Internet Companies</li>
-                <li href="https://www.eff.org/deeplinks/2012/08/ny-times-reminds-us-nsa-still-warrantlessly-wiretapping-americans-and-congress-has">EFF: NSA Warrantlessly Wiretapping</li>
-                <li href="http://www.nytimes.com/2013/06/28/opinion/the-criminal-nsa.html?pagewanted=all&amp;_r=0">New York Times: The Criminal NSA</li>
-                <li href="http://www.guardian.co.uk/world/2013/jul/04/european-us-internet-providers-nsa">The Guardian: European Businesses Drop American Providers</li>
-            </ExternalLinks>
-            <Images>
-                <li embed="http://media.salon.com/2013/06/aptopix-nsa-phone-records-big-data-photo-gallery.jpeg-620x412.jpg" text="img not found">NSA Supercomputers Storing and Mining Massive Quantities of Data</li>
-                <li embed="http://news.antiwar.com/wp-content/uploads/2012/07/nsahq.jpg" text="img not found">NSA Headquarters</li>
-                <li embed="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2012/1/31/1328029813998/The-US-director-of-nation-007.jpg" text="img not found">Director of Intelligence for the United States of America James Clapper</li>
-                <li embed="http://www.thedailysheeple.com/wp-content/uploads/2013/06/snowden.jpg" text="img not found">Edward Snowden The man who leaked the details of the NSA's surveillance program being interviewed in Hong Kong</li>
-                <li embed="http://media.cagle.com/29/2013/06/07/132863_600.jpg" text="img not found">The Government's Always Listening...</li>
-            </Images>
-            <Videos>
-                 <li embed='//www.youtube.com/embed/wB4Gn0u4DSE'></li>
-                 <li embed='//www.youtube.com/embed/FHN8D5bExtU'></li>
-                 <li embed='//www.youtube.com/embed/Rz6rd_q2SYM'></li>
-                 <li embed='//www.youtube.com/embed/mRoVxUL5X7Q'></li>
-                 <li embed='//www.youtube.com/embed/6H_ENrJNEi8'></li>
-            </Videos>
-            <Maps>
-                <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+headquarters&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.108518,-76.771774&amp;spn=0.007992,0.013733&amp;z=16&amp;output=embed'></li>
-                <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=united+states&amp;aq=&amp;sll=39.110046,-76.77074&amp;sspn=0.015867,0.033023&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.09024,-95.712891&amp;spn=16.79998,28.125&amp;z=5&amp;output=embed'></li>
-            </Maps>
-            <Feeds>
-                <li embed="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook</li>
-                <li embed="https://www.facebook.com/NSACareers">NSA's Facebook</li>
-                <li embed="https://twitter.com/EJosephSnowden">Edward Snowden's Twitter</li>
-                <li embed="https://twitter.com/nsa">NSA's Twitter</li>
-            </Feeds>
-            <Summary>The NSA has, ever since September 11, 2001, been steadily expanding its reach and in doing so has quickly crossed the boundaries of what is legal. Driven by a need to know essentially everything, the NSA has begun warrantlessly wiretapping American citizens and collecting massive quantities of metadata about hundreds of millions of Americans and foreigners. Claiming that they are allowed this power because it "might be related to an investigation" the NSA has attempted to claim that their methods are fully legal and allowed by American Law, but this claim is clearly in violation of our constitutional rights. More importantly, it puts the NSA, and by proxy the US government, in a position of astonishing power, power that they have shown the capability of abusing in the past.</Summary>
-        </Common>
-    </Crisis>
+        </Citations>
+        <ExternalLinks>
+            <li href="http://en.wikipedia.org/wiki/PRISM_(surveillance_program)">Wikipedia: PRISM</li>
+            <li href="http://www.businessweek.com/news/2013-06-30/europe-shocked-as-spiegel-publishes-report-of-nsa-wiretapping">Business Week: Europe Shocked as Speigel Publishes Report of NSA Wiretapping</li>
+            <li href="http://en.wikipedia.org/wiki/NSA_warrantless_surveillance_controversy">Wikipedia: Warrantless Surveillance Controversy</li>
+            <li href="http://en.wikipedia.org/wiki/NSA_call_database">Wikipedia: NSA Call Database</li>
+            <li href="http://www.huffingtonpost.com/peter-h-schuck/national-security_b_3543312.html">Huffington Post: The Courts and National Security</li>
+            <li href="http://www.guardian.co.uk/world/2013/jun/06/nsa-phone-records-verizon-court-order">The Guardian: NSA Collecting Phone Records of Verizon Customers</li>
+            <li href="http://www.washingtonpost.com/www.washingtonpost.com/investigations/us-intelligence-mining-data-from-nine-us-internet-companies-in-broad-secret-program/2013/06/06/3a0c0da8-cebf-11e2-8845-d970ccb04497_story.html">The Washington Post: US, British Intelligence Mining Data From US Internet Companies</li>
+            <li href="https://www.eff.org/deeplinks/2012/08/ny-times-reminds-us-nsa-still-warrantlessly-wiretapping-americans-and-congress-has">EFF: NSA Warrantlessly Wiretapping</li>
+            <li href="http://www.nytimes.com/2013/06/28/opinion/the-criminal-nsa.html?pagewanted=all&amp;_r=0">New York Times: The Criminal NSA</li>
+            <li href="http://www.guardian.co.uk/world/2013/jul/04/european-us-internet-providers-nsa">The Guardian: European Businesses Drop American Providers</li>
+        </ExternalLinks>
+        <Images>
+            <li embed="http://media.salon.com/2013/06/aptopix-nsa-phone-records-big-data-photo-gallery.jpeg-620x412.jpg" text="img not found">NSA Supercomputers Storing and Mining Massive Quantities of Data</li>
+            <li embed="http://news.antiwar.com/wp-content/uploads/2012/07/nsahq.jpg" text="img not found">NSA Headquarters</li>
+            <li embed="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2012/1/31/1328029813998/The-US-director-of-nation-007.jpg" text="img not found">Director of Intelligence for the United States of America James Clapper</li>
+            <li embed="http://www.thedailysheeple.com/wp-content/uploads/2013/06/snowden.jpg" text="img not found">Edward Snowden The man who leaked the details of the NSA's surveillance program being interviewed in Hong Kong</li>
+            <li embed="http://media.cagle.com/29/2013/06/07/132863_600.jpg" text="img not found">The Government's Always Listening...</li>
+        </Images>
+        <Videos>
+             <li embed='//www.youtube.com/embed/wB4Gn0u4DSE'></li>
+             <li embed='//www.youtube.com/embed/FHN8D5bExtU'></li>
+             <li embed='//www.youtube.com/embed/Rz6rd_q2SYM'></li>
+             <li embed='//www.youtube.com/embed/mRoVxUL5X7Q'></li>
+             <li embed='//www.youtube.com/embed/6H_ENrJNEi8'></li>
+        </Videos>
+        <Maps>
+            <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;aq=0&amp;oq=nsa+headquarters&amp;sll=30.307761,-97.753401&amp;sspn=1.129858,2.113495&amp;t=h&amp;ie=UTF8&amp;hq=National+Security+Agency,+9800+Savage+Road,+Fort+Meade,+MD&amp;ll=39.108518,-76.771774&amp;spn=0.007992,0.013733&amp;z=16&amp;output=embed'></li>
+            <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=united+states&amp;aq=&amp;sll=39.110046,-76.77074&amp;sspn=0.015867,0.033023&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.09024,-95.712891&amp;spn=16.79998,28.125&amp;z=5&amp;output=embed'></li>
+        </Maps>
+        <Feeds>
+            <li embed="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook</li>
+            <li embed="https://www.facebook.com/NSACareers">NSA's Facebook</li>
+            <li embed="https://twitter.com/EJosephSnowden">Edward Snowden's Twitter</li>
+            <li embed="https://twitter.com/nsa">NSA's Twitter</li>
+        </Feeds>
+        <Summary>The NSA has, ever since September 11, 2001, been steadily expanding its reach and in doing so has quickly crossed the boundaries of what is legal. Driven by a need to know essentially everything, the NSA has begun warrantlessly wiretapping American citizens and collecting massive quantities of metadata about hundreds of millions of Americans and foreigners. Claiming that they are allowed this power because it "might be related to an investigation" the NSA has attempted to claim that their methods are fully legal and allowed by American Law, but this claim is clearly in violation of our constitutional rights. More importantly, it puts the NSA, and by proxy the US government, in a position of astonishing power, power that they have shown the capability of abusing in the past.</Summary>
+    </Common>
+</Crisis>
 
-    <Crisis ID="CRI_BEEDIE" Name="Bee Colony Collapse Disorder">
-        <People>
-            <Person ID="PER_TTHBLD" />
-        </People>
-        <Organizations>
-            <Org ID="ORG_EPAAAA" />
-        </Organizations>
-      <Kind>Environmental</Kind>
-      <Date>2005-01-01</Date>
-      <Locations>
+<Crisis ID="CRI_BEEDIE" Name="Bee Colony Collapse Disorder">
+    <People>
+        <Person ID="PER_TTHBLD" />
+    </People>
+    <Organizations>
+        <Org ID="ORG_EPAAAA" />
+    </Organizations>
+    <Kind>Environmental</Kind>
+    <Date>2005-01-01</Date>
+    <Locations>
         <li>Belgium</li>
         <li>France</li>
         <li>Netherlands</li>
@@ -158,6 +158,7 @@
         <Feeds>
             <li embed='https://twitter.com/MrTomTheobald'>Tom Theobald's Twitter</li>
         </Feeds>
+        <Summary>Across the world, bee colonies have been dying off, resulting in severe problems for the ecosystem due to the reliance on bees to pollinate plants</Summary>
     </Common>
 </Crisis>
 
@@ -419,7 +420,7 @@
             <li embed='https://twitter.com/rightsinrussia'>Rights In Russia on Twitter</li>
             <li embed='https://www.facebook.com/pages/LGBT-rights-in-Russia/138632246166786?v=wall&amp;rf=119897371389669'>LGBT Rights in Russia on Facebook</li>
         </Feeds>
-        <Summary>As a result of religion and a deep seated dislike of homosexuals, there have been a number of laws passed restricting the rights of LGBT people in Russia.</Summary>
+        <Summary>As a result of religious orthodoxy and a deep seated dislike of homosexuals, there have been a number of laws passed restricting the rights of LGBT people in Russia.</Summary>
     </Common>
 </Crisis>
 
@@ -551,8 +552,6 @@
             <li embed="http://d555kv4p2mtwa.cloudfront.net/birthdays/images/clean-water.jpg" text="img not found"></li>
             <li embed="http://newswatch.nationalgeographic.com/files/2013/06/08C9CDCA-93F0-372D-DC3FD21B45F47F5B_1.jpg"></li>
             <li embed="http://static6.businessinsider.com/image/4d7922b74bd7c81671160000/water-scarcity-chart.png" text="img not found"> Water Scarcity Chart </li>
-            <li embed="http://static.themoscowtimes.com/upload/iblock/eeb/gays.jpg" text="img not found" > A bloodied gay rights opponent engaging in a tug-of-war over the gay rights flag with a supporter at a rally in St. Petersburg.</li>
-            <li embed="http://www.polarimagazine.com/wp-content/uploads/2012/05/Russian-Orthodox-Church-Atacks-Gay-Rights1.jpg" text="img not found"> A Russian LGBT activist is assaulted by traditional protester </li>
         </Images>
         <Videos>
             <!-- Put youtube link here (pull this URL out of the src="[GET THIS LINK]" attribute in the embed object given by youtube) -->
@@ -682,8 +681,12 @@
             <li href="http://en.wikipedia.org/wiki/List_of_nuclear_power_accidents_by_country"> List of nuclear power accidents by country</li>
         </ExternalLinks>
         <Images>
-            <li embed="http://adamant.typepad.com/photos/uncategorized/propaganda_penguin_1_1.jpg"> What beats global warming? Nuclear Winter! </li>
-            <li embed="http://www.nation.com.pk/print_images/670/2013-04-15/iran-does-not-need-atomic-bomb-nejad-1366049651-3665.jpg"> Mushroom Cloud </li>
+            <li embed="http://adamant.typepad.com/photos/uncategorized/propaganda_penguin_1_1.jpg" text="img not found"> What beats global warming? Nuclear Winter! </li>
+            <li embed="http://www.npr.org/news/graphics/maps/three_mile.jpg" text="img not found"> Map of Three Mile Island and surrounding area </li>
+            <li embed="http://kboo.fm/sites/default/files/nodeimages/US-NRC-Japan-Fallout-Map-From-Destroyed-Fukushima-Daiichi-Nuclear-Plant.jpg" text="img not found"> Japan Nuclear Fallout Map </li>
+            <li embed="http://cnnjohnkingusa.files.wordpress.com/2011/03/nuc-map-2.png" text="img not found"> US Nuclear Power Plants </li>
+            <li embed="http://nucleaire11.files.wordpress.com/2011/11/fukushima-nuclear-reactor1.jpg"> Nuclear explosion in Fukushima </li>
+            <li embed="http://www.solarfeeds.com/wp-content/uploads/nuclear-disaster.jpg"> Mushroom cloud </li>
         </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/UHkGJEiDpdw"> Victory Gardens 1941 </li>
@@ -854,10 +857,10 @@
             <li href="http://www.fool.com/investing/general/2013/07/06/is-edward-snowden-a-hero-or-a-villain.aspx">The Motley Fool: Is Snowden a Hero or a Villain?</li>
         </ExternalLinks>
         <Images>
-            <li embed="http://www.thedailysheeple.com/wp-content/uploads/2013/06/snowden.jpg" text="img not found">Edward Snowden being interviewed in Hong Kong after leaking details of NSA's surveillance program to the press</li>
-            <li embed="http://newswire.kulmun.be/wp-content/uploads/2013/03/NicolasMaduro.jpg" text="img not found">Venezuelan President Nicolas Maduro Maduro is one of the few leaders who has offered political asylum to Snowden</li>
-            <li embed="http://upload.wikimedia.org/wikipedia/commons/c/c5/Vladimir_Putin_beefcake-1.jpg" text="img not found">Russian President Vladimir Putin. Despite Snowden currently being holed up in Moscow Airport, Putin has essentially avoided taking a side by not offering asylum to Snowden while simultaneously refusing to hand him over to the U.S. Governmen</li>
             <li embed="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/6/11/1370966794013/Lindsay-Mills-girlfriend--010.jpg" text="img not found">Edward Snowden's Girlfriend Lindsay</li>
+            <li embed="http://newswire.kulmun.be/wp-content/uploads/2013/03/NicolasMaduro.jpg" text="img not found">Venezuelan President Nicolas Maduro Maduro is one of the few leaders who has offered political asylum to Snowden</li>
+            <li embed="http://upload.wikimedia.org/wikipedia/commons/c/c5/Vladimir_Putin_beefcake-1.jpg" text="img not found">Russian President Vladimir Putin. He recently agreed to grant Snowden political asylum for 1 year.</li>
+            <li embed="http://www.thedailysheeple.com/wp-content/uploads/2013/06/snowden.jpg" text="img not found">Edward Snowden being interviewed in Hong Kong after leaking details of NSA's surveillance program to the press</li>
         </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/wB4Gn0u4DSE" />
@@ -1398,7 +1401,7 @@
             <li embed="https://twitter.com/egyptgovportal">Egyptian Government on Twitter</li>
         </Feeds>
         <Summary>
-            Right now Egypt's government structure is highly unstable and is largely influenced by the military and corrupt politicians.
+            Right now Egypt's governmental structure is highly unstable and is largely influenced by the military and corrupt politicians.
         </Summary>
     </Common>
 </Organization>
