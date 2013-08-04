@@ -4,31 +4,36 @@
 
 <div class="row-fluid profile">
     <!-- bio, new note & orders column -->
-    <div class="span9 bio">
+    <div class="span8 bio">
         <div class="profile-box">
             <!-- biography -->
             <div class="span12 section">
-                <h1>{{ name }}</h1>
+                <h2>{{ name }}</h2>
 
+                <div class="row-fluid stats-row">
+				    <div class="span12 stat">        
+				    </div>                   
+				</div>
 
-				<dl class="dl-horizontal">
-					<dt>Date &amp; Time</dt>
-				    <dd>{{ date }} : {{ time }}</dd>
-				    <dt>Location</dt>
-				    {% for loc in common.Locations %}
-					    <dd>{{ loc.floating_text }}</dd>
-				    {% endfor %}
-				    <dt>Kind</dt>
-				    <dd>{{ kind }}</dd>
-				    <dt>Organizations</dt>
-				    {% for org in organizations %}
-					    <dd><a href="/orgs/{{ org.0 }}">{{ org.1 }}</a></dd>
-				    {% endfor %}
-				    <dt>People</dt>
-				    {% for p in people %}
-					    <dd><a href="/people/{{ p.0 }}">{{ p.1 }}</a></dd>
-				    {% endfor %}
-				</dl>
+				{% if common.Images %}
+					<div id="myCarousel" class="carousel slide">
+						<div class="carousel-inner">
+							<!-- NEED TO FIX THE ACTIVE ITEM PROBLEM!!! -->
+							{% for i in common.Images %}
+								<div class="item">
+									<div class="inner-item">
+										<img src="{{ i.embed }}" alt="img not found">
+										<div class="carousel-caption">
+											<h4>{{ i.floating_text }}</h4>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+						<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+						<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+					</div>
+				{% endif %}
 
 				<dl>
 					{% if common.History %}
@@ -65,27 +70,13 @@
 					{% for i in common.WaysToHelp %}
 						<dd><a href="{{ i.href }}">{{ i.href }} </a>{{ i.floating_text }}</dd>
 					{% endfor %}
+					{% if common.Summary %}
+			        	<dt>Summary</dt>
+				    {% endif %}
+				    <dd>{{ common.Summary }}</dd>
 				</dl>
 
-				{% if common.Images %}
-					<div id="myCarousel" class="carousel slide">
-						<div class="carousel-inner">
-							<!-- NEED TO FIX THE ACTIVE ITEM PROBLEM!!! -->
-							{% for i in common.Images %}
-								<div class="item">
-									<div class="inner-item">
-										<img src="{{ i.embed }}" alt="img not found">
-										<div class="carousel-caption">
-											<h4>{{ i.floating_text }}</h4>
-										</div>
-									</div>
-								</div>
-							{% endfor %}
-						</div>
-						<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-						<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-					</div>
-				{% endif %}
+				
 
 				{% for v in common.Videos %}
 					<iframe width="500" height="300" src="{{ v.embed }}" frameborder="0" allowfullscreen></iframe>
@@ -119,10 +110,89 @@
 
 
 <!-- side column -->
-<div class="span3 address pull-right">
+<div class="span3 address">
+
     {% for map in common.Maps %}
-        <iframe width="400" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ map.embed }}"></iframe>
+        <div class="row-fluid stats-row">
+		    <div class="span12 stat">        
+		    </div>                   
+		</div>	
+        <iframe width="300" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ map.embed }}"></iframe>
     {% endfor %}
+        <div class="row-fluid stats-row">
+		    <div class="span12 stat">        
+		    </div>                   
+		</div>	
+
+    <!-- Side Info table -->
+	<div class="table-wrapper orders-table section">
+	   <div class="row-fluid">
+	       <table class="table table-hover">
+	           <thead>
+	               <tr>
+	               </tr>
+	           </thead>
+	           <tbody>
+	               <!-- row -->
+	               <tr class="first">
+	                   <td>
+	                       <dt>Date &amp; Time</dt>
+	                   </td>
+	                   <td>
+	                   		{% if date %}
+						        <dd>{{ date }}</dd>
+						    {% endif %}
+						    {% if time  %}
+						        <dd> {{ time  }}</dd>
+						    {% endif %}
+	    				</td>
+	               </tr>
+	               <tr>
+	                   <td>
+	                       <dt>Location</dt>
+	                   </td>
+	                   <td>
+	                       {% for loc in common.Locations %}
+							    <dd>{{ loc.floating_text }}</dd>
+						    {% endfor %}
+	                   </td>
+	               </tr>
+	               <tr>
+	                   <td>
+	                       <dt>Kind</dt>
+	                   </td>
+	                   <td>
+	                       <dd>{{ kind }}</dd>
+	                   </td>
+	               </tr>
+	               <tr>
+	                   <td>
+	                       <dt>Organizations</dt>
+	                   </td>
+	                   <td>
+	                       {% for org in organizations %}
+							    <dd><a href="/orgs/{{ org.0 }}">{{ org.1 }}</a></dd>
+						    {% endfor %}
+	                   </td>
+	               </tr>
+	               <tr>
+	               		<td>
+	                       <dt>People</dt>
+	                   </td>
+	                   <td>
+	                       {% for p in people %}
+							    <dd><a href="/people/{{ p.0 }}">{{ p.1 }}</a></dd>
+						    {% endfor %}
+	                   </td>	
+	               </tr>
+	           </tbody>
+	       </table>
+	   </div>
+	</div>
+    <!-- end  Side Info table -->
+
+
+
 
     {% if common.Feeds %}
         <dt>Feeds</dt>
@@ -133,11 +203,10 @@
         {% endfor %}
     </ul>
 
-    {% if common.Summary %}
-        <dt>Summary</dt>
-    {% endif %}
-    <dd>{{ common.Summary }}</dd>
 </div>
+
+<div class="span1 address pull-right">
+</div>	
 
 <script type="text/javascript" src="/static/js/imgStarter.js"></script>
 
