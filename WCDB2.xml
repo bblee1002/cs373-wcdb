@@ -321,6 +321,10 @@
         <li>Use drugs from local sources.  Encouraging local drug production leads to increased drug supply reduces, which reduces the price.</li>
     </WaysToHelp>
     <Common>
+        <Citations>
+            <li href="http://www.bbc.co.uk/news/world-latin-america-10681249">"Q&amp;A: Mexico's drug-related violence". BBC News: Latin America and Caribbean. Updated: 16 July, 2013. Visited: 3 August, 2013.</li>
+            <li href="http://en.wikipedia.org/wiki/Mexican_Drug_War">"Mexican Drug War". Wikipedia. Updated: 3 August, 2013. Visited: 3 August, 2013.</li>
+        </Citations>
         <ExternalLinks>
             <!-- Put text with compulsory hyperlinks here -->
             <li href="http://www.bbc.co.uk/news/world-latin-america-10681249">BBC: death toll</li>
@@ -357,6 +361,7 @@
             <li embed='https://twitter.com/MexicoDrugWars'>Mexican Drug Wars on Twitter</li>
             <li href='https://www.facebook.com/pages/Mexican-Drug-War/103067133066401?rf=106631902709695'>Mexican Drug Wars on Facebook</li>
         </Feeds>
+        <Summary>With so much money on the line, the drug cartels refuse to be pushed out of Mexico. At the same time, the government is unwilling to allow them to continue to wield such massive influence within the country. The result has been a truly blood conflict.</Summary>
     </Common>
 </Crisis>
 
@@ -414,6 +419,7 @@
             <li embed='https://twitter.com/rightsinrussia'>Rights In Russia on Twitter</li>
             <li href='https://www.facebook.com/pages/LGBT-rights-in-Russia/138632246166786?v=wall&amp;rf=119897371389669'>LGBT Rights in Russia on Facebook</li>
         </Feeds>
+        <Summary>As a result of religion and a deep seated dislike of homosexuals, there have been a number of laws passed restricting the rights of LGBT people in Russia.</Summary>
     </Common>
 </Crisis>
 
@@ -624,6 +630,7 @@
             <li embed='https://twitter.com/DeforestationW'>Deforestation on Twitter</li>
             <li href='https://www.facebook.com/DeforestationEducation'>Deforestation on Facebook</li>
         </Feeds>
+        <Summary>As the human race continues to expand both in population and, as a result, in space occupied, the need for land grows, which has led to a rapid decrease in the size of our world's forests. If this keeps up, it is only a short matter of time before the forests are all but gone</Summary>
     </Common>
 </Crisis>
 
@@ -691,6 +698,7 @@
             <li embed='https://twitter.com/fukushimarising'>Fukushima Disaster on Twitter</li>
             <li href='https://www.facebook.com/FukushimaResponseCampaign'>Fukushima Disaster on Facebook</li>
         </Feeds>
+        <Summary>Ever since the invention of nuclear technology, there has existed the possibility of catastrophic events occurring. Unfortunately, such events have already occurred more than just once.</Summary>
     </Common>
 </Crisis>
 
@@ -705,11 +713,20 @@
     <Location>Japan</Location>
     <Common>
         <Citations>
-            <li href="http://interamericansecuritywatch.com/public-rage-catching-up-with-brazils-congress/">Fujita. "Japan Nuclear Crisis: Retirees Volunteer for Fukushima Duty". ABC News. Jun 1, 2011</li>
+            <li href="http://abcnews.go.com/International/japan-nuclear-crisis-retirees-volunteer-fukushima-duty/story?id=13731136">Fujita, Akiko. "Japan Nuclear Crisis: Retirees Volunteer for Fukushima Duty". ABC News. Jun 1, 2011</li>
         </Citations>
+        <ExternalLinks>
+            <li href="http://abcnews.go.com/International/japan-nuclear-crisis-retirees-volunteer-fukushima-duty/story?id=13731136">ABC: Retirees Volunteer for Fukushima Duty</li>
+        </ExternalLinks>
+        <Images>
+            <li embed="http://www.taz.de/uploads/images/684x342/fukushimabbc.20110602-09.jpg" text="img not found">Yasuteru Yamada</li>
+        </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/enRGG1KJpWE" />
         </Videos>
+        <Maps>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Fukushima+Prefecture,+Japan&amp;aq=0&amp;oq=fuk&amp;sll=36.204824,138.252924&amp;sspn=67.544584,50.712891&amp;ie=UTF8&amp;hq=&amp;hnear=Fukushima+Prefecture,+Japan&amp;t=m&amp;z=7&amp;iwloc=A&amp;output=embed"></li>
+        </Maps>
         <Summary>
             Yasuteru Yamada is a Japanese engineer who attempted to gather retired engineers as volunteers to clean up Japan's nuclear fallout.He reasoned that older people are less likely to develop the devastating cancers associated with nuclear energy. 
         </Summary>
@@ -807,6 +824,9 @@
         <Videos>
             <li embed="//www.youtube.com/embed/Mic0AYK8F-c" />
         </Videos>
+        <Maps>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=brasilia,+brazil&amp;aq=&amp;sll=-14.235004,-51.92528&amp;sspn=77.521511,50.712891&amp;ie=UTF8&amp;hq=&amp;hnear=Bras%C3%ADlia+-+Federal+District,+Brazil&amp;t=m&amp;z=8&amp;iwloc=A&amp;output=embed"></li>
+        </Maps>
         <Feeds>
             <li embed="https://twitter.com/dilmabr">Dilma Rousseff Twitter</li>
             <li href="https://www.facebook.com/SiteDilmaRousseff">Dilma Rousseff on Facebook</li>
@@ -1132,17 +1152,26 @@
     <Common>
         <Citations>
             <li href="http://topics.nytimes.com/topics/reference/timestopics/organizations/u/union_of_concerned_scientists/index.html"> Union of Concerned Scientists. The New York Times. 22 July, 2013. Times Topics.</li>
+            <li href="http://en.wikipedia.org/wiki/Union_of_Concerned_Scientists">"Union of Concerned Scientists". Wikipedia. Updated: 12 July, 2013. Visited: 3 August, 2013.</li>
         </Citations>
         <ExternalLinks>
             <li href="http://www.ucsusa.org/about/"> Union of Concerned Scientists : About page</li>
+            <li href="http://en.wikipedia.org/wiki/Union_of_Concerned_Scientists">Wikipedia: Union of Concerned Scientists</li>
         </ExternalLinks>
+        <Images>
+            <li embed="http://upload.wikimedia.org/wikipedia/en/9/9d/UCSlogo.jpg" text="img not found">Union of Concerned Scientists Logo</li>
+        </Images>
         <Videos>
             <li embed="//www.youtube.com/embed/7FBmfseoKeg?list=PLTsyt5jJvEGJQQa7Y2hI1-NYi8uYpmPdq"> David Lochbaum on Lessons Learned from Fukushima</li>
             <li embed="//www.youtube.com/embed/XibS-W_loJ0"> Edwin Lyman explains the nuclear crisis in Japan on the Rachel Maddow Show, 3/11/2011.</li>
         </Videos>
+        <Maps>
+            <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Massachusetts&amp;aq=0&amp;oq=massachusset&amp;sll=0.878872,24.785156&amp;sspn=127.791016,270.527344&amp;ie=UTF8&amp;hq=&amp;hnear=Massachusetts&amp;t=m&amp;z=6&amp;iwloc=A&amp;output=embed"></li>
+        </Maps>
         <Feeds>
-            <li embed="https://twitter.com/CleanEnergyPrin">Twitter</li>
+            <li embed="https://twitter.com/CleanEnergyPrin">Union of Concerned Scientists on Twitter</li>
         </Feeds>
+        <Summary>The Union of Concerned Scientists is an organization founded in 1969 by the faculty and students of MIT in Cambridge, Massachusetts. The goal of this nonprofit group is to advocate for an increased focus on the sciences, and positive action to curb global warming, deforestation, militarization, and reliance on oil</Summary>
     </Common>
 </Organization>
 
@@ -1200,6 +1229,7 @@
             <li href="https://www.facebook.com/NSACareers">NSA On Facebook</li>
             <li embed="https://twitter.com/nsa">NSA On Twitter</li>
         </Feeds>
+        <Summary>A United States Government organization that specializes in information gathering</Summary>
     </Common>
 </Organization>
 
