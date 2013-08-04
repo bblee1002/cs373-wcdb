@@ -60,7 +60,11 @@
             {% endif %}
             <ul>
                 {% for citation in common.Citations %}
-                    <li><a href="{{ citation.href }}">{{ citation.href }} </a>{{ citation.floating_text }}</li>
+                    <li>
+                    {% if citation.href != '' %}
+                      <a href="{{ citation.href }}">{{ citation.href }}</a>
+                    {% endif %}
+                    {{ citation.floating_text }}</li>
                 {% endfor %}
             </ul>
 
@@ -142,7 +146,6 @@
        </div>
     </div>
     <!-- end  Side Info table -->
-
 
   {% for feed in common.Feeds %}
     {% if feed.1 == "Twitter" %}

@@ -1,4 +1,6 @@
 {% extends "wcdb/default.html" %}
+<body>
+<!-- JavaScript SDK for Facebook embed -->
 
 {% block content %}
 
@@ -68,7 +70,13 @@
 				        <dt>Ways to help</dt>    
 				    {% endif %}
 					{% for i in common.WaysToHelp %}
-						<dd><li><a href="{{ i.href }}">{{ i.floating_text }}</a></li></dd>
+						<dd><li>
+						{% if i.href != '' %}
+							<a href="{{ i.href }}">{{ i.floating_text }}</a></li></dd>
+						{% else %}
+							{{ i.floating_text }}</li></dd>
+						{% endif %}
+
 					{% endfor %}
 					{% if common.Summary %}
 			        	<dt>Summary</dt>
@@ -90,7 +98,11 @@
 				{% endif %}
 				<ul>
 					{% for citation in common.Citations %}
-						<li><a href="{{ citation.href }}">{{ citation.href }} </a>{{ citation.floating_text }}</li>
+						<li>
+						{% if citation.href != '' %}
+							<a href="{{ citation.href }}">{{ citation.href }} </a>
+						{% endif %}
+						{{ citation.floating_text }}</li>
 					{% endfor %}
 				</ul>
 
@@ -194,11 +206,15 @@
 		{% if feed.1 == "Twitter" %}
 			<a class="twitter-timeline" width="300" height="500" href="https://twitter.com/{{ feed.2 }}" data-widget-id="364109037966606336" data-screen-name="{{ feed.2 }}" data-show-replies="true">Tweets by @BarackObama</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			<div class="row-fluid stats-row">
+		    	<div class="span12 stat">        
+		    	</div>                   
+			</div>	
 		{% endif %}
 	{% endfor %}
 	{% for feed in common.Feeds %}
 		{% if feed.1 == "Facebook" %}
-			<p>Facebook Feed Found</p>
+			<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width=300&amp;height=515&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:515px;" allowTransparency="true"></iframe>
 		{% endif %}
 	{% endfor %}
 
@@ -210,3 +226,5 @@
 <script type="text/javascript" src="/static/js/imgStarter.js"></script>
 
 {% endblock content %}
+
+</body>
