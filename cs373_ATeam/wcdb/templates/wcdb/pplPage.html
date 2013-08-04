@@ -4,24 +4,34 @@
 <link rel="stylesheet" type="text/css" href="/static/css/user-list.css"></link>
 
 
-
-    <!-- Crises table -->
+<div class="row-fluid profile">
+    <!-- bio, new note & orders column -->
+<div class="profile-box">
+<div id="pad-wrapper" class="users-list">
+    <!-- Ppl table -->
     <div class="row-fluid table">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th class="span4 sortable">
-                        People
-                    </th>
-                   
                 </tr>
             </thead>
             <tbody>
 
+            <h3>Person Kind Selector</h3>
             {% for kind in kinds %}            
                 <dd><a href="/pplpage/{{ kind }}">{{ kind }}</a></dd>
             {% endfor %}
 
+            <div class="row-fluid stats-row">
+                <div class="span12 stat">        
+                </div>                  
+            </div>
+
+            <h1>Selected People</h1>
+            <div class="row-fluid stats-row">
+                <div class="span12 stat">        
+                </div>
+            </div>
             {% for k, v in peopleIDs.items %}
             <!-- row -->
             <tr class="first">
@@ -37,7 +47,9 @@
             </tbody>
         </table>
     </div>
-    
+</div>
+</div>
+</div>      
     <!-- end users table -->
 
 {% endblock content %}

@@ -13,19 +13,26 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th class="span4 sortable">
-                        Crises
-                    </th>
                     
                    
                 </tr>
             </thead>
             <tbody>
-
+            <h3>Crisis Kind Selector</h3>
             {% for kind in kinds %}            
                 <dd><a href="/crisespage/{{ kind }}">{{ kind }}</a></dd>
             {% endfor %}
 
+            <div class="row-fluid stats-row">
+                <div class="span12 stat">        
+                </div>                  
+            </div>
+
+            <h1>Selected Crises</h1>
+            <div class="row-fluid stats-row">
+                <div class="span12 stat">        
+                </div>                  
+            </div>
             {% for k, v in crisisIDs.items %}
             <!-- row -->
             <tr class="first">
