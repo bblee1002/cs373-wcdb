@@ -68,7 +68,7 @@
 				        <dt>Ways to help</dt>    
 				    {% endif %}
 					{% for i in common.WaysToHelp %}
-						<dd><a href="{{ i.href }}">{{ i.href }} </a>{{ i.floating_text }}</dd>
+						<dd><li><a href="{{ i.href }}">{{ i.floating_text }}</a></li></dd>
 					{% endfor %}
 					{% if common.Summary %}
 			        	<dt>Summary</dt>
@@ -100,7 +100,7 @@
 				{% endif %}
 				<ul>
 					{% for link in common.ExternalLinks %}
-						<li><a href="{{ link.href }}">{{ link.href }} </a>{{ link.floating_text }}</li>
+						<li><a href="{{ link.href }}">{{ link.floating_text }}</a></li>
 					{% endfor %}
 				</ul>
 
