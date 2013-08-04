@@ -6,7 +6,7 @@ from django.conf.urls.defaults import patterns, include, url
 
 urlpatterns = patterns('',
     url(r'^$', 'wcdb.views.index'),
-    url(r'^import/$', 'wcdb.views.importView'),
+    url(r'^import/(?P<kind>(.*))$', 'wcdb.views.importView'),
     url(r'^crisis/(?P<crisis_id>CRI_[A-Z]{6})$', 'wcdb.views.crisisView'),
     url(r'^orgs/(?P<orgs_id>ORG_[A-Z]{6})$', 'wcdb.views.orgsView'),
     url(r'^people/(?P<people_id>PER_[A-Z]{6})$', 'wcdb.views.peopleView'),
