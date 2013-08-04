@@ -64,9 +64,13 @@
                 {% endif %}
 
                 <ul>
-                    {% for citation in common.Citations %}
-                        <li><a href="{{ citation.href }}">{{ citation.href }} </a>{{ citation.floating_text }}</li>
-                    {% endfor %}
+                  {% for citation in common.Citations %}
+                    <li>
+                    {% if citation.href != '' %}
+                      <a href="{{ citation.href }}">{{ citation.href }} </a>
+                    {% endif %}
+                    {{ citation.floating_text }}</li>
+                  {% endfor %}
                 </ul>
 
                 {% if common.ExternalLinks %}
@@ -148,10 +152,13 @@
                         </td>
                         <td>
                             {% for i in common.ContactInfo %}
-                                <dd>{{ i.floating_text }}</dd>
+                                <dd>
+                                {% if i.href != '' %}
+                                  <a href="{{ i.href }}">{{ i.href }}</a>
+                                {% endif %}
+                                {{ i.floating_text }}</dd>
                             {% endfor %}
                         </td>
-
                    </tr> 
                </tbody>
            </table>
