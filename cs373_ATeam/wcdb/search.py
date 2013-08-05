@@ -83,12 +83,12 @@ def search(query) :
 	# 	print res.id
 	getContext(result, matchFound, [query], 1)
 	getContext(result, matchFound, searchTerms, numTerms)
-	# for match in result:
-	# 	print match.idref
-	# 	for context in match.contexts:
-	# 		print "begin: ", context.begin 
-	# 		print "bold: ", context.bold 
-	# 		print "end: ", context.end
+	for match in result:
+		print match.idref
+		for context in match.contexts:
+			print "begin: ", context.begin 
+			print "bold: ", context.bold 
+			print "end: ", context.end
 	return result
 
 def searchCrisis(searchTerms) :
@@ -178,8 +178,8 @@ def getContext(result, matchFound, searchTerms, numTerms):
 			keyList = ['name', 'kind', 'location', 'common']
 
 		#org_dict = {name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
-		if match.idref[0:3] == "PER" :
-			modelDict = getPerson(match.idref)
+		if match.idref[0:3] == "ORG" :
+			modelDict = getOrg(match.idref)
 			keyList = ['name', 'kind', 'location', 'common']
 
 		for index in xrange(numTerms) :
