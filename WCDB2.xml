@@ -78,9 +78,7 @@
             <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=united+states&amp;aq=&amp;sll=39.110046,-76.77074&amp;sspn=0.015867,0.033023&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.09024,-95.712891&amp;spn=16.79998,28.125&amp;z=5&amp;output=embed'></li>
         </Maps>
         <Feeds>
-            <li embed="https://www.facebook.com/pages/Edward-Snowden/548707555193474">Edward Snowden's Facebook</li>
             <li embed="https://www.facebook.com/NSACareers">NSA's Facebook</li>
-            <li embed="https://twitter.com/EJosephSnowden">Edward Snowden's Twitter</li>
             <li embed="https://twitter.com/nsa">NSA's Twitter</li>
         </Feeds>
         <Summary>The NSA has, ever since September 11, 2001, been steadily expanding its reach and in doing so has quickly crossed the boundaries of what is legal. Driven by a need to know essentially everything, the NSA has begun warrantlessly wiretapping American citizens and collecting massive quantities of metadata about hundreds of millions of Americans and foreigners. Claiming that they are allowed this power because it "might be related to an investigation" the NSA has attempted to claim that their methods are fully legal and allowed by American Law, but this claim is clearly in violation of our constitutional rights. More importantly, it puts the NSA, and by proxy the US government, in a position of astonishing power, power that they have shown the capability of abusing in the past.</Summary>
@@ -157,6 +155,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/MrTomTheobald'>Tom Theobald's Twitter</li>
+            <li embed='https://www.facebook.com/SaveBees'>Save The Bees on Facebook</li>
         </Feeds>
         <Summary>Across the world, bee colonies have been dying off, resulting in severe problems for the ecosystem due to the reliance on bees to pollinate plants</Summary>
     </Common>
@@ -360,6 +359,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/MexicoDrugWars'>Mexican Drug Wars on Twitter</li>
+            <li embed='https://www.facebook.com/mexicoviolence'>Stop Mexican Drug Violence on Facebook</li>
             <li embed='https://www.facebook.com/pages/Mexican-Drug-War/103067133066401?rf=106631902709695'>Mexican Drug Wars on Facebook</li>
         </Feeds>
         <Summary>With so much money on the line, the drug cartels refuse to be pushed out of Mexico. At the same time, the government is unwilling to allow them to continue to wield such massive influence within the country. The result has been a truly blood conflict.</Summary>
@@ -418,6 +418,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/rightsinrussia'>Rights In Russia on Twitter</li>
+            <li embed='https://www.facebook.com/GayRussia'>Gay Russia on Facebook</li>
             <li embed='https://www.facebook.com/pages/LGBT-rights-in-Russia/138632246166786?v=wall&amp;rf=119897371389669'>LGBT Rights in Russia on Facebook</li>
         </Feeds>
         <Summary>As a result of religious orthodoxy and a deep seated dislike of homosexuals, there have been a number of laws passed restricting the rights of LGBT people in Russia.</Summary>
@@ -566,7 +567,7 @@
         </Maps>
         <Feeds>
             <li embed='https://twitter.com/SaveTheWater'>Save the Water on Twitter</li>
-            <li embed='https://www.facebook.com/GlobalWaterCrisisInformationCommunity'>Global Water Crisis on Facebook</li>
+            <li embed='https://www.facebook.com/globalwaterpartnership'>Global Water Crisis on Facebook</li>
         </Feeds>
 
         <!-- Optional summary field for extra random data -->

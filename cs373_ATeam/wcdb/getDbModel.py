@@ -89,7 +89,7 @@ def getCrisis(id):
       if a.embed[0:20] == "https://twitter.com/" :
         common_dict[a.kind].append([a, "Twitter", a.embed[20:]])
       elif a.embed[0:20] == "https://www.facebook" :
-        common_dict[a.kind].append([a, "Facebook"])
+        common_dict[a.kind].append([a, "Facebook", a.embed[25:]])
       else :
         common_dict[a.kind].append([a, ''])
     else :
@@ -159,7 +159,7 @@ def getPerson(id):
       if a.embed[0:20] == "https://twitter.com/" :
         common_dict[a.kind].append([a, "Twitter", a.embed[20:]])
       elif a.embed[0:20] == "https://www.facebook" :
-        common_dict[a.kind].append([a, "Facebook"])
+        common_dict[a.kind].append([a, "Facebook", a.embed[25:]])
       else :
         common_dict[a.kind].append([a, ''])
     else :
@@ -227,7 +227,7 @@ def getOrg(id):
       if a.embed[0:20] == "https://twitter.com/" :
         common_dict[a.kind].append([a, "Twitter", a.embed[20:]])
       elif a.embed[0:20] == "https://www.facebook" :
-        common_dict[a.kind].append([a, "Facebook"])
+        common_dict[a.kind].append([a, "Facebook", a.embed[25:]])
       else :
         common_dict[a.kind].append([a, ''])
     else :
