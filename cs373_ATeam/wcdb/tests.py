@@ -12,8 +12,8 @@ from loadModels import validate, populate_crisis, populate_person, populate_org,
 from unloadModels import *
 import xml.etree.ElementTree as ET
 from django.test.client import Client
-from views import passwordValidate
-from getDbModel import getCrisis, getPerson, getOrg, getCrisisIDs, getOrgIDs, getPeopleIDs
+from views import *
+from getDbModel import *
 
 
 #xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
@@ -831,6 +831,10 @@ class viewsTest(TestCase):
 	def test_peopleView12(self):
 		response = self.client.get("http://localhost:8000/people/PER_MTTDMN")
 		self.assertEqual(response.status_code, 200)
+
+	def test_crisesPage0(self):
+		pass
+		#print crisesPage("http://localhost:8000/crisis/CRI_NUCDIS","clear")
 
 	"""
 	Creates an infinite loop!
