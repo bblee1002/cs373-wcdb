@@ -19,7 +19,8 @@
 
             <h3>Person Kind Selector</h3>
             {% for kind in kinds %}            
-                <dd><a href="/pplpage/{{ kind }}">{{ kind }}</a></dd>
+                <a href="/pplpage/{{ kind }}">{{ kind }}</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
             {% endfor %}
 
             <div class="row-fluid stats-row">

@@ -19,7 +19,8 @@
 
             <h3>Organization Kind Selector</h3>
             {% for kind in kinds %}            
-                <dd><a href="/orgpage/{{ kind }}">{{ kind }}</a></dd>
+                <a href="/orgpage/{{ kind }}">{{ kind }}</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
             {% endfor %}
 
             <div class="row-fluid stats-row">
