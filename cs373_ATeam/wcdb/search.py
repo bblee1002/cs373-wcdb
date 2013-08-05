@@ -83,12 +83,12 @@ def search(query) :
 	# 	print res.id
 	getContext(result, matchFound, [query], 1)
 	getContext(result, matchFound, searchTerms, numTerms)
-	for match in result:
-		print match.idref
-		for context in match.contexts:
-			print "begin: ", context.begin 
-			print "bold: ", context.bold 
-			print "end: ", context.end
+	# for match in result:
+	# 	print match.idref
+	# 	for context in match.contexts:
+	# 		print "begin: ", context.begin 
+	# 		print "bold: ", context.bold 
+	# 		print "end: ", context.end
 	return result
 
 def searchCrisis(searchTerms) :
