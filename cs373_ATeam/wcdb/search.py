@@ -178,8 +178,8 @@ def getContext(result, matchFound, searchTerms, numTerms):
 			keyList = ['name', 'kind', 'location', 'common']
 
 		#org_dict = {name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
-		if match.idref[0:3] == "PER" :
-			modelDict = getPerson(match.idref)
+		if match.idref[0:3] == "ORG" :
+			modelDict = getOrg(match.idref)
 			keyList = ['name', 'kind', 'location', 'common']
 
 		for index in xrange(numTerms) :
@@ -213,12 +213,12 @@ def getContext(result, matchFound, searchTerms, numTerms):
 					found = liDict['floating_text'][liIndex].upper().find(searchTerms[index])
 					if found >= 0 :
 						tempContext = Context()
-						tempContext.begin = liDict['kind'][liIndex] + '...'
+						tempContext.begin = liDict['kind'][liIndex].upper() + ": ..."
 						if found > 0 :
-							regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", liDict['floating_text'][liIndex][found-1::-1]).group(0)
+							regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", liDict['floating_text'][liIndex][found-1::-1]).group(0)
 							tempContext.begin += regex[::-1]
 						tempContext.bold  =  liDict['floating_text'][liIndex][found:(found + len(searchTerms[index]))]
-						tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", liDict['floating_text'][liIndex][found + len(searchTerms[index]): found + 100]).group(0)
+						tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", liDict['floating_text'][liIndex][found + len(searchTerms[index]): found + 100]).group(0)
 						tempContext.end += "..."
 						match.contexts.append(tempContext)
 						break
@@ -242,19 +242,19 @@ def getExactContext(result, matchFound, query, numTerms):
 				keyList = ['name', 'kind', 'location', 'common']
 
 			#org_dict = {name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
-			if match.idref[0:3] == "PER" :
-				modelDict = getPerson(match.idref)
+			if match.idref[0:3] == "ORG" :
+				modelDict = getOrg(match.idref)
 				keyList = ['name', 'kind', 'location', 'common']
 
 def getContextFromModel(match, modelDict, searchTerms, index, attribute) :
 	found = modelDict[attribute].upper().find(searchTerms[index])
 	tempContext = Context()
-	tempContext.begin =  attribute.upper() + '...'
+	tempContext.begin =  attribute.upper() + ": ..."
 	if found > 0 :
-		regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict[attribute][found-1::-1]).group(0)
+		regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict[attribute][found-1::-1]).group(0)
 		tempContext.begin += regex[::-1]
 	tempContext.bold  =  modelDict[attribute][found:(found + len(searchTerms[index]))]
-	tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict[attribute][found + len(searchTerms[index]): found + 100]).group(0)
+	tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict[attribute][found + len(searchTerms[index]): found + 100]).group(0)
 	tempContext.end += "..."
 	match.contexts.append(tempContext)
 
