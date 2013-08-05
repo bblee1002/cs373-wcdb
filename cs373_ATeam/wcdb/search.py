@@ -16,7 +16,6 @@ def search(query) :
 	exactOrgs   =    searchOrg([query])
 	exactLis    =     searchLi([query])
 
-
 	for item in exactCrises :
 		match = Match(item.crisis_ID, numTerms + 1)
 		result.append(match)
@@ -38,12 +37,17 @@ def search(query) :
 		if repeat == False :
 			match = Match(item.model_id, numTerms + 1)
 			result.append(match)
+
 	#or case
 	orCrises = searchCrisis(searchTerms).difference(exactCrises)
 	orPeople = searchPerson(searchTerms).difference(exactPeople)
 	orOrgs   =      searchOrg(searchTerms).difference(exactOrgs)
 	orLis    =        searchLi(searchTerms).difference(exactLis)
 	
+	orCrises = removeExactLis(exactLis, orCrises)
+	orPeople =  removeExactLis(exactLis, orPeople)
+	orOrgs   = removeExactLis(exactLis, orOrgs)
+
 	for li in searchLi(searchTerms).difference(exactLis) :
 		repeat = False
 		for resultItem in result :
@@ -86,11 +90,11 @@ def search(query) :
 	if numTerms > 1:
 		getContext(result, matchFound, searchTerms, numTerms)
 	for match in result:
-		print match.idref
-		for context in match.contexts:
-			print "begin: ", context.begin 
-			print "bold: ", context.bold 
-			print "end: ", context.end
+		print match.idref, match.count
+	# 	for context in match.contexts:
+	# 		print "begin: ", context.begin 
+	# 		print "bold: ", context.bold 
+	# 		print "end: ", context.end
 	return result
 
 def searchCrisis(searchTerms) :
@@ -132,7 +136,10 @@ def initMatchFound(numTerms, matchFound, orCrises, orPeople, orOrgs, orLis) :
 
 def populateMatchFound(searchTerms, numTerms, matchFound, orCrises, orPeople, orOrgs, orLis) :
 	for crisis in orCrises:
-		crisisString = str(getCrisis(crisis.crisis_ID)).upper()
+		crisisDict = getCrisis(crisis.crisis_ID)
+		crisisDict.pop('people')
+		crisisDict.pop('organizations')
+		crisisString = str(crisisDict).upper()
 		count = 0
 		for term in searchTerms:
 			if term in crisisString:
@@ -140,7 +147,10 @@ def populateMatchFound(searchTerms, numTerms, matchFound, orCrises, orPeople, or
 			count += 1
 
 	for person in orPeople:
-		personString = str(getPerson(person.person_ID)).upper()
+		personDict = getPerson(person.person_ID)
+		personDict.pop('crises')
+		personDict.pop('organizations')
+		personString = str(personDict).upper()
 		count = 0
 		for term in searchTerms:
 			if term in personString:
@@ -148,7 +158,10 @@ def populateMatchFound(searchTerms, numTerms, matchFound, orCrises, orPeople, or
 			count += 1
 
 	for org in orOrgs:
-		orgString = str(getOrg(org.org_ID)).upper()
+		orgDict = getOrg(org.org_ID)
+		orgDict.pop('people')
+		orgDict.pop('crises')
+		orgString = str(orgDict).upper()
 		count = 0
 		for term in searchTerms:
 			if term in orgString:
@@ -257,6 +270,15 @@ def getContextFromModel(match, modelDict, searchTerms, index, attribute) :
 	tempContext.bold  =  modelDict[attribute][found:(found + len(searchTerms[index]))]
 	tempContext.end   += re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict[attribute][found + len(searchTerms[index]): found + 100]).group(0)
 	match.contexts.append(tempContext)
+
+def removeExactLis(exactLis, orSet) :
+	tempSet = set()
+	for li in exactLis :
+		for model in orSet :
+			if li.model_id == model.getID() :
+				tempSet.add(model)
+	return orSet.difference(tempSet)
+
 
 class Match() :
 	def __init__(self, idref, count) :

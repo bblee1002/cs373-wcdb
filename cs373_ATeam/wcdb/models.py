@@ -238,6 +238,8 @@ class Crisis(models.Model) :
     #common
     common            = Common()
     common_summary    = models.CharField(max_length=2000)
+    def getID(self) :
+        return self.crisis_ID
 
 
 class Person(models.Model) :
@@ -257,6 +259,8 @@ class Person(models.Model) :
     #common
     common            = Common()
     common_summary    = models.CharField(max_length=2000)
+    def getID(self) :
+        return self.person_ID
         
     
 
@@ -277,6 +281,8 @@ class Org(models.Model) :
     #Common
     common         = Common()
     common_summary = models.CharField(max_length=2000)
+    def getID(self) :
+        return self.org_ID
 
 
 
