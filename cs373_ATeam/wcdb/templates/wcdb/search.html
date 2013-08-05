@@ -1,6 +1,29 @@
 {% extends "wcdb/default.html" %}
 {% block content %}
 <h1>Search Bar Searched<h1>
-<h2>{{ query }}<h2>
+<div class="row-fluid stats-row">
+    <div class="span12 stat">        
+    </div>                  
+</div>
+<h2>Search results for "{{ query }}"<h2>
+
+<div class="row-fluid stats-row">
+    <div class="span12 stat">        
+    </div>                  
+</div>
+
+
+{% for result in results %}
+	{% if result.1 == "crisis" %}
+		<dl><a href="/crisis/{{ result.0.idref }}">{{result.0.idref}}</a></dl>
+	{% endif %}
+	{% if result.1 == "person" %}
+		<dl><a href="/people/{{ result.0.idref }}">{{result.0.idref}}</a></dl>
+	{% endif %}
+	{% if result.1 == "org" %}
+		<dl><a href="/orgs/{{ result.0.idref }}">{{result.0.idref}}</a></dl>
+	{% endif %}
+{% endfor %}
+
 
 {% endblock content %}
