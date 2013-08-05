@@ -237,16 +237,18 @@ def importView(request, kind):
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': False})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
-def getTypeImage(idref) :
-    #liObjects = Li.objects.filter(kind = 'Images', model_id=(person[1])[0].person_ID)
-    if idref[0:3] == "CRI" :
-      return ["crisis" , Li.objects.filter(kind = 'Images', model_id=idref)]
-    if idref[0:3] == "PER" :
-      return ["person" , Li.objects.filter(kind = 'Images', model_id=idref)]
-    if idref[0:3] == "ORG" :
-      return ["org" , Li.objects.filter(kind = 'Images', model_id=idref)]
-    
 
+def getTypeNameImage(idref) :
+    if idref[0:3] == "CRI" :
+      cri_instance = Crisis.objects.get(crisis_ID = idref)
+      return ["crisis" , cri_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
+    if idref[0:3] == "PER" :
+      per_instance = Person.objects.get(person_ID = idref)
+      return ["person" , per_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
+    if idref[0:3] == "ORG" :
+      org_instance = Org.objects.get(org_ID = idref)
+      return ["org" , org_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
+    
 def searchView(request):
   sform = SearchForm(request.POST)
   if not sform.is_valid():
@@ -254,16 +256,19 @@ def searchView(request):
   user_query = sform.cleaned_data['search_query']
 
   search_result = search(user_query)
-  #[<wcdb.search.Match instance at 0x7f825c54de60>, <wcdb.search.Match instance at 0x7f825c54de18>, <wcdb.search.Match instance at 0x7f825c54dea8>, <wcdb.search.Match instance at 0x7f825c54def0>]
-  
+
   search_dict = {"results" : []}
   for match in search_result :
+    #result_list.0 = match object 
     result_list = [match]
-    result_list.extend(getTypeImage(match.idref))
+    #result_list.1 = type
+    #result_list.2 = name
+    #result_list.3+ = pictures
+    result_list.extend(getTypeNameImage(match.idref))
     search_dict["results"].append(result_list)
   search_dict["query"] = sform.cleaned_data['search_query']
   #print search_dict
-  
+
   return render(request, 'wcdb/search.html', search_dict)
 
 def queriesView(request, query_num):
