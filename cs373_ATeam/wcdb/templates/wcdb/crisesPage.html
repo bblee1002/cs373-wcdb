@@ -19,8 +19,9 @@
             </thead>
             <tbody>
             <h3>Crisis Kind Selector</h3>
-            {% for kind in kinds %}            
-                <dd><a href="/crisespage/{{ kind }}">{{ kind }}</a></dd>
+            {% for kind in kinds %}
+                <a href="/crisespage/{{ kind }}">{{ kind }}</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
             {% endfor %}
 
             <div class="row-fluid stats-row">
