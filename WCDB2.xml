@@ -78,8 +78,7 @@
             <li embed='https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=united+states&amp;aq=&amp;sll=39.110046,-76.77074&amp;sspn=0.015867,0.033023&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.09024,-95.712891&amp;spn=16.79998,28.125&amp;z=5&amp;output=embed'></li>
         </Maps>
         <Feeds>
-            <li embed="https://www.facebook.com/NSACareers">NSA's Facebook</li>
-            <li embed="https://twitter.com/nsa">NSA's Twitter</li>
+            <li embed="https://www.facebook.com/pages/NSA-warrantless-surveillance-controversy/110525432303684?rf=107113499325882">NSA Wiretapping on Facebook</li>
         </Feeds>
         <Summary>The NSA has, ever since September 11, 2001, been steadily expanding its reach and in doing so has quickly crossed the boundaries of what is legal. Driven by a need to know essentially everything, the NSA has begun warrantlessly wiretapping American citizens and collecting massive quantities of metadata about hundreds of millions of Americans and foreigners. Claiming that they are allowed this power because it "might be related to an investigation" the NSA has attempted to claim that their methods are fully legal and allowed by American Law, but this claim is clearly in violation of our constitutional rights. More importantly, it puts the NSA, and by proxy the US government, in a position of astonishing power, power that they have shown the capability of abusing in the past.</Summary>
     </Common>
@@ -1172,7 +1171,8 @@
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Massachusetts&amp;aq=0&amp;oq=massachusset&amp;sll=0.878872,24.785156&amp;sspn=127.791016,270.527344&amp;ie=UTF8&amp;hq=&amp;hnear=Massachusetts&amp;t=m&amp;z=6&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
         <Feeds>
-            <li embed="https://twitter.com/CleanEnergyPrin">Union of Concerned Scientists on Twitter</li>
+            <li embed="https://twitter.com/UCSUSA">Union of Concerned Scientists on Twitter</li>
+            <li embed="https://www.facebook.com/unionofconcernedscientists">Union of Concerned Scientists on Facebook</li>
         </Feeds>
         <Summary>The Union of Concerned Scientists is an organization founded in 1969 by the faculty and students of MIT in Cambridge, Massachusetts. The goal of this nonprofit group is to advocate for an increased focus on the sciences, and positive action to curb global warming, deforestation, militarization, and reliance on oil</Summary>
     </Common>
@@ -1356,6 +1356,7 @@
         <Feeds>
             <li embed="https://twitter.com/ikhwan">Muslim Brotherhood on Twitter</li>
             <li embed="https://www.facebook.com/ikhwanweb.official">Muslim Brotherhood on Facebook</li>
+            <li embed="https://www.facebook.com/pages/Muslim-Brotherhood/104108389626462">Muslim Brotherhood on Facebook</li>
         </Feeds>
         <Summary>
             The Muslim Brotherhood is believed to encourage high levels of violence, and holds bigoted views to justify the anger that leads to attacks.
@@ -1485,10 +1486,6 @@
         <Maps>
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Sinaloa,+Mexico&amp;aq=0&amp;oq=sinaloa&amp;sll=46.420228,6.271734&amp;sspn=0.028194,0.066047&amp;ie=UTF8&amp;hq=&amp;hnear=Sinaloa,+Mexico&amp;t=m&amp;z=7&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
-        <Feeds>
-            <li embed="https://twitter.com/mariana_nak">Sinaloa Cartel on Twitter</li>
-            <li embed="https://www.facebook.com/media/set/?set=a.141773145921091.27797.141757162589356&amp;type=3">Sinaloa Cartel on Facebook</li>
-        </Feeds>
         <Summary>Sinaloa Cartel is the premiere drug cartel in Mexico</Summary>
     </Common>            
 </Organization>
@@ -1526,9 +1523,6 @@
         <Maps>
             <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Nuevo+Laredo,+Mexico&amp;aq=0&amp;oq=nuevo+laredo&amp;sll=25.172109,-107.479517&amp;sspn=9.466655,16.907959&amp;ie=UTF8&amp;hq=&amp;hnear=Nuevo+Laredo,+Tamaulipas,+Mexico&amp;t=m&amp;z=11&amp;iwloc=A&amp;output=embed"></li>
         </Maps>
-        <Feeds>
-            <li embed="https://twitter.com/johnny_zeta21">Los Zetas on Twitter</li>
-        </Feeds>
         <Summary>
             One of the largest two Mexican drug cartels, Los Zetas dominate Northeastern Mexico bordering of Texas.  Whereas the Sinaloa cartel favors bribery and diplomacy, Los Zetas tend toward confronation and brutality, including extortions, beheadings, and mass killings.
         </Summary>

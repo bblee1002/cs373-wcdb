@@ -18,9 +18,10 @@
                 </tr>
             </thead>
             <tbody>
-            <h3>Crisis Kind Selector</h3>
+            <h2>Crisis Kind Selector</h2>
+            <br>
             {% for kind in kinds %}
-                <a href="/crisespage/{{ kind }}">{{ kind }}</a>
+                <a href="/crisespage/{{ kind }}"><b><font size="3">{{ kind }}</font></b></a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
             {% endfor %}
 
@@ -29,7 +30,7 @@
                 </div>                  
             </div>
 
-            <h1>Selected Crises</h1>
+            <h2>Selected Crises</h2>
             <div class="row-fluid stats-row">
                 <div class="span12 stat">        
                 </div>                  

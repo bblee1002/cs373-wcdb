@@ -17,9 +17,10 @@
             </thead>
             <tbody>
 
-            <h3>Organization Kind Selector</h3>
+            <h2>Organization Kind Selector</h2>
+            <br>
             {% for kind in kinds %}            
-                <a href="/orgpage/{{ kind }}">{{ kind }}</a>
+                <a href="/orgpage/{{ kind }}"><b><font size="3">{{ kind }}</font></b></a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
             {% endfor %}
 
@@ -28,7 +29,7 @@
                 </div>                  
             </div>
 
-            <h1>Selected Organizations</h1>
+            <h2>Selected Organizations</h2>
             <div class="row-fluid stats-row">
                 <div class="span12 stat">        
                 </div>                  
