@@ -461,7 +461,7 @@ class unloadModelsCrisisTest(TestCase):
 		oid = self.org.org_ID
 		org_dict = getOrg(oid)
 		org_xml = export_organization(org_dict, oid)
-		s = '<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n'
+		s = '<Organization ID="ORG_ORGORG" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n'
 		self.assertEqual(org_xml, s)
 
 	def test_export_org1(self):
@@ -483,21 +483,21 @@ class unloadModelsCrisisTest(TestCase):
 
 	def test_export_xml0(self):
 		xml_string = export_xml()
-		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
+		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
 		self.assertEqual(xml_string, s)
 
 	def test_export_xml1(self):
 		Crisis.objects.create(crisis_ID='CRI_CRFOUR', name='name4',
 			kind='kind', date='date', time='time', common_summary='summary')
 		xml_string = export_xml()
-		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CRFOUR" Name="name4">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
+		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CRFOUR" Name="name4">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
 		self.assertEqual(xml_string, s)
 
 	def test_export_xml2(self):
 		Org.objects.create(org_ID='ORG_ORFOUR', name='name',
 			kind='kind', location='location', common_summary='summary')
 		xml_string = export_xml()
-		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_ORFOUR" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
+		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_ORFOUR" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
 		self.assertEqual(xml_string, s)
 
 
@@ -851,13 +851,45 @@ class viewsTest(TestCase):
 
 	def test_passwordValidate0(self):
 		pw = "ateam"
-		result = passwordValidate(pw)
+		kind = ""
+		result = passwordValidate(pw, kind)
 		self.assert_(result)
 
 	def test_passwordValidate1(self):
 		pw = "someotherteam"
-		result = passwordValidate(pw)
+		kind = "anything"
+		result = passwordValidate(pw, kind)
 		self.assert_(not (result))
+
+	def test_passwordValidate2(self):
+		pw = "ateam2"
+		kind = "clear"
+		result = passwordValidate(pw, kind)
+		self.assert_(result)
+
+	def test_passwordValidate3(self):
+		pw = "ateam"
+		kind = "clear"
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
+	def test_passwordValidate4(self):
+		pw = "ateam2"
+		kind = ""
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
+	def test_passwordValidate5(self):
+		pw = "ateam"
+		kind = "something"
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
+	def test_passwordValidate6(self):
+		pw = "otherteam"
+		kind = ""
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
 
 	def test_exportView(self):
 		response = self.client.get("http://127.0.0.1:8000/export/")
@@ -888,9 +920,8 @@ class getDdModelTest(TestCase):
 
 		li = getLi('CRI_NSAWRT')
 
-		self.assertEqual(li['floating_text'], 'link text')
-		self.assertEqual(li['embed'], '')
-		self.assertEqual(li['href'], 'linktosomething.com')
+		self.assertEqual(li['floating_text'][0], 'link text')
+		self.assertEqual(li['kind'][0], 'ExternalLinks')
 
 	def test_getLi2(self):
 		li1 = Li()
@@ -902,9 +933,8 @@ class getDdModelTest(TestCase):
 
 		li = getLi('CRI_NSAWRT')
 
-		self.assertEqual(li['floating_text'], 'image link text')
-		self.assertEqual(li['embed'], 'linktoimage')
-		self.assertEqual(li['href'], '')
+		self.assertEqual(li['floating_text'][0], 'image link text')
+		self.assertEqual(li['kind'][0], 'Images')
 
 	def test_getLi3(self):
 		li1 = Li()
@@ -917,9 +947,8 @@ class getDdModelTest(TestCase):
 
 		li = getLi('CRI_NSAWRT')
 
-		self.assertEqual(li['floating_text'], 'floating text')
-		self.assertEqual(li['embed'], 'embedlink')
-		self.assertEqual(li['href'], 'linktosomething.com')
+		self.assertEqual(li['floating_text'][0], 'floating text')
+		self.assertEqual(li['kind'][0], 'ExternalLinks')
 
 # 	#---------------------------------------#
 # 	#-----test_getCrisis
@@ -1299,17 +1328,16 @@ class getDdModelTest(TestCase):
 		temp_person.save()
 
 		person = getPerson("PER_GUZMAN")
-		#print person
 
 		self.assertEqual(temp_person.name, person.get('name'))
 		self.assertEqual(temp_person.kind, person.get('kind'))
 		self.assertEqual(temp_person.location, person.get('location'))
 		self.assertEqual(relations1.crisis_ID, person.get('crises')[0][0])
 		self.assertEqual(relations1.org_ID, person.get('organizations')[0][0])
-		self.assertEqual(li1.href, person.get('common').get('Feeds')[0].href)
-		self.assertEqual(li1.floating_text, person.get('common').get('Feeds')[0].floating_text)
-		self.assertEqual(li1.kind, person.get('common').get('Feeds')[0].kind)
-		self.assertEqual(li1.model_id, person.get('common').get('Feeds')[0].model_id)
+		self.assertEqual(li1.href, person.get('common').get('Feeds')[0][0].href)
+		self.assertEqual(li1.floating_text, person.get('common').get('Feeds')[0][0].floating_text)
+		self.assertEqual(li1.kind, person.get('common').get('Feeds')[0][0].kind)
+		self.assertEqual(li1.model_id, person.get('common').get('Feeds')[0][0].model_id)
 
 # 	#---------------------------------------#
 # 	#-----test_getCrisis

@@ -9,6 +9,7 @@ from getDbModel import  getCrisisIDs, getOrgIDs, getPeopleIDs
 from getDbModel import getCrisis, getPerson, getOrg
 import collections
 from models import *
+from search import search
 
 """
 Views.py renders the view specified by a url.
@@ -236,11 +237,39 @@ def importView(request, kind):
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': False})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
+
+def getTypeNameImage(idref) :
+    if idref[0:3] == "CRI" :
+      cri_instance = Crisis.objects.get(crisis_ID = idref)
+      return ["crisis" , cri_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
+    if idref[0:3] == "PER" :
+      per_instance = Person.objects.get(person_ID = idref)
+      return ["person" , per_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
+    if idref[0:3] == "ORG" :
+      org_instance = Org.objects.get(org_ID = idref)
+      return ["org" , org_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
+    
 def searchView(request):
   sform = SearchForm(request.POST)
   if not sform.is_valid():
     return index(request)
-  return render(request, 'wcdb/search.html', {"query": sform.cleaned_data['search_query']})
+  user_query = sform.cleaned_data['search_query']
+
+  search_result = search(user_query)
+
+  search_dict = {"results" : []}
+  for match in search_result :
+    #result_list.0 = match object 
+    result_list = [match]
+    #result_list.1 = type
+    #result_list.2 = name
+    #result_list.3+ = pictures
+    result_list.extend(getTypeNameImage(match.idref))
+    search_dict["results"].append(result_list)
+  search_dict["query"] = sform.cleaned_data['search_query']
+  #print search_dict
+
+  return render(request, 'wcdb/search.html', search_dict)
 
 def queriesView(request, query_num):
   query_string = ''
