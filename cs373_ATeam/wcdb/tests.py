@@ -896,7 +896,7 @@ class viewsTest(TestCase):
 		self.assertEqual(response.status_code, 200)
 
 
-class getDdModelTest(TestCase):
+class getDbModelTest(TestCase):
 	"""
 	Contains the unit tests for getDbModel.py. The tests use import functions to save modelt to 
 	the database, then check that the getDbModel functions properly retrieve information from 

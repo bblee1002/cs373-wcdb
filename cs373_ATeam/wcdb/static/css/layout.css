@@ -427,8 +427,9 @@ input.search{
 	border-radius: 0px 0px 0px 5px;
 }
 .content.wide-content {
-	margin-left: 10%;
-	width: 80%;
+	position: relative;
+	margin: 0px auto;
+	width: 1200px;
 	background-color: rgb(255,255,255);
 	border-radius: 0;
 }
