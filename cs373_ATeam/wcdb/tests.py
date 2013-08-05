@@ -861,6 +861,36 @@ class viewsTest(TestCase):
 		result = passwordValidate(pw, kind)
 		self.assert_(not (result))
 
+	def test_passwordValidate2(self):
+		pw = "ateam2"
+		kind = "clear"
+		result = passwordValidate(pw, kind)
+		self.assert_(result)
+
+	def test_passwordValidate3(self):
+		pw = "ateam"
+		kind = "clear"
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
+	def test_passwordValidate4(self):
+		pw = "ateam2"
+		kind = ""
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
+	def test_passwordValidate5(self):
+		pw = "ateam"
+		kind = "something"
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
+	def test_passwordValidate6(self):
+		pw = "otherteam"
+		kind = ""
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
 	def test_exportView(self):
 		response = self.client.get("http://127.0.0.1:8000/export/")
 		self.assertEqual(response.status_code, 200)
