@@ -178,8 +178,8 @@ def getContext(result, matchFound, searchTerms, numTerms):
 			keyList = ['name', 'kind', 'location', 'common']
 
 		#org_dict = {name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
-		if match.idref[0:3] == "ORG" :
-			modelDict = getOrg(match.idref)
+		if match.idref[0:3] == "PER" :
+			modelDict = getPerson(match.idref)
 			keyList = ['name', 'kind', 'location', 'common']
 
 		for index in xrange(numTerms) :
@@ -213,7 +213,7 @@ def getContext(result, matchFound, searchTerms, numTerms):
 					found = liDict['floating_text'][liIndex].upper().find(searchTerms[index])
 					if found >= 0 :
 						tempContext = Context()
-						tempContext.begin = liDict['kind'][liIndex]
+						tempContext.begin = liDict['kind'][liIndex] + '...'
 						if found > 0 :
 							regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", liDict['floating_text'][liIndex][found-1::-1]).group(0)
 							tempContext.begin += regex[::-1]
