@@ -24,7 +24,7 @@
 							{% for i in common.Images %}
 								<div class="item">
 									<div class="inner-item">
-										<img src="{{ i.embed }}" alt="img not found">
+										<img class="carouselimg" src="{{ i.embed }}" alt="img not found">
 										<div class="carousel-caption">
 											<h4>{{ i.floating_text }}</h4>
 										</div>
@@ -214,7 +214,7 @@
 	{% endfor %}
 	{% for feed in common.Feeds %}
 		{% if feed.1 == "Facebook" %}
-			<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2F{{ feed.2 }}&amp;width=300&amp;height=530&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:530px;" allowTransparency="true"></iframe>
+			<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2F{{ feed.2 }}&amp;width=300&amp;height=550&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:550px;" allowTransparency="true"></iframe>
 			<div class="row-fluid stats-row">
 		    	<div class="span12 stat">        
 		    	</div>                   

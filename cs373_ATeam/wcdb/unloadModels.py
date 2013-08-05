@@ -21,6 +21,26 @@ def make_non_li_string(clean_string, tag):
 	"""
 	return "	<" + tag + ">" + clean_string + "</" + tag + ">\n"
 
+def make_attribute_string(item) :
+	item_string = ''
+	if item.href != u'':
+		href = clean_xml(item.href)
+		item_string = ''.join([item_string," href=\"" + href + "\""])
+
+	if item.embed != u'':
+		embed = clean_xml(item.embed)
+		item_string = ''.join([item_string," embed=\"" + embed + "\""])
+
+	if item.text != u'':
+		text = clean_xml(item.text)
+		item_string = ''.join([item_string, " text=\"" + text + "\""])
+	item_string = ''.join([item_string, ">"])
+
+	if item.floating_text != u'':
+		floating_text = clean_xml(item.floating_text)
+		item_string = ''.join([item_string, floating_text])
+	return item_string
+
 def make_li_string(li_list, tag, coming_from_common = False):
 	"""
 	li_list is a list of li objects
@@ -38,22 +58,26 @@ def make_li_string(li_list, tag, coming_from_common = False):
 		if coming_from_common:
 			item_string += "	"
 		item_string = ''.join([item_string,"		<li"])
-		if item.href != u'':
-			href = clean_xml(item.href)
-			item_string = ''.join([item_string," href=\"" + href + "\""])
+		if tag != "Feeds" :
+			item_string = ''.join([ item_string, make_attribute_string(item) ])
+		else :
+			item_string = ''.join([ item_string, make_attribute_string( item[0] ) ])
+		# if item.href != u'':
+		# 	href = clean_xml(item.href)
+		# 	item_string = ''.join([item_string," href=\"" + href + "\""])
 
-		if item.embed != u'':
-			embed = clean_xml(item.embed)
-			item_string = ''.join([item_string," embed=\"" + embed + "\""])
+		# if item.embed != u'':
+		# 	embed = clean_xml(item.embed)
+		# 	item_string = ''.join([item_string," embed=\"" + embed + "\""])
 
-		if item.text != u'':
-			text = clean_xml(item.text)
-			item_string = ''.join([item_string, " text=\"" + text + "\""])
-		item_string = ''.join([item_string, ">"])
+		# if item.text != u'':
+		# 	text = clean_xml(item.text)
+		# 	item_string = ''.join([item_string, " text=\"" + text + "\""])
+		# item_string = ''.join([item_string, ">"])
 
-		if item.floating_text != u'':
-			floating_text = clean_xml(item.floating_text)
-			item_string = ''.join([item_string, floating_text])
+		# if item.floating_text != u'':
+		# 	floating_text = clean_xml(item.floating_text)
+		# 	item_string = ''.join([item_string, floating_text])
 		item_string = ''.join([item_string, "</li>\n"])
 	if not coming_from_common:
 		item_string = ''.join([item_string, "	</" + tag + ">\n"])
@@ -206,10 +230,11 @@ def export_organization (org_dict, org_id) :
 		strings.append("	</People>\n")
 
 	try:
-		if org_dict["time"] != '' and org_dict["time"] is not None:
+		if org_dict["kind"] != '' and org_dict["kind"] is not None:
 			strings.append(make_non_li_string(clean_xml(str(org_dict["kind"])), "Kind"))
 	except:
 		pass
+		
 	try:
 		if org_dict["location"] != '' and org_dict["location"] is not None:
 			strings.append(make_non_li_string(clean_xml(str(org_dict["location"])), "Location"))

@@ -17,6 +17,12 @@ h1 small,h2 small,h3 small,h4 small,h5 small {
 	font-style: italic;
 }
 
+.carouselimg{
+	width: auto;
+	height: 300px;
+	max-height: 300px;
+}
+
 input.search{
 	background: url("/static/img/lens.png") #ffffff no-repeat 95%;
 	box-shadow: none;
