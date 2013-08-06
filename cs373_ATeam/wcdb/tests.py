@@ -15,10 +15,6 @@ from django.test.client import Client
 from views import *
 from getDbModel import *
 from search import *
-<<<<<<< HEAD
-
-=======
->>>>>>> 3ccbb53d5412b4d2746855ed9b725520c6b2cb29
 
 #xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
 #psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
@@ -1873,4 +1869,4 @@ class SearchTest(TestCase):
 		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [], [org], [])
 		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [], [org], [])
 		self.assertEqual(tempMatchFound['ORG_DEATER'][1], True)
->>>>>>> 3ccbb53d5412b4d2746855ed9b725520c6b2cb29
+
