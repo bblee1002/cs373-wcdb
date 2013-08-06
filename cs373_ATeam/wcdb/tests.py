@@ -957,6 +957,10 @@ class viewsTest(TestCase):
 			response = self.client.post("http://localhost:8000/import/", {'password': "ateam", 'xmlvalue': upload}, follow = True)
 			self.assertEqual(response.status_code, 200) # Redirect on form success
 
+	#---------------------------------------#
+	#-----test_passwordValidate()
+	#---------------------------------------#
+
 	def test_passwordValidate0(self):
 		pw = "ateam"
 		kind = ""
@@ -998,6 +1002,37 @@ class viewsTest(TestCase):
 		kind = ""
 		result = passwordValidate(pw, kind)
 		self.assert_(not result)
+
+	#---------------------------------------#
+	#-----test_getTypeNameImage()
+	#---------------------------------------#
+
+	def test_getTypeNameImage0(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_NSAWRT"
+		crisis.name = "NSAWiretapping"
+		crisis.save()
+		crisis_list = getTypeNameImage(crisis.crisis_ID)
+		self.assertEqual(crisis_list[0], "crisis")
+		self.assertEqual(crisis_list[1], "NSAWiretapping")
+
+	def test_getTypeNameImage1(self):
+		org = Org()
+		org.org_ID = "ORG_EGYGOV"
+		org.name = "Egyptian Government"
+		org.save()
+		org_list = getTypeNameImage(org.org_ID)
+		self.assertEqual(org_list[0], "org")
+		self.assertEqual(org_list[1], "Egyptian Government")
+
+	def test_getTypeNameImage2(self):
+		person = Person()
+		person.person_ID = "PER_MMORSI"
+		person.name = "Mohamed Morsi"
+		person.save()
+		person_list = getTypeNameImage(person.person_ID)
+		self.assertEqual(person_list[0], "person")
+		self.assertEqual(person_list[1], "Mohamed Morsi")
 
 	def test_exportView(self):
 		response = self.client.get("http://127.0.0.1:8000/export/")
