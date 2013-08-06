@@ -1629,6 +1629,8 @@ class getDbModelTest(TestCase):
 
 		self.assertEqual(temp_org1.name, ids.get('ORG_LOSZTA'))
 
+
+
 class SearchTest(TestCase):
 	"""
 	Contains the unit tests for Search.py, the file where we define our Django files.
@@ -1641,3 +1643,86 @@ class SearchTest(TestCase):
 		testSet = searchCrisis(['Matt', 'legendofzelda'])
 		print
 		#self.assertEqual(len(testSet), 0)
+
+# 	#---------------------------------------#
+# 	#----------test_initMatchFound----------#
+
+	def test_initMatchfound1(self) :
+		tempString = "abcdefgh"
+		tempCrises = []
+		for letter in tempString :
+			tempCrisis = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrises.append(tempCrisis)
+
+		tempMatchFound = {}
+		initMatchFound(len(tempString), tempMatchFound, tempCrises, [], [], [])
+		self.assertEqual(tempMatchFound['a'][0], False)
+
+	def test_initMatchfound2(self) :
+		tempString = ""
+		tempCrises = []
+		for letter in tempString :
+			tempCrisis = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrises.append(tempCrisis)
+
+		tempMatchFound = {}
+		initMatchFound(len(tempString), tempMatchFound, tempCrises, [], [], [])
+		self.assertEqual(len(tempMatchFound), 0)
+
+	def test_initMatchfound3(self) :
+		tempString = "abcdefgh"
+		tempCrises = []
+		for letter in tempString :
+			tempCrisis = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrises.append(tempCrisis)
+
+		tempMatchFound = {}
+		initMatchFound(len(tempString), tempMatchFound, tempCrises, [], [], [])
+		for key in tempMatchFound :
+			self.assertEqual(tempMatchFound[key][0], False)
+		self.assertEqual(len(tempMatchFound), len(tempCrises))
+
+# 	#---------------------------------------#
+# 	#--------test_populateMatchFound--------#
+
+	def test_populateMatchFound1(self) :
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['MARVOLO', "gibbbbeerriiishhhhh"]
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		self.assertEqual(tempMatchFound['CRI_RIDDLE'][0], True)
+
+	def test_populateMatchFound2(self) :
+		person           = Person()
+		person.person_ID = "PER_LUNALO"
+		person.name      = "Luna Lovegood"
+		person.kind      = "Insane but well-meaning person"
+		person.location  = "not reality"
+		person.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['idiot', "Death"]
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [person], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [person], [], [])
+		self.assertEqual(tempMatchFound['PER_LUNALO'][1], False)
+
+	def test_populateMatchFound3(self) :
+		org           = Org()
+		org.org_ID    = "ORG_DEATER"
+		org.name      = "Death Eaters"
+		org.kind      = "Magical Criminals/Racists?"
+		org.location  = "England"
+		org.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['RAINBOWBUNNY', "DEATH"]
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [], [org], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [], [org], [])
+		self.assertEqual(tempMatchFound['ORG_DEATER'][1], True)
