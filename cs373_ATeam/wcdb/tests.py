@@ -1900,6 +1900,49 @@ class SearchTest(TestCase):
 		for org in foundOrg :
 			self.assertEqual(org.name, tempOrg.name)
 
+
+	# 	#---------------------------------------#
+	# 	#-----test_seatchLi
+	# 	#---------------------------------------#
+	def test_searchLi1(self):
+		tempLi = Li()
+		tempLi.href = 'linktosomething.com'
+		tempLi.floating_text = 'something very important'
+		tempLi.kind = 'ExternalLinks'
+		tempLi.model_id = 'CRI_NSAWRT'
+		tempLi.save()
+		query = "very importatnt"
+		searchTerms = query.split()
+		foundLi = searchLi(searchTerms)
+		for li in foundLi :
+			self.assertEqual(li.floating_text, tempLi.floating_text)
+
+	def test_searchLi2(self):
+		tempLi = Li()
+		tempLi.href = 'linktosomething.com'
+		tempLi.floating_text = 'West, Larry. "World Water Day: A Billion People Worldwide Lack Safe Drinking Water." About.com Environmental Issues. N.p., n.d. Web. 11 July 2013.'
+		tempLi.kind = 'Citations'
+		tempLi.model_id = 'ORG_WATERO'
+		tempLi.save()
+		query = "World Water Day"
+		searchTerms = query.split()
+		foundLi = searchLi(searchTerms)
+		for li in foundLi :
+			self.assertEqual(li.floating_text, tempLi.floating_text)
+
+	def test_searchLi3(self):
+		tempLi = Li()
+		tempLi.href = 'linktosomething.com'
+		tempLi.floating_text = 'The governing body of the country of the state of Brazil, Presidential Representative Democratic Republic.'
+		tempLi.kind = 'Summary'
+		tempLi.model_id = 'ORG_BRAGOV'
+		tempLi.save()
+		query = "democratic republic"
+		searchTerms = query.split()
+		foundLi = searchLi(searchTerms)
+		for li in foundLi :
+			self.assertEqual(li.floating_text, tempLi.floating_text)
+
 	"""
 	def test_searchCrisis1(self) :
 		testSet = searchCrisis(['gibbbbeerriiishhhhh', 'thisshouldnotreturnanything'])
