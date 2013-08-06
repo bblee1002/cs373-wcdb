@@ -306,8 +306,6 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(pid2, "PER_MMORSI")
 		self.assertEqual(pid2, "PER_MMORSI")
 
-
-
 class unloadModelsCrisisTest(TestCase):
 	"""
 	unloadModelsCrisisTest tests the functions unloadModels.py, which handles the export function.
@@ -385,6 +383,31 @@ class unloadModelsCrisisTest(TestCase):
 	def test_make_non_li_string3(self):
 		result = make_non_li_string("Test", "Summary")
 		self.assertEqual(result, "\t<Summary>Test</Summary>\n")
+
+# 	#---------------------------------------#
+# 	#-----test_make_attribute_string
+
+	def test_make_attribute_string0(self):
+		li = Li()
+		attribute_string = make_attribute_string(li)
+		self.assertEqual(attribute_string, ">")
+
+	def test_make_attribute_string1(self):
+		li = Li()
+		li.href = "address"
+		li.embed = "embedded stuff"
+		li.text = "text"
+		attribute_string = make_attribute_string(li)
+		self.assertEqual(attribute_string, ' href="address" embed="embedded stuff" text="text">')
+
+	def test_make_attribute_string2(self):
+		li = Li()
+		li.href = "address"
+		li.embed = "embedded stuff"
+		li.text = "text"
+		li.floating_text = "text between tags"
+		attribute_string = make_attribute_string(li)
+		self.assertEqual(attribute_string, ' href="address" embed="embedded stuff" text="text">text between tags')
 
 # 	#---------------------------------------#
 # 	#-----test_make_li_string
