@@ -907,6 +907,58 @@ class viewsTest(TestCase):
 		response = self.client.get("http://127.0.0.1:8000/export/")
 		self.assertEqual(response.status_code, 200)
 
+	def test_searchView0(self):
+		response = self.client.get("http://127.0.0.1:8000/search/")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView0(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView1(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/0")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView2(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/1")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView3(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/2")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView4(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/3")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView5(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/4")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView6(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/5")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView7(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/6")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView8(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/7")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView9(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/8")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView10(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/9")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView11(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/10")
+		self.assertEqual(response.status_code, 200)
+
 
 class getDbModelTest(TestCase):
 	"""
