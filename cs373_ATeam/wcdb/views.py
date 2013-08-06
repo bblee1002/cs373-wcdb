@@ -111,6 +111,7 @@ def orgPage(request, kind):
 
   return render(request, 'wcdb/orgPage.html', {'orgIDs': orgIDs, 'kinds' : kinds})
 
+# Displays people stored in the database. Which people get displayed depends on kind of person selected.
 def pplPage(request, kind):
   """
   Displays all imported people. 
@@ -118,6 +119,7 @@ def pplPage(request, kind):
 
   query_result_set = Person.objects.all()
 
+  # Construct list of possible kinds
   kinds = ['All']
   for obj in query_result_set:
     found = False
@@ -126,6 +128,8 @@ def pplPage(request, kind):
         found = True
     if not found:
       kinds.append(obj.kind)
+
+  # If kind selected is not "All" people, filter search results accordingly
   if kind != 'All' :
     query_result_set = Person.objects.filter(kind=kind)
     for obj in query_result_set:
@@ -145,16 +149,14 @@ def pplPage(request, kind):
 
   return render(request, 'wcdb/pplPage.html', {'peopleIDs': peopleIDs, 'kinds': kinds})
 
+# Renders Home Page
 def index(request):
   """
   Renders view for homepage.
   """
-  crisisIDs = getCrisisIDs()
-  orgIDs = getOrgIDs()
-  peopleIDs = getPeopleIDs()
-  return render(request, 'wcdb/index.html', {'crisisIDs': crisisIDs,
-    'orgIDs': orgIDs, 'peopleIDs': peopleIDs})
+  return render(request, 'wcdb/index.html')
 
+# Runs unit tests
 def unittestsView(request):
   """
   Renders view for unit tests as well as runs the unit tests.
@@ -163,19 +165,16 @@ def unittestsView(request):
     stderr=subprocess.STDOUT, shell=False)
   return render(request, 'wcdb/Unittests.html', {'output': output})
 
+# Displays XML version of database information in browser
 def exportView(request) :
   """
   Renders view for export page, kicks off export facility.
   """
-  # output = "You have to import something before you export!"
-  # global imported_models
-  # if imported_models != {}:
-  #   output = receive_import(imported_models)
-
   output = export_xml()
 
   return render(request, 'wcdb/Export.html', {'output': output})
 
+# Downloads database information to user's computer as an XML file
 def downloadView(request) :
   """
   Returns an XML document of what is in the models.
@@ -186,6 +185,8 @@ def downloadView(request) :
 
   return response
 
+# Helper function for importView. Returns true if password given was valid, false otherwise.
+# kind parameter indicaets which kind of import was called.
 def passwordValidate(pw_input, kind):
   """
   Validates that the password for the XMLUploadForm is correct.
@@ -197,6 +198,7 @@ def passwordValidate(pw_input, kind):
   else:
     return False
 
+# Takes in an XML file and populates database accordingly
 def importView(request, kind):
   """
   Renders view for import page, kicks off the import facility, reports
@@ -206,19 +208,21 @@ def importView(request, kind):
   form = XMLUploadForm()
   if request.method == 'POST':
     form = XMLUploadForm(request.POST, request.FILES)
+
     if form.is_valid() and passwordValidate(form.cleaned_data['password'], kind):
       # process data
       upload = request.FILES['xmlfile']
+
+      # validate XML file
       e_tree = validate(upload)
       if type(e_tree) == str:
+        # XML file not valid
         return render(request, 'wcdb/import.html', {'form': form,
           'success': False, 'password': "", 'output': e_tree})
-      if e_tree :
-        #populate models returns a dictionary where the keys are 'crises', 'organizations' , 'people'
-        #and the values are corresponding lists of crisis, organization, and person models
-        #filled_models = populate_models(e_tree)
 
-          # Clear Database if Clear Import was selected and XML file was valid
+      # Valid XML file
+      if e_tree :
+        # Clear Database if Clear Import was selected and XML file was valid
         if kind == 'clear' :
           Crisis.objects.all().delete()
           Person.objects.all().delete()
@@ -226,18 +230,14 @@ def importView(request, kind):
           Li.objects.all().delete()
           Relations.objects.all().delete()
 
-        #populate models should be changed to not return anything
-        #everything that used to be returned by the dict should be accessed through the db
-        #global imported_models
-        #imported_models = populate_models(e_tree)
+        # Populate database
         populate_models(e_tree)
-        #Dynamically access model data from the db instead of using dict at this point
-        
 
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': False})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
-
+# Helper method for searchView.
+# Returns a list in format: [type of object, name, [LiObject, LiObject, ...] ] where LiObjects are images
 def getTypeNameImage(idref) :
     if idref[0:3] == "CRI" :
       cri_instance = Crisis.objects.get(crisis_ID = idref)
@@ -248,29 +248,35 @@ def getTypeNameImage(idref) :
     if idref[0:3] == "ORG" :
       org_instance = Org.objects.get(org_ID = idref)
       return ["org" , org_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
-    
+
+# Renders the search results of a query entered into the search bar    
 def searchView(request):
   sform = SearchForm(request.POST)
+
+  # Ensure form is valid
   if not sform.is_valid():
     return index(request)
+
   user_query = sform.cleaned_data['search_query']
 
+  # Get search results. Format: [ MatchObject, MatchObject, ...]
   search_result = search(user_query)
 
-  search_dict = {"results" : []}
+  # Construct a dictionary from search results to pass along to html template
+  search_dict = {"results" : [], "query" : ''}
   for match in search_result :
-    #result_list.0 = match object 
+    # Make list for each MatchObject in search_result.
+    # List format = [MatchObject, type of object, name of object, [LiObject, LiObject, ...] ]
     result_list = [match]
-    #result_list.1 = type
-    #result_list.2 = name
-    #result_list.3+ = pictures
     result_list.extend(getTypeNameImage(match.idref))
+
     search_dict["results"].append(result_list)
   search_dict["query"] = sform.cleaned_data['search_query']
-  #print search_dict
 
   return render(request, 'wcdb/search.html', search_dict)
 
+# Renders the 10 selected queries (our 5 and 5 from other groups)
+# query_num is a variable passed in the url that indicates which query to display
 def queriesView(request, query_num):
   query_string = ''
   query_string1 = ''
@@ -282,11 +288,13 @@ def queriesView(request, query_num):
   id_list = []
   set_of_unique_IDs = set([])
 
+  # Convert query num from a string to an int
   try:
     query_num = int(query_num)
   except ValueError:
     query_num = 0
 
+  # List of the 10 different queries, with 0 or 1 of them displaying, depending on the value of query_num
   if query_num == 1 :
     query_string =  "SELECT crisis_ID, name FROM (SELECT name, count(name) as Count, crisis_ID FROM wcdb_crisis c INNER JOIN wcdb_li l ON c.crisis_ID = l.model_id WHERE l.kind = 'Locations' GROUP BY name ORDER BY Count DESC) AS sub LIMIT 1;"
     query_result_set = Crisis.objects.raw(query_string)
@@ -337,11 +345,14 @@ def queriesView(request, query_num):
     query_string =  "SELECT person_ID, name FROM wcdb_person WHERE person_ID IN (SELECT DISTINCT person_ID FROM wcdb_relations WHERE person_ID <> '' AND person_ID <> 'PER_BROBMA' AND (crisis_ID IN (SELECT crisis_ID FROM wcdb_relations WHERE crisis_ID <> '' AND person_ID = 'PER_BROBMA') OR org_ID IN (SELECT org_ID FROM wcdb_relations WHERE org_ID <> '' AND person_ID = 'PER_BROBMA')))"
     query_result_set = Person.objects.raw(query_string)
 
+  # The raw queries used are placed into a list of strings.
   query_strings.append(query_string)
   query_strings.append(query_string1)
   query_strings.append(query_string2)
   query_strings.append(query_string3)
 
+  # This list, along with the result set of the query, are wrapped into a tuple and placed into
+  # a dictionary, along with the value of query_num and the plain english version of the query.
   query_tuple = (query_strings, query_result_set)
 
   queries_dict = {"queries": {  "Show the crisis that is the most widespread (occurs in the most locations)." : 1, 
@@ -360,6 +371,7 @@ def queriesView(request, query_num):
                 }
   return render(request, 'wcdb/queries.html', queries_dict)
 
+# Form used in the importView to post password and file information
 class XMLUploadForm(forms.Form):
   """
   XMLUploadForm that has an upload file field along with a password field.
@@ -367,5 +379,6 @@ class XMLUploadForm(forms.Form):
   xmlfile = forms.FileField()
   password = forms.CharField(max_length=8, widget=forms.PasswordInput) 
 
+# Form used in bar at top of every page (part of default.html) to post search query
 class SearchForm(forms.Form):
     search_query = forms.CharField(max_length = 200)
