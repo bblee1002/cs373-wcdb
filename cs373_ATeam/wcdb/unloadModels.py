@@ -62,22 +62,6 @@ def make_li_string(li_list, tag, coming_from_common = False):
 			item_string = ''.join([ item_string, make_attribute_string(item) ])
 		else :
 			item_string = ''.join([ item_string, make_attribute_string( item[0] ) ])
-		# if item.href != u'':
-		# 	href = clean_xml(item.href)
-		# 	item_string = ''.join([item_string," href=\"" + href + "\""])
-
-		# if item.embed != u'':
-		# 	embed = clean_xml(item.embed)
-		# 	item_string = ''.join([item_string," embed=\"" + embed + "\""])
-
-		# if item.text != u'':
-		# 	text = clean_xml(item.text)
-		# 	item_string = ''.join([item_string, " text=\"" + text + "\""])
-		# item_string = ''.join([item_string, ">"])
-
-		# if item.floating_text != u'':
-		# 	floating_text = clean_xml(item.floating_text)
-		# 	item_string = ''.join([item_string, floating_text])
 		item_string = ''.join([item_string, "</li>\n"])
 	if not coming_from_common:
 		item_string = ''.join([item_string, "	</" + tag + ">\n"])
