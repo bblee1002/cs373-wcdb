@@ -833,8 +833,16 @@ class viewsTest(TestCase):
 		self.assertEqual(response.status_code, 200)
 
 	def test_crisesPage0(self):
-		pass
-		#print crisesPage("http://localhost:8000/crisis/CRI_NUCDIS","clear")
+		response = self.client.get("http://localhost:8000/crisespage/all")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgPage0(self):
+		response = self.client.get("http://localhost:8000/orgpage/all")
+		self.assertEqual(response.status_code, 200)
+
+	def test_pplPage0(self):
+		response = self.client.get("http://localhost:8000/pplpage/all")
+		self.assertEqual(response.status_code, 200)
 
 	"""
 	Creates an infinite loop!
