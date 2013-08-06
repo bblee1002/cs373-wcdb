@@ -14,6 +14,7 @@ import xml.etree.ElementTree as ET
 from django.test.client import Client
 from views import *
 from getDbModel import *
+from search import *
 
 
 #xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
@@ -1725,3 +1726,15 @@ class getDbModelTest(TestCase):
 
 		self.assertEqual(temp_org1.name, ids.get('ORG_LOSZTA'))
 
+
+class searchTest(TestCase):
+
+# 	#---------------------------------------#
+# 	#-----test_seatchCrisis
+# 	#---------------------------------------#
+	def test_searchCrisis1(self):
+		query = "Matt Damon"
+		searchTerms = query.split()
+		print "query ", searchTerms
+		print "Search Crisis"
+		print searchCrisis(searchTerms)
