@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from django.test.client import Client
 from views import *
 from getDbModel import *
-
+from search import *
 
 #xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
 #psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
@@ -1569,3 +1569,15 @@ class getDbModelTest(TestCase):
 
 		self.assertEqual(temp_org1.name, ids.get('ORG_LOSZTA'))
 
+class SearchTest(TestCase):
+	"""
+	Contains the unit tests for Search.py, the file where we define our Django files.
+	"""
+	def test_searchCrisis1(self) :
+		testSet = searchCrisis(['gibbbbeerriiishhhhh', 'thisshouldnotreturnanything'])
+		self.assertEqual(len(testSet), 0)
+
+	def test_searchCrisis2(self) :
+		testSet = searchCrisis(['Matt', 'legendofzelda'])
+		print
+		#self.assertEqual(len(testSet), 0)
