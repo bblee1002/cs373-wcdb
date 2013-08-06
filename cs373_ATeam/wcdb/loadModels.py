@@ -21,17 +21,6 @@ def populate_models(tree) :
 	populate_crisis(e_root)
 	populate_person(e_root)
 	populate_org(e_root)
-	#filled_models = {'crises' : crises , 'organizations' : organizations, "people" : people}
-	#return filled_models
-
-# def populate_li(root, modl_id, tag):
-# 	outer_node = root.find(tag)
-# 	if outer_node is not None:
-# 		for li in outer_node or [] :
-# 			temp_li = Li()
-# 			temp_li.populate(li, modl_id, tag)
-# 			temp_li.save()
-
 
 def populate_common(node, modl_id, model_instance):
 	"""
