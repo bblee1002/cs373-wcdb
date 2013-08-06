@@ -35,6 +35,8 @@ def populate_li(root, modl_id, tag):
 
             if len(check) == 0:
                 temp_li.populate(li, modl_id, tag)
+                if temp_li.kind == 'History' :
+                    print "LI MODEL_ID: ", temp_li.model_id
                 temp_li.save()
 
 
@@ -51,7 +53,7 @@ class Li(models.Model) :
     embed         =  models.CharField(max_length=2000)
     text          =  models.CharField(max_length=2000)
     #text not in the attributes; not Li
-    floating_text =  models.CharField(max_length=4000)
+    floating_text =  models.CharField(max_length=40000)
     model_id      =  models.CharField(max_length=200)
     kind          =  models.CharField(max_length=200)
     #only if type is citation
@@ -237,7 +239,7 @@ class Crisis(models.Model) :
     # ways_to_help      = []
     #common
     common            = Common()
-    common_summary    = models.CharField(max_length=2000)
+    common_summary    = models.CharField(max_length=10000)
     def getID(self) :
         return self.crisis_ID
 
@@ -258,7 +260,7 @@ class Person(models.Model) :
     #locations, human_impact, economic_impact is always floating text
     #common
     common            = Common()
-    common_summary    = models.CharField(max_length=2000)
+    common_summary    = models.CharField(max_length=10000)
     def getID(self) :
         return self.person_ID
         
@@ -280,7 +282,7 @@ class Org(models.Model) :
     # contact        = []
     #Common
     common         = Common()
-    common_summary = models.CharField(max_length=2000)
+    common_summary = models.CharField(max_length=10000)
     def getID(self) :
         return self.org_ID
 

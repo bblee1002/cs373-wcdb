@@ -46,7 +46,8 @@ def populate_common(node, modl_id, model_instance):
 		found_summary = found_common.find("Summary")
 
 		if found_summary is not None and found_summary is not "" :
-			model_instance.common_summary = found_summary.text
+			if found_summary.text is not None and found_summary.text is not "" :
+				model_instance.common_summary = found_summary.text
 
 def populate_crisis(root) :
 	"""
