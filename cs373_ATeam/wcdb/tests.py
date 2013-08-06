@@ -231,6 +231,82 @@ class ModelsCrisisTest(TestCase):
 		relations1.populate(c_id = "CRI_NSAWRT")
 		self.assertEqual(relations1.crisis_ID, "CRI_NSAWRT")
 
+	#---------------------------------------#
+	#-----test_getID
+
+	def test_crisis_getID0(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_NSAWRT"
+		cid = crisis.getID()
+		self.assertEqual(type(crisis), Crisis)
+		self.assertEqual(cid, "CRI_NSAWRT")
+
+	def test_crisis_getID1(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_BEEDIE"
+		crisis.name = "name"
+		crisis.kind = "kind"
+		cid = crisis.getID()
+		self.assertEqual(type(crisis), Crisis)
+		self.assertEqual(cid, "CRI_BEEDIE")
+
+	def test_crisis_getID2(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_EGYPTR"
+		cid = crisis.getID()
+		crisis.name = "name"
+		self.assertEqual(type(crisis), Crisis)
+		self.assertEqual(cid, "CRI_EGYPTR")
+
+	def test_org_getID0(self):
+		org = Org()
+		org.org_ID = "ORG_MEXGOV"
+		org.name = "oname"
+		org.kind = "Criminal Organization"
+		oid = org.getID()
+		self.assertEqual(type(org), Org)
+		self.assertEqual(oid, "ORG_MEXGOV")
+
+	def test_org_getID1(self):
+		org = Org()
+		org.org_ID = "ORG_MEXGOV"
+		oid = org.getID()
+		self.assertEqual(type(org), Org)
+		self.assertEqual(oid, "ORG_MEXGOV")
+
+	def test_org_getID2(self):
+		org = Org()
+		org.org_ID = "ORG_EGYGOV"
+		oid = org.getID()
+		self.assertEqual(type(org), Org)
+		self.assertEqual(oid, "ORG_EGYGOV")
+
+	def test_person_getID0(self):
+		person = Person()
+		person.person_ID = "PER_MMORSI"
+		pid = person.getID()
+		self.assertEqual(type(person), Person)
+		self.assertEqual(pid, "PER_MMORSI")
+
+	def test_person_getID1(self):
+		person = Person()
+		person.person_ID = "PER_ELBARA"
+		person.name = "ElBaradei"
+		pid = person.getID()
+		self.assertEqual(type(person), Person)
+		self.assertEqual(pid, "PER_ELBARA")
+
+	def test_person_getID2(self):
+		person = Person()
+		person.person_ID = "PER_ESNWDN"
+		pid = person.getID()
+		person.person_ID = "PER_MMORSI"
+		pid2 = person.getID()
+		self.assertEqual(type(person), Person)
+		self.assertEqual(pid2, "PER_MMORSI")
+		self.assertEqual(pid2, "PER_MMORSI")
+
+
 
 class unloadModelsCrisisTest(TestCase):
 	"""
