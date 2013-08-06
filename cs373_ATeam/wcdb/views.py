@@ -15,8 +15,7 @@ from search import search
 Views.py renders the view specified by a url.
 """
 
-imported_models = {}
-
+# Renders html for a given crisis based on id given (crisis_id)
 def crisisView(request, crisis_id):
   """
   Renders view for crises.
@@ -25,31 +24,31 @@ def crisisView(request, crisis_id):
 
   return render(request, 'wcdb/cri_temp.html', crisis_dict)
 
+# Renders html for a given org based on id given (orgs_id)
 def orgsView(request, orgs_id):
   """
   Renders view for organizations.
   """
   org_dict = getOrg(orgs_id)
-  # if len(org_dict) <= 0
-  #   return HttpResponse('org does not exist')
   return render(request, 'wcdb/org_temp.html', org_dict)
 
-
+# Renders html for a given person based on id given (people_id)
 def peopleView(request, people_id):
   """
   Renders view for people.
   """
   per_dict = getPerson(people_id)
-  # if len(per_dict) == 0
-  #   return HttpResponse('person does not exist')
   return render(request, 'wcdb/per_temp.html', per_dict)
 
+# Displays crises stored in the database. Which crises get displayed depends on kind of crisis selected.
 def crisesPage(request, kind):
   """
   Displays all imported crises. 
   """
 
   query_result_set = Crisis.objects.all()
+
+  # Construct list of possible kinds
   kinds = ['All']
   for obj in query_result_set:
     found = False
@@ -58,6 +57,8 @@ def crisesPage(request, kind):
         found = True
     if not found:
       kinds.append(obj.kind)
+
+  # If kind selected is not "All" orgs, filter search results accordingly
   if kind != 'All' :
     query_result_set = Crisis.objects.filter(kind=kind)
     for obj in query_result_set:
@@ -77,6 +78,7 @@ def crisesPage(request, kind):
 
   return render(request, 'wcdb/crisesPage.html', {'crisisIDs' : crisisIDs, 'kinds' : kinds})
 
+# Displays organizations stored in the database. Which orgs get displayed depends on kind of org selected.
 def orgPage(request, kind):
   """
   Displays all imported organizations. 
@@ -84,6 +86,7 @@ def orgPage(request, kind):
 
   query_result_set = Org.objects.all()
 
+  # Construct list of possible kinds
   kinds = ['All']
   for obj in query_result_set:
     found = False
@@ -92,6 +95,8 @@ def orgPage(request, kind):
         found = True
     if not found:
       kinds.append(obj.kind)
+
+  # If kind selected is not "All" orgs, filter search results accordingly
   if kind != 'All' :
     query_result_set = Org.objects.filter(kind=kind)
     for obj in query_result_set:

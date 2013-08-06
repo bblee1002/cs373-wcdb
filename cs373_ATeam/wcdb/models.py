@@ -44,12 +44,13 @@ class Li(models.Model) :
     Class for the List tag in the unified xml schema. Contains a field for an href, embedded link, 
     and alt text. The floating_text attribute is to catch any text not in attributes.
     """
-    # attributes
+    # Attributes
     href          =  models.CharField(max_length=2000)
     embed         =  models.CharField(max_length=2000)
     text          =  models.CharField(max_length=2000)
-    #text not in the attributes; not Li
-    floating_text =  models.CharField(max_length=40000)
+    # Text between tags
+    floating_text =  models.CharField(max_length=10000)
+
     model_id      =  models.CharField(max_length=200)
     kind          =  models.CharField(max_length=200)
 
@@ -59,6 +60,7 @@ class Li(models.Model) :
         values for type: citations, videos, images, etc. Uses node to populate attributues of a Li 
         object.
         """
+
         if e_node.get("href") is not None:
             self.href          =  e_node.get("href")
         if e_node.get("embed") is not None:
@@ -70,12 +72,12 @@ class Li(models.Model) :
         self.model_id      =             modl_id
         self.kind          =           item_type
 
-
 class Common() :
     """
     Class for the Common tag in the unified xml schema Contains a field for an href, embedded link, and alt text
     The floating_text attribute is to catch any text not in attributes.
     """
+
     def populate(self, e_node, modl_id) :
         """
         Non-static method expects an element node and model ID as a parameter.
@@ -87,7 +89,6 @@ class Common() :
         populate_li(e_node, modl_id, "Videos")
         populate_li(e_node, modl_id, "Maps")
         populate_li(e_node, modl_id, "Feeds")
-
 
 class Relations(models.Model) :
     """
@@ -116,27 +117,25 @@ class Crisis(models.Model) :
     kind              = models.CharField(max_length=200)
     date              = models.CharField(max_length=200)
     time              = models.CharField(max_length=200)
-
-    #common
-    common            = Common()
     common_summary    = models.CharField(max_length=10000)
     def getID(self) :
         return self.crisis_ID
+
 
 class Person(models.Model) :
     """
     Person Model
     """
+
     person_ID         = models.CharField(max_length=200, primary_key=True)
     name              = models.CharField(max_length=200)
     kind              = models.CharField(max_length=200)
     location          = models.CharField(max_length=200)
-
-    #common
-    common            = Common()
     common_summary    = models.CharField(max_length=10000)
     def getID(self) :
         return self.person_ID
+        
+    
 
 class Org(models.Model) :
     """
@@ -146,9 +145,6 @@ class Org(models.Model) :
     name           = models.CharField(max_length=200)
     kind           = models.CharField(max_length=200)
     location       = models.CharField(max_length=200)
-    
-    #Common
-    common         = Common()
     common_summary = models.CharField(max_length=10000)
     def getID(self) :
         return self.org_ID

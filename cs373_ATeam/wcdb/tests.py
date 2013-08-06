@@ -15,7 +15,10 @@ from django.test.client import Client
 from views import *
 from getDbModel import *
 from search import *
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3ccbb53d5412b4d2746855ed9b725520c6b2cb29
 
 #xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
 #psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
@@ -958,6 +961,10 @@ class viewsTest(TestCase):
 			response = self.client.post("http://localhost:8000/import/", {'password': "ateam", 'xmlvalue': upload}, follow = True)
 			self.assertEqual(response.status_code, 200) # Redirect on form success
 
+	#---------------------------------------#
+	#-----test_passwordValidate()
+	#---------------------------------------#
+
 	def test_passwordValidate0(self):
 		pw = "ateam"
 		kind = ""
@@ -999,6 +1006,37 @@ class viewsTest(TestCase):
 		kind = ""
 		result = passwordValidate(pw, kind)
 		self.assert_(not result)
+
+	#---------------------------------------#
+	#-----test_getTypeNameImage()
+	#---------------------------------------#
+
+	def test_getTypeNameImage0(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_NSAWRT"
+		crisis.name = "NSAWiretapping"
+		crisis.save()
+		crisis_list = getTypeNameImage(crisis.crisis_ID)
+		self.assertEqual(crisis_list[0], "crisis")
+		self.assertEqual(crisis_list[1], "NSAWiretapping")
+
+	def test_getTypeNameImage1(self):
+		org = Org()
+		org.org_ID = "ORG_EGYGOV"
+		org.name = "Egyptian Government"
+		org.save()
+		org_list = getTypeNameImage(org.org_ID)
+		self.assertEqual(org_list[0], "org")
+		self.assertEqual(org_list[1], "Egyptian Government")
+
+	def test_getTypeNameImage2(self):
+		person = Person()
+		person.person_ID = "PER_MMORSI"
+		person.name = "Mohamed Morsi"
+		person.save()
+		person_list = getTypeNameImage(person.person_ID)
+		self.assertEqual(person_list[0], "person")
+		self.assertEqual(person_list[1], "Mohamed Morsi")
 
 	def test_exportView(self):
 		response = self.client.get("http://127.0.0.1:8000/export/")
@@ -1727,14 +1765,112 @@ class getDbModelTest(TestCase):
 		self.assertEqual(temp_org1.name, ids.get('ORG_LOSZTA'))
 
 
-class searchTest(TestCase):
 
-# 	#---------------------------------------#
-# 	#-----test_seatchCrisis
-# 	#---------------------------------------#
+class SearchTest(TestCase):
+	"""
+	Contains the unit tests for Search.py, the file where we define our Django files.
+	"""
+	# 	#---------------------------------------#
+	# 	#-----test_seatchCrisis
+	# 	#---------------------------------------#
 	def test_searchCrisis1(self):
 		query = "Matt Damon"
 		searchTerms = query.split()
 		print "query ", searchTerms
 		print "Search Crisis"
 		print searchCrisis(searchTerms)
+
+	"""
+	def test_searchCrisis1(self) :
+		testSet = searchCrisis(['gibbbbeerriiishhhhh', 'thisshouldnotreturnanything'])
+		self.assertEqual(len(testSet), 0)
+
+	def test_searchCrisis2(self) :
+		testSet = searchCrisis(['Matt', 'legendofzelda'])
+		print
+		#self.assertEqual(len(testSet), 0)
+	"""
+
+# 	#---------------------------------------#
+# 	#----------test_initMatchFound----------#
+
+	def test_initMatchfound1(self) :
+		tempString = "abcdefgh"
+		tempCrises = []
+		for letter in tempString :
+			tempCrisis = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrises.append(tempCrisis)
+
+		tempMatchFound = {}
+		initMatchFound(len(tempString), tempMatchFound, tempCrises, [], [], [])
+		self.assertEqual(tempMatchFound['a'][0], False)
+
+	def test_initMatchfound2(self) :
+		tempString = ""
+		tempCrises = []
+		for letter in tempString :
+			tempCrisis = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrises.append(tempCrisis)
+
+		tempMatchFound = {}
+		initMatchFound(len(tempString), tempMatchFound, tempCrises, [], [], [])
+		self.assertEqual(len(tempMatchFound), 0)
+
+	def test_initMatchfound3(self) :
+		tempString = "abcdefgh"
+		tempCrises = []
+		for letter in tempString :
+			tempCrisis = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrises.append(tempCrisis)
+
+		tempMatchFound = {}
+		initMatchFound(len(tempString), tempMatchFound, tempCrises, [], [], [])
+		for key in tempMatchFound :
+			self.assertEqual(tempMatchFound[key][0], False)
+		self.assertEqual(len(tempMatchFound), len(tempCrises))
+
+# 	#---------------------------------------#
+# 	#--------test_populateMatchFound--------#
+
+	def test_populateMatchFound1(self) :
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['MARVOLO', "gibbbbeerriiishhhhh"]
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		self.assertEqual(tempMatchFound['CRI_RIDDLE'][0], True)
+
+	def test_populateMatchFound2(self) :
+		person           = Person()
+		person.person_ID = "PER_LUNALO"
+		person.name      = "Luna Lovegood"
+		person.kind      = "Insane but well-meaning person"
+		person.location  = "not reality"
+		person.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['idiot', "Death"]
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [person], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [person], [], [])
+		self.assertEqual(tempMatchFound['PER_LUNALO'][1], False)
+
+	def test_populateMatchFound3(self) :
+		org           = Org()
+		org.org_ID    = "ORG_DEATER"
+		org.name      = "Death Eaters"
+		org.kind      = "Magical Criminals/Racists?"
+		org.location  = "England"
+		org.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['RAINBOWBUNNY', "DEATH"]
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [], [org], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [], [org], [])
+		self.assertEqual(tempMatchFound['ORG_DEATER'][1], True)
+>>>>>>> 3ccbb53d5412b4d2746855ed9b725520c6b2cb29
