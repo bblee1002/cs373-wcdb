@@ -148,62 +148,6 @@ class ModelsCrisisTest(TestCase):
 		self.assertEqual(common_dict['Images'][0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
 		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
 		self.assertEqual(common_dict['Maps'][0].embed, "https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&sspn=3.2522150867582833,7.2072687770004205&t=m&q=uttarakhand&dg=opt&ie=UTF8&hq=&hnear=Uttarakhand,+India&ll=30.066753,79.0193&spn=2.77128,5.07019&z=8&output=embed")
-		
-
-
-	#---------------------------------------#
-	#-----test_populate_common
-
-	def test_populate_common0(self):
-		temp_com   = Common()
-		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
-		e_root     = ET.fromstring(xml_string)
-		temp_crisis = Crisis
-		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
-
-		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
-		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
-						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
-						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
-						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
-		for a in li_list :
-			common_dict[a.kind].append(a)
-		self.assertEqual(common_dict['Citations'][0].floating_text, "Kyoto News Network")
-
-	def test_populate_common1(self):
-		temp_com   = Common()
-		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
-		e_root     = ET.fromstring(xml_string)
-		temp_crisis = Crisis
-		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
-
-		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
-		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
-						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
-						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
-						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
-		for a in li_list :
-			common_dict[a.kind].append(a)
-		self.assertEqual(common_dict['Images'][0].embed, "http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg")
-
-	def test_populate_common2(self):
-		temp_com   = Common()
-		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/PkXw1iBgzoY\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"twitter.com/kiraisgod\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
-		e_root     = ET.fromstring(xml_string)
-		temp_crisis = Crisis
-		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
-
-		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
-		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
-						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
-						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
-						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
-		for a in li_list :
-			common_dict[a.kind].append(a)
-		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://myanimelist.net/anime/1535/Death_Note")
-		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/PkXw1iBgzoY")
-		self.assertEqual(common_dict['Feeds'][0].embed, "twitter.com/kiraisgod")
-
 
 
 	#---------------------------------------#
@@ -231,6 +175,80 @@ class ModelsCrisisTest(TestCase):
 		relations1.populate(c_id = "CRI_NSAWRT")
 		self.assertEqual(relations1.crisis_ID, "CRI_NSAWRT")
 
+	#---------------------------------------#
+	#-----test_getID
+
+	def test_crisis_getID0(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_NSAWRT"
+		cid = crisis.getID()
+		self.assertEqual(type(crisis), Crisis)
+		self.assertEqual(cid, "CRI_NSAWRT")
+
+	def test_crisis_getID1(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_BEEDIE"
+		crisis.name = "name"
+		crisis.kind = "kind"
+		cid = crisis.getID()
+		self.assertEqual(type(crisis), Crisis)
+		self.assertEqual(cid, "CRI_BEEDIE")
+
+	def test_crisis_getID2(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_EGYPTR"
+		cid = crisis.getID()
+		crisis.name = "name"
+		self.assertEqual(type(crisis), Crisis)
+		self.assertEqual(cid, "CRI_EGYPTR")
+
+	def test_org_getID0(self):
+		org = Org()
+		org.org_ID = "ORG_MEXGOV"
+		org.name = "oname"
+		org.kind = "Criminal Organization"
+		oid = org.getID()
+		self.assertEqual(type(org), Org)
+		self.assertEqual(oid, "ORG_MEXGOV")
+
+	def test_org_getID1(self):
+		org = Org()
+		org.org_ID = "ORG_MEXGOV"
+		oid = org.getID()
+		self.assertEqual(type(org), Org)
+		self.assertEqual(oid, "ORG_MEXGOV")
+
+	def test_org_getID2(self):
+		org = Org()
+		org.org_ID = "ORG_EGYGOV"
+		oid = org.getID()
+		self.assertEqual(type(org), Org)
+		self.assertEqual(oid, "ORG_EGYGOV")
+
+	def test_person_getID0(self):
+		person = Person()
+		person.person_ID = "PER_MMORSI"
+		pid = person.getID()
+		self.assertEqual(type(person), Person)
+		self.assertEqual(pid, "PER_MMORSI")
+
+	def test_person_getID1(self):
+		person = Person()
+		person.person_ID = "PER_ELBARA"
+		person.name = "ElBaradei"
+		pid = person.getID()
+		self.assertEqual(type(person), Person)
+		self.assertEqual(pid, "PER_ELBARA")
+
+	def test_person_getID2(self):
+		person = Person()
+		person.person_ID = "PER_ESNWDN"
+		pid = person.getID()
+		person.person_ID = "PER_MMORSI"
+		pid2 = person.getID()
+		self.assertEqual(type(person), Person)
+		self.assertEqual(pid2, "PER_MMORSI")
+		self.assertEqual(pid2, "PER_MMORSI")
 
 class unloadModelsCrisisTest(TestCase):
 	"""
@@ -309,6 +327,31 @@ class unloadModelsCrisisTest(TestCase):
 	def test_make_non_li_string3(self):
 		result = make_non_li_string("Test", "Summary")
 		self.assertEqual(result, "\t<Summary>Test</Summary>\n")
+
+# 	#---------------------------------------#
+# 	#-----test_make_attribute_string
+
+	def test_make_attribute_string0(self):
+		li = Li()
+		attribute_string = make_attribute_string(li)
+		self.assertEqual(attribute_string, ">")
+
+	def test_make_attribute_string1(self):
+		li = Li()
+		li.href = "address"
+		li.embed = "embedded stuff"
+		li.text = "text"
+		attribute_string = make_attribute_string(li)
+		self.assertEqual(attribute_string, ' href="address" embed="embedded stuff" text="text">')
+
+	def test_make_attribute_string2(self):
+		li = Li()
+		li.href = "address"
+		li.embed = "embedded stuff"
+		li.text = "text"
+		li.floating_text = "text between tags"
+		attribute_string = make_attribute_string(li)
+		self.assertEqual(attribute_string, ' href="address" embed="embedded stuff" text="text">text between tags')
 
 # 	#---------------------------------------#
 # 	#-----test_make_li_string
@@ -585,6 +628,59 @@ class loadModelsCrisisTest(TestCase):
 		self.assertEqual(org_dict['crises'][0][0], 'CRI_TOOOLD')
 
 
+	#---------------------------------------#
+	#-----test_populate_common
+
+	def test_populate_common0(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['Citations'][0].floating_text, "Kyoto News Network")
+
+	def test_populate_common1(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['Images'][0].embed, "http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg")
+
+	def test_populate_common2(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/PkXw1iBgzoY\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"twitter.com/kiraisgod\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://myanimelist.net/anime/1535/Death_Note")
+		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/PkXw1iBgzoY")
+		self.assertEqual(common_dict['Feeds'][0].embed, "twitter.com/kiraisgod")
+
 
 	#---------------------------------------#
 	#-----test_populate_crisis
@@ -833,8 +929,16 @@ class viewsTest(TestCase):
 		self.assertEqual(response.status_code, 200)
 
 	def test_crisesPage0(self):
-		pass
-		#print crisesPage("http://localhost:8000/crisis/CRI_NUCDIS","clear")
+		response = self.client.get("http://localhost:8000/crisespage/all")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgPage0(self):
+		response = self.client.get("http://localhost:8000/orgpage/all")
+		self.assertEqual(response.status_code, 200)
+
+	def test_pplPage0(self):
+		response = self.client.get("http://localhost:8000/pplpage/all")
+		self.assertEqual(response.status_code, 200)
 
 	"""
 	Creates an infinite loop!
@@ -897,6 +1001,58 @@ class viewsTest(TestCase):
 
 	def test_exportView(self):
 		response = self.client.get("http://127.0.0.1:8000/export/")
+		self.assertEqual(response.status_code, 200)
+
+	def test_searchView0(self):
+		response = self.client.get("http://127.0.0.1:8000/search/")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView0(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView1(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/0")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView2(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/1")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView3(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/2")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView4(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/3")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView5(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/4")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView6(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/5")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView7(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/6")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView8(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/7")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView9(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/8")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView10(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/9")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView11(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/10")
 		self.assertEqual(response.status_code, 200)
 
 
