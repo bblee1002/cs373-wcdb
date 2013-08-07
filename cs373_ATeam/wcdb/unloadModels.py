@@ -266,4 +266,3 @@ def export_xml() :
 	exportstring = ''.join(crises_xml_string)
 	f.write(exportstring.encode('utf8'))
 	return exportstring
-
