@@ -38,6 +38,7 @@ def peopleView(request, people_id):
   Renders view for people.
   """
   per_dict = getPerson(people_id)
+
   return render(request, 'wcdb/per_temp.html', per_dict)
 
 # Displays crises stored in the database. Which crises get displayed depends on kind of crisis selected.
@@ -301,7 +302,7 @@ def queriesView(request, query_num):
 
   # List of the 10 different queries, with 0 or 1 of them displaying, depending on the value of query_num
   if query_num == 1 :
-    query_string =  "SELECT crisis_ID, name FROM (SELECT name, count(name) as Count, crisis_ID FROM wcdb_crisis c INNER JOIN wcdb_li l ON c.crisis_ID = l.model_id WHERE l.kind = 'Locations' GROUP BY name ORDER BY Count DESC) AS sub LIMIT 1;"
+    query_string =  "SELECT crisis_ID, name FROM (SELECT name, count(name) as Count, crisis_ID FROM wcdb_crisis c INNER JOIN wcdb_li l ON c.crisis_ID = l.model_id WHERE l.kind = 'Locations' GROUP BY crisis_id, name ORDER BY Count DESC) AS sub LIMIT 1;"
     query_result_set = Crisis.objects.raw(query_string)
 
   elif query_num == 2 :
