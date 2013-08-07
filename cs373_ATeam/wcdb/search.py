@@ -36,6 +36,7 @@ def search(query) :
 				break
 		if repeat == False :
 			match = Match(item.model_id, numTerms + 1)
+			print item.model_id
 			result.append(match)
 
 	#or case

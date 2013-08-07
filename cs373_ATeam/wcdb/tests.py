@@ -1766,14 +1766,183 @@ class SearchTest(TestCase):
 	"""
 	Contains the unit tests for Search.py, the file where we define our Django files.
 	"""
-	def test_searchCrisis1(self) :
-		testSet = searchCrisis(['gibbbbeerriiishhhhh', 'thisshouldnotreturnanything'])
-		self.assertEqual(len(testSet), 0)
+	# 	#---------------------------------------#
+	# 	#-----test_seatchCrisis
+	# 	#---------------------------------------#
+	def test_searchCrisis1(self):
+		tempCrisis           = Crisis()
+		tempCrisis.crisis_ID = "CRI_TXWDFR"
+		tempCrisis.name      = "Texas Wild Fires"
+		tempCrisis.kind      = "Natural disaster"
+		tempCrisis.date      = "2011-09-04"
+		tempCrisis.save()
+		query = "Texas Fire Station"
+		searchTerms = query.split()
+		foundCrisis = searchCrisis(searchTerms)
+		for crisis in foundCrisis :
+			self.assertEqual(crisis.name, tempCrisis.name)
 
-	def test_searchCrisis2(self) :
-		testSet = searchCrisis(['Matt', 'legendofzelda'])
-		print
-		#self.assertEqual(len(testSet), 0)
+	def test_searchCrisis2(self):
+		tempCrisis           = Crisis()
+		tempCrisis.crisis_ID = "CRI_BRZLPR"
+		tempCrisis.name      = "Brazilian Protests"
+		tempCrisis.kind      = "Socioeconomic Crisis"
+		tempCrisis.date      = "2013-06-17"
+		tempCrisis.save()
+		query = "Brazilian people like camping"
+		searchTerms = query.split()
+		print "query ", searchTerms
+		print "Search Crisis"
+		foundCrisis = searchCrisis(searchTerms)
+		for crisis in foundCrisis :
+			print "crisis ID ", crisis.name
+			self.assertEqual(crisis.name, tempCrisis.name)
+		print foundCrisis
+
+	def test_searchCrisis3(self):
+		tempCrisis           = Crisis()
+		tempCrisis.crisis_ID = "CRI_EGYPTR"
+		tempCrisis.name      = "Political unrest in Egypt"
+		tempCrisis.kind      = "Revolution"
+		tempCrisis.date      = "2011-01-25"
+		tempCrisis.save()
+		query = "revolution"
+		searchTerms = query.split()
+		print "query ", searchTerms
+		print "Search Crisis"
+		foundCrisis = searchCrisis(searchTerms)
+		for crisis in foundCrisis :
+			print "crisis ID ", crisis.name
+			self.assertEqual(crisis.name, tempCrisis.name)
+		print foundCrisis
+
+	# 	#---------------------------------------#
+	# 	#-----test_seatchPerson
+	# 	#---------------------------------------#
+	def test_searchPerson1(self):
+		tempPerson           = Person()
+		tempPerson.person_ID = "PER_NIKALX"
+		tempPerson.name      = "Nikolay Alexeyev"
+		tempPerson.kind      = "Proactive citizen"
+		tempPerson.location      = "Russia"
+		tempPerson.save()
+		query = "Russia"
+		searchTerms = query.split()
+		foundPerson = searchPerson(searchTerms)
+		for person in foundPerson :
+			self.assertEqual(person.name, tempPerson.name)
+
+	def test_searchPerson2(self):
+		tempPerson           = Person()
+		tempPerson.person_ID = "PER_MTTDMN"
+		tempPerson.name      = "Matt Damon"
+		tempPerson.kind      = "Proactive citizen"
+		tempPerson.location      = "United States"
+		tempPerson.save()
+		query = "Matt Damon"
+		searchTerms = query.split()
+		foundPerson = searchPerson(searchTerms)
+		for person in foundPerson :
+			self.assertEqual(person.name, tempPerson.name)
+
+	def test_searchPerson3(self):
+		tempPerson           = Person()
+		tempPerson.person_ID = "PER_XNSHNG"
+		tempPerson.name      = "Zhang Xinsheng"
+		tempPerson.kind      = "Politician"
+		tempPerson.location      = "China"
+		tempPerson.save()
+		query = "Zhang Xinsheng is some person"
+		searchTerms = query.split()
+		foundPerson = searchPerson(searchTerms)
+		for person in foundPerson :
+			self.assertEqual(person.name, tempPerson.name)
+
+	# 	#---------------------------------------#
+	# 	#-----test_seatchOrg
+	# 	#---------------------------------------#
+	def test_searchOrg1(self):
+		tempOrg           = Org()
+		tempOrg.org_ID = "ORG_IUCNAT"
+		tempOrg.name      = "International Union for Conservation of Nature"
+		tempOrg.kind      = "Activist organization"
+		tempOrg.location      = "Global"
+		tempOrg.save()
+		query = "nature conservation"
+		searchTerms = query.split()
+		foundOrg = searchOrg(searchTerms)
+		for org in foundOrg :
+			self.assertEqual(org.name, tempOrg.name)
+
+	def test_searchOrg2(self):
+		tempOrg           = Org()
+		tempOrg.org_ID = "ORG_LOSZTA"
+		tempOrg.name      = "Los Zetas Cartel"
+		tempOrg.kind      = "Criminal organization"
+		tempOrg.location      = "Mexico"
+		tempOrg.save()
+		query = "Los Zetas Cartel"
+		searchTerms = query.split()
+		foundOrg = searchOrg(searchTerms)
+		for org in foundOrg :
+			self.assertEqual(org.name, tempOrg.name)
+
+	def test_searchOrg3(self):
+		tempOrg           = Org()
+		tempOrg.org_ID = "ORG_GAYRUS"
+		tempOrg.name      = "LGBT Human Rights Project GayRussia.Ru"
+		tempOrg.kind      = "Activist organization"
+		tempOrg.location      = "Russia"
+		tempOrg.save()
+		query = "human rights"
+		searchTerms = query.split()
+		foundOrg = searchOrg(searchTerms)
+		for org in foundOrg :
+			self.assertEqual(org.name, tempOrg.name)
+
+
+	# 	#---------------------------------------#
+	# 	#-----test_seatchLi
+	# 	#---------------------------------------#
+	def test_searchLi1(self):
+		tempLi = Li()
+		tempLi.href = 'linktosomething.com'
+		tempLi.floating_text = 'something very important'
+		tempLi.kind = 'ExternalLinks'
+		tempLi.model_id = 'CRI_NSAWRT'
+		tempLi.save()
+		query = "very importatnt"
+		searchTerms = query.split()
+		foundLi = searchLi(searchTerms)
+		for li in foundLi :
+			self.assertEqual(li.floating_text, tempLi.floating_text)
+
+	def test_searchLi2(self):
+		tempLi = Li()
+		tempLi.href = 'linktosomething.com'
+		tempLi.floating_text = 'West, Larry. "World Water Day: A Billion People Worldwide Lack Safe Drinking Water." About.com Environmental Issues. N.p., n.d. Web. 11 July 2013.'
+		tempLi.kind = 'Citations'
+		tempLi.model_id = 'ORG_WATERO'
+		tempLi.save()
+		query = "World Water Day"
+		searchTerms = query.split()
+		foundLi = searchLi(searchTerms)
+		for li in foundLi :
+			self.assertEqual(li.floating_text, tempLi.floating_text)
+
+	def test_searchLi3(self):
+		tempLi = Li()
+		tempLi.href = 'linktosomething.com'
+		tempLi.floating_text = 'The governing body of the country of the state of Brazil, Presidential Representative Democratic Republic.'
+		tempLi.kind = 'Summary'
+		tempLi.model_id = 'ORG_BRAGOV'
+		tempLi.save()
+		query = "democratic republic"
+		searchTerms = query.split()
+		foundLi = searchLi(searchTerms)
+		for li in foundLi :
+			self.assertEqual(li.floating_text, tempLi.floating_text)
+
 
 # 	#---------------------------------------#
 # 	#----------test_initMatchFound----------#
