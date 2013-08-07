@@ -1840,7 +1840,7 @@ class SearchTest(TestCase):
 		person.location  = "not reality"
 		person.save()
 		tempMatchFound   = {}
-		tempSearchTerms  = ['idiot', "Death"]
+		tempSearchTerms  = ['ensembledarkhorse', "Death"]
 		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [person], [], [])
 		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [person], [], [])
 		self.assertEqual(tempMatchFound['PER_LUNALO'][1], False)
@@ -1857,3 +1857,87 @@ class SearchTest(TestCase):
 		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [], [org], [])
 		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [], [org], [])
 		self.assertEqual(tempMatchFound['ORG_DEATER'][1], True)
+
+# 	#---------------------------------------#
+# 	#------------test_getContext------------#
+
+	def test_getContext1(self) :
+		result           = []
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['MARVOLO', "gibbbbeerriiishhhhh"]
+
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		
+		result.append(Match('CRI_RIDDLE', 1))
+		getContext(result, tempMatchFound, tempSearchTerms, len(tempSearchTerms))
+		self.assertEqual(result[0].contexts[0].begin, 'NAME...Tom ')
+
+# 	#---------------------------------------#
+# 	#-------test_getContextFromModel--------#
+
+	def test_getContextFromModel1(self) :
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		
+		matchFound   = {}
+		searchTerms  = ['MARVOLO', "gibbbbeerriiishhhhh"]
+		modelDict    = getCrisis('CRI_RIDDLE')
+		keyList      = ['name', 'kind', 'date', 'time','common']
+		match        = Match('CRI_RIDDLE', 1)
+
+		initMatchFound(len(searchTerms), matchFound, [crisis], [], [], [])
+		populateMatchFound(searchTerms, len(searchTerms), matchFound, [crisis], [], [], [])
+		for index in xrange(len(searchTerms)) :	
+			for key in keyList :
+					if key != 'common' :
+						found = modelDict[key].upper().find(searchTerms[index])
+						if found >= 0 :
+							getContextFromModel(match, modelDict, searchTerms, index, key)
+							break
+					else :
+						#common case is different, since it's a nested container
+						found = modelDict['common']['Summary'].upper().find(searchTerms[index])
+						#break
+						if found >= 0 :
+							getContextFromModel(match, modelDict['common'], searchTerms, index, 'Summary')
+							break
+		self.assertEqual(match.contexts[0].end, ' Riddle')
+
+
+# 	#---------------------------------------#
+# 	#---------test_removeExactLis-----------#
+
+	def test_removeExactLis1(self) :
+		exactLis = set()
+		orSet    = set()
+
+		for letter in "abcdefgh" :
+			tempLi          = Li()
+			tempLi.model_id = letter
+			tempLi.save()
+			tempList = Li.objects.filter(model_id = letter)
+			for li in tempList :
+				exactLis.add(li)
+
+		for letter in 'ghijklmnop' :
+			tempCrisis           = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrisis.save()
+			tempList = Crisis.objects.filter(crisis_ID = letter)
+			for li in tempList :
+				orSet.add(li)
+
+		orSet = removeExactLis(exactLis, orSet)
+		self.assertEqual(len(orSet), 8)
+
