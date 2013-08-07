@@ -129,28 +129,6 @@ class ModelsCrisisTest(TestCase):
 			common_dict[a.kind].append(a)
 		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
 
-# <Common>
-# 	<Citations>
-# 		<li>The Hindustan Times</li>
-# 	</Citations>
-# 	<ExternalLinks>
-# 		<li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li>
-# 	</ExternalLinks>
-# 	<Images>
-# 		<li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" />
-# 	</Images>
-# 	<Videos>
-# 		<li embed="//www.youtube.com/embed/qV3s7Sa6B6w">
-# 	</Videos>
-# 	<Maps>
-# 		<li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
-# 	</Maps>
-# 	<Feeds>
-# 		<li embed="[WHATEVER A FEED URL LOOKS LIKE]" />
-# 	</Feeds>
-# 	<Summary>Lorem ipsum...</Summary>
-# </Common>
-
 	def test_common_populate2(self):
 		temp_com   = Common()
 		xml_string = "<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href=\"http://en.wikipedia.org/wiki/2013_North_India_floods\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://timesofindia.indiatimes.com/photo/15357310.cms\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common>"
