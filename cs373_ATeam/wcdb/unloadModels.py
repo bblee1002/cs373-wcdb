@@ -2,6 +2,7 @@ import sys
 import xml.etree.ElementTree as ET
 from models import Crisis, Person, Org, Li, Common
 from getDbModel import  *
+from unidecode import unidecode
 
 
 def clean_xml (dirty) :
@@ -85,7 +86,7 @@ def make_common_string(common_dict):
 	strings.append(make_li_string(common_dict["Feeds"], "Feeds", True))
 	if common_dict["Summary"] != u'':
 		strings.append("		<Summary>")
-		strings.append(common_dict["Summary"])
+		strings.append(clean_xml(common_dict["Summary"]))
 		strings.append("</Summary>\n")
 	strings.append("	</Common>\n")
 	if strings == ["	<Common>\n", "", "", "", "", "", "", "	</Common>\n"]:
@@ -157,7 +158,10 @@ def export_person (person_dict, person_id) :
 	""" 
 
 	strings = []
-	strings.append("<Person ID=\"" + person_id +  "\" Name=\"" + str(person_dict["name"]) + "\">\n")
+	strings.append("<Person ID=\"" + person_id +  "\" Name=\"")
+
+	strings.append(person_dict["name"])
+	strings.append("\">\n")
 
 	if person_dict["crises"] != [] :
 		strings.append("	<Crises>\n")
@@ -262,4 +266,3 @@ def export_xml() :
 	exportstring = ''.join(crises_xml_string)
 	f.write(exportstring.encode('utf8'))
 	return exportstring
-

@@ -47,7 +47,7 @@ class ModelsCrisisTest(TestCase):
 	def test_li_populate1(self):
 		temp      = ET.Element('li')
 		temp.set("href", "href_stuff")
-		temp.set("embed", "embed_stuff")
+		temp.embed = "embed_stuff"
 		temp.set("text", "text_stuff")
 		temp.text = "randomfloatingtext"
 		temp_li   = Li()
@@ -128,7 +128,7 @@ class ModelsCrisisTest(TestCase):
 		for a in li_list :
 			common_dict[a.kind].append(a)
 		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
-	
+
 	def test_common_populate2(self):
 		temp_com   = Common()
 		xml_string = "<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href=\"http://en.wikipedia.org/wiki/2013_North_India_floods\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://timesofindia.indiatimes.com/photo/15357310.cms\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common>"
@@ -147,7 +147,7 @@ class ModelsCrisisTest(TestCase):
 			common_dict[a.kind].append(a)
 		self.assertEqual(common_dict['Images'][0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
 		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
-		self.assertEqual(common_dict['Maps'][0].embed, "https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&sspn=3.2522150867582833,7.2072687770004205&t=m&q=uttarakhand&dg=opt&ie=UTF8&hq=&hnear=Uttarakhand,+India&ll=30.066753,79.0193&spn=2.77128,5.07019&z=8&output=embed")
+		self.assertEqual(0, len(common_dict['Maps']))
 
 
 	#---------------------------------------#
@@ -1766,9 +1766,43 @@ class SearchTest(TestCase):
 	"""
 	Contains the unit tests for Search.py, the file where we define our Django files.
 	"""
-	# 	#---------------------------------------#
-	# 	#-----test_seatchCrisis
-	# 	#---------------------------------------#
+# 	#---------------------------------------#
+# 	#--------------test_search--------------#
+# 	#---------------------------------------#
+	def test_search1(self) :
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		result = search("Marvolo gibbbbeerriiishhhhh")
+		self.assertEqual(result[0].contexts[0].end, ' Riddle')
+
+	def test_search2(self) :
+		person           = Person()
+		person.person_ID = "PER_LUNALO"
+		person.name      = "Luna Lovegood"
+		person.kind      = "Ensemble darkhorse"
+		person.location  = "not reality"
+		person.save()
+		result = search("Ensemble darkhorse")
+		self.assertEqual(result[0].contexts[0].begin, 'KIND: ...')
+
+	def test_search3(self) :
+		org           = Org()
+		org.org_ID    = "ORG_DEATER"
+		org.name      = "Death Eaters"
+		org.kind      = "Magical Criminals/Racists?"
+		org.location  = "England"
+		org.save()
+		result = search("Criminals")
+		self.assertEqual(result[0].contexts[0].begin, 'KIND: ...Magical ')
+		self.assertEqual(result[0].contexts[0].bold, 'Criminals')
+		self.assertEqual(result[0].contexts[0].end, '/Racists?')
+# 	#---------------------------------------#
+# 	#-----test_searchCrisis
+# 	#---------------------------------------#
 	def test_searchCrisis1(self):
 		tempCrisis           = Crisis()
 		tempCrisis.crisis_ID = "CRI_TXWDFR"
@@ -1791,13 +1825,9 @@ class SearchTest(TestCase):
 		tempCrisis.save()
 		query = "Brazilian people like camping"
 		searchTerms = query.split()
-		print "query ", searchTerms
-		print "Search Crisis"
 		foundCrisis = searchCrisis(searchTerms)
 		for crisis in foundCrisis :
-			print "crisis ID ", crisis.name
 			self.assertEqual(crisis.name, tempCrisis.name)
-		print foundCrisis
 
 	def test_searchCrisis3(self):
 		tempCrisis           = Crisis()
@@ -1808,17 +1838,13 @@ class SearchTest(TestCase):
 		tempCrisis.save()
 		query = "revolution"
 		searchTerms = query.split()
-		print "query ", searchTerms
-		print "Search Crisis"
 		foundCrisis = searchCrisis(searchTerms)
 		for crisis in foundCrisis :
-			print "crisis ID ", crisis.name
 			self.assertEqual(crisis.name, tempCrisis.name)
-		print foundCrisis
 
-	# 	#---------------------------------------#
-	# 	#-----test_seatchPerson
-	# 	#---------------------------------------#
+# 	#---------------------------------------#
+# 	#-----test_searchPerson
+# 	#---------------------------------------#
 	def test_searchPerson1(self):
 		tempPerson           = Person()
 		tempPerson.person_ID = "PER_NIKALX"
@@ -1858,9 +1884,9 @@ class SearchTest(TestCase):
 		for person in foundPerson :
 			self.assertEqual(person.name, tempPerson.name)
 
-	# 	#---------------------------------------#
-	# 	#-----test_seatchOrg
-	# 	#---------------------------------------#
+# 	#---------------------------------------#
+# 	#-----test_searchOrg
+# 	#---------------------------------------#
 	def test_searchOrg1(self):
 		tempOrg           = Org()
 		tempOrg.org_ID = "ORG_IUCNAT"
@@ -1901,9 +1927,9 @@ class SearchTest(TestCase):
 			self.assertEqual(org.name, tempOrg.name)
 
 
-	# 	#---------------------------------------#
-	# 	#-----test_seatchLi
-	# 	#---------------------------------------#
+# 	#---------------------------------------#
+# 	#-----test_searchLi
+# 	#---------------------------------------#
 	def test_searchLi1(self):
 		tempLi = Li()
 		tempLi.href = 'linktosomething.com'
@@ -1943,19 +1969,10 @@ class SearchTest(TestCase):
 		for li in foundLi :
 			self.assertEqual(li.floating_text, tempLi.floating_text)
 
-	"""
-	def test_searchCrisis1(self) :
-		testSet = searchCrisis(['gibbbbeerriiishhhhh', 'thisshouldnotreturnanything'])
-		self.assertEqual(len(testSet), 0)
-
-	def test_searchCrisis2(self) :
-		testSet = searchCrisis(['Matt', 'legendofzelda'])
-		print
-		#self.assertEqual(len(testSet), 0)
-	"""
 
 # 	#---------------------------------------#
 # 	#----------test_initMatchFound----------#
+# 	#---------------------------------------#
 
 	def test_initMatchfound1(self) :
 		tempString = "abcdefgh"
@@ -1997,6 +2014,7 @@ class SearchTest(TestCase):
 
 # 	#---------------------------------------#
 # 	#--------test_populateMatchFound--------#
+# 	#---------------------------------------#
 
 	def test_populateMatchFound1(self) :
 		crisis           = Crisis()
@@ -2015,11 +2033,11 @@ class SearchTest(TestCase):
 		person           = Person()
 		person.person_ID = "PER_LUNALO"
 		person.name      = "Luna Lovegood"
-		person.kind      = "Insane but well-meaning person"
+		person.kind      = "Ensemble darkhorse"
 		person.location  = "not reality"
 		person.save()
 		tempMatchFound   = {}
-		tempSearchTerms  = ['idiot', "Death"]
+		tempSearchTerms  = ['ensembledarkhorse', "Death"]
 		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [person], [], [])
 		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [person], [], [])
 		self.assertEqual(tempMatchFound['PER_LUNALO'][1], False)
@@ -2037,3 +2055,239 @@ class SearchTest(TestCase):
 		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [], [org], [])
 		self.assertEqual(tempMatchFound['ORG_DEATER'][1], True)
 
+# 	#---------------------------------------#
+# 	#------------test_getContext------------#
+# 	#---------------------------------------#
+
+
+	def test_getContext1(self) :
+		result           = []
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['MARVOLO', "gibbbbeerriiishhhhh"]
+
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		
+		result.append(Match('CRI_RIDDLE', 1))
+		getContext(result, tempMatchFound, tempSearchTerms, len(tempSearchTerms))
+		self.assertEqual(result[0].contexts[0].begin, 'NAME: ...Tom ')
+
+	def test_getContext2(self) :
+		result           = []
+		person           = Person()
+		person.person_ID = "PER_LUNALO"
+		person.name      = "Luna Lovegood"
+		person.kind      = "Ensemble darkhorse"
+		person.location  = "not reality"
+		person.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['ensembledarkhorse', "LOVEGOOD"]
+
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [person], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [person], [], [])
+		
+		result.append(Match('PER_LUNALO', 1))
+		getContext(result, tempMatchFound, tempSearchTerms, len(tempSearchTerms))
+		self.assertEqual(result[0].contexts[0].begin, 'NAME: ...Luna ')
+
+	def test_getContext3(self) :
+		result       = []
+		org          = Org()
+		org.org_ID   = "ORG_DEATER"
+		org.name     = "Death Eaters"
+		org.kind     = "Magical Criminals/Racists?"
+		org.location = "England"
+		org.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['RAINBOWBUNNY', "ENGLAND"]
+
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [], [org], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [], [org], [])
+		
+		result.append(Match('ORG_DEATER', 1))
+		getContext(result, tempMatchFound, tempSearchTerms, len(tempSearchTerms))
+		self.assertEqual(result[0].contexts[0].begin, 'LOCATION: ...')
+
+# 	#---------------------------------------#
+# 	#-------test_getContextFromModel--------#
+# 	#---------------------------------------#
+
+
+	def test_getContextFromModel1(self) :
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		
+		matchFound   = {}
+		searchTerms  = ['MARVOLO', "gibbbbeerriiishhhhh"]
+		modelDict    = getCrisis('CRI_RIDDLE')
+		keyList      = ['name', 'kind', 'date', 'time','common']
+		match        = Match('CRI_RIDDLE', 1)
+
+		initMatchFound(len(searchTerms), matchFound, [crisis], [], [], [])
+		populateMatchFound(searchTerms, len(searchTerms), matchFound, [crisis], [], [], [])
+		for index in xrange(len(searchTerms)) :	
+			for key in keyList :
+					if key != 'common' :
+						found = modelDict[key].upper().find(searchTerms[index])
+						if found >= 0 :
+							getContextFromModel(match, modelDict, searchTerms, index, key)
+							break
+					else :
+						#common case is different, since it's a nested container
+						found = modelDict['common']['Summary'].upper().find(searchTerms[index])
+						#break
+						if found >= 0 :
+							getContextFromModel(match, modelDict['common'], searchTerms, index, 'Summary')
+							break
+		self.assertEqual(match.contexts[0].end, ' Riddle')
+
+	def test_getContextFromModel2(self) :
+		person           = Person()
+		person.person_ID = "PER_LUNALO"
+		person.name      = "Luna Lovegood"
+		person.kind      = "Ensemble darkhorse"
+		person.location  = "not reality"
+		person.save()
+		
+		matchFound   = {}
+		searchTerms  = ['ensembledarkhorse', "LOVEGOOD"]
+		modelDict    = getPerson('PER_LUNALO')
+		keyList      = ['name', 'kind', 'location', 'common']
+		match        = Match('PER_LUNALO', 1)
+
+		initMatchFound(len(searchTerms), matchFound, [], [person], [], [])
+		populateMatchFound(searchTerms, len(searchTerms), matchFound, [], [person], [], [])
+		for index in xrange(len(searchTerms)) :	
+			for key in keyList :
+					if key != 'common' :
+						found = modelDict[key].upper().find(searchTerms[index])
+						if found >= 0 :
+							getContextFromModel(match, modelDict, searchTerms, index, key)
+							break
+					else :
+						#common case is different, since it's a nested container
+						found = modelDict['common']['Summary'].upper().find(searchTerms[index])
+						#break
+						if found >= 0 :
+							getContextFromModel(match, modelDict['common'], searchTerms, index, 'Summary')
+							break
+		self.assertEqual(match.contexts[0].begin, 'NAME: ...Luna ')
+
+	def test_getContextFromModel3(self) :
+		org          = Org()
+		org.org_ID   = "ORG_DEATER"
+		org.name     = "Death Eaters"
+		org.kind     = "Magical Criminals/Racists?"
+		org.location = "England"
+		org.save()
+		
+		matchFound   = {}
+		searchTerms  = ['RAINBOWBUNNY', "ENGLAND"]
+		modelDict    = getOrg('ORG_DEATER')
+		keyList      = ['name', 'kind', 'location', 'common']
+		match        = Match('ORG_DEATER', 1)
+
+		initMatchFound(len(searchTerms), matchFound, [], [], [org], [])
+		populateMatchFound(searchTerms, len(searchTerms), matchFound, [], [], [org], [])
+		for index in xrange(len(searchTerms)) :	
+			for key in keyList :
+					if key != 'common' :
+						found = modelDict[key].upper().find(searchTerms[index])
+						if found >= 0 :
+							getContextFromModel(match, modelDict, searchTerms, index, key)
+							break
+					else :
+						#common case is different, since it's a nested container
+						found = modelDict['common']['Summary'].upper().find(searchTerms[index])
+						#break
+						if found >= 0 :
+							getContextFromModel(match, modelDict['common'], searchTerms, index, 'Summary')
+							break
+		self.assertEqual(match.contexts[0].begin, 'LOCATION: ...')
+
+
+# 	#---------------------------------------#
+# 	#---------test_removeExactLis-----------#
+# 	#---------------------------------------#
+
+
+	def test_removeExactLis1(self) :
+		exactLis = set()
+		orSet    = set()
+
+		for letter in "abcdefgh" :
+			tempLi          = Li()
+			tempLi.model_id = letter
+			tempLi.save()
+			tempList = Li.objects.filter(model_id = letter)
+			for li in tempList :
+				exactLis.add(li)
+
+		for letter in 'ghijklmnop' :
+			tempCrisis           = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrisis.save()
+			tempList = Crisis.objects.filter(crisis_ID = letter)
+			for li in tempList :
+				orSet.add(li)
+
+		orSet = removeExactLis(exactLis, orSet)
+		self.assertEqual(len(orSet), 8)
+
+	def test_removeExactLis2(self) :
+		exactLis = set()
+		orSet    = set()
+
+		for letter in "123456789" :
+			tempLi          = Li()
+			tempLi.model_id = letter
+			tempLi.save()
+			tempList = Li.objects.filter(model_id = letter)
+			for li in tempList :
+				exactLis.add(li)
+
+		for letter in 'abcdefg' :
+			tempPerson        = Person()
+			tempPerson.person_ID = letter
+			tempPerson.save()
+			tempList = Person.objects.filter(person_ID = letter)
+			for li in tempList :
+				orSet.add(li)
+
+		orSet = removeExactLis(exactLis, orSet)
+		self.assertEqual(len(orSet), 7)
+
+	def test_removeExactLis3(self) :
+		exactLis = set()
+		orSet    = set()
+
+		for letter in "123456789" :
+			tempLi          = Li()
+			tempLi.model_id = letter
+			tempLi.save()
+			tempList = Li.objects.filter(model_id = letter)
+			for li in tempList :
+				exactLis.add(li)
+
+		for letter in '123' :
+			tempOrg        = Org()
+			tempOrg.org_ID = letter
+			tempOrg.save()
+			tempList = Org.objects.filter(org_ID = letter)
+			for li in tempList :
+				orSet.add(li)
+
+		orSet = removeExactLis(exactLis, orSet)
+		self.assertEqual(len(orSet), 0)
+
+	

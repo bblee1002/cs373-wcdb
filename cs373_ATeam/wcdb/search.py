@@ -90,8 +90,8 @@ def search(query) :
 	getContext(result, matchFound, [query], 1)
 	if numTerms > 1:
 		getContext(result, matchFound, searchTerms, numTerms)
-	for match in result:
-		print match.idref, match.count
+	# for match in result:
+	# 	print match.idref, match.count
 	# 	for context in match.contexts:
 	# 		print "begin: ", context.begin 
 	# 		print "bold: ", context.bold 
@@ -229,7 +229,7 @@ def getContext(result, matchFound, searchTerms, numTerms):
 					found = liDict['floating_text'][liIndex].upper().find(searchTerms[index])
 					if found >= 0 :
 						tempContext = Context()
-						tempContext.begin = liDict['kind'][liIndex] + '...'
+						tempContext.begin = liDict['kind'][liIndex].upper() + ': ...'
 						if found > 0 :
 							regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", liDict['floating_text'][liIndex][found-1::-1]).group(0)
 							tempContext.begin += regex[::-1]
@@ -241,30 +241,10 @@ def getContext(result, matchFound, searchTerms, numTerms):
 
 		# iterate through Li:
 
-def getExactContext(result, matchFound, query, numTerms):
-	for match in result :
-		if match.count > numTerms :
-			modelDict = {}
-			keyList = []
-			#crisis_dict = {name : *, kind : *, date : *, time : *, people : [], organizations : [], Common : ?}
-			if match.idref[0:3] == "CRI" :
-				modelDict = getCrisis(match.idref)
-				keyList = ['name', 'kind', 'date', 'time','common']
-
-			#person_dict = {name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
-			if match.idref[0:3] == "PER" :
-				modelDict = getPerson(match.idref)
-				keyList = ['name', 'kind', 'location', 'common']
-
-			#org_dict = {name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
-			if match.idref[0:3] == "PER" :
-				modelDict = getPerson(match.idref)
-				keyList = ['name', 'kind', 'location', 'common']
-
 def getContextFromModel(match, modelDict, searchTerms, index, attribute) :
 	found = modelDict[attribute].upper().find(searchTerms[index])
 	tempContext = Context()
-	tempContext.begin =  attribute.upper() + '...'
+	tempContext.begin =  attribute.upper() + ': ...'
 	if found > 0 :
 		regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict[attribute][found-1::-1]).group(0)
 		tempContext.begin += regex[::-1]
@@ -287,13 +267,6 @@ class Match() :
 		self.count = count
 		self.contexts = []
 
-	def getModel(idref) :
-		if idref[0:3] == "CRI" :
-			return {"model" : getCrisis(idref), "li": getLi(idref)}
-		if idref[0:3] == "PER" :
-			return {"model" : getPerson(idref), "li": getLi(idref)}
-		if idref[0:3] == "ORG" :
-			return {"model" : getOrg(idref), "li": getLi(idref)}
 
 class Context() :
 	def __init__(self) :
