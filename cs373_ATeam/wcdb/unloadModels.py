@@ -157,7 +157,7 @@ def export_person (person_dict, person_id) :
 	""" 
 
 	strings = []
-	strings.append("<Person ID=\"" + person_id +  "\" Name=\"" + str(person_dict["name"]) + "\">\n")
+	strings.append("<Person ID=\"" + person_id +  "\" Name=\"" + str(person_dict["name"].decode('utf-8').encode("ascii")) + "\">\n")
 
 	if person_dict["crises"] != [] :
 		strings.append("	<Crises>\n")
@@ -258,8 +258,9 @@ def export_xml() :
 		crises_xml_string.append(export_organization(org_dict, org_id))
 
 	crises_xml_string.append("</WorldCrises>")
-	f = open('WCDBExportXML.xml', 'w')
+	print "About to Write to file"
+	# f = open('WCDBExportXML.xml', 'w')
 	exportstring = ''.join(crises_xml_string)
-	f.write(exportstring.encode('utf8'))
+	# f.write(exportstring.encode('utf8'))
 	return exportstring
 

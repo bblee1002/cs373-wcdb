@@ -47,6 +47,7 @@ def populate_crisis(root) :
 		temp_crisis           =                 Crisis()
 		temp_crisis.crisis_ID =         crisis.get("ID")
 		temp_crisis.name      =       crisis.get("Name")
+		
 		if crisis.find("Kind") is not None :
 			temp_crisis.kind      = crisis.find("Kind").text
 		if crisis.find("Date") is not None :
