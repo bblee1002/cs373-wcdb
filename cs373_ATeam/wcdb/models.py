@@ -29,14 +29,27 @@ def populate_li(root, modl_id, tag):
             if floating_text is None:
                 floating_text = ''
 
+            if (embed[0:23] != "http://www.youtube.com/" or embed[23:27] == "user") and tag == "Videos" and embed[0:18] != "//www.youtube.com/" :
+                    embed = ''
+            elif embed[0:23] == "http://www.youtube.com/" and embed[0:28] != "http://www.youtube.com/embed" and tag == "Videos":
+                if embed[23:54] == "watch?feature=player_detailpage" :
+                    embed = "//www.youtube.com/embed/" + embed[57:68]
+                elif embed[23:52] == "watch?feature=player_embedded":
+                    embed = "//www.youtube.com/embed/" + embed[55:66]
+                elif embed[23:28] == "watch" :
+                    embed = "//www.youtube.com/embed/" + embed[31:42]
+                else:
+                    embed = ''
+
+            li.embed = embed
             temp_li = Li()
             check = Li.objects.filter(model_id=modl_id, href=href,
                 embed=embed, text=text, floating_text=floating_text, kind=tag)
 
             if len(check) == 0:
-                if (embed[0:23] != "http://www.youtube.com/" or embed[23:27] == "user") and tag == "Videos":
+                if tag == "Videos" and embed == '':
                     pass
-                else :
+                else:
                     temp_li.populate(li, modl_id, tag)
                     temp_li.save()
 
@@ -61,19 +74,10 @@ class Li(models.Model) :
         values for type: citations, videos, images, etc. Uses node to populate attributues of a Li 
         object.
         """
-        embed = e_node.get("embed")
         if e_node.get("href") is not None:
             self.href          =  e_node.get("href")
-        if embed is not None:
-            if embed[0:23] == "http://www.youtube.com/" and embed[0:28] != "http://www.youtube.com/embed":
-                if embed[23:36] == "watch?feature" :
-                    print "feature player"
-                    embed = "//www.youtube.com/embed/" + embed[57:]
-                elif embed[23:28] == "watch" :
-                    embed = "//www.youtube.com/embed/" + embed[31:]
-                else:
-                    embed = ''
-            self.embed = embed
+        if e_node.get("embed") is not None:
+            self.embed         =  e_node.embed
         if e_node.get("text") is not None:
             self.text          =  e_node.get("text")
         if e_node.text is not None:
