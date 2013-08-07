@@ -1788,7 +1788,7 @@ class SearchTest(TestCase):
 		person.location  = "not reality"
 		person.save()
 		result = search("Ensemble darkhorse")
-		self.assertEqual(result[0].contexts[0].begin, 'KIND...')
+		self.assertEqual(result[0].contexts[0].begin, 'KIND: ...')
 
 	def test_search3(self) :
 		org           = Org()
@@ -1798,7 +1798,7 @@ class SearchTest(TestCase):
 		org.location  = "England"
 		org.save()
 		result = search("Criminals")
-		self.assertEqual(result[0].contexts[0].begin, 'KIND...Magical ')
+		self.assertEqual(result[0].contexts[0].begin, 'KIND: ...Magical ')
 		self.assertEqual(result[0].contexts[0].bold, 'Criminals')
 		self.assertEqual(result[0].contexts[0].end, '/Racists?')
 # 	#---------------------------------------#
@@ -2077,7 +2077,7 @@ class SearchTest(TestCase):
 		
 		result.append(Match('CRI_RIDDLE', 1))
 		getContext(result, tempMatchFound, tempSearchTerms, len(tempSearchTerms))
-		self.assertEqual(result[0].contexts[0].begin, 'NAME...Tom ')
+		self.assertEqual(result[0].contexts[0].begin, 'NAME: ...Tom ')
 
 	def test_getContext2(self) :
 		result           = []
@@ -2095,7 +2095,7 @@ class SearchTest(TestCase):
 		
 		result.append(Match('PER_LUNALO', 1))
 		getContext(result, tempMatchFound, tempSearchTerms, len(tempSearchTerms))
-		self.assertEqual(result[0].contexts[0].begin, 'NAME...Luna ')
+		self.assertEqual(result[0].contexts[0].begin, 'NAME: ...Luna ')
 
 	def test_getContext3(self) :
 		result       = []
@@ -2113,7 +2113,7 @@ class SearchTest(TestCase):
 		
 		result.append(Match('ORG_DEATER', 1))
 		getContext(result, tempMatchFound, tempSearchTerms, len(tempSearchTerms))
-		self.assertEqual(result[0].contexts[0].begin, 'LOCATION...')
+		self.assertEqual(result[0].contexts[0].begin, 'LOCATION: ...')
 
 # 	#---------------------------------------#
 # 	#-------test_getContextFromModel--------#
@@ -2182,7 +2182,7 @@ class SearchTest(TestCase):
 						if found >= 0 :
 							getContextFromModel(match, modelDict['common'], searchTerms, index, 'Summary')
 							break
-		self.assertEqual(match.contexts[0].begin, 'NAME...Luna ')
+		self.assertEqual(match.contexts[0].begin, 'NAME: ...Luna ')
 
 	def test_getContextFromModel3(self) :
 		org          = Org()
@@ -2214,7 +2214,7 @@ class SearchTest(TestCase):
 						if found >= 0 :
 							getContextFromModel(match, modelDict['common'], searchTerms, index, 'Summary')
 							break
-		self.assertEqual(match.contexts[0].begin, 'LOCATION...')
+		self.assertEqual(match.contexts[0].begin, 'LOCATION: ...')
 
 
 # 	#---------------------------------------#
