@@ -36,7 +36,7 @@ def search(query) :
 				break
 		if repeat == False :
 			match = Match(item.model_id, numTerms + 1)
-			print item.model_id
+			#print item.model_id
 			result.append(match)
 
 	#or case
@@ -101,7 +101,7 @@ def search(query) :
 def searchCrisis(searchTerms) :
 	modelSet = set()
 	for term in searchTerms :
-		modelSet = modelSet.union(Crisis.objects.filter(Q(crisis_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(date__iregex = term) | Q(time__iregex = term) | Q(common_summary__iregex = term)))	
+		modelSet = modelSet.union(Crisis.objects.filter(Q(crisis_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(date__iregex = term) | Q(time__iregex = term) | Q(common_summary__iregex = term)))
 	return modelSet
 
 def searchPerson(searchTerms) :
