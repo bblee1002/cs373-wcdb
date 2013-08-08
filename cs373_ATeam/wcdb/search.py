@@ -5,6 +5,11 @@ import re
 
 
 def search(query) :
+	"""
+	Function expects a string as a parameter.
+	Returns a list of Crises, People, and Orgs,
+	sorted by how much of the string they match.
+	"""
 	query       =    query.upper()
 	searchTerms =    query.split()
 	numTerms    = len(searchTerms)
@@ -99,30 +104,55 @@ def search(query) :
 	return result
 
 def searchCrisis(searchTerms) :
+	"""
+	Function expects a list of strings as a parameter.
+	Searches through database for Crisis objects containing any of the terms in the list.
+	Returns a set of these matching Crisis objects
+	"""
 	modelSet = set()
 	for term in searchTerms :
 		modelSet = modelSet.union(Crisis.objects.filter(Q(crisis_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(date__iregex = term) | Q(time__iregex = term) | Q(common_summary__iregex = term)))	
 	return modelSet
 
 def searchPerson(searchTerms) :
+	"""
+	Function expects a list of strings as a parameter.
+	Searches through database for Person objects containing any of the terms in the list.
+	Returns a set of these matching Person objects
+	"""
 	modelSet = set()
 	for term in searchTerms :
 		modelSet = modelSet.union(Person.objects.filter(Q(person_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term)))
 	return modelSet			
 
 def searchOrg(searchTerms) :
+	"""
+	Function expects a list of strings as a parameter.
+	Searches through database for Org objects containing any of the terms in the list.
+	Returns a set of these matching Org objects
+	"""
 	modelSet = set()
 	for term in searchTerms :
 		modelSet = modelSet.union(Org.objects.filter(Q(org_ID__iregex = term) | Q(name__iregex = term) | Q(kind__iregex = term) | Q(location__iregex = term) | Q(common_summary__iregex = term)))
 	return modelSet	
 
 def searchLi(searchTerms) :
+	"""
+	Function expects a list of strings as a parameter.
+	Searches through database for Li objects containing any of the terms in the list.
+	Returns a set of these matching Li objects
+	"""
 	modelSet = set()
 	for term in searchTerms :
 		modelSet = modelSet.union(Li.objects.filter(Q(floating_text__iregex = term)))
 	return modelSet		
 
 def initMatchFound(numTerms, matchFound, orCrises, orPeople, orOrgs, orLis) :
+	"""
+	Initializes a dictionary where the keys are model idrefs and the values are lists of 
+	booleans. The indices of the lists correspond to a term in the search query. The value
+	at the index is True if that model instance matches that term and False otherwise.
+	"""
 	for crisis in orCrises:
 		matchFound[crisis.crisis_ID] = [False] * numTerms
 
@@ -136,6 +166,9 @@ def initMatchFound(numTerms, matchFound, orCrises, orPeople, orOrgs, orLis) :
 		matchFound[li.model_id] = [False] * numTerms
 
 def populateMatchFound(searchTerms, numTerms, matchFound, orCrises, orPeople, orOrgs, orLis) :
+	"""
+	Sets the boolean values in the dictionary mentioned in initMatchFound().
+	"""
 	for crisis in orCrises:
 		crisisDict = getCrisis(crisis.crisis_ID)
 		crisisDict.pop('people')
@@ -178,6 +211,10 @@ def populateMatchFound(searchTerms, numTerms, matchFound, orCrises, orPeople, or
 			count += 1
 
 def getContext(result, matchFound, searchTerms, numTerms):
+	"""
+	Iterates through the sorted list of result (instances of the Match class) and
+	retrieves the contexts for matched search terms.
+	"""
 	#going through match instances in result
 	for match in result :
 		# iterate through model:
@@ -242,6 +279,10 @@ def getContext(result, matchFound, searchTerms, numTerms):
 		# iterate through Li:
 
 def getContextFromModel(match, modelDict, searchTerms, index, attribute) :
+	"""
+	Called by getContext(). Retrieves the context for some match instance from the model instance
+	the match's idref attribute corresponds to.
+	"""
 	found = modelDict[attribute].upper().find(searchTerms[index])
 	tempContext = Context()
 	tempContext.begin =  attribute.upper() + ': ...'
@@ -253,6 +294,12 @@ def getContextFromModel(match, modelDict, searchTerms, index, attribute) :
 	match.contexts.append(tempContext)
 
 def removeExactLis(exactLis, orSet) :
+	"""
+	Function created to deal with duplicate results. All Li instances really
+	just map to some instance of Crisis, Person, or Org. This function accounts
+	for this by removing Li objects whose corresponding model instance has already
+	found matches.
+	"""
 	tempSet = set()
 	for li in exactLis :
 		for model in orSet :
@@ -262,13 +309,24 @@ def removeExactLis(exactLis, orSet) :
 
 
 class Match() :
+	"""
+	Class to help represent search results. Contains idref attribute
+	corresponding to some model instance's unique idref, a count for
+	how many terms in the query that model matches, and the contexts
+	for the found terms.
+	"""
 	def __init__(self, idref, count) :
 		self.idref = idref 
 		self.count = count
 		self.contexts = []
 
-
 class Context() :
+	"""
+	Class to help represent the contexts for matched terms in a search result.
+	Begin and end hold up to five words before and after the matched term, respectively.
+	Bold is the matched term, isolated so the front end can bold the term with minimal
+	effort.
+	"""
 	def __init__(self) :
 		self.begin = ''
 		self.bold  = ''
