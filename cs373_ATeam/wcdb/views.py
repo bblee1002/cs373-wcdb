@@ -290,12 +290,15 @@ def downloadView(request) :
 def passwordValidate(pw_input, kind):
   """
   Helper function for importView. Validates the password for the Import
-  facilities, returning true if the password was valid, and false otherwise.
+  facilities.
 
   @type pw_input: string
   @param pw_input: password string the user entered
   @type kind: string
-  @param kind: 
+  @param kind: Type of merge that was selected
+
+  @rtype: boolean
+  @return: True if the password was valid, False otherwise.
   """
 
   if pw_input == "ateam2" and kind == "clear" :
@@ -311,7 +314,16 @@ def importView(request, kind):
   Renders import.html, which offers user the option to upload an XML file.
   Uploading an XML file requires the correct password, and the file itself
   will be validated to ensure not only that it is an XML file, but also that
-  it matches the pre-defined schema for the website.
+  it matches the pre-defined schema for the website. Type of import (clear or
+  merge) is determined based on value of kind.
+
+  @type request: HTML request
+  @param request: An HTML request
+  @type kind: string
+  @param kind: Type of merge that was selected
+
+  @rtype: HTML page
+  @return: Rendered version of import.html
   """
 
   form = XMLUploadForm()
@@ -347,7 +359,14 @@ def importView(request, kind):
 
 def getTypeNameImage(idref) :
   '''
-  Helper method for searchView. Returns a list in following format:
+  Helper method for searchView. Gets information about type, name, and Images
+  associated with a given idref.
+
+  @type idref: string
+  @param idref: ID of a crisis, person, or org object
+
+  @rtype: list
+  @return Returns a list in following format:
   [type of object, name, [LiObject, LiObject, ...] ] where LiObjects are Images
   '''
 
@@ -365,6 +384,12 @@ def searchView(request):
   '''
   Renders search.html using the search results of a query entered
   into the search bar
+
+  @type request: HTML request
+  @param request: An HTML request
+
+  @rtype: HTML page
+  @return: Rendered version of search.html
   '''
 
   sform = SearchForm(request.POST)
@@ -396,7 +421,15 @@ def queriesView(request, query_num):
   '''
   Renders queries.html for the 10 selected queries (our 5 and 5 from other
   groups). query_num is a variable passed in the url that indicates which
-  query to display.
+  query to display results for.
+
+  @type request: HTML request
+  @param request: An HTML request
+  @type query_num: string
+  @param query_num: string version of an integer
+
+  @rtype: HTML page
+  @return: Rendered version of queries.html
   '''
 
   query_string = ''
@@ -496,6 +529,11 @@ class XMLUploadForm(forms.Form):
   """
   XMLUploadForm that has an upload file field along with a password field.
   Only present in import.html.
+
+  @type xmlfile: string
+  @cvar xmlfile: File to upload
+  @type password: string
+  @cvar password: Password entered by user
   """
 
   xmlfile = forms.FileField()
@@ -506,6 +544,9 @@ class SearchForm(forms.Form):
   Form used in bar at top of every page (part of default.html, which every
   other html page extends) to post search queries. Contains a single field
   to store the query.
+
+  @type search_query: string
+  @cvar search_query: The search_query entered by the user
   '''
   
   search_query = forms.CharField(max_length = 200)
