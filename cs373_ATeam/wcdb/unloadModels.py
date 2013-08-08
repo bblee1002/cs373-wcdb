@@ -7,22 +7,51 @@ from unidecode import unidecode
 
 def clean_xml (dirty) :
 	"""
-	Check for presence of "&" invalid XML char in everything but Li() instances.
-	Returns a new string w/out any tag information
+	Helper method which checks a string for the presence of "&", which is an
+	invalid XML char and replaces it with "&amp;".
+
+	@type dirty: string
+	@param dirty: string to be "cleaned".
+
+	@rtype: string
+	@return: "cleaned" string
 	"""
+	
 	if dirty is None:
 		return ''
 	return dirty.replace('&', '&amp;')
 
 def make_non_li_string(clean_string, tag):
 	"""
-	clean_string is the text to enclose with xml tags
-	tag is the name of the xml tag to enclose the clean_string with
-	return an xml string with text enclosed by tags
+	This helper method is used to produce XML strings for XML elements that
+	are not list items (li).
+
+	@type clean_string: string
+	@param clean_string: string that has been "cleaned" using
+		clean_xml()
+	@type tag: string
+	@param tag: XML tag to place around clean_string
+
+	@rtype: string
+	@return: XML string in the following format - "<tag>clean_string<tag>\n"
 	"""
+
 	return "	<" + tag + ">" + clean_string + "</" + tag + ">\n"
 
 def make_attribute_string(item) :
+	"""
+	Helper method for make_li_string and is used to produce a string for the
+	list of attributes for an li. Attributes that have no value are not
+	present in returned string.
+
+	@type item: object
+	@param item: Li object from the database
+
+	@rtype: string
+	@return: XML string in the following format
+	"href="value_of_href" embed="value_of_embed" text="value_of_text">"
+	"""
+
 	item_string = ''
 	if item.href != u'':
 		href = clean_xml(item.href)
@@ -44,11 +73,21 @@ def make_attribute_string(item) :
 
 def make_li_string(li_list, tag, coming_from_common = False):
 	"""
-	li_list is a list of li objects
-	tag is the xml tag to use
-	coming_from_common is a boolean defaulted to False.  If True, extra white space will be added.
-	return an xml string from li objects
+	Helper method which is used to construct XML strings for Li objects.
+
+	@type li_list: list
+	@param li_list: list of li objects
+	@type tag: string
+	@param tag: XML tag in which Li objects are to be enclosed
+	@type coming_from_common: boolean
+	@param coming_from_common: used to determine whether the
+	function is being called from make_common_string, in which case extra
+	spaces need to be added to indent properly. Defaults to False.
+
+	@rtype: string
+	@return xml string from li objects
 	"""
+
 	if len(li_list) == 0:
 		return ''
 	item_string = ''
@@ -73,9 +112,15 @@ def make_li_string(li_list, tag, coming_from_common = False):
 
 def make_common_string(common_dict):
 	"""
-	common_dict contains lists of li objects and a summary
-	returns a string with information from common_dict
+	Helper method used to construct XML strings for "<Common>" nodes.
+
+	@type common_dict: dictionary
+	@param common_dict: contains lists of li objects and a summary.
+
+	@rtype: string
+	@return: XML string derived from the information within common_dict.
 	"""
+
 	strings = []
 	strings.append("	<Common>\n")
 	strings.append(make_li_string(common_dict["Citations"], "Citations", True))
@@ -99,7 +144,14 @@ def make_common_string(common_dict):
 def export_crisis (crisis_dict, crisis_id) :
 	"""
 	Export CRISIS models by extracting information from the relevant class.
-	Builds a string to return at the end as parse elements of crisis.
+
+	@type crisis_dict: dictionary
+	@param crisis_dict: contains information about a crisis
+	@type crisis_id: string
+	@param crisis_id: crisis id
+
+	@rtype: string
+	@return: parse elements of crisis object
 	"""
 	#assumes all crises have an id and name
 
@@ -154,7 +206,14 @@ def export_crisis (crisis_dict, crisis_id) :
 def export_person (person_dict, person_id) :
 	"""
 	Export Person models by extracting information from the relevant class.
-	Builds a string to return at the end as parse elements of crisis.
+
+	@type person_dict: dictionary
+	@param person_dict: contains information about a person
+	@type person_id: string
+	@param person_id: person id
+
+	@rtype: string
+	@return: parse elements of person object
 	""" 
 
 	strings = []
@@ -196,7 +255,14 @@ def export_person (person_dict, person_id) :
 def export_organization (org_dict, org_id) :
 	"""
 	Export Org models by extracting information from the relevant class.
-	Builds a string to return at the end as parse elements of crisis.
+
+	@type org_dict: dictionary
+	@param org_dict: contains information about an organization
+	@type org_id: string
+	@param org_id: organization id
+
+	@rtype: string
+	@return: parse elements of organization
 	"""
 
 	strings = []
@@ -242,6 +308,9 @@ def export_organization (org_dict, org_id) :
 def export_xml() :
 	"""
 	Exports models into an xml string.
+
+	@rtype: string
+	@return: xml for all models in database
 	"""
 
 	crisis_ids = getCrisisIDs()

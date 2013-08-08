@@ -16,6 +16,11 @@ def populate_models(tree) :
 	populate_crisis, populate_org, and populate_person. Returns a dictionary where the keys
 	are the type of model and the values are lists of instances of the models populated by 
 	this funciton.
+
+	@type  tree: ElementTree
+    @param tree: the XML file, uploaded by the user, parsed into an ElementTree
+    @rtype:      N/A
+    @return:     function does not return
 	"""
 	e_root = tree.getroot()
 	populate_crisis(e_root)
@@ -24,9 +29,17 @@ def populate_models(tree) :
 
 def populate_common(node, modl_id, model_instance):
 	"""
-	Function expects an element node, model ID, and a model instance as parameters.
-	Searches through node's tree for common node and calls common's populate method
+	Searches through node's tree for a common node and calls common's populate method
 	on it. 
+
+	@type  node:           Element
+	@param node:           a node in the ElementTree passed in to populate_models()
+	@type  modl_id:        string
+	@param modl_id:        the idref of the model the common instance maps to
+	@type  model_instance: element
+	@param model_instance: a node in the ElementTree passed in to populate_models()
+	@rtype:                N/A
+	@return:               function does not return
 	"""
 	found_common = node.find('Common')
 	if found_common is not None:
@@ -40,8 +53,12 @@ def populate_common(node, modl_id, model_instance):
 
 def populate_crisis(root) :
 	"""
-	Function expects a node in an element tree as a parameter. Finds instances of Crisis 
-	and saves them to the database
+	Finds instances of Crisis in root's tree and saves them to the database
+
+	@type root:  Element
+	@param root: root of the ElementTree passed in to populate_models()
+	@rtype:      N/A
+    @return:     function does not return
 	"""
 	for crisis in root.findall("Crisis"):
 		temp_crisis           =                 Crisis()
@@ -82,8 +99,12 @@ def populate_crisis(root) :
 
 def populate_person(root) :
 	"""
-Function expects a node in an element tree as a parameter. Finds instances of Person
-	and saves them to the database
+	Finds instances of Person in root's tree and saves them to the database
+
+	@type root:  Element
+	@param root: root of the ElementTree passed in to populate_models()
+	@rtype:      N/A
+    @return:     function does not return
 	"""
 	for person in root.findall("Person"):
 		temp_person             =                     Person()
@@ -114,8 +135,12 @@ Function expects a node in an element tree as a parameter. Finds instances of Pe
 
 def populate_org(root) :
 	"""
-	Function expects a node in an element tree as a parameter. Finds instances of Organization 
-	and saves them to the database
+	Finds instances of Org in root's tree and saves them to the database
+
+	@type root:  Element
+	@param root: root of the ElementTree passed in to populate_models()
+	@rtype:      N/A
+    @return:     function does not return
 	"""
 	for org in root.findall("Organization") :
 		temp_org          =                     Org()
@@ -150,6 +175,12 @@ def validate(file_in) :
 	"""
 	Function expects a file as a parameter. Checks if file is a valid xml file.
 	Returns False if not, and an element tree built from the file if it is valid.
+
+	@type file_in:  File
+	@param file_in: file uploaded by the user, passed by views.py
+	@rtype:         Boolean or ElementTree
+    @return:        Returns False if the filen is invalid XML, or an element tree 
+                    built from the file if it is valid.
 	"""
 	name = str(file_in.name)
 	if name[-4:] != ".xml" and name[-4:] != ".XML" :
