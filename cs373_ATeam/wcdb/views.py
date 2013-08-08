@@ -381,7 +381,7 @@ def getTypeNameImage(idref) :
     return ["org" , org_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
 
 def searchView(request):
-  '''
+  """
   Renders search.html using the search results of a query entered
   into the search bar
 
@@ -390,7 +390,7 @@ def searchView(request):
 
   @rtype: HTML page
   @return: Rendered version of search.html
-  '''
+  """
 
   sform = SearchForm(request.POST)
 
@@ -418,7 +418,7 @@ def searchView(request):
 
 
 def queriesView(request, query_num):
-  '''
+  """
   Renders queries.html for the 10 selected queries (our 5 and 5 from other
   groups). query_num is a variable passed in the url that indicates which
   query to display results for.
@@ -430,7 +430,7 @@ def queriesView(request, query_num):
 
   @rtype: HTML page
   @return: Rendered version of queries.html
-  '''
+  """
 
   query_string = ''
   query_string1 = ''
@@ -540,13 +540,13 @@ class XMLUploadForm(forms.Form):
   password = forms.CharField(max_length=8, widget=forms.PasswordInput) 
 
 class SearchForm(forms.Form):
-  '''
+  """
   Form used in bar at top of every page (part of default.html, which every
   other html page extends) to post search queries. Contains a single field
   to store the query.
 
   @type search_query: string
   @cvar search_query: The search_query entered by the user
-  '''
+  """
   
   search_query = forms.CharField(max_length = 200)
