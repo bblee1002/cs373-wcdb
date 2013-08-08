@@ -358,7 +358,7 @@ def importView(request, kind):
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
 def getTypeNameImage(idref) :
-  '''
+  """
   Helper method for searchView. Gets information about type, name, and Images
   associated with a given idref.
 
@@ -366,9 +366,9 @@ def getTypeNameImage(idref) :
   @param idref: ID of a crisis, person, or org object
 
   @rtype: list
-  @return Returns a list in following format:
-  [type of object, name, [LiObject, LiObject, ...] ] where LiObjects are Images
-  '''
+  @return: Returns a list in following format -
+    [type of object, name, [LiObject, LiObject, ...] ] where LiObjects are Images
+  """
 
   if idref[0:3] == "CRI" :
     cri_instance = Crisis.objects.get(crisis_ID = idref)

@@ -28,12 +28,12 @@ def make_non_li_string(clean_string, tag):
 
 	@type clean_string: string
 	@param clean_string: string that has been "cleaned" using
-	clean_xml()
+		clean_xml()
 	@type tag: string
 	@param tag: XML tag to place around clean_string
 
 	@rtype: string
-	@return: XML string in the following format: "<tag>clean_string<tag>\n"
+	@return: XML string in the following format - "<tag>clean_string<tag>\n"
 	"""
 
 	return "	<" + tag + ">" + clean_string + "</" + tag + ">\n"
