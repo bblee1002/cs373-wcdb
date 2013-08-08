@@ -22,7 +22,7 @@ def crisisView(request, crisis_id):
   render is determined by crisis_id, whose value is passed to the function via
   the URL.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
   @type crisis_id: string
   @param crisis_id: a crisis ID that uniquely identifies a specific crisis.
@@ -42,7 +42,7 @@ def orgsView(request, orgs_id):
   to render is determined by orgs_id, whose value is passed to the function via
   the URL.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
   @type orgs_id: string
   @param orgs_id: an org ID that uniquely identifies a specific org.
@@ -61,7 +61,7 @@ def peopleView(request, people_id):
   render is determined by people_id, whose value is passed to the function via
   the URL.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
   @type people_id: string
   @param people_id: a person ID that uniquely identifies a specific person.
@@ -82,7 +82,7 @@ def crisesPage(request, kind):
   crisis selected is determined by the value of kind, which is passed through
   the URL.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
   @type kind: string
   @param kind: Kind of crises to display.
@@ -130,7 +130,7 @@ def orgPage(request, kind):
   Which orgs get displayed depends on kind of org selected. The kind of org
   selected is determined by the value of kind, which is passed through the URL.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
   @type kind: string
   @param kind: Kind of organizations to display.
@@ -178,7 +178,7 @@ def pplPage(request, kind):
   people get displayed depends on kind of person selected. The kind of person
   selected is determined by the value of kind, which is passed through the URL.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
   @type kind: string
   @param kind: Kind of people to display.
@@ -223,7 +223,7 @@ def index(request):
   """
   Renders homepage.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
 
   @rtype: HTML page
@@ -237,7 +237,7 @@ def unittestsView(request):
   Runs the unit tests in tests.py and then renders Unittests.html, which
   displays the results of running those tests.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
 
   @rtype: HTML page
@@ -257,7 +257,7 @@ def exportView(request) :
   downloading the information in the form of an XML file. Also writes exported
   string to a file named "WCDBExportXML.xml" which is stored locally on server.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
 
   @rtype: HTML page
@@ -274,7 +274,7 @@ def downloadView(request) :
   Downloads the information in the database to the user's computer at the
   default download location in their browser settings. The file is an XML file.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
 
   @rtype: HttpResponse
@@ -317,7 +317,7 @@ def importView(request, kind):
   it matches the pre-defined schema for the website. Type of import (clear or
   merge) is determined based on value of kind.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
   @type kind: string
   @param kind: Type of merge that was selected
@@ -385,7 +385,7 @@ def searchView(request):
   Renders search.html using the search results of a query entered
   into the search bar
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
 
   @rtype: HTML page
@@ -423,7 +423,7 @@ def queriesView(request, query_num):
   groups). query_num is a variable passed in the url that indicates which
   query to display results for.
 
-  @type request: HTML request
+  @type request: string
   @param request: An HTML request
   @type query_num: string
   @param query_num: string version of an integer
