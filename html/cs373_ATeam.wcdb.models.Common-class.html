@@ -14,6 +14,9 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -55,12 +58,8 @@
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class Common</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common">source&nbsp;code</a></span></p>
-<pre class="literalblock">
-
-Class for the Common tag in the unified xml schema Contains a field for an href, embedded link, and alt text
-The floating_text attribute is to catch any text not in attributes.
-
-</pre>
+<p>Class for the Common tag in the unified xml schema. Used as a helper 
+  class to create Li objects for a Crisis/Person/Org.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -88,45 +87,10 @@ The floating_text attribute is to catch any text not in attributes.
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models.Common-class.html#populate" class="summary-sig-name">populate</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">e_node</span>,
         <span class="summary-sig-arg">modl_id</span>)</span><br />
-      Non-static method expects an element node and model ID as a parameter.</td>
+      Creates Common-type Li objects for a person/crisis/org, populates 
+      them, and adds them to the database.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.populate">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models.Common-class.html#xml_from_li" class="summary-sig-name">xml_from_li</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">root_str</span>,
-        <span class="summary-sig-arg">item_list</span>)</span><br />
-      Non-static method expects a root string and a list of Li objects as parameters.</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.xml_from_li">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="print_xml"></a><span class="summary-sig-name">print_xml</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Non-static method used to export the contents of a Common object as valid xml</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.print_xml">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -169,40 +133,17 @@ The floating_text attribute is to catch any text not in attributes.
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Non-static method expects an element node and model ID as a parameter.
-Uses node to populate attributues of a Common object
-
-</pre>
+  <p>Creates Common-type Li objects for a person/crisis/org, populates 
+  them, and adds them to the database.</p>
   <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="xml_from_li"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">xml_from_li</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">root_str</span>,
-        <span class="sig-arg">item_list</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.xml_from_li">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-
-Non-static method expects a root string and a list of Li objects as parameters.
-Iterates through list of Li objects and calls their xml_from_li() method, 
-concatenating the output to a string. The root string is concatenated around this string.
-
-</pre>
-  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> (Common) - This Common instance</li>
+        <li><strong class="pname"><code>e_node</code></strong> (ElementTree Element) - A child of a Common Element that has list item children.</li>
+        <li><strong class="pname"><code>modl_id</code></strong> (string) - ID that uniquely identifies a person, crisis, or org.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>No return value</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -211,6 +152,9 @@ concatenating the output to a string. The root string is concatenated around thi
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -230,7 +174,7 @@ concatenating the output to a string. The root string is concatenated around thi
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Jul 25 14:17:24 2013
+    Generated by Epydoc 3.0.1 on Thu Aug  8 18:01:49 2013
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

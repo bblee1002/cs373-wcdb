@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>cs373_ATeam.wcdb.tests.unloadModelsCrisisTest</title>
+  <title>cs373_ATeam.wcdb.tests.SearchTest</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -40,7 +40,7 @@
         Package&nbsp;cs373_ATeam ::
         <a href="cs373_ATeam.wcdb-module.html">Package&nbsp;wcdb</a> ::
         <a href="cs373_ATeam.wcdb.tests-module.html">Module&nbsp;tests</a> ::
-        Class&nbsp;unloadModelsCrisisTest
+        Class&nbsp;SearchTest
       </span>
     </td>
     <td>
@@ -50,29 +50,23 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.tests.unloadModelsCrisisTest-class.html"
+            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.tests.SearchTest-class.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class unloadModelsCrisisTest</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest">source&nbsp;code</a></span></p>
+<h1 class="epydoc">Class SearchTest</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest">source&nbsp;code</a></span></p>
 <pre class="base-tree">
 django.test.TestCase --+
                        |
-                      <strong class="uidshort">unloadModelsCrisisTest</strong>
+                      <strong class="uidshort">SearchTest</strong>
 </pre>
 
 <hr />
-<p>unloadModelsCrisisTest tests the functions unloadModels.py, which 
-  handles the export function. setUp() adds several Crisis, Person, and Org
-  objects to the database for testing purposes. export_crisis(), 
-  export_person(), and export_org() get an object from the database and 
-  return a string with its information. export_xml() uses export_crisis(), 
-  export_person(), and export_org() to form an xml string clean_xml(), 
-  make_non_li_string(), make_li_string(), make_common_string() are 
-  auxiliary functions used for formatting.</p>
+<p>Contains the unit tests for Search.py, the file where we define our 
+  Django files.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -97,9 +91,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="setUp"></a><span class="summary-sig-name">setUp</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_search1"></a><span class="summary-sig-name">test_search1</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.setUp">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_search1">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -113,9 +107,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_clean_xml0"></a><span class="summary-sig-name">test_clean_xml0</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_search2"></a><span class="summary-sig-name">test_search2</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_clean_xml0">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_search2">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -129,9 +123,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_clean_xml1"></a><span class="summary-sig-name">test_clean_xml1</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_search3"></a><span class="summary-sig-name">test_search3</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_clean_xml1">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_search3">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -145,9 +139,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_clean_xml2"></a><span class="summary-sig-name">test_clean_xml2</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchCrisis1"></a><span class="summary-sig-name">test_searchCrisis1</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_clean_xml2">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchCrisis1">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -161,9 +155,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_non_li_string0"></a><span class="summary-sig-name">test_make_non_li_string0</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchCrisis2"></a><span class="summary-sig-name">test_searchCrisis2</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_non_li_string0">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchCrisis2">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -177,9 +171,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_non_li_string1"></a><span class="summary-sig-name">test_make_non_li_string1</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchCrisis3"></a><span class="summary-sig-name">test_searchCrisis3</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_non_li_string1">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchCrisis3">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -193,9 +187,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_non_li_string2"></a><span class="summary-sig-name">test_make_non_li_string2</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchPerson1"></a><span class="summary-sig-name">test_searchPerson1</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_non_li_string2">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchPerson1">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -209,9 +203,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_non_li_string3"></a><span class="summary-sig-name">test_make_non_li_string3</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchPerson2"></a><span class="summary-sig-name">test_searchPerson2</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_non_li_string3">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchPerson2">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -225,9 +219,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_attribute_string0"></a><span class="summary-sig-name">test_make_attribute_string0</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchPerson3"></a><span class="summary-sig-name">test_searchPerson3</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_attribute_string0">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchPerson3">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -241,9 +235,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_attribute_string1"></a><span class="summary-sig-name">test_make_attribute_string1</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchOrg1"></a><span class="summary-sig-name">test_searchOrg1</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_attribute_string1">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchOrg1">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -257,9 +251,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_attribute_string2"></a><span class="summary-sig-name">test_make_attribute_string2</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchOrg2"></a><span class="summary-sig-name">test_searchOrg2</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_attribute_string2">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchOrg2">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -273,9 +267,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_li_string0"></a><span class="summary-sig-name">test_make_li_string0</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchOrg3"></a><span class="summary-sig-name">test_searchOrg3</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_li_string0">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchOrg3">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -289,9 +283,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_li_string1"></a><span class="summary-sig-name">test_make_li_string1</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchLi1"></a><span class="summary-sig-name">test_searchLi1</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_li_string1">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchLi1">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -305,9 +299,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_li_string2"></a><span class="summary-sig-name">test_make_li_string2</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchLi2"></a><span class="summary-sig-name">test_searchLi2</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_li_string2">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchLi2">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -321,9 +315,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_li_string3"></a><span class="summary-sig-name">test_make_li_string3</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_searchLi3"></a><span class="summary-sig-name">test_searchLi3</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_li_string3">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_searchLi3">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -337,9 +331,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_li_string4"></a><span class="summary-sig-name">test_make_li_string4</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_initMatchfound1"></a><span class="summary-sig-name">test_initMatchfound1</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_li_string4">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_initMatchfound1">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -353,9 +347,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_li_string5"></a><span class="summary-sig-name">test_make_li_string5</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_initMatchfound2"></a><span class="summary-sig-name">test_initMatchfound2</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_li_string5">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_initMatchfound2">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -369,9 +363,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_li_string6"></a><span class="summary-sig-name">test_make_li_string6</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_initMatchfound3"></a><span class="summary-sig-name">test_initMatchfound3</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_li_string6">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_initMatchfound3">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -385,9 +379,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_li_string7"></a><span class="summary-sig-name">test_make_li_string7</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_populateMatchFound1"></a><span class="summary-sig-name">test_populateMatchFound1</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_li_string7">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_populateMatchFound1">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -401,9 +395,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_common_string0"></a><span class="summary-sig-name">test_make_common_string0</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_populateMatchFound2"></a><span class="summary-sig-name">test_populateMatchFound2</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_common_string0">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_populateMatchFound2">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -417,9 +411,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_common_string1"></a><span class="summary-sig-name">test_make_common_string1</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_populateMatchFound3"></a><span class="summary-sig-name">test_populateMatchFound3</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_common_string1">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_populateMatchFound3">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -433,9 +427,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_make_common_string2"></a><span class="summary-sig-name">test_make_common_string2</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_getContext1"></a><span class="summary-sig-name">test_getContext1</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_make_common_string2">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_getContext1">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -449,9 +443,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_export_crisis0"></a><span class="summary-sig-name">test_export_crisis0</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_getContext2"></a><span class="summary-sig-name">test_getContext2</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_crisis0">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_getContext2">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -465,9 +459,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_export_crisis1"></a><span class="summary-sig-name">test_export_crisis1</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_getContext3"></a><span class="summary-sig-name">test_getContext3</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_crisis1">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_getContext3">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -481,9 +475,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_export_crisis2"></a><span class="summary-sig-name">test_export_crisis2</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_getContextFromModel1"></a><span class="summary-sig-name">test_getContextFromModel1</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_crisis2">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_getContextFromModel1">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -497,9 +491,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_export_person0"></a><span class="summary-sig-name">test_export_person0</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_getContextFromModel2"></a><span class="summary-sig-name">test_getContextFromModel2</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_person0">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_getContextFromModel2">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -513,9 +507,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_export_person1"></a><span class="summary-sig-name">test_export_person1</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_getContextFromModel3"></a><span class="summary-sig-name">test_getContextFromModel3</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_person1">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_getContextFromModel3">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -529,9 +523,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_export_person2"></a><span class="summary-sig-name">test_export_person2</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_removeExactLis1"></a><span class="summary-sig-name">test_removeExactLis1</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_person2">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_removeExactLis1">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -545,9 +539,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_export_org0"></a><span class="summary-sig-name">test_export_org0</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_removeExactLis2"></a><span class="summary-sig-name">test_removeExactLis2</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_org0">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_removeExactLis2">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -561,73 +555,9 @@ django.test.TestCase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="test_export_org1"></a><span class="summary-sig-name">test_export_org1</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="test_removeExactLis3"></a><span class="summary-sig-name">test_removeExactLis3</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_org1">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="test_export_org2"></a><span class="summary-sig-name">test_export_org2</span>(<span class="summary-sig-arg">self</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_org2">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="test_export_xml0"></a><span class="summary-sig-name">test_export_xml0</span>(<span class="summary-sig-arg">self</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_xml0">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="test_export_xml1"></a><span class="summary-sig-name">test_export_xml1</span>(<span class="summary-sig-arg">self</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_xml1">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="test_export_xml2"></a><span class="summary-sig-name">test_export_xml2</span>(<span class="summary-sig-arg">self</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#unloadModelsCrisisTest.test_export_xml2">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.tests-pysrc.html#SearchTest.test_removeExactLis3">source&nbsp;code</a></span>
             
           </td>
         </tr>

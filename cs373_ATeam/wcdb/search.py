@@ -6,12 +6,12 @@ import re
 
 def search(query) :
 	"""
+	Searches the databse for the search query
 
-	@type  query: string
-    @param query: the search query, sent in by the user
-    @rtype:       list
-    @return:      list of Crises, People, and Orgs, sorted by how much
-                  of the query their page information matches.
+	@type query:  string
+	@param query: the search query, sent in by the user
+	@rtype:       list
+	@return:      list of Crises, People, and Orgs, sorted by how much of the query their page information matches.
 	"""
 	query       =    query.upper()
 	searchTerms =    query.split()
@@ -111,10 +111,10 @@ def searchCrisis(searchTerms) :
 	Searches through database for Crisis objects containing any of the terms in the list.
 
 	@type  searchTerms: list
-    @param searchTerms: the search query, sent in by the user, split by whitespace
-    @rtype:             set
-    @return:            a set of Crisis objects, whose pages' information contains matches terms 
-                        in searchTerms
+	@param searchTerms: the search query, sent in by the user, split by whitespace
+	@rtype:             set
+	@return:            a set of Crisis objects, whose pages' information contains matches terms 
+	                    in searchTerms
 	"""
 	modelSet = set()
 	for term in searchTerms :
@@ -126,10 +126,10 @@ def searchPerson(searchTerms) :
 	Searches through database for Person objects containing any of the terms in the list.
 
 	@type  searchTerms: list
-    @param searchTerms: the search query, sent in by the user, split by whitespace
-    @rtype:             set
-    @return:            a set of Person objects, whose pages' information contains matches terms 
-                        in searchTerms
+	@param searchTerms: the search query, sent in by the user, split by whitespace
+	@rtype:             set
+	@return:            a set of Person objects, whose pages' information contains matches terms 
+	                    in searchTerms
 	"""
 	modelSet = set()
 	for term in searchTerms :
@@ -141,10 +141,10 @@ def searchOrg(searchTerms) :
 	Searches through database for Org objects containing any of the terms in the list.
 
 	@type  searchTerms: list of strings
-    @param searchTerms: the search query, sent in by the user, split by whitespace
-    @rtype:       set
-    @return:      a set of Org objects, whose pages' information contains matches terms 
-                  in searchTerms
+	@param searchTerms: the search query, sent in by the user, split by whitespace
+	@rtype:       set
+	@return:      a set of Org objects, whose pages' information contains matches terms 
+	              in searchTerms
 	"""
 	modelSet = set()
 	for term in searchTerms :
@@ -156,11 +156,10 @@ def searchLi(searchTerms) :
 	Searches through database for Li objects containing any of the terms in the list.
 
 	@type  searchTerms: list of strings
-    @param searchTerms: the search query, sent in by the user, split by whitespace
-    @rtype:             set
-    @return:            a set of Li objects, whose pages' information contains matches terms 
-                        in searchTerms
-
+	@param searchTerms: the search query, sent in by the user, split by whitespace
+	@rtype:             set
+	@return:            a set of Li objects, whose pages' information contains matches terms 
+	                    in searchTerms
 	"""
 	modelSet = set()
 	for term in searchTerms :
@@ -174,18 +173,18 @@ def initMatchFound(numTerms, matchFound, orCrises, orPeople, orOrgs, orLis) :
 	at the index is True if that model instance matches that term and False otherwise.
 
 	@type  numTerms:   int
-    @param numTerms:   length of list created by splitting the search query, sent in by the user, 
-                       by whitespace
+	@param numTerms:   length of list created by splitting the search query, sent in by the user, 
+	                   by whitespace
 	@type  matchFound: dictionary
-    @param matchFound: dictionary defined in function description
+	@param matchFound: dictionary defined in function description
 	@type  orCrises:   set
-    @param orCrises:   Crisis objects whose pages contain matched terms
-    @type  orPeople:   set
-    @param orPeople:   Person objects whose pages contain matched terms
-    @type  orOrgs:     set
-    @param orOrgs:     Org objects whose pages contain matched terms
-    @type  orLis:      set
-    @param orLis:      Li objects whose pages contain matched terms
+	@param orCrises:   Crisis objects whose pages contain matched terms
+	@type  orPeople:   set
+	@param orPeople:   Person objects whose pages contain matched terms
+	@type  orOrgs:     set
+	@param orOrgs:     Org objects whose pages contain matched terms
+	@type  orLis:      set
+	@param orLis:      Li objects whose pages contain matched terms
 
 	"""
 	for crisis in orCrises:
@@ -204,22 +203,22 @@ def populateMatchFound(searchTerms, numTerms, matchFound, orCrises, orPeople, or
 	"""
 	Sets the boolean values in the dictionary mentioned in initMatchFound().
 
-    @type  searchTerms: list
-    @param searchTerms: the search query, sent in by the user, split by whitespace
-    @type  numTerms:    int
-    @param numTerms:    length of searchTerms
+	@type  searchTerms: list
+	@param searchTerms: the search query, sent in by the user, split by whitespace
+	@type  numTerms:    int
+	@param numTerms:    length of searchTerms
 	@type  matchFound:  dictionary
-    @param matchFound:  dictionary described in initMatchFound()
-    @type  orCrises:    set
-    @param orCrises:    Crisis objects whose pages contain matched terms
-    @type  orPeople:    set
-    @param orPeople:    Person objects whose pages contain matched terms
-    @type  orOrgs:      set
-    @param orOrgs:      Org objects whose pages contain matched terms
-    @type  orLis:       set
-    @param orLis:       Li objects whose pages contain matched terms
-    @rtype:             N/A
-    @return:            function does not return
+	@param matchFound:  dictionary described in initMatchFound()
+	@type  orCrises:    set
+	@param orCrises:    Crisis objects whose pages contain matched terms
+	@type  orPeople:    set
+	@param orPeople:    Person objects whose pages contain matched terms
+	@type  orOrgs:      set
+	@param orOrgs:      Org objects whose pages contain matched terms
+	@type  orLis:       set
+	@param orLis:       Li objects whose pages contain matched terms
+	@rtype:             N/A
+	@return:            function does not return
 	"""
 	for crisis in orCrises:
 		crisisDict = getCrisis(crisis.crisis_ID)
@@ -268,15 +267,15 @@ def getContext(result, matchFound, searchTerms, numTerms):
 	retrieves the contexts for matched search terms.
 
 	@type  result:      list
-    @param result:      list of sorted instances of the Match class
-    @type  matchFound:  dictionary
-    @param matchFound:  dictionary described in initMatchFound()
-    @type  searchTerms: list of strings
-    @param searchTerms: the search query, sent in by the user, split by whitespace
-    @type  numTerms:    int
-    @param numTerms:    length of searchTerms
-    @rtype:             N/A
-    @return:            function does not return
+	@param result:      list of sorted instances of the Match class
+	@type  matchFound:  dictionary
+	@param matchFound:  dictionary described in initMatchFound()
+	@type  searchTerms: list of strings
+	@param searchTerms: the search query, sent in by the user, split by whitespace
+	@type  numTerms:    int
+	@param numTerms:    length of searchTerms
+	@rtype:             N/A
+	@return:            function does not return
 	"""
 	#going through match instances in result
 	for match in result :
@@ -367,17 +366,17 @@ def getContextFromModel(match, modelDict, searchTerms, index, attribute) :
 	the match's idref attribute corresponds to.
 
 	@type  match:       Match
-    @param match:       instance of the Match class
-    @type  modelDict:   dictionary
-    @param modelDict:   dictionary produced by the functions of getDbModel.py
-    @type  searchTerms: list
-    @param searchTerms: the search query, sent in by the user, split by whitespace
-    @type  index:       int
-    @param index:       corresponds to the index in searchTerms
-    @type  attribute:   string
-    @param attribute:   corresponds to a key in the modelDict
-    @rtype:             N/A
-    @return:            function does not return
+	@param match:       instance of the Match class
+	@type  modelDict:   dictionary
+	@param modelDict:   dictionary produced by the functions of getDbModel.py
+	@type  searchTerms: list
+	@param searchTerms: the search query, sent in by the user, split by whitespace
+	@type  index:       int
+	@param index:       corresponds to the index in searchTerms
+	@type  attribute:   string
+	@param attribute:   corresponds to a key in the modelDict
+	@rtype:             N/A
+	@return:            function does not return
 	"""
 	found = modelDict[attribute].upper().find(searchTerms[index])
 	tempContext = Context()
@@ -397,11 +396,11 @@ def removeExactLis(exactLis, orSet) :
 	found matches.
 
 	@type  exactLis: set
-    @param exactLis: Li objects with found matches
-    @type  orSet:    set
-    @param orSet:    Crisis, Person, or Org objects with found matches
-    @rtype:          set
-    @return:         orSet with the overlap between matched Li objects removed
+	@param exactLis: Li objects with found matches
+	@type  orSet:    set
+	@param orSet:    Crisis, Person, or Org objects with found matches
+	@rtype:          set
+	@return:         orSet with the overlap between matched Li objects removed
 	"""
 	tempSet = set()
 	for li in exactLis :
