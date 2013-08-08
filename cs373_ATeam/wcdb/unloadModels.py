@@ -10,9 +10,11 @@ def clean_xml (dirty) :
 	Helper method which checks a string for the presence of "&", which is an
 	invalid XML char and replaces it with "&amp;".
 
-	Parameter dirty is the string to be "cleaned".
+	@type dirty: string
+	@param dirty: string to be "cleaned".
 
-	Returns "cleaned" string.
+	@rtype: string
+	@return: "cleaned" string
 	"""
 	
 	if dirty is None:
@@ -24,11 +26,14 @@ def make_non_li_string(clean_string, tag):
 	This helper method is used to produce XML strings for XML elements that
 	are not list items (li).
 
-	Parameter clean_string is a string that has been "cleaned" using
-	clean_xml().
-	Parameter tag is the XML tag to place around the string.
+	@type clean_string: string
+	@param clean_string: string that has been "cleaned" using
+	clean_xml()
+	@type tag: string
+	@param tag: XML tag to place around clean_string
 
-	Returns an XML string in the following format: "<tag>clean_string<tag>\n"
+	@rtype: string
+	@return: XML string in the following format: "<tag>clean_string<tag>\n"
 	"""
 
 	return "	<" + tag + ">" + clean_string + "</" + tag + ">\n"
@@ -39,9 +44,11 @@ def make_attribute_string(item) :
 	list of attributes for an li. Attributes that have no value are not
 	present in returned string.
 
-	Parameter item is a specific Li object from the database.
+	@type item: object
+	@param item: Li object from the database
 
-	Returns an XML string in the following format:
+	@rtype: string
+	@return: XML string in the following format
 	"href="value_of_href" embed="value_of_embed" text="value_of_text">"
 	"""
 
@@ -68,13 +75,17 @@ def make_li_string(li_list, tag, coming_from_common = False):
 	"""
 	Helper method which is used to construct XML strings for Li objects.
 
-	Parameter li_list is a list of li objects.
-	Parameter tag is the XML tag in which the Li objects are to be enclosed.
-	Parameter coming_from_common is a boolean used to determine whether the
+	@type li_list: list
+	@param li_list: list of li objects
+	@type tag: string
+	@param tag: XML tag in which Li objects are to be enclosed
+	@type coming_from_common: boolean
+	@param coming_from_common: used to determine whether the
 	function is being called from make_common_string, in which case extra
 	spaces need to be added to indent properly. Defaults to False.
 
-	Returns an xml string from li objects
+	@rtype: string
+	@return xml string from li objects
 	"""
 
 	if len(li_list) == 0:
@@ -103,9 +114,11 @@ def make_common_string(common_dict):
 	"""
 	Helper method used to construct XML strings for "<Common>" nodes.
 
-	Parameter common_dict contains lists of li objects and a summary.
+	@type common_dict: dictionary
+	@param common_dict: contains lists of li objects and a summary.
 
-	Returns an XML string derived from the information within common_dict.
+	@rtype: string
+	@return: XML string derived from the information within common_dict.
 	"""
 
 	strings = []
@@ -131,7 +144,14 @@ def make_common_string(common_dict):
 def export_crisis (crisis_dict, crisis_id) :
 	"""
 	Export CRISIS models by extracting information from the relevant class.
-	Builds a string to return at the end as parse elements of crisis.
+
+	@type crisis_dict: dictionary
+	@param crisis_dict: contains information about a crisis
+	@type crisis_id: string
+	@param crisis_id: crisis id
+
+	@rtype: string
+	@return: parse elements of crisis object
 	"""
 	#assumes all crises have an id and name
 
@@ -186,7 +206,14 @@ def export_crisis (crisis_dict, crisis_id) :
 def export_person (person_dict, person_id) :
 	"""
 	Export Person models by extracting information from the relevant class.
-	Builds a string to return at the end as parse elements of crisis.
+
+	@type person_dict: dictionary
+	@param person_dict: contains information about a person
+	@type person_id: string
+	@param person_id: person id
+
+	@rtype: string
+	@return: parse elements of person object
 	""" 
 
 	strings = []
@@ -228,7 +255,14 @@ def export_person (person_dict, person_id) :
 def export_organization (org_dict, org_id) :
 	"""
 	Export Org models by extracting information from the relevant class.
-	Builds a string to return at the end as parse elements of crisis.
+
+	@type org_dict: dictionary
+	@param org_dict: contains information about an organization
+	@type org_id: string
+	@param org_id: organization id
+
+	@rtype: string
+	@return: parse elements of organization
 	"""
 
 	strings = []
@@ -274,6 +308,9 @@ def export_organization (org_dict, org_id) :
 def export_xml() :
 	"""
 	Exports models into an xml string.
+
+	@rtype: string
+	@return: xml for all models in database
 	"""
 
 	crisis_ids = getCrisisIDs()
