@@ -7,14 +7,14 @@ Replace this with more appropriate tests for your application.
 from django.test import TestCase
 from minixsv import pyxsval
 from genxmlif import GenXmlIfError
-from models import Crisis, Person, Org, list_add, Li, Common, Relations, populate_li
+from models import Crisis, Person, Org, Li, Common, Relations, populate_li
 from loadModels import validate, populate_crisis, populate_person, populate_org, populate_models, populate_common
 from unloadModels import *
 import xml.etree.ElementTree as ET
 from django.test.client import Client
-from views import passwordValidate
-from getDbModel import getCrisis, getPerson, getOrg, getCrisisIDs, getOrgIDs, getPeopleIDs
-
+from views import *
+from getDbModel import *
+from search import *
 
 #xsd = open('wcdb/WorldCrises.xsd.xml', 'r')
 #psvi = pyxsval.parseAndValidate("wcdb/temp.xml", "wcdb/WorldCrises.xsd.xml",
@@ -22,7 +22,10 @@ from getDbModel import getCrisis, getPerson, getOrg, getCrisisIDs, getOrgIDs, ge
 
 class ModelsCrisisTest(TestCase):
 
-
+	"""
+	Contains the unit tests for models.py, the file where we define our Django files. These unit 
+	tests mostly test that the models' populate methods work.
+	"""
 #--------------------------------------------#
 #-----Unit Tests for functions from models.py
 #--------------------------------------------#
@@ -44,7 +47,7 @@ class ModelsCrisisTest(TestCase):
 	def test_li_populate1(self):
 		temp      = ET.Element('li')
 		temp.set("href", "href_stuff")
-		temp.set("embed", "embed_stuff")
+		temp.embed = "embed_stuff"
 		temp.set("text", "text_stuff")
 		temp.text = "randomfloatingtext"
 		temp_li   = Li()
@@ -125,7 +128,7 @@ class ModelsCrisisTest(TestCase):
 		for a in li_list :
 			common_dict[a.kind].append(a)
 		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://en.wikipedia.org/wiki/2013_North_India_floods")
-	
+
 	def test_common_populate2(self):
 		temp_com   = Common()
 		xml_string = "<Common><Citations><li>The Hindustan Times</li></Citations><ExternalLinks><li href=\"http://en.wikipedia.org/wiki/2013_North_India_floods\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://timesofindia.indiatimes.com/photo/15357310.cms\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common>"
@@ -144,63 +147,7 @@ class ModelsCrisisTest(TestCase):
 			common_dict[a.kind].append(a)
 		self.assertEqual(common_dict['Images'][0].embed, "http://timesofindia.indiatimes.com/photo/15357310.cms")
 		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/qV3s7Sa6B6w")
-		self.assertEqual(common_dict['Maps'][0].embed, "https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&sspn=3.2522150867582833,7.2072687770004205&t=m&q=uttarakhand&dg=opt&ie=UTF8&hq=&hnear=Uttarakhand,+India&ll=30.066753,79.0193&spn=2.77128,5.07019&z=8&output=embed")
-		
-
-
-	#---------------------------------------#
-	#-----test_populate_common
-
-	def test_populate_common0(self):
-		temp_com   = Common()
-		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
-		e_root     = ET.fromstring(xml_string)
-		temp_crisis = Crisis
-		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
-
-		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
-		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
-						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
-						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
-						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
-		for a in li_list :
-			common_dict[a.kind].append(a)
-		self.assertEqual(common_dict['Citations'][0].floating_text, "Kyoto News Network")
-
-	def test_populate_common1(self):
-		temp_com   = Common()
-		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
-		e_root     = ET.fromstring(xml_string)
-		temp_crisis = Crisis
-		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
-
-		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
-		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
-						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
-						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
-						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
-		for a in li_list :
-			common_dict[a.kind].append(a)
-		self.assertEqual(common_dict['Images'][0].embed, "http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg")
-
-	def test_populate_common2(self):
-		temp_com   = Common()
-		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/PkXw1iBgzoY\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"twitter.com/kiraisgod\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
-		e_root     = ET.fromstring(xml_string)
-		temp_crisis = Crisis
-		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
-
-		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
-		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
-						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
-						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
-						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
-		for a in li_list :
-			common_dict[a.kind].append(a)
-		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://myanimelist.net/anime/1535/Death_Note")
-		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/PkXw1iBgzoY")
-		self.assertEqual(common_dict['Feeds'][0].embed, "twitter.com/kiraisgod")
-
+		self.assertEqual(0, len(common_dict['Maps']))
 
 
 	#---------------------------------------#
@@ -228,9 +175,89 @@ class ModelsCrisisTest(TestCase):
 		relations1.populate(c_id = "CRI_NSAWRT")
 		self.assertEqual(relations1.crisis_ID, "CRI_NSAWRT")
 
+	#---------------------------------------#
+	#-----test_getID
+
+	def test_crisis_getID0(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_NSAWRT"
+		cid = crisis.getID()
+		self.assertEqual(type(crisis), Crisis)
+		self.assertEqual(cid, "CRI_NSAWRT")
+
+	def test_crisis_getID1(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_BEEDIE"
+		crisis.name = "name"
+		crisis.kind = "kind"
+		cid = crisis.getID()
+		self.assertEqual(type(crisis), Crisis)
+		self.assertEqual(cid, "CRI_BEEDIE")
+
+	def test_crisis_getID2(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_EGYPTR"
+		cid = crisis.getID()
+		crisis.name = "name"
+		self.assertEqual(type(crisis), Crisis)
+		self.assertEqual(cid, "CRI_EGYPTR")
+
+	def test_org_getID0(self):
+		org = Org()
+		org.org_ID = "ORG_MEXGOV"
+		org.name = "oname"
+		org.kind = "Criminal Organization"
+		oid = org.getID()
+		self.assertEqual(type(org), Org)
+		self.assertEqual(oid, "ORG_MEXGOV")
+
+	def test_org_getID1(self):
+		org = Org()
+		org.org_ID = "ORG_MEXGOV"
+		oid = org.getID()
+		self.assertEqual(type(org), Org)
+		self.assertEqual(oid, "ORG_MEXGOV")
+
+	def test_org_getID2(self):
+		org = Org()
+		org.org_ID = "ORG_EGYGOV"
+		oid = org.getID()
+		self.assertEqual(type(org), Org)
+		self.assertEqual(oid, "ORG_EGYGOV")
+
+	def test_person_getID0(self):
+		person = Person()
+		person.person_ID = "PER_MMORSI"
+		pid = person.getID()
+		self.assertEqual(type(person), Person)
+		self.assertEqual(pid, "PER_MMORSI")
+
+	def test_person_getID1(self):
+		person = Person()
+		person.person_ID = "PER_ELBARA"
+		person.name = "ElBaradei"
+		pid = person.getID()
+		self.assertEqual(type(person), Person)
+		self.assertEqual(pid, "PER_ELBARA")
+
+	def test_person_getID2(self):
+		person = Person()
+		person.person_ID = "PER_ESNWDN"
+		pid = person.getID()
+		person.person_ID = "PER_MMORSI"
+		pid2 = person.getID()
+		self.assertEqual(type(person), Person)
+		self.assertEqual(pid2, "PER_MMORSI")
+		self.assertEqual(pid2, "PER_MMORSI")
 
 class unloadModelsCrisisTest(TestCase):
-
+	"""
+	unloadModelsCrisisTest tests the functions unloadModels.py, which handles the export function.
+	setUp() adds several Crisis, Person, and Org objects to the database for testing purposes.
+	export_crisis(), export_person(), and export_org() get an object from the database and return a string with its information.
+	export_xml() uses export_crisis(), export_person(), and export_org() to form an xml string
+	clean_xml(), make_non_li_string(), make_li_string(), make_common_string() are auxiliary functions used for formatting.
+	"""
 	def setUp(self):
 		self.crisis = Crisis.objects.create(crisis_ID='CRI_CRISIS', name='name',
 			kind='kind', date='date', time='time', common_summary='summary')
@@ -300,6 +327,31 @@ class unloadModelsCrisisTest(TestCase):
 	def test_make_non_li_string3(self):
 		result = make_non_li_string("Test", "Summary")
 		self.assertEqual(result, "\t<Summary>Test</Summary>\n")
+
+# 	#---------------------------------------#
+# 	#-----test_make_attribute_string
+
+	def test_make_attribute_string0(self):
+		li = Li()
+		attribute_string = make_attribute_string(li)
+		self.assertEqual(attribute_string, ">")
+
+	def test_make_attribute_string1(self):
+		li = Li()
+		li.href = "address"
+		li.embed = "embedded stuff"
+		li.text = "text"
+		attribute_string = make_attribute_string(li)
+		self.assertEqual(attribute_string, ' href="address" embed="embedded stuff" text="text">')
+
+	def test_make_attribute_string2(self):
+		li = Li()
+		li.href = "address"
+		li.embed = "embedded stuff"
+		li.text = "text"
+		li.floating_text = "text between tags"
+		attribute_string = make_attribute_string(li)
+		self.assertEqual(attribute_string, ' href="address" embed="embedded stuff" text="text">text between tags')
 
 # 	#---------------------------------------#
 # 	#-----test_make_li_string
@@ -452,7 +504,7 @@ class unloadModelsCrisisTest(TestCase):
 		oid = self.org.org_ID
 		org_dict = getOrg(oid)
 		org_xml = export_organization(org_dict, oid)
-		s = '<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n'
+		s = '<Organization ID="ORG_ORGORG" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n'
 		self.assertEqual(org_xml, s)
 
 	def test_export_org1(self):
@@ -472,31 +524,25 @@ class unloadModelsCrisisTest(TestCase):
 # 	#---------------------------------------#
 # 	#-----test_export_xml
 
-	# def test_export_xml0(self):
-	# 	xml_string = export_xml()
-	# 	s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
-	# 	self.assertEqual(xml_string, s)
+	def test_export_xml0(self):
+		xml_string = export_xml()
+		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
+		self.assertEqual(xml_string, s)
 
-	# def test_export_xml1(self):
-	# 	Crisis.objects.create(crisis_ID='CRI_CRFOUR', name='name4',
-	# 		kind='kind', date='date', time='time', common_summary='summary')
-	# 	xml_string = export_xml()
-	# 	s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CRFOUR" Name="name4">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
-	# 	self.assertEqual(xml_string, s)
+	def test_export_xml1(self):
+		Crisis.objects.create(crisis_ID='CRI_CRFOUR', name='name4',
+			kind='kind', date='date', time='time', common_summary='summary')
+		xml_string = export_xml()
+		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CRFOUR" Name="name4">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
+		self.assertEqual(xml_string, s)
 
-	# def test_export_xml2(self):
-	# 	Org.objects.create(org_ID='ORG_ORFOUR', name='name',
-	# 		kind='kind', location='location', common_summary='summary')
-	# 	xml_string = export_xml()
-	# 	s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_ORFOUR" Name="name">\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
-	# 	self.assertEqual(xml_string, s)
-'''
-unloadModelsCrisisTest tests the functions unloadModels.py, which handles the export function.
-setUp() adds several Crisis, Person, and Org objects to the database for testing purposes.
-export_crisis(), export_person(), and export_org() get an object from the database and return a string with its information.
-export_xml() uses export_crisis(), export_person(), and export_org() to form an xml string
-clean_xml(), make_non_li_string(), make_li_string(), make_common_string() are auxiliary functions used for formatting.
-'''
+	def test_export_xml2(self):
+		Org.objects.create(org_ID='ORG_ORFOUR', name='name',
+			kind='kind', location='location', common_summary='summary')
+		xml_string = export_xml()
+		s = '<WorldCrises>\n<Crisis ID="CRI_CRITWO" Name="">\n</Crisis>\n\n<Crisis ID="CRI_CRISIS" Name="name">\n\t<Kind>kind</Kind>\n\t<Date>date</Date>\n\t<Time>time</Time>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Crisis ID="CRI_CTHREE" Name="name">\n\t<Date>date</Date>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Crisis>\n\n<Person ID="PER_PERTWO" Name="">\n</Person>\n\n<Person ID="PER_PTHREE" Name="name">\n\t<Location>location</Location>\n</Person>\n\n<Person ID="PER_PERSON" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Person>\n\n<Organization ID="ORG_ORGTWO" Name="">\n</Organization>\n\n<Organization ID="ORG_ORGORG" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_ORFOUR" Name="name">\n\t<Kind>kind</Kind>\n\t<Location>location</Location>\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n<Organization ID="ORG_OTHREE" Name="name">\n\t<Common>\n\t\t<Summary>summary</Summary>\n\t</Common>\n</Organization>\n\n</WorldCrises>'
+		self.assertEqual(xml_string, s)
+
 
 class loadModelsCrisisTest(TestCase):
 
@@ -505,7 +551,7 @@ class loadModelsCrisisTest(TestCase):
 # #------------------------------------------------#
 	"""
 	Contains the unit tests for loadModels.py, the import facility.These unit tests mostly 
-        confirm that models are properly populated and stored in the database.
+    confirm that models are properly populated and stored in the database.
 	"""
 
 	#---------------------------------------#
@@ -581,6 +627,59 @@ class loadModelsCrisisTest(TestCase):
 		self.assertEqual(org_dict['location'], "New York")
 		self.assertEqual(org_dict['crises'][0][0], 'CRI_TOOOLD')
 
+
+	#---------------------------------------#
+	#-----test_populate_common
+
+	def test_populate_common0(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['Citations'][0].floating_text, "Kyoto News Network")
+
+	def test_populate_common1(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/qV3s7Sa6B6w\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"[WHATEVER A FEED URL LOOKS LIKE]\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['Images'][0].embed, "http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg")
+
+	def test_populate_common2(self):
+		temp_com   = Common()
+		xml_string = "<Crisis ID=\"CRI_DTHNTE\" Name=\"People mysteriously dying\"><People><Person ID=\"PER_KIRAAA\"/></People><Organizations><Org ID=\"ORG_POLICE\"/></Organizations><Common><Citations><li>Kyoto News Network</li></Citations><ExternalLinks><li href=\"http://myanimelist.net/anime/1535/Death_Note\">Wikipedia</li></ExternalLinks><Images><li embed=\"http://i0.kym-cdn.com/photos/images/original/000/243/591/ef4.jpg\" /></Images><Videos><li embed=\"//www.youtube.com/embed/PkXw1iBgzoY\" /></Videos><Maps><li embed=\"https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed\" /></Maps><Feeds><li embed=\"twitter.com/kiraisgod\" /></Feeds><Summary>Lorem ipsum...</Summary></Common></Crisis>"
+		e_root     = ET.fromstring(xml_string)
+		temp_crisis = Crisis
+		populate_common(e_root, "CRI_DTHNTE", temp_crisis)
+
+		li_list = Li.objects.filter(model_id = "CRI_DTHNTE")
+		common_dict = {'Locations': [], 'HumanImpact': [], 'EconomicImpact': [], 
+						'ResourcesNeeded': [], 'WaysToHelp': [], 'History': [],
+						'ContactInfo': [], 'Citations': [], 'ExternalLinks': [],
+						'Images': [], 'Videos': [], 'Maps': [], 'Feeds': []}
+		for a in li_list :
+			common_dict[a.kind].append(a)
+		self.assertEqual(common_dict['ExternalLinks'][0].href, "http://myanimelist.net/anime/1535/Death_Note")
+		self.assertEqual(common_dict['Videos'][0].embed, "//www.youtube.com/embed/PkXw1iBgzoY")
+		self.assertEqual(common_dict['Feeds'][0].embed, "twitter.com/kiraisgod")
 
 
 	#---------------------------------------#
@@ -673,7 +772,9 @@ class loadModelsCrisisTest(TestCase):
 
 
 class viewsTest(TestCase):
-
+	"""
+	Contains the unit tests for the views.py file. Tests that views return a correct reponse.
+	"""
 #--------------------------------------------#
 #-----Unit Tests for functions from views.py
 #--------------------------------------------#
@@ -827,6 +928,18 @@ class viewsTest(TestCase):
 		response = self.client.get("http://localhost:8000/people/PER_MTTDMN")
 		self.assertEqual(response.status_code, 200)
 
+	def test_crisesPage0(self):
+		response = self.client.get("http://localhost:8000/crisespage/all")
+		self.assertEqual(response.status_code, 200)
+
+	def test_orgPage0(self):
+		response = self.client.get("http://localhost:8000/orgpage/all")
+		self.assertEqual(response.status_code, 200)
+
+	def test_pplPage0(self):
+		response = self.client.get("http://localhost:8000/pplpage/all")
+		self.assertEqual(response.status_code, 200)
+
 	"""
 	Creates an infinite loop!
 	def test_unittestView(self):
@@ -844,26 +957,193 @@ class viewsTest(TestCase):
 			response = self.client.post("http://localhost:8000/import/", {'password': "ateam", 'xmlvalue': upload}, follow = True)
 			self.assertEqual(response.status_code, 200) # Redirect on form success
 
+	#---------------------------------------#
+	#-----test_passwordValidate()
+	#---------------------------------------#
+
 	def test_passwordValidate0(self):
 		pw = "ateam"
-		result = passwordValidate(pw)
+		kind = ""
+		result = passwordValidate(pw, kind)
 		self.assert_(result)
 
 	def test_passwordValidate1(self):
 		pw = "someotherteam"
-		result = passwordValidate(pw)
+		kind = "anything"
+		result = passwordValidate(pw, kind)
 		self.assert_(not (result))
+
+	def test_passwordValidate2(self):
+		pw = "ateam2"
+		kind = "clear"
+		result = passwordValidate(pw, kind)
+		self.assert_(result)
+
+	def test_passwordValidate3(self):
+		pw = "ateam"
+		kind = "clear"
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
+	def test_passwordValidate4(self):
+		pw = "ateam2"
+		kind = ""
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
+	def test_passwordValidate5(self):
+		pw = "ateam"
+		kind = "something"
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
+	def test_passwordValidate6(self):
+		pw = "otherteam"
+		kind = ""
+		result = passwordValidate(pw, kind)
+		self.assert_(not result)
+
+	#---------------------------------------#
+	#-----test_getTypeNameImage()
+	#---------------------------------------#
+
+	def test_getTypeNameImage0(self):
+		crisis = Crisis()
+		crisis.crisis_ID = "CRI_NSAWRT"
+		crisis.name = "NSAWiretapping"
+		crisis.save()
+		crisis_list = getTypeNameImage(crisis.crisis_ID)
+		self.assertEqual(crisis_list[0], "crisis")
+		self.assertEqual(crisis_list[1], "NSAWiretapping")
+
+	def test_getTypeNameImage1(self):
+		org = Org()
+		org.org_ID = "ORG_EGYGOV"
+		org.name = "Egyptian Government"
+		org.save()
+		org_list = getTypeNameImage(org.org_ID)
+		self.assertEqual(org_list[0], "org")
+		self.assertEqual(org_list[1], "Egyptian Government")
+
+	def test_getTypeNameImage2(self):
+		person = Person()
+		person.person_ID = "PER_MMORSI"
+		person.name = "Mohamed Morsi"
+		person.save()
+		person_list = getTypeNameImage(person.person_ID)
+		self.assertEqual(person_list[0], "person")
+		self.assertEqual(person_list[1], "Mohamed Morsi")
 
 	def test_exportView(self):
 		response = self.client.get("http://127.0.0.1:8000/export/")
 		self.assertEqual(response.status_code, 200)
 
+	def test_searchView0(self):
+		response = self.client.get("http://127.0.0.1:8000/search/")
+		self.assertEqual(response.status_code, 200)
 
-class getDdModelTest(TestCase):
+	def test_queriesView0(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView1(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/0")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView2(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/1")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView3(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/2")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView4(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/3")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView5(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/4")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView6(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/5")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView7(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/6")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView8(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/7")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView9(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/8")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView10(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/9")
+		self.assertEqual(response.status_code, 200)
+
+	def test_queriesView11(self):
+		response = self.client.get("http://127.0.0.1:8000/queries/10")
+		self.assertEqual(response.status_code, 200)
+
+
+class getDbModelTest(TestCase):
+	"""
+	Contains the unit tests for getDbModel.py. The tests use import functions to save modelt to 
+	the database, then check that the getDbModel functions properly retrieve information from 
+	the database
+	"""
 
 # #--------------------------------------------#
 # #-----Unit Tests for functions from getDbModel.py
 # #--------------------------------------------#
+
+# 	#---------------------------------------#
+# 	#-----test_getLi
+# 	#---------------------------------------#
+	def test_getLi1(self):
+		li1 = Li()
+		li1.href = 'linktosomething.com'
+		li1.floating_text = 'link text'
+		li1.kind = 'ExternalLinks'
+		li1.model_id = 'CRI_NSAWRT'
+		li1.save()
+
+		li = getLi('CRI_NSAWRT')
+
+		self.assertEqual(li['floating_text'][0], 'link text')
+		self.assertEqual(li['kind'][0], 'ExternalLinks')
+
+	def test_getLi2(self):
+		li1 = Li()
+		li1.embed = 'linktoimage'
+		li1.floating_text = 'image link text'
+		li1.kind = 'Images'
+		li1.model_id = 'CRI_NSAWRT'
+		li1.save()
+
+		li = getLi('CRI_NSAWRT')
+
+		self.assertEqual(li['floating_text'][0], 'image link text')
+		self.assertEqual(li['kind'][0], 'Images')
+
+	def test_getLi3(self):
+		li1 = Li()
+		li1.href = 'linktosomething.com'
+		li1.embed = 'embedlink'
+		li1.floating_text = 'floating text'
+		li1.kind = 'ExternalLinks'
+		li1.model_id = 'CRI_NSAWRT'
+		li1.save()
+
+		li = getLi('CRI_NSAWRT')
+
+		self.assertEqual(li['floating_text'][0], 'floating text')
+		self.assertEqual(li['kind'][0], 'ExternalLinks')
 
 # 	#---------------------------------------#
 # 	#-----test_getCrisis
@@ -1243,17 +1523,16 @@ class getDdModelTest(TestCase):
 		temp_person.save()
 
 		person = getPerson("PER_GUZMAN")
-		#print person
 
 		self.assertEqual(temp_person.name, person.get('name'))
 		self.assertEqual(temp_person.kind, person.get('kind'))
 		self.assertEqual(temp_person.location, person.get('location'))
 		self.assertEqual(relations1.crisis_ID, person.get('crises')[0][0])
 		self.assertEqual(relations1.org_ID, person.get('organizations')[0][0])
-		self.assertEqual(li1.href, person.get('common').get('Feeds')[0].href)
-		self.assertEqual(li1.floating_text, person.get('common').get('Feeds')[0].floating_text)
-		self.assertEqual(li1.kind, person.get('common').get('Feeds')[0].kind)
-		self.assertEqual(li1.model_id, person.get('common').get('Feeds')[0].model_id)
+		self.assertEqual(li1.href, person.get('common').get('Feeds')[0][0].href)
+		self.assertEqual(li1.floating_text, person.get('common').get('Feeds')[0][0].floating_text)
+		self.assertEqual(li1.kind, person.get('common').get('Feeds')[0][0].kind)
+		self.assertEqual(li1.model_id, person.get('common').get('Feeds')[0][0].model_id)
 
 # 	#---------------------------------------#
 # 	#-----test_getCrisis
@@ -1481,3 +1760,534 @@ class getDdModelTest(TestCase):
 
 		self.assertEqual(temp_org1.name, ids.get('ORG_LOSZTA'))
 
+
+
+class SearchTest(TestCase):
+	"""
+	Contains the unit tests for Search.py, the file where we define our Django files.
+	"""
+# 	#---------------------------------------#
+# 	#--------------test_search--------------#
+# 	#---------------------------------------#
+	def test_search1(self) :
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		result = search("Marvolo gibbbbeerriiishhhhh")
+		self.assertEqual(result[0].contexts[0].end, ' Riddle')
+
+	def test_search2(self) :
+		person           = Person()
+		person.person_ID = "PER_LUNALO"
+		person.name      = "Luna Lovegood"
+		person.kind      = "Ensemble darkhorse"
+		person.location  = "not reality"
+		person.save()
+		result = search("Ensemble darkhorse")
+		self.assertEqual(result[0].contexts[0].begin, 'KIND: ...')
+
+	def test_search3(self) :
+		org           = Org()
+		org.org_ID    = "ORG_DEATER"
+		org.name      = "Death Eaters"
+		org.kind      = "Magical Criminals/Racists?"
+		org.location  = "England"
+		org.save()
+		result = search("Criminals")
+		self.assertEqual(result[0].contexts[0].begin, 'KIND: ...Magical ')
+		self.assertEqual(result[0].contexts[0].bold, 'Criminals')
+		self.assertEqual(result[0].contexts[0].end, '/Racists?')
+# 	#---------------------------------------#
+# 	#-----test_searchCrisis
+# 	#---------------------------------------#
+	def test_searchCrisis1(self):
+		tempCrisis           = Crisis()
+		tempCrisis.crisis_ID = "CRI_TXWDFR"
+		tempCrisis.name      = "Texas Wild Fires"
+		tempCrisis.kind      = "Natural disaster"
+		tempCrisis.date      = "2011-09-04"
+		tempCrisis.save()
+		query = "Texas Fire Station"
+		searchTerms = query.split()
+		foundCrisis = searchCrisis(searchTerms)
+		for crisis in foundCrisis :
+			self.assertEqual(crisis.name, tempCrisis.name)
+
+	def test_searchCrisis2(self):
+		tempCrisis           = Crisis()
+		tempCrisis.crisis_ID = "CRI_BRZLPR"
+		tempCrisis.name      = "Brazilian Protests"
+		tempCrisis.kind      = "Socioeconomic Crisis"
+		tempCrisis.date      = "2013-06-17"
+		tempCrisis.save()
+		query = "Brazilian people like camping"
+		searchTerms = query.split()
+		foundCrisis = searchCrisis(searchTerms)
+		for crisis in foundCrisis :
+			self.assertEqual(crisis.name, tempCrisis.name)
+
+	def test_searchCrisis3(self):
+		tempCrisis           = Crisis()
+		tempCrisis.crisis_ID = "CRI_EGYPTR"
+		tempCrisis.name      = "Political unrest in Egypt"
+		tempCrisis.kind      = "Revolution"
+		tempCrisis.date      = "2011-01-25"
+		tempCrisis.save()
+		query = "revolution"
+		searchTerms = query.split()
+		foundCrisis = searchCrisis(searchTerms)
+		for crisis in foundCrisis :
+			self.assertEqual(crisis.name, tempCrisis.name)
+
+# 	#---------------------------------------#
+# 	#-----test_searchPerson
+# 	#---------------------------------------#
+	def test_searchPerson1(self):
+		tempPerson           = Person()
+		tempPerson.person_ID = "PER_NIKALX"
+		tempPerson.name      = "Nikolay Alexeyev"
+		tempPerson.kind      = "Proactive citizen"
+		tempPerson.location      = "Russia"
+		tempPerson.save()
+		query = "Russia"
+		searchTerms = query.split()
+		foundPerson = searchPerson(searchTerms)
+		for person in foundPerson :
+			self.assertEqual(person.name, tempPerson.name)
+
+	def test_searchPerson2(self):
+		tempPerson           = Person()
+		tempPerson.person_ID = "PER_MTTDMN"
+		tempPerson.name      = "Matt Damon"
+		tempPerson.kind      = "Proactive citizen"
+		tempPerson.location      = "United States"
+		tempPerson.save()
+		query = "Matt Damon"
+		searchTerms = query.split()
+		foundPerson = searchPerson(searchTerms)
+		for person in foundPerson :
+			self.assertEqual(person.name, tempPerson.name)
+
+	def test_searchPerson3(self):
+		tempPerson           = Person()
+		tempPerson.person_ID = "PER_XNSHNG"
+		tempPerson.name      = "Zhang Xinsheng"
+		tempPerson.kind      = "Politician"
+		tempPerson.location      = "China"
+		tempPerson.save()
+		query = "Zhang Xinsheng is some person"
+		searchTerms = query.split()
+		foundPerson = searchPerson(searchTerms)
+		for person in foundPerson :
+			self.assertEqual(person.name, tempPerson.name)
+
+# 	#---------------------------------------#
+# 	#-----test_searchOrg
+# 	#---------------------------------------#
+	def test_searchOrg1(self):
+		tempOrg           = Org()
+		tempOrg.org_ID = "ORG_IUCNAT"
+		tempOrg.name      = "International Union for Conservation of Nature"
+		tempOrg.kind      = "Activist organization"
+		tempOrg.location      = "Global"
+		tempOrg.save()
+		query = "nature conservation"
+		searchTerms = query.split()
+		foundOrg = searchOrg(searchTerms)
+		for org in foundOrg :
+			self.assertEqual(org.name, tempOrg.name)
+
+	def test_searchOrg2(self):
+		tempOrg           = Org()
+		tempOrg.org_ID = "ORG_LOSZTA"
+		tempOrg.name      = "Los Zetas Cartel"
+		tempOrg.kind      = "Criminal organization"
+		tempOrg.location      = "Mexico"
+		tempOrg.save()
+		query = "Los Zetas Cartel"
+		searchTerms = query.split()
+		foundOrg = searchOrg(searchTerms)
+		for org in foundOrg :
+			self.assertEqual(org.name, tempOrg.name)
+
+	def test_searchOrg3(self):
+		tempOrg           = Org()
+		tempOrg.org_ID = "ORG_GAYRUS"
+		tempOrg.name      = "LGBT Human Rights Project GayRussia.Ru"
+		tempOrg.kind      = "Activist organization"
+		tempOrg.location      = "Russia"
+		tempOrg.save()
+		query = "human rights"
+		searchTerms = query.split()
+		foundOrg = searchOrg(searchTerms)
+		for org in foundOrg :
+			self.assertEqual(org.name, tempOrg.name)
+
+
+# 	#---------------------------------------#
+# 	#-----test_searchLi
+# 	#---------------------------------------#
+	def test_searchLi1(self):
+		tempLi = Li()
+		tempLi.href = 'linktosomething.com'
+		tempLi.floating_text = 'something very important'
+		tempLi.kind = 'ExternalLinks'
+		tempLi.model_id = 'CRI_NSAWRT'
+		tempLi.save()
+		query = "very importatnt"
+		searchTerms = query.split()
+		foundLi = searchLi(searchTerms)
+		for li in foundLi :
+			self.assertEqual(li.floating_text, tempLi.floating_text)
+
+	def test_searchLi2(self):
+		tempLi = Li()
+		tempLi.href = 'linktosomething.com'
+		tempLi.floating_text = 'West, Larry. "World Water Day: A Billion People Worldwide Lack Safe Drinking Water." About.com Environmental Issues. N.p., n.d. Web. 11 July 2013.'
+		tempLi.kind = 'Citations'
+		tempLi.model_id = 'ORG_WATERO'
+		tempLi.save()
+		query = "World Water Day"
+		searchTerms = query.split()
+		foundLi = searchLi(searchTerms)
+		for li in foundLi :
+			self.assertEqual(li.floating_text, tempLi.floating_text)
+
+	def test_searchLi3(self):
+		tempLi = Li()
+		tempLi.href = 'linktosomething.com'
+		tempLi.floating_text = 'The governing body of the country of the state of Brazil, Presidential Representative Democratic Republic.'
+		tempLi.kind = 'Summary'
+		tempLi.model_id = 'ORG_BRAGOV'
+		tempLi.save()
+		query = "democratic republic"
+		searchTerms = query.split()
+		foundLi = searchLi(searchTerms)
+		for li in foundLi :
+			self.assertEqual(li.floating_text, tempLi.floating_text)
+
+
+# 	#---------------------------------------#
+# 	#----------test_initMatchFound----------#
+# 	#---------------------------------------#
+
+	def test_initMatchfound1(self) :
+		tempString = "abcdefgh"
+		tempCrises = []
+		for letter in tempString :
+			tempCrisis = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrises.append(tempCrisis)
+
+		tempMatchFound = {}
+		initMatchFound(len(tempString), tempMatchFound, tempCrises, [], [], [])
+		self.assertEqual(tempMatchFound['a'][0], False)
+
+	def test_initMatchfound2(self) :
+		tempString = ""
+		tempCrises = []
+		for letter in tempString :
+			tempCrisis = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrises.append(tempCrisis)
+
+		tempMatchFound = {}
+		initMatchFound(len(tempString), tempMatchFound, tempCrises, [], [], [])
+		self.assertEqual(len(tempMatchFound), 0)
+
+	def test_initMatchfound3(self) :
+		tempString = "abcdefgh"
+		tempCrises = []
+		for letter in tempString :
+			tempCrisis = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrises.append(tempCrisis)
+
+		tempMatchFound = {}
+		initMatchFound(len(tempString), tempMatchFound, tempCrises, [], [], [])
+		for key in tempMatchFound :
+			self.assertEqual(tempMatchFound[key][0], False)
+		self.assertEqual(len(tempMatchFound), len(tempCrises))
+
+# 	#---------------------------------------#
+# 	#--------test_populateMatchFound--------#
+# 	#---------------------------------------#
+
+	def test_populateMatchFound1(self) :
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['MARVOLO', "gibbbbeerriiishhhhh"]
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		self.assertEqual(tempMatchFound['CRI_RIDDLE'][0], True)
+
+	def test_populateMatchFound2(self) :
+		person           = Person()
+		person.person_ID = "PER_LUNALO"
+		person.name      = "Luna Lovegood"
+		person.kind      = "Ensemble darkhorse"
+		person.location  = "not reality"
+		person.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['ensembledarkhorse', "Death"]
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [person], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [person], [], [])
+		self.assertEqual(tempMatchFound['PER_LUNALO'][1], False)
+
+	def test_populateMatchFound3(self) :
+		org           = Org()
+		org.org_ID    = "ORG_DEATER"
+		org.name      = "Death Eaters"
+		org.kind      = "Magical Criminals/Racists?"
+		org.location  = "England"
+		org.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['RAINBOWBUNNY', "DEATH"]
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [], [org], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [], [org], [])
+		self.assertEqual(tempMatchFound['ORG_DEATER'][1], True)
+
+# 	#---------------------------------------#
+# 	#------------test_getContext------------#
+# 	#---------------------------------------#
+
+
+	def test_getContext1(self) :
+		result           = []
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['MARVOLO', "gibbbbeerriiishhhhh"]
+
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [crisis], [], [], [])
+		
+		result.append(Match('CRI_RIDDLE', 1))
+		getContext(result, tempMatchFound, tempSearchTerms, len(tempSearchTerms))
+		self.assertEqual(result[0].contexts[0].begin, 'NAME: ...Tom ')
+
+	def test_getContext2(self) :
+		result           = []
+		person           = Person()
+		person.person_ID = "PER_LUNALO"
+		person.name      = "Luna Lovegood"
+		person.kind      = "Ensemble darkhorse"
+		person.location  = "not reality"
+		person.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['ensembledarkhorse', "LOVEGOOD"]
+
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [person], [], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [person], [], [])
+		
+		result.append(Match('PER_LUNALO', 1))
+		getContext(result, tempMatchFound, tempSearchTerms, len(tempSearchTerms))
+		self.assertEqual(result[0].contexts[0].begin, 'NAME: ...Luna ')
+
+	def test_getContext3(self) :
+		result       = []
+		org          = Org()
+		org.org_ID   = "ORG_DEATER"
+		org.name     = "Death Eaters"
+		org.kind     = "Magical Criminals/Racists?"
+		org.location = "England"
+		org.save()
+		tempMatchFound   = {}
+		tempSearchTerms  = ['RAINBOWBUNNY', "ENGLAND"]
+
+		initMatchFound(len(tempSearchTerms), tempMatchFound, [], [], [org], [])
+		populateMatchFound(tempSearchTerms, len(tempSearchTerms), tempMatchFound, [], [], [org], [])
+		
+		result.append(Match('ORG_DEATER', 1))
+		getContext(result, tempMatchFound, tempSearchTerms, len(tempSearchTerms))
+		self.assertEqual(result[0].contexts[0].begin, 'LOCATION: ...')
+
+# 	#---------------------------------------#
+# 	#-------test_getContextFromModel--------#
+# 	#---------------------------------------#
+
+
+	def test_getContextFromModel1(self) :
+		crisis           = Crisis()
+		crisis.crisis_ID = "CRI_RIDDLE"
+		crisis.name      = "Tom Marvolo Riddle"
+		crisis.kind      = "Civil/Human Rights"
+		crisis.date      = "a long time ago kind of?"
+		crisis.save()
+		
+		matchFound   = {}
+		searchTerms  = ['MARVOLO', "gibbbbeerriiishhhhh"]
+		modelDict    = getCrisis('CRI_RIDDLE')
+		keyList      = ['name', 'kind', 'date', 'time','common']
+		match        = Match('CRI_RIDDLE', 1)
+
+		initMatchFound(len(searchTerms), matchFound, [crisis], [], [], [])
+		populateMatchFound(searchTerms, len(searchTerms), matchFound, [crisis], [], [], [])
+		for index in xrange(len(searchTerms)) :	
+			for key in keyList :
+					if key != 'common' :
+						found = modelDict[key].upper().find(searchTerms[index])
+						if found >= 0 :
+							getContextFromModel(match, modelDict, searchTerms, index, key)
+							break
+					else :
+						#common case is different, since it's a nested container
+						found = modelDict['common']['Summary'].upper().find(searchTerms[index])
+						#break
+						if found >= 0 :
+							getContextFromModel(match, modelDict['common'], searchTerms, index, 'Summary')
+							break
+		self.assertEqual(match.contexts[0].end, ' Riddle')
+
+	def test_getContextFromModel2(self) :
+		person           = Person()
+		person.person_ID = "PER_LUNALO"
+		person.name      = "Luna Lovegood"
+		person.kind      = "Ensemble darkhorse"
+		person.location  = "not reality"
+		person.save()
+		
+		matchFound   = {}
+		searchTerms  = ['ensembledarkhorse', "LOVEGOOD"]
+		modelDict    = getPerson('PER_LUNALO')
+		keyList      = ['name', 'kind', 'location', 'common']
+		match        = Match('PER_LUNALO', 1)
+
+		initMatchFound(len(searchTerms), matchFound, [], [person], [], [])
+		populateMatchFound(searchTerms, len(searchTerms), matchFound, [], [person], [], [])
+		for index in xrange(len(searchTerms)) :	
+			for key in keyList :
+					if key != 'common' :
+						found = modelDict[key].upper().find(searchTerms[index])
+						if found >= 0 :
+							getContextFromModel(match, modelDict, searchTerms, index, key)
+							break
+					else :
+						#common case is different, since it's a nested container
+						found = modelDict['common']['Summary'].upper().find(searchTerms[index])
+						#break
+						if found >= 0 :
+							getContextFromModel(match, modelDict['common'], searchTerms, index, 'Summary')
+							break
+		self.assertEqual(match.contexts[0].begin, 'NAME: ...Luna ')
+
+	def test_getContextFromModel3(self) :
+		org          = Org()
+		org.org_ID   = "ORG_DEATER"
+		org.name     = "Death Eaters"
+		org.kind     = "Magical Criminals/Racists?"
+		org.location = "England"
+		org.save()
+		
+		matchFound   = {}
+		searchTerms  = ['RAINBOWBUNNY', "ENGLAND"]
+		modelDict    = getOrg('ORG_DEATER')
+		keyList      = ['name', 'kind', 'location', 'common']
+		match        = Match('ORG_DEATER', 1)
+
+		initMatchFound(len(searchTerms), matchFound, [], [], [org], [])
+		populateMatchFound(searchTerms, len(searchTerms), matchFound, [], [], [org], [])
+		for index in xrange(len(searchTerms)) :	
+			for key in keyList :
+					if key != 'common' :
+						found = modelDict[key].upper().find(searchTerms[index])
+						if found >= 0 :
+							getContextFromModel(match, modelDict, searchTerms, index, key)
+							break
+					else :
+						#common case is different, since it's a nested container
+						found = modelDict['common']['Summary'].upper().find(searchTerms[index])
+						#break
+						if found >= 0 :
+							getContextFromModel(match, modelDict['common'], searchTerms, index, 'Summary')
+							break
+		self.assertEqual(match.contexts[0].begin, 'LOCATION: ...')
+
+
+# 	#---------------------------------------#
+# 	#---------test_removeExactLis-----------#
+# 	#---------------------------------------#
+
+
+	def test_removeExactLis1(self) :
+		exactLis = set()
+		orSet    = set()
+
+		for letter in "abcdefgh" :
+			tempLi          = Li()
+			tempLi.model_id = letter
+			tempLi.save()
+			tempList = Li.objects.filter(model_id = letter)
+			for li in tempList :
+				exactLis.add(li)
+
+		for letter in 'ghijklmnop' :
+			tempCrisis           = Crisis()
+			tempCrisis.crisis_ID = letter
+			tempCrisis.save()
+			tempList = Crisis.objects.filter(crisis_ID = letter)
+			for li in tempList :
+				orSet.add(li)
+
+		orSet = removeExactLis(exactLis, orSet)
+		self.assertEqual(len(orSet), 8)
+
+	def test_removeExactLis2(self) :
+		exactLis = set()
+		orSet    = set()
+
+		for letter in "123456789" :
+			tempLi          = Li()
+			tempLi.model_id = letter
+			tempLi.save()
+			tempList = Li.objects.filter(model_id = letter)
+			for li in tempList :
+				exactLis.add(li)
+
+		for letter in 'abcdefg' :
+			tempPerson        = Person()
+			tempPerson.person_ID = letter
+			tempPerson.save()
+			tempList = Person.objects.filter(person_ID = letter)
+			for li in tempList :
+				orSet.add(li)
+
+		orSet = removeExactLis(exactLis, orSet)
+		self.assertEqual(len(orSet), 7)
+
+	def test_removeExactLis3(self) :
+		exactLis = set()
+		orSet    = set()
+
+		for letter in "123456789" :
+			tempLi          = Li()
+			tempLi.model_id = letter
+			tempLi.save()
+			tempList = Li.objects.filter(model_id = letter)
+			for li in tempList :
+				exactLis.add(li)
+
+		for letter in '123' :
+			tempOrg        = Org()
+			tempOrg.org_ID = letter
+			tempOrg.save()
+			tempList = Org.objects.filter(org_ID = letter)
+			for li in tempList :
+				orSet.add(li)
+
+		orSet = removeExactLis(exactLis, orSet)
+		self.assertEqual(len(orSet), 0)
+
+	

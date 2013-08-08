@@ -1,125 +1,234 @@
 {% extends "wcdb/default.html" %}
+<body>
+<!-- JavaScript SDK for Facebook embed -->
 
 {% block content %}
-<h1>{{ name }}</h1>
 
-<dl class="dl-horizontal">
-	<dt>Date &amp; Time</dt>
-    <dd>{{ date }} : {{ time }}</dd>
-    <dt>Location</dt>
-    {% for loc in common.Locations %}
-	    <dd>{{ loc.floating_text }}</dd>
-    {% endfor %}
-    <dt>Kind</dt>
-    <dd>{{ kind }}</dd>
-    <dt>Organizations</dt>
-    {% for org in organizations %}
-	    <dd><a href="/orgs/{{ org.0 }}">{{ org.1 }}</a></dd>
-    {% endfor %}
-    <dt>People</dt>
-    {% for p in people %}
-	    <dd><a href="/people/{{ p.0 }}">{{ p.1 }}</a></dd>
-    {% endfor %}
-</dl>
+<div class="row-fluid profile">
+    <!-- bio, new note & orders column -->
+    <div class="span8 bio">
+        <div class="profile-box">
+            <!-- biography -->
+            <div class="span12 section">
+                <h2>{{ name }}</h2>
 
-<dl>
-	{% if common.History %}
-        <dt>History</dt>    
-    {% endif %}
-	{% for i in common.History %}
-		<dd>{{ i.floating_text }}</dd>
-	{% endfor %}
-
-	{% if common.EconomicImpact %}
-        <dt>Economic Impact</dt>    
-    {% endif %}
-	{% for i in common.EconomicImpact %}
-		<dd>{{ i.floating_text }}</dd>
-	{% endfor %}
-
-	{% if common.HumanImpact %}
-    	<dt>Human Impact</dt>    
-    {% endif %}
-	{% for i in common.HumanImpact %}
-		<dd>{{ i.floating_text }}</dd>
-	{% endfor %}
-
-	{% if common.ResourcesNeeded %}
-        <dt>Resources Needed</dt>    
-    {% endif %}
-	{% for i in common.ResourcesNeeded %}
-		<dd>{{ i.floating_text }}</dd>
-	{% endfor %}
-
-	{% if common.WaysToHelp %}
-        <dt>Ways to help</dt>    
-    {% endif %}
-	{% for i in common.WaysToHelp %}
-		<dd><a href="{{ i.href }}">{{ i.href }} </a>{{ i.floating_text }}</dd>
-	{% endfor %}
-</dl>
-
-{% if common.Images %}
-	<div id="myCarousel" class="carousel slide">
-		<div class="carousel-inner">
-			<!-- NEED TO FIX THE ACTIVE ITEM PROBLEM!!! -->
-			{% for i in common.Images %}
-				<div class="item">
-					<div class="inner-item">
-						<img src="{{ i.embed }}" alt="img not found">
-						<div class="carousel-caption">
-							<h4>{{ i.floating_text }}</h4>
-						</div>
-					</div>
+                <div class="row-fluid stats-row">
+				    <div class="span12 stat">        
+				    </div>                   
 				</div>
-			{% endfor %}
-		</div>
-		<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
+				{% if common.Images %}
+					<div id="myCarousel" class="carousel slide">
+						<div class="carousel-inner">
+							<!-- NEED TO FIX THE ACTIVE ITEM PROBLEM!!! -->
+							{% for i in common.Images %}
+								<div class="item">
+									<div class="inner-item">
+										<img class="carouselimg" src="{{ i.embed }}" alt="img not found">
+										<div class="carousel-caption">
+											<h4>{{ i.floating_text }}</h4>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+						<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+						<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+					</div>
+				{% endif %}
+
+				<dl>
+					{% if common.History %}
+				        <dt>History</dt>    
+				    {% endif %}
+					{% for i in common.History %}
+						<dd>{{ i.floating_text }}</dd>
+					{% endfor %}
+
+					{% if common.EconomicImpact %}
+				        <dt>Economic Impact</dt>    
+				    {% endif %}
+					{% for i in common.EconomicImpact %}
+						<dd>{{ i.floating_text }}</dd>
+					{% endfor %}
+
+					{% if common.HumanImpact %}
+				    	<dt>Human Impact</dt>    
+				    {% endif %}
+					{% for i in common.HumanImpact %}
+						<dd>{{ i.floating_text }}</dd>
+					{% endfor %}
+
+					{% if common.ResourcesNeeded %}
+				        <dt>Resources Needed</dt>    
+				    {% endif %}
+					{% for i in common.ResourcesNeeded %}
+						<dd>{{ i.floating_text }}</dd>
+					{% endfor %}
+
+					{% if common.WaysToHelp %}
+				        <dt>Ways to help</dt>    
+				    {% endif %}
+					{% for i in common.WaysToHelp %}
+						<dd><li>
+						{% if i.href != '' %}
+							<a href="{{ i.href }}">{{ i.floating_text }}</a></li></dd>
+						{% else %}
+							{{ i.floating_text }}</li></dd>
+						{% endif %}
+
+					{% endfor %}
+					{% if common.Summary %}
+			        	<dt>Summary</dt>
+				    {% endif %}
+				    <dd>{{ common.Summary }}</dd>
+				</dl>
+
+				
+
+				{% for v in common.Videos %}
+					<iframe width="500" height="300" src="{{ v.embed }}" frameborder="0" allowfullscreen></iframe>
+					<br><br>
+				{% endfor %}
+
+
+
+				{% if common.Citations %}
+				    <dt>Citations</dt>
+				{% endif %}
+				<ul>
+					{% for citation in common.Citations %}
+						<li>
+						{% if citation.href != '' %}
+							<a href="{{ citation.href }}">{{ citation.href }} </a>
+						{% endif %}
+						{{ citation.floating_text }}</li>
+					{% endfor %}
+				</ul>
+
+
+				{% if common.ExternalLinks %}
+				    <dt>External Links</dt>
+				{% endif %}
+				<ul>
+					{% for link in common.ExternalLinks %}
+						<li><a href="{{ link.href }}">{{ link.floating_text }}</a></li>
+					{% endfor %}
+				</ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- side column -->
+<div class="span3 address">
+
+    {% for map in common.Maps %}
+        <div class="row-fluid stats-row">
+		    <div class="span12 stat">        
+		    </div>                   
+		</div>	
+        <iframe width="300" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ map.embed }}"></iframe>
+    {% endfor %}
+        <div class="row-fluid stats-row">
+		    <div class="span12 stat">        
+		    </div>                   
+		</div>	
+
+    <!-- Side Info table -->
+	<div class="table-wrapper orders-table section">
+	   <div class="row-fluid">
+	       <table class="table table-hover">
+	           <thead>
+	               <tr>
+	               </tr>
+	           </thead>
+	           <tbody>
+	               <!-- row -->
+	               <tr class="first">
+	                   <td>
+	                       <dt>Date &amp; Time</dt>
+	                   </td>
+	                   <td>
+	                   		{% if date %}
+						        <dd>{{ date }}</dd>
+						    {% endif %}
+						    {% if time  %}
+						        <dd> {{ time  }}</dd>
+						    {% endif %}
+	    				</td>
+	               </tr>
+	               <tr>
+	                   <td>
+	                       <dt>Location</dt>
+	                   </td>
+	                   <td>
+	                       {% for loc in common.Locations %}
+							    <dd>{{ loc.floating_text }}</dd>
+						    {% endfor %}
+	                   </td>
+	               </tr>
+	               <tr>
+	                   <td>
+	                       <dt>Kind</dt>
+	                   </td>
+	                   <td>
+	                       <dd>{{ kind }}</dd>
+	                   </td>
+	               </tr>
+	               <tr>
+	                   <td>
+	                       <dt>Organizations</dt>
+	                   </td>
+	                   <td>
+	                       {% for org in organizations %}
+							    <dd><a href="/orgs/{{ org.0 }}">{{ org.1 }}</a></dd>
+						    {% endfor %}
+	                   </td>
+	               </tr>
+	               <tr>
+	               		<td>
+	                       <dt>People</dt>
+	                   </td>
+	                   <td>
+	                       {% for p in people %}
+							    <dd><a href="/people/{{ p.0 }}">{{ p.1 }}</a></dd>
+						    {% endfor %}
+	                   </td>	
+	               </tr>
+	           </tbody>
+	       </table>
+	   </div>
 	</div>
-{% endif %}
+    <!-- end  Side Info table -->
 
-{% for v in common.Videos %}
-	<iframe width="940" height="600" src="{{ v.embed }}" frameborder="0" allowfullscreen></iframe>
-	<br><br>
-{% endfor %}
-
-{% for map in common.Maps %}
-	<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ map.embed }}"></iframe>
-{% endfor %}
-
-{% if common.Feeds %}
-    <dt>Feeds</dt>
-{% endif %}
-<ul>
 	{% for feed in common.Feeds %}
-		<li><a href="{{ feed.href }}">{{ feed.href }} </a>{{ feed.floating_text }}</li>
+		{% if feed.1 == "Twitter" %}
+			<a class="twitter-timeline" width="300" height="500" href="https://twitter.com/{{ feed.2 }}" data-widget-id="364109037966606336" data-screen-name="{{ feed.2 }}" data-show-replies="true">Tweets by @{{ feed.2 }}</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			<div class="row-fluid stats-row">
+		    	<div class="span12 stat">        
+		    	</div>                   
+			</div>	
+		{% endif %}
 	{% endfor %}
-</ul>
-
-{% if common.Citations %}
-    <dt>Citations</dt>
-{% endif %}
-<ul>
-	{% for citation in common.Citations %}
-		<li><a href="{{ citation.href }}">{{ citation.href }} </a>{{ citation.floating_text }}</li>
+	{% for feed in common.Feeds %}
+		{% if feed.1 == "Facebook" %}
+			<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2F{{ feed.2 }}&amp;width=300&amp;height=550&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:550px;" allowTransparency="true"></iframe>
+			<div class="row-fluid stats-row">
+		    	<div class="span12 stat">        
+		    	</div>                   
+			</div>	
+		{% endif %}
 	{% endfor %}
-</ul>
 
-{% if common.ExternalLinks %}
-    <dt>External Links</dt>
-{% endif %}
-<ul>
-	{% for link in common.ExternalLinks %}
-		<li><a href="{{ link.href }}">{{ link.href }} </a>{{ link.floating_text }}</li>
-	{% endfor %}
-</ul>
+</div>
 
-{% if common.Summary %}
-    <dt>Summary</dt>
-{% endif %}
-<dd>{{ common.Summary }}</dd>
+<div class="span1 address pull-right">
+</div>	
 
 <script type="text/javascript" src="/static/js/imgStarter.js"></script>
 
 {% endblock content %}
+
+</body>

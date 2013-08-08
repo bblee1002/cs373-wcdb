@@ -2,6 +2,7 @@ import sys
 import xml.etree.ElementTree as ET
 from models import Crisis, Person, Org, Li, Common
 from getDbModel import  *
+from unidecode import unidecode
 
 
 def clean_xml (dirty) :
@@ -14,9 +15,40 @@ def clean_xml (dirty) :
 	return dirty.replace('&', '&amp;')
 
 def make_non_li_string(clean_string, tag):
+	"""
+	clean_string is the text to enclose with xml tags
+	tag is the name of the xml tag to enclose the clean_string with
+	return an xml string with text enclosed by tags
+	"""
 	return "	<" + tag + ">" + clean_string + "</" + tag + ">\n"
 
+def make_attribute_string(item) :
+	item_string = ''
+	if item.href != u'':
+		href = clean_xml(item.href)
+		item_string = ''.join([item_string," href=\"" + href + "\""])
+
+	if item.embed != u'':
+		embed = clean_xml(item.embed)
+		item_string = ''.join([item_string," embed=\"" + embed + "\""])
+
+	if item.text != u'':
+		text = clean_xml(item.text)
+		item_string = ''.join([item_string, " text=\"" + text + "\""])
+	item_string = ''.join([item_string, ">"])
+
+	if item.floating_text != u'':
+		floating_text = clean_xml(item.floating_text)
+		item_string = ''.join([item_string, floating_text])
+	return item_string
+
 def make_li_string(li_list, tag, coming_from_common = False):
+	"""
+	li_list is a list of li objects
+	tag is the xml tag to use
+	coming_from_common is a boolean defaulted to False.  If True, extra white space will be added.
+	return an xml string from li objects
+	"""
 	if len(li_list) == 0:
 		return ''
 	item_string = ''
@@ -27,22 +59,10 @@ def make_li_string(li_list, tag, coming_from_common = False):
 		if coming_from_common:
 			item_string += "	"
 		item_string = ''.join([item_string,"		<li"])
-		if item.href != u'':
-			href = clean_xml(item.href)
-			item_string = ''.join([item_string," href=\"" + href + "\""])
-
-		if item.embed != u'':
-			embed = clean_xml(item.embed)
-			item_string = ''.join([item_string," embed=\"" + embed + "\""])
-
-		if item.text != u'':
-			text = clean_xml(item.text)
-			item_string = ''.join([item_string, " text=\"" + text + "\""])
-		item_string = ''.join([item_string, ">"])
-
-		if item.floating_text != u'':
-			floating_text = clean_xml(item.floating_text)
-			item_string = ''.join([item_string, floating_text])
+		if tag != "Feeds" :
+			item_string = ''.join([ item_string, make_attribute_string(item) ])
+		else :
+			item_string = ''.join([ item_string, make_attribute_string( item[0] ) ])
 		item_string = ''.join([item_string, "</li>\n"])
 	if not coming_from_common:
 		item_string = ''.join([item_string, "	</" + tag + ">\n"])
@@ -52,6 +72,10 @@ def make_li_string(li_list, tag, coming_from_common = False):
 
 
 def make_common_string(common_dict):
+	"""
+	common_dict contains lists of li objects and a summary
+	returns a string with information from common_dict
+	"""
 	strings = []
 	strings.append("	<Common>\n")
 	strings.append(make_li_string(common_dict["Citations"], "Citations", True))
@@ -62,7 +86,7 @@ def make_common_string(common_dict):
 	strings.append(make_li_string(common_dict["Feeds"], "Feeds", True))
 	if common_dict["Summary"] != u'':
 		strings.append("		<Summary>")
-		strings.append(common_dict["Summary"])
+		strings.append(clean_xml(common_dict["Summary"]))
 		strings.append("</Summary>\n")
 	strings.append("	</Common>\n")
 	if strings == ["	<Common>\n", "", "", "", "", "", "", "	</Common>\n"]:
@@ -134,7 +158,10 @@ def export_person (person_dict, person_id) :
 	""" 
 
 	strings = []
-	strings.append("<Person ID=\"" + person_id +  "\" Name=\"" + str(person_dict["name"]) + "\">\n")
+	strings.append("<Person ID=\"" + person_id +  "\" Name=\"")
+
+	strings.append(person_dict["name"])
+	strings.append("\">\n")
 
 	if person_dict["crises"] != [] :
 		strings.append("	<Crises>\n")
@@ -191,10 +218,11 @@ def export_organization (org_dict, org_id) :
 		strings.append("	</People>\n")
 
 	try:
-		if org_dict["time"] != '' and org_dict["time"] is not None:
+		if org_dict["kind"] != '' and org_dict["kind"] is not None:
 			strings.append(make_non_li_string(clean_xml(str(org_dict["kind"])), "Kind"))
 	except:
 		pass
+		
 	try:
 		if org_dict["location"] != '' and org_dict["location"] is not None:
 			strings.append(make_non_li_string(clean_xml(str(org_dict["location"])), "Location"))
@@ -238,4 +266,3 @@ def export_xml() :
 	exportstring = ''.join(crises_xml_string)
 	f.write(exportstring.encode('utf8'))
 	return exportstring
-

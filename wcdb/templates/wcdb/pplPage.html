@@ -1,0 +1,44 @@
+{% extends "wcdb/default.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/user-list.css"></link>
+<!-- Ppl table -->
+<div class="row-fluid table">
+    <table class="table table-hover">
+        <tbody>
+        <h3>Person Kind Selector</h3>
+        <br>
+        {% for kind in kinds %}            
+            <a href="/pplpage/{{ kind }}"><b><font size="3">{{ kind }}</font></b></a>
+            <b><font size="3">&nbsp;&nbsp;|&nbsp;&nbsp;</font></b>
+        {% endfor %}
+
+        <div class="row-fluid stats-row">
+            <div class="span12 stat">        
+            </div>                  
+        </div>
+
+        <h3>Selected People</h3>
+        <div class="row-fluid stats-row">
+            <div class="span12 stat">        
+            </div>
+        </div>
+        {% for k, v in peopleIDs.items %}
+        <!-- row -->
+        <tr class="first">
+            <td>
+                <img width="100" height="10" src='{{ v.1 }}' class="img-box avatar" />
+                <a href="/people/{{ k }}" class="name">{{ v.0.name }}</a>
+                <span class="subtext">{{ v.2 }}</span>
+            </td>
+        {% empty %}
+                <li>IMPORT SOME DATA!</li>    
+        {% endfor %}  
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript" src="/static/js/subtext.js"></script>
+
+{% endblock content %}

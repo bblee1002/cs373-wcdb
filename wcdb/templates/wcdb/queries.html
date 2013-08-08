@@ -1,0 +1,73 @@
+{% extends "wcdb/default.html" %}
+{% block content %}
+	{% for query in queries.items %}
+		<a href='{{ query.1 }}'><b><font size="3">{{ query.0 }}</font></b></a>
+		<dl>
+		<dd><dl>
+		{% if query.1 == num %}
+			{% if results.0.0 != '' %}
+				<br>
+				<dt>Sequel Query: {{ results.0.0 }} </dt>
+			{% endif %}
+			{% if num == 10 or num == 8 or num == 6 %}
+				<br>
+				{% for obj in results.1 %}
+					<dd><a href='/people/{{ obj.person_ID }}'><b><font size="2">{{ obj.name }}</font></b></a></dd>
+				{% endfor %}
+			{% else %}
+				{% if num == 7 or num == 9 %}
+					<br>
+					{% for obj in results.1 %}
+						<dd><a href='/orgs/{{ obj.org_ID }}'><b><font size="2">{{ obj.name }}</font></b></a></dd>
+					{% endfor %}
+				{% else %}
+					{% if num == 3 %}
+						<dt>Get Unique Set of IDs: {{ results.0.2 }}<dt>
+						<br>
+						{% for id in results.1.1 %}
+							<dd><a href='/orgs/{{ id }}'><b><font size="2">{{ id }}</font></b></a></dd>
+							{% for obj in results.1.0 %}
+								{% if obj.model_id == id %}
+									<dd>{{ obj.floating_text }}</dd>
+									<dd><a href='{{ obj.href }}'>{{ obj.href }}</a></dd>
+								{% endif %}
+							{% endfor %}
+							<br>
+						{% endfor %}
+					{% else %}
+						{% if num == 5 %}
+							<br>
+							<dt>Sequel Query for Crisis Objects: {{ results.0.1 }}</dt>
+							<dt>Sequel Query for Person Objects: {{ results.0.2 }}</dt>
+							<dt>Sequel Query for Organization Objects: {{ results.0.3 }}</dt>
+							<br>
+							<dt>Crisis<dt>
+							{% for cri_obj in results.1.CrisisObjects %}
+								<dd><a href='/crisis/{{ cri_obj.crisis_ID}}'><b><font size="2">{{ cri_obj.name }}</font></b></a></dd>
+								<dd><dl><dd>{{ cri_obj.common_summary }}</dd></dl></dd>
+							{% endfor %}
+							<dt>People Involved<dt>
+							{% for per_obj in results.1.PersonObjects %}
+								<dd><a href='/people/{{ per_obj.person_ID}}'><b><font size="2">{{ per_obj.name }}</font></b></a></dd>
+								<dd><dl><dd>{{ per_obj.common_summary }}</dd></dl></dd>
+							{% endfor %}
+							<dt>Organizations Involved<dt>
+							{% for org_obj in results.1.OrgObjects %}
+								<dd><a href='/orgs/{{ org_obj.org_ID }}'><b><font size="2">{{ org_obj.name }}</font></b></a></dd>
+								<dd><dl><dd>{{ org_obj.common_summary }}</dd></dl></dd>
+							{% endfor %}
+						{% else %}
+							<br>
+							{% for obj in results.1 %}
+								<dd><a href='/crisis/{{ obj.crisis_ID }}'><b><font size="2">{{ obj.name }}</font></b></a></dd>
+							{% endfor %}
+						{% endif %}
+					{% endif %}
+				{% endif %}
+			{% endif %}
+		{% endif %}
+		</dl></dd>
+		</dl>
+		<br>
+	{% endfor %}
+{% endblock content %}

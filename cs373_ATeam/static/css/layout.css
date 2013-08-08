@@ -1,6 +1,6 @@
 body {
 	font-family: 'Open Sans', sans-serif;
-	background-color: #f7f7f7;
+	background-color: grey;
 	position: relative;
 	margin: 0px;
 	font-size: 12px;
@@ -17,10 +17,16 @@ h1 small,h2 small,h3 small,h4 small,h5 small {
 	font-style: italic;
 }
 
+.carouselimg{
+	width: auto;
+	height: 300px;
+	max-height: 300px;
+}
+
 input.search{
-	background: url("../img/lens.png") #fcfcfc no-repeat 95%;
+	background: url("/static/img/lens.png") #ffffff no-repeat 95%;
 	box-shadow: none;
-	height: 19px;
+	height: 25px;
 	font-size: 13px;
 	padding: 2px 6px;
 	border:1px solid #d0dde9;
@@ -45,7 +51,7 @@ input.search{
 
 /* search input */
 .navbar-inverse input.search {
-	background: url("../img/lens.png") #0f1217 no-repeat 95%;
+	background: url("/static/img/lens.png") #ffffff no-repeat 95%;
 	border: 1px solid #0f1217;
 	position: relative;
 	border-radius: 4px;
@@ -417,11 +423,14 @@ input.search{
 	margin-left: 177px;
 	border-left: 1px solid #dae3e9;
 	border-bottom: 1px solid #dae3e9;
-	box-shadow: -3px 3px 3px -2px #f1f1f3;
+	box-shadow: 0px 10px 50px 10px rgba(0,0,0,.2);
 	border-radius: 0px 0px 0px 5px;
 }
 .content.wide-content {
-	margin-left: 0;
+	position: relative;
+	margin: 0px auto;
+	width: 1200px;
+	background-color: rgb(255,255,255);
 	border-radius: 0;
 }
 

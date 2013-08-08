@@ -5,6 +5,29 @@ import collections
 Views.py renders the view specified by a url.
 """
 
+def getLi(id):
+  """
+  Accesses information about specific list item from the db
+  Queries db using model_id of the list item
+  Returns dictionary of individual list item's data of form:
+  {floating_text : [], model_id : *, kind: []}
+  """
+  try:
+    list_items = Li.objects.filter(model_id = id)
+  except:
+    return {}
+
+  li_dict = {}
+  li_dict['floating_text'] = []
+  li_dict['kind'] = []
+  #li_dict['model_id'] = id
+
+  # #Create keys of dict and give values
+  for li in list_items:
+    li_dict['floating_text'].append(li.floating_text)
+    li_dict['kind'].append(li.kind)
+
+  return li_dict
 
 def getCrisis(id):
   """
@@ -62,7 +85,15 @@ def getCrisis(id):
   li_list = Li.objects.filter(model_id = id)
 
   for a in li_list :
-    common_dict[a.kind].append(a)
+    if a.kind == "Feeds" :
+      if a.embed[0:20] == "https://twitter.com/" :
+        common_dict[a.kind].append([a, "Twitter", a.embed[20:]])
+      elif a.embed[0:20] == "https://www.facebook" :
+        common_dict[a.kind].append([a, "Facebook", a.embed[25:]])
+      else :
+        common_dict[a.kind].append([a, ''])
+    else :
+      common_dict[a.kind].append(a)
 
   crisis_dict['common'] = common_dict
 
@@ -124,7 +155,15 @@ def getPerson(id):
   li_list = Li.objects.filter(model_id = id)
 
   for a in li_list :
-    common_dict[a.kind].append(a)
+    if a.kind == "Feeds" :
+      if a.embed[0:20] == "https://twitter.com/" :
+        common_dict[a.kind].append([a, "Twitter", a.embed[20:]])
+      elif a.embed[0:20] == "https://www.facebook" :
+        common_dict[a.kind].append([a, "Facebook", a.embed[25:]])
+      else :
+        common_dict[a.kind].append([a, ''])
+    else :
+      common_dict[a.kind].append(a)
 
   person_dict['common'] = common_dict
 
@@ -184,7 +223,15 @@ def getOrg(id):
   li_list = Li.objects.filter(model_id = id)
 
   for a in li_list :
-    common_dict[a.kind].append(a)
+    if a.kind == "Feeds" :
+      if a.embed[0:20] == "https://twitter.com/" :
+        common_dict[a.kind].append([a, "Twitter", a.embed[20:]])
+      elif a.embed[0:20] == "https://www.facebook" :
+        common_dict[a.kind].append([a, "Facebook", a.embed[25:]])
+      else :
+        common_dict[a.kind].append([a, ''])
+    else :
+      common_dict[a.kind].append(a)
 
   org_dict['common'] = common_dict
 
@@ -194,7 +241,7 @@ def getCrisisIDs():
   """
   doesn't take anything as parameters.
   Searches through Crises table in database, returns all of the crises 
-  stored there, and saves them in a dictionary where key value pares are
+  stored there, and saves them in a dictionary where key value pairs are
   crisis_ID and crisisName
   """
   objects = Crisis.objects.all()
@@ -207,8 +254,8 @@ def getCrisisIDs():
 def getOrgIDs():
   """
   doesn't take anything as parameters.
-  Searches through Orgs table in database, reaturns all of the orgs 
-  stored there, and saves them in a dictionary where key value pares are
+  Searches through Orgs table in database, returns all of the orgs 
+  stored there, and saves them in a dictionary where key value pairs are
   org_ID and orgName
   """
   objects = Org.objects.all()
@@ -221,8 +268,8 @@ def getOrgIDs():
 def getPeopleIDs():
   """
   doesn't take anything as parameters.
-  Searches through People table in database, reaturns all of the people 
-  stored there, and saves them in a dictionary where key value pares are
+  Searches through People table in database, returns all of the people 
+  stored there, and saves them in a dictionary where key value pairs are
   person_ID and personName
   """
   objects = Person.objects.all()
