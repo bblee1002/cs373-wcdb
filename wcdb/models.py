@@ -72,9 +72,6 @@ def populate_li(root, modl_id, tag):
             if tag == "Maps" :
                 embed = make_map_embed_string(li.get("embed"))
 
-            print modl_id, '\t', text, '\t', tag
-            print 'embed ---->>', embed
-
             li.embed = embed
             temp_li = Li()
             check = Li.objects.filter(model_id=modl_id, href=href,
