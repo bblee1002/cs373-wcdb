@@ -14,6 +14,9 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -84,8 +87,7 @@
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="cs373_ATeam.wcdb.models.Common-class.html" class="summary-name">Common</a><br />
-      Class for the Common tag in the unified xml schema Contains a field for an href, embedded link, and alt text
-The floating_text attribute is to catch any text not in attributes.
+      Class for the Common tag in the unified xml schema.
     </td>
   </tr>
 <tr>
@@ -93,7 +95,7 @@ The floating_text attribute is to catch any text not in attributes.
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="cs373_ATeam.wcdb.models.Relations-class.html" class="summary-name">Relations</a><br />
-      Relation model maintaining relationships between Crisis, Person, and Org models
+      Represents a relationship between Crisis, Person, and Org models
     </td>
   </tr>
 <tr>
@@ -101,7 +103,7 @@ The floating_text attribute is to catch any text not in attributes.
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="cs373_ATeam.wcdb.models.Crisis-class.html" class="summary-name">Crisis</a><br />
-      Crisis Model
+      Crisis Model - represents a crisis
     </td>
   </tr>
 <tr>
@@ -109,7 +111,7 @@ The floating_text attribute is to catch any text not in attributes.
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="cs373_ATeam.wcdb.models.Person-class.html" class="summary-name">Person</a><br />
-      Person Model
+      Person Model - represents a person
     </td>
   </tr>
 <tr>
@@ -117,7 +119,7 @@ The floating_text attribute is to catch any text not in attributes.
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="cs373_ATeam.wcdb.models.Org-class.html" class="summary-name">Org</a><br />
-      Organization Model
+      Organization Model - represents an organization
     </td>
   </tr>
 </table>
@@ -140,6 +142,44 @@ The floating_text attribute is to catch any text not in attributes.
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models-module.html#make_map_embed_string" class="summary-sig-name">make_map_embed_string</a>(<span class="summary-sig-arg">map_string</span>)</span><br />
+      Helper function for populate_li - takes in an embed string from Li 
+      objects of the &quot;Maps&quot; kind and produces the correct string 
+      for the embedded link</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#make_map_embed_string">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models-module.html#make_video_embed_string" class="summary-sig-name">make_video_embed_string</a>(<span class="summary-sig-arg">video_string</span>)</span><br />
+      Helper function for populate_li - takes in an embed string from Li 
+      objects of the &quot;Videos&quot; kind and produces the correct 
+      string for the embedded link.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#make_video_embed_string">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -147,7 +187,7 @@ The floating_text attribute is to catch any text not in attributes.
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models-module.html#populate_li" class="summary-sig-name">populate_li</a>(<span class="summary-sig-arg">root</span>,
         <span class="summary-sig-arg">modl_id</span>,
         <span class="summary-sig-arg">tag</span>)</span><br />
-      Function expects a root, model ID, and tag as parameters.</td>
+      Helper method for loadModels.py and for Li.populate().</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#populate_li">source&nbsp;code</a></span>
             
@@ -176,6 +216,60 @@ The floating_text attribute is to catch any text not in attributes.
   </td>
 </tr>
 </table>
+<a name="make_map_embed_string"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_map_embed_string</span>(<span class="sig-arg">map_string</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#make_map_embed_string">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Helper function for populate_li - takes in an embed string from Li 
+  objects of the &quot;Maps&quot; kind and produces the correct string for 
+  the embedded link</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>map_string</code></strong> (string) - embed attribute from a list item of &quot;Maps&quot; type</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>The corrected version of the map's embed string</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="make_video_embed_string"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_video_embed_string</span>(<span class="sig-arg">video_string</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#make_video_embed_string">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Helper function for populate_li - takes in an embed string from Li 
+  objects of the &quot;Videos&quot; kind and produces the correct string 
+  for the embedded link.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>video_string</code></strong> (string) - embed attribute from a list item of &quot;Videos&quot; type</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>The corrected version of the video's embed string</dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="populate_li"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -192,14 +286,18 @@ The floating_text attribute is to catch any text not in attributes.
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Function expects a root, model ID, and tag as parameters. Tag is used to look traverse 
-the root's tree and find the correct parameters to pass to Li's populate method.Once an 
-Li object is populated, the function saves it to the database
-
-</pre>
+  <p>Helper method for loadModels.py and for Li.populate(). Creates an Li()
+  object, populates it with information using a node in the tree produced 
+  by ElementTree, and then saves it to the database.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>root</code></strong> (ElementTree Element) - Node in parsed tree that contains list items</li>
+        <li><strong class="pname"><code>modl_id</code></strong> (string) - Crisis, Person, or Org with which root is associated</li>
+        <li><strong class="pname"><code>tag</code></strong> (string) - The type of node root is</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>No return value</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -208,6 +306,9 @@ Li object is populated, the function saves it to the database
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -227,7 +328,7 @@ Li object is populated, the function saves it to the database
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Jul 25 14:17:24 2013
+    Generated by Epydoc 3.0.1 on Thu Aug  8 18:01:49 2013
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

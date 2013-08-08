@@ -14,6 +14,9 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -73,7 +76,7 @@
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">N/A</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -90,14 +93,15 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">N/A</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_common" class="summary-sig-name">populate_common</a>(<span class="summary-sig-arg">node</span>,
         <span class="summary-sig-arg">modl_id</span>,
         <span class="summary-sig-arg">model_instance</span>)</span><br />
-      Function expects an element node, model ID, and a model instance as parameters.</td>
+      Searches through node's tree for a common node and calls common's 
+      populate method on it.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_common">source&nbsp;code</a></span>
             
@@ -109,12 +113,13 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">N/A</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_crisis" class="summary-sig-name">populate_crisis</a>(<span class="summary-sig-arg">root</span>)</span><br />
-      Function expects a node in an element tree as a parameter.</td>
+      Finds instances of Crisis in root's tree and saves them to the 
+      database</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_crisis">source&nbsp;code</a></span>
             
@@ -126,12 +131,13 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">N/A</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_person" class="summary-sig-name">populate_person</a>(<span class="summary-sig-arg">root</span>)</span><br />
-      Function expects a node in an element tree as a parameter.</td>
+      Finds instances of Person in root's tree and saves them to the 
+      database</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_person">source&nbsp;code</a></span>
             
@@ -143,12 +149,12 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">N/A</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.loadModels-module.html#populate_org" class="summary-sig-name">populate_org</a>(<span class="summary-sig-arg">root</span>)</span><br />
-      Function expects a node in an element tree as a parameter.</td>
+      Finds instances of Org in root's tree and saves them to the database</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.loadModels-pysrc.html#populate_org">source&nbsp;code</a></span>
             
@@ -160,7 +166,7 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Boolean or ElementTree</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -208,15 +214,17 @@
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Function expects an element tree as a parameter. Main function of the file that calls
-populate_crisis, populate_org, and populate_person. Returns a dictionary where the keys
-are the type of model and the values are lists of instances of the models populated by 
-this funciton.
-
-</pre>
+  <p>Function expects an element tree as a parameter. Main function of the 
+  file that calls populate_crisis, populate_org, and populate_person. 
+  Returns a dictionary where the keys are the type of model and the values 
+  are lists of instances of the models populated by this funciton.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>tree</code></strong> (ElementTree) - the XML file, uploaded by the user, parsed into an ElementTree</li>
+    </ul></dd>
+    <dt>Returns: N/A</dt>
+        <dd>function does not return</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -236,14 +244,17 @@ this funciton.
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Function expects an element node, model ID, and a model instance as parameters.
-Searches through node's tree for common node and calls common's populate method
-on it. 
-
-</pre>
+  <p>Searches through node's tree for a common node and calls common's 
+  populate method on it.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>node</code></strong> (Element) - a node in the ElementTree passed in to populate_models()</li>
+        <li><strong class="pname"><code>modl_id</code></strong> (string) - the idref of the model the common instance maps to</li>
+        <li><strong class="pname"><code>model_instance</code></strong> (element) - a node in the ElementTree passed in to populate_models()</li>
+    </ul></dd>
+    <dt>Returns: N/A</dt>
+        <dd>function does not return</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -261,13 +272,15 @@ on it.
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Function expects a node in an element tree as a parameter. Finds instances of Crisis 
-and saves them to the database
-
-</pre>
+  <p>Finds instances of Crisis in root's tree and saves them to the 
+  database</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>root</code></strong> (Element) - root of the ElementTree passed in to populate_models()</li>
+    </ul></dd>
+    <dt>Returns: N/A</dt>
+        <dd>function does not return</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -285,14 +298,15 @@ and saves them to the database
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Function expects a node in an element tree as a parameter. Finds instances of Person
-        and saves them to the database
-        
-
-</pre>
+  <p>Finds instances of Person in root's tree and saves them to the 
+  database</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>root</code></strong> (Element) - root of the ElementTree passed in to populate_models()</li>
+    </ul></dd>
+    <dt>Returns: N/A</dt>
+        <dd>function does not return</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -310,13 +324,15 @@ Function expects a node in an element tree as a parameter. Finds instances of Pe
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Function expects a node in an element tree as a parameter. Finds instances of Organization 
-and saves them to the database
-
-</pre>
+  <p>Finds instances of Org in root's tree and saves them to the 
+  database</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>root</code></strong> (Element) - root of the ElementTree passed in to populate_models()</li>
+    </ul></dd>
+    <dt>Returns: N/A</dt>
+        <dd>function does not return</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -334,13 +350,17 @@ and saves them to the database
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Function expects a file as a parameter. Checks if file is a valid xml file.
-Returns False if not, and an element tree built from the file if it is valid.
-
-</pre>
+  <p>Function expects a file as a parameter. Checks if file is a valid xml 
+  file. Returns False if not, and an element tree built from the file if it
+  is valid.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>file_in</code></strong> (File) - file uploaded by the user, passed by views.py</li>
+    </ul></dd>
+    <dt>Returns: Boolean or ElementTree</dt>
+        <dd>Returns False if the filen is invalid XML, or an element tree 
+          built from the file if it is valid.</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -349,6 +369,9 @@ Returns False if not, and an element tree built from the file if it is valid.
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -368,7 +391,7 @@ Returns False if not, and an element tree built from the file if it is valid.
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Jul 25 14:17:24 2013
+    Generated by Epydoc 3.0.1 on Thu Aug  8 18:01:49 2013
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

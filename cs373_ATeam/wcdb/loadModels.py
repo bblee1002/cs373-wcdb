@@ -18,9 +18,9 @@ def populate_models(tree) :
 	this funciton.
 
 	@type  tree: ElementTree
-    @param tree: the XML file, uploaded by the user, parsed into an ElementTree
-    @rtype:      N/A
-    @return:     function does not return
+	@param tree: the XML file, uploaded by the user, parsed into an ElementTree
+	@rtype:      N/A
+	@return:     function does not return
 	"""
 	e_root = tree.getroot()
 	populate_crisis(e_root)
@@ -58,7 +58,7 @@ def populate_crisis(root) :
 	@type root:  Element
 	@param root: root of the ElementTree passed in to populate_models()
 	@rtype:      N/A
-    @return:     function does not return
+	@return:     function does not return
 	"""
 	for crisis in root.findall("Crisis"):
 		temp_crisis           =                 Crisis()
@@ -104,7 +104,7 @@ def populate_person(root) :
 	@type root:  Element
 	@param root: root of the ElementTree passed in to populate_models()
 	@rtype:      N/A
-    @return:     function does not return
+	@return:     function does not return
 	"""
 	for person in root.findall("Person"):
 		temp_person             =                     Person()
@@ -140,7 +140,7 @@ def populate_org(root) :
 	@type root:  Element
 	@param root: root of the ElementTree passed in to populate_models()
 	@rtype:      N/A
-    @return:     function does not return
+	@return:     function does not return
 	"""
 	for org in root.findall("Organization") :
 		temp_org          =                     Org()
@@ -179,8 +179,8 @@ def validate(file_in) :
 	@type file_in:  File
 	@param file_in: file uploaded by the user, passed by views.py
 	@rtype:         Boolean or ElementTree
-    @return:        Returns False if the filen is invalid XML, or an element tree 
-                    built from the file if it is valid.
+	@return:        Returns False if the filen is invalid XML, or an element tree 
+	                built from the file if it is valid.
 	"""
 	name = str(file_in.name)
 	if name[-4:] != ".xml" and name[-4:] != ".XML" :

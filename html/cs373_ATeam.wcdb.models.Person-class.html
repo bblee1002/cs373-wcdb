@@ -14,6 +14,9 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -62,12 +65,43 @@ django.db.models.Model --+
 </pre>
 
 <hr />
-<pre class="literalblock">
+<p>Person Model - represents a person</p>
 
-Person Model
-
-</pre>
-
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models.Person-class.html#getID" class="summary-sig-name">getID</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Gets the ID associated with this Person object</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Person.getID">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
 <!-- ==================== CLASS VARIABLES ==================== -->
 <a name="section-ClassVariables"></a>
 <table class="summary" border="1" cellpadding="3"
@@ -87,51 +121,96 @@ Person Model
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">models.CharField(200, primary_key = True)</span>
     </td><td class="summary">
-        <a name="person_ID"></a><span class="summary-name">person_ID</span> = <code title="models.CharField(max_length= 200, primary_key= True)">models.CharField(max_length= 200, primary_key= True)</code>
+        <a name="person_ID"></a><span class="summary-name">person_ID</span> = <code title="models.CharField(max_length= 200, primary_key= True)">models.CharField(max_length= 200, primary_key= True)</code><br />
+      ID which uniquely identifies a person
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">models.CharField(200)</span>
     </td><td class="summary">
-        <a name="name"></a><span class="summary-name">name</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
+        <a name="name"></a><span class="summary-name">name</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code><br />
+      Name of the person
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">models.CharField(200)</span>
     </td><td class="summary">
-        <a name="kind"></a><span class="summary-name">kind</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
+        <a name="kind"></a><span class="summary-name">kind</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code><br />
+      The kind of person
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">models.CharField(200)</span>
     </td><td class="summary">
-        <a name="location"></a><span class="summary-name">location</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
+        <a name="location"></a><span class="summary-name">location</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code><br />
+      Where the person is currently located
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">models.CharField(10000)</span>
     </td><td class="summary">
-        <a name="common"></a><span class="summary-name">common</span> = <code title="Common()">Common()</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="common_summary"></a><span class="summary-name">common_summary</span> = <code title="models.CharField(max_length= 2000)">models.CharField(max_length= 2000)</code>
+        <a name="common_summary"></a><span class="summary-name">common_summary</span> = <code title="models.CharField(max_length= 10000)">models.CharField(max_length= 10000)</code><br />
+      Information about the person
     </td>
   </tr>
 </table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="getID"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getID</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Person.getID">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets the ID associated with this Person object</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> (Person) - This Person instance</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>The ID associated with this Person instance</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -151,7 +230,7 @@ Person Model
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Jul 25 14:17:24 2013
+    Generated by Epydoc 3.0.1 on Thu Aug  8 18:01:49 2013
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

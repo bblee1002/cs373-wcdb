@@ -14,6 +14,9 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -73,12 +76,14 @@
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#clean_xml" class="summary-sig-name">clean_xml</a>(<span class="summary-sig-arg">dirty</span>)</span><br />
-      Check for presence of &quot;&amp;&quot; invalid XML char in everything but Li() instances.</td>
+      Helper method which checks a string for the presence of 
+      &quot;&amp;&quot;, which is an invalid XML char and replaces it with 
+      &quot;&amp;amp;&quot;.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#clean_xml">source&nbsp;code</a></span>
             
@@ -90,13 +95,14 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#make_non_li_string" class="summary-sig-name">make_non_li_string</a>(<span class="summary-sig-arg">clean_string</span>,
         <span class="summary-sig-arg">tag</span>)</span><br />
-      clean_string is the text to enclose with xml tags...</td>
+      This helper method is used to produce XML strings for XML elements 
+      that are not list items (li).</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_non_li_string">source&nbsp;code</a></span>
             
@@ -108,16 +114,32 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#make_attribute_string" class="summary-sig-name">make_attribute_string</a>(<span class="summary-sig-arg">item</span>)</span><br />
+      Helper method for make_li_string and is used to produce a string for 
+      the list of attributes for an li.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_attribute_string">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string @return xml string from li objects</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#make_li_string" class="summary-sig-name">make_li_string</a>(<span class="summary-sig-arg">li_list</span>,
         <span class="summary-sig-arg">tag</span>,
         <span class="summary-sig-arg">coming_from_common</span>=<span class="summary-sig-default">False</span>)</span><br />
-      li_list is a list of li objects
-tag is the xml tag to use
-coming_from_common is a boolean defaulted to False.</td>
+      Helper method which is used to construct XML strings for Li objects.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_li_string">source&nbsp;code</a></span>
             
@@ -129,12 +151,13 @@ coming_from_common is a boolean defaulted to False.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#make_common_string" class="summary-sig-name">make_common_string</a>(<span class="summary-sig-arg">common_dict</span>)</span><br />
-      common_dict contains lists of li objects and a summary...</td>
+      Helper method used to construct XML strings for 
+      &quot;&lt;Common&gt;&quot; nodes.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_common_string">source&nbsp;code</a></span>
             
@@ -146,13 +169,14 @@ coming_from_common is a boolean defaulted to False.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#export_crisis" class="summary-sig-name">export_crisis</a>(<span class="summary-sig-arg">crisis_dict</span>,
         <span class="summary-sig-arg">crisis_id</span>)</span><br />
-      Export CRISIS models by extracting information from the relevant class.</td>
+      Export CRISIS models by extracting information from the relevant 
+      class.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_crisis">source&nbsp;code</a></span>
             
@@ -164,13 +188,14 @@ coming_from_common is a boolean defaulted to False.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#export_person" class="summary-sig-name">export_person</a>(<span class="summary-sig-arg">person_dict</span>,
         <span class="summary-sig-arg">person_id</span>)</span><br />
-      Export Person models by extracting information from the relevant class.</td>
+      Export Person models by extracting information from the relevant 
+      class.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_person">source&nbsp;code</a></span>
             
@@ -182,7 +207,7 @@ coming_from_common is a boolean defaulted to False.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -200,11 +225,11 @@ coming_from_common is a boolean defaulted to False.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="export_xml"></a><span class="summary-sig-name">export_xml</span>()</span><br />
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.unloadModels-module.html#export_xml" class="summary-sig-name">export_xml</a>()</span><br />
       Exports models into an xml string.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_xml">source&nbsp;code</a></span>
@@ -248,13 +273,16 @@ coming_from_common is a boolean defaulted to False.</td>
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Check for presence of &quot;&amp;&quot; invalid XML char in everything but Li() instances.
-Returns a new string w/out any tag information
-
-</pre>
+  <p>Helper method which checks a string for the presence of 
+  &quot;&amp;&quot;, which is an invalid XML char and replaces it with 
+  &quot;&amp;amp;&quot;.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>dirty</code></strong> (string) - string to be &quot;cleaned&quot;.</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>&quot;cleaned&quot; string</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -273,14 +301,47 @@ Returns a new string w/out any tag information
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-clean_string is the text to enclose with xml tags
-tag is the name of the xml tag to enclose the clean_string with
-return an xml string with text enclosed by tags
-
-</pre>
+  <p>This helper method is used to produce XML strings for XML elements 
+  that are not list items (li).</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>clean_string</code></strong> (string) - string that has been &quot;cleaned&quot; using clean_xml()</li>
+        <li><strong class="pname"><code>tag</code></strong> (string) - XML tag to place around clean_string</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>XML string in the following format - 
+          &lt;tag&gt;clean_string&lt;tag&gt;</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="make_attribute_string"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_attribute_string</span>(<span class="sig-arg">item</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#make_attribute_string">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Helper method for make_li_string and is used to produce a string for 
+  the list of attributes for an li. Attributes that have no value are not 
+  present in returned string.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>item</code></strong> (object) - Li object from the database</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>XML string in the following format 
+          &quot;href=&quot;value_of_href&quot; 
+          embed=&quot;value_of_embed&quot; 
+          text=&quot;value_of_text&quot;&gt;&quot;</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -300,15 +361,18 @@ return an xml string with text enclosed by tags
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-li_list is a list of li objects
-tag is the xml tag to use
-coming_from_common is a boolean defaulted to False.  If True, extra white space will be added.
-return an xml string from li objects
-
-</pre>
+  <p>Helper method which is used to construct XML strings for Li 
+  objects.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>li_list</code></strong> (list) - list of li objects</li>
+        <li><strong class="pname"><code>tag</code></strong> (string) - XML tag in which Li objects are to be enclosed</li>
+        <li><strong class="pname"><code>coming_from_common</code></strong> (boolean) - used to determine whether the function is being called from 
+          make_common_string, in which case extra spaces need to be added 
+          to indent properly. Defaults to False.</li>
+    </ul></dd>
+    <dt>Returns: string @return xml string from li objects</dt>
   </dl>
 </td></tr></table>
 </div>
@@ -326,13 +390,15 @@ return an xml string from li objects
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-common_dict contains lists of li objects and a summary
-returns a string with information from common_dict
-
-</pre>
+  <p>Helper method used to construct XML strings for 
+  &quot;&lt;Common&gt;&quot; nodes.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>common_dict</code></strong> (dictionary) - contains lists of li objects and a summary.</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>XML string derived from the information within common_dict.</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -351,13 +417,16 @@ returns a string with information from common_dict
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Export CRISIS models by extracting information from the relevant class.
-Builds a string to return at the end as parse elements of crisis.
-
-</pre>
+  <p>Export CRISIS models by extracting information from the relevant 
+  class.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>crisis_dict</code></strong> (dictionary) - contains information about a crisis</li>
+        <li><strong class="pname"><code>crisis_id</code></strong> (string) - crisis id</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>parse elements of crisis object</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -376,13 +445,16 @@ Builds a string to return at the end as parse elements of crisis.
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Export Person models by extracting information from the relevant class.
-Builds a string to return at the end as parse elements of crisis.
-
-</pre>
+  <p>Export Person models by extracting information from the relevant 
+  class.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>person_dict</code></strong> (dictionary) - contains information about a person</li>
+        <li><strong class="pname"><code>person_id</code></strong> (string) - person id</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>parse elements of person object</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -401,13 +473,37 @@ Builds a string to return at the end as parse elements of crisis.
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Export Org models by extracting information from the relevant class.
-Builds a string to return at the end as parse elements of crisis.
-
-</pre>
+  <p>Export Org models by extracting information from the relevant 
+  class.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>org_dict</code></strong> (dictionary) - contains information about an organization</li>
+        <li><strong class="pname"><code>org_id</code></strong> (string) - organization id</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>parse elements of organization</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="export_xml"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">export_xml</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.unloadModels-pysrc.html#export_xml">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Exports models into an xml string.</p>
+  <dl class="fields">
+    <dt>Returns: string</dt>
+        <dd>xml for all models in database</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -416,6 +512,9 @@ Builds a string to return at the end as parse elements of crisis.
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -435,7 +534,7 @@ Builds a string to return at the end as parse elements of crisis.
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Jul 25 14:17:24 2013
+    Generated by Epydoc 3.0.1 on Thu Aug  8 18:01:49 2013
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

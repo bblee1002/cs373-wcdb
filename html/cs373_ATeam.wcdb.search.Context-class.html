@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>cs373_ATeam.wcdb.models.Common</title>
+  <title>cs373_ATeam.wcdb.search.Context</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -39,8 +39,8 @@
       <span class="breadcrumbs">
         Package&nbsp;cs373_ATeam ::
         <a href="cs373_ATeam.wcdb-module.html">Package&nbsp;wcdb</a> ::
-        <a href="cs373_ATeam.wcdb.models-module.html">Module&nbsp;models</a> ::
-        Class&nbsp;Common
+        <a href="cs373_ATeam.wcdb.search-module.html">Module&nbsp;search</a> ::
+        Class&nbsp;Context
       </span>
     </td>
     <td>
@@ -50,16 +50,16 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.models.Common-class.html"
+            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.search.Context-class.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Common</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common">source&nbsp;code</a></span></p>
-<p>Class for the Common tag in the unified xml schema. Used as a helper 
-  class to create Li objects for a Crisis/Person/Org.</p>
+<h1 class="epydoc">Class Context</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.search-pysrc.html#Context">source&nbsp;code</a></span></p>
+<p>Class to help represent the contexts for matched terms in a search 
+  result.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -84,13 +84,9 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models.Common-class.html#populate" class="summary-sig-name">populate</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">e_node</span>,
-        <span class="summary-sig-arg">modl_id</span>)</span><br />
-      Creates Common-type Li objects for a person/crisis/org, populates 
-      them, and adds them to the database.</td>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.populate">source&nbsp;code</a></span>
+            <span class="codelink"><a href="cs373_ATeam.wcdb.search-pysrc.html#Context.__init__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -99,55 +95,49 @@
     </td>
   </tr>
 </table>
-<!-- ==================== METHOD DETAILS ==================== -->
-<a name="section-MethodDetails"></a>
-<table class="details" border="1" cellpadding="3"
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr bgcolor="#70b0f0" class="table-header">
   <td colspan="2" class="table-header">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr valign="top">
-        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="left"><span class="table-header">Instance Variables</span></td>
         <td align="right" valign="top"
-         ><span class="options">[<a href="#section-MethodDetails"
+         ><span class="options">[<a href="#section-InstanceVariables"
          class="privatelink" onclick="toggle_private();"
          >hide private</a>]</span></td>
       </tr>
     </table>
   </td>
 </tr>
-</table>
-<a name="populate"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">e_node</span>,
-        <span class="sig-arg">modl_id</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.populate">source&nbsp;code</a></span>&nbsp;
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+        <a name="begin"></a><span class="summary-name">begin</span><br />
+      up to five words before the matched term
     </td>
-  </tr></table>
-  
-  <p>Creates Common-type Li objects for a person/crisis/org, populates 
-  them, and adds them to the database.</p>
-  <dl class="fields">
-    <dt>Parameters:</dt>
-    <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>self</code></strong> (Common) - This Common instance</li>
-        <li><strong class="pname"><code>e_node</code></strong> (ElementTree Element) - A child of a Common Element that has list item children.</li>
-        <li><strong class="pname"><code>modl_id</code></strong> (string) - ID that uniquely identifies a person, crisis, or org.</li>
-    </ul></dd>
-    <dt>Returns:</dt>
-        <dd>No return value</dd>
-  </dl>
-</td></tr></table>
-</div>
-<br />
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+        <a name="bold"></a><span class="summary-name">bold</span><br />
+      the matched term, isolated so the front end can bold the term with 
+      minimal effort
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+        <a name="end"></a><span class="summary-name">end</span><br />
+      up to five words after the matched term
+    </td>
+  </tr>
+</table>
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">

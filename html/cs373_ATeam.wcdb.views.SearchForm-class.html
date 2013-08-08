@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>cs373_ATeam.wcdb.models.Common</title>
+  <title>cs373_ATeam.wcdb.views.SearchForm</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -39,8 +39,8 @@
       <span class="breadcrumbs">
         Package&nbsp;cs373_ATeam ::
         <a href="cs373_ATeam.wcdb-module.html">Package&nbsp;wcdb</a> ::
-        <a href="cs373_ATeam.wcdb.models-module.html">Module&nbsp;models</a> ::
-        Class&nbsp;Common
+        <a href="cs373_ATeam.wcdb.views-module.html">Module&nbsp;views</a> ::
+        Class&nbsp;SearchForm
       </span>
     </td>
     <td>
@@ -50,28 +50,36 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.models.Common-class.html"
+            >]&nbsp;|&nbsp;<a href="cs373_ATeam.wcdb.views.SearchForm-class.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Common</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common">source&nbsp;code</a></span></p>
-<p>Class for the Common tag in the unified xml schema. Used as a helper 
-  class to create Li objects for a Crisis/Person/Org.</p>
+<h1 class="epydoc">Class SearchForm</h1><p class="nomargin-top"><span class="codelink"><a href="cs373_ATeam.wcdb.views-pysrc.html#SearchForm">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+django.forms.Form --+
+                    |
+                   <strong class="uidshort">SearchForm</strong>
+</pre>
 
-<!-- ==================== INSTANCE METHODS ==================== -->
-<a name="section-InstanceMethods"></a>
+<hr />
+<p>Form used in bar at top of every page (part of default.html, which 
+  every other html page extends) to post search queries. Contains a single 
+  field to store the query.</p>
+
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
 <table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr bgcolor="#70b0f0" class="table-header">
   <td colspan="2" class="table-header">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr valign="top">
-        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="left"><span class="table-header">Class Variables</span></td>
         <td align="right" valign="top"
-         ><span class="options">[<a href="#section-InstanceMethods"
+         ><span class="options">[<a href="#section-ClassVariables"
          class="privatelink" onclick="toggle_private();"
          >hide private</a>]</span></td>
       </tr>
@@ -80,74 +88,13 @@
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models.Common-class.html#populate" class="summary-sig-name">populate</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">e_node</span>,
-        <span class="summary-sig-arg">modl_id</span>)</span><br />
-      Creates Common-type Li objects for a person/crisis/org, populates 
-      them, and adds them to the database.</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.populate">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
+        <a name="search_query"></a><span class="summary-name">search_query</span> = <code title="forms.CharField(max_length= 200)">forms.CharField(max_length= 200)</code><br />
+      The search_query entered by the user
     </td>
   </tr>
 </table>
-<!-- ==================== METHOD DETAILS ==================== -->
-<a name="section-MethodDetails"></a>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Method Details</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-MethodDetails"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-</table>
-<a name="populate"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">e_node</span>,
-        <span class="sig-arg">modl_id</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Common.populate">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <p>Creates Common-type Li objects for a person/crisis/org, populates 
-  them, and adds them to the database.</p>
-  <dl class="fields">
-    <dt>Parameters:</dt>
-    <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>self</code></strong> (Common) - This Common instance</li>
-        <li><strong class="pname"><code>e_node</code></strong> (ElementTree Element) - A child of a Common Element that has list item children.</li>
-        <li><strong class="pname"><code>modl_id</code></strong> (string) - ID that uniquely identifies a person, crisis, or org.</li>
-    </ul></dd>
-    <dt>Returns:</dt>
-        <dd>No return value</dd>
-  </dl>
-</td></tr></table>
-</div>
-<br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">

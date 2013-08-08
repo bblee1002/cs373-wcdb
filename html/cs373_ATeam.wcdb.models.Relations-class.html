@@ -14,6 +14,9 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -62,11 +65,7 @@ django.db.models.Model --+
 </pre>
 
 <hr />
-<pre class="literalblock">
-
-Relation model maintaining relationships between Crisis, Person, and Org models
-
-</pre>
+<p>Represents a relationship between Crisis, Person, and Org models</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -91,11 +90,11 @@ Relation model maintaining relationships between Crisis, Person, and Org models
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="populate"></a><span class="summary-sig-name">populate</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="cs373_ATeam.wcdb.models.Relations-class.html#populate" class="summary-sig-name">populate</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">c_id</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">p_id</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">o_id</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Non-static method expects a crisis ID, person ID, and organization ID as optional parameters.</td>
+      Initializes the values of the class variables for a Relations object.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Relations.populate">source&nbsp;code</a></span>
             
@@ -125,30 +124,87 @@ Relation model maintaining relationships between Crisis, Person, and Org models
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">models.CharField(200)</span>
     </td><td class="summary">
-        <a name="crisis_ID"></a><span class="summary-name">crisis_ID</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
+        <a name="crisis_ID"></a><span class="summary-name">crisis_ID</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code><br />
+      ID that uniquely identifies a Crisis object
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">models.CharField(200)</span>
     </td><td class="summary">
-        <a name="person_ID"></a><span class="summary-name">person_ID</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
+        <a name="person_ID"></a><span class="summary-name">person_ID</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code><br />
+      ID that uniquely identifies a Person object
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">models.CharField(200)</span>
     </td><td class="summary">
-        <a name="org_ID"></a><span class="summary-name">org_ID</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code>
+        <a name="org_ID"></a><span class="summary-name">org_ID</span> = <code title="models.CharField(max_length= 200)">models.CharField(max_length= 200)</code><br />
+      ID that uniquely identifies an Org object
     </td>
   </tr>
 </table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="populate"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">c_id</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">p_id</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">o_id</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cs373_ATeam.wcdb.models-pysrc.html#Relations.populate">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initializes the values of the class variables for a Relations 
+  object.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> (Relations) - This Relations instance</li>
+        <li><strong class="pname"><code>c_id</code></strong> (string) - A crisis ID that uniquely identifies a crisis</li>
+        <li><strong class="pname"><code>p_id</code></strong> (string) - A person ID that uniquely identifies a person</li>
+        <li><strong class="pname"><code>o_id</code></strong> (string) - An org ID that uniquely identifies an organization</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>No return value</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cs373_ATeam.wcdb-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -168,7 +224,7 @@ Relation model maintaining relationships between Crisis, Person, and Org models
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Jul 25 14:17:24 2013
+    Generated by Epydoc 3.0.1 on Thu Aug  8 18:01:49 2013
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
