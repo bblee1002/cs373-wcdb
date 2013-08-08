@@ -7,9 +7,13 @@ Views.py renders the view specified by a url.
 
 def getLi(id):
   """
-  Accesses information about specific list item from the db
-  Queries db using model_id of the list item
-  Returns dictionary of individual list item's data of form:
+  Accesses information about specific list item from the db.
+
+  @type id: string
+  @param id: Model_id of the list item, used to query db
+  
+  @rtype: dictionary
+  @return: individual list item's data of form: 
   {floating_text : [], model_id : *, kind: []}
   """
   try:
@@ -31,9 +35,13 @@ def getLi(id):
 
 def getCrisis(id):
   """
-  Accesses information about specific crisis from the db
-  Queries db using ID of the crisis
-  Returns dictionary of individual crisis data of form:
+  Accesses information about specific crisis from the db.
+
+  @type id: string
+  @param id: crisis_ID of the crisis item, used to query db
+
+  @rtype: dictionary
+  @return: individual crisis data of form:
   {name : *, kind : *, date : *, time : *, people : [], organizations : [], Common : ?}
   """
   try:
@@ -102,8 +110,12 @@ def getCrisis(id):
 def getPerson(id):
   """
   Accesses information about individ person from the db
-  Queries db using ID of person
-  Returns dictionary of individual person data of form:
+
+  @type id: string
+  @param id: person_ID of the person item, used to query db
+
+  @rtype: dictionary
+  @return: individual person data of form:
   {name : *, kind : *, location : *, crises : [], organizations : [], Common : ?}
   """
   #assumes all people have an id and name
@@ -173,8 +185,12 @@ def getPerson(id):
 def getOrg(id):
   """
   Accesses information about individ organization from the db
-  Queries db using ID of the organization
-  Returns dictionary of individual organization data of form:
+
+  @type id: string
+  @param id: org_ID of the org item, used to query db
+
+  @rtype: dictionary
+  @return: individual organization data of form:
   {name : *, kind : *, location : *, crises : [], people : [], Common : ?}
   """
   try:
@@ -239,10 +255,10 @@ def getOrg(id):
 
 def getCrisisIDs():
   """
-  doesn't take anything as parameters.
-  Searches through Crises table in database, returns all of the crises 
-  stored there, and saves them in a dictionary where key value pairs are
-  crisis_ID and crisisName
+  Finds all crises in the database
+
+  @rtype: OrderedDict
+  @return: all crisis_IDs and crisis names with IDs as keys and names as values
   """
   objects = Crisis.objects.all()
   ids = {}
@@ -253,10 +269,10 @@ def getCrisisIDs():
 
 def getOrgIDs():
   """
-  doesn't take anything as parameters.
-  Searches through Orgs table in database, returns all of the orgs 
-  stored there, and saves them in a dictionary where key value pairs are
-  org_ID and orgName
+  Finds all organizations in the database
+
+  @rtype: OrderedDict
+  @return: all org_IDs and org names with IDs as keys and names as values
   """
   objects = Org.objects.all()
   ids = {}
@@ -267,10 +283,10 @@ def getOrgIDs():
 
 def getPeopleIDs():
   """
-  doesn't take anything as parameters.
-  Searches through People table in database, returns all of the people 
-  stored there, and saves them in a dictionary where key value pairs are
-  person_ID and personName
+  Finds all people in the database
+
+  @rtype: OrderedDict
+  @return: all person_IDs and person names with IDs as keys and names as values
   """
   objects = Person.objects.all()
   ids = {}
