@@ -192,11 +192,11 @@ class Relations(models.Model) :
     Represents a relationship between Crisis, Person, and Org models
 
     @type crisis_ID: models.CharField(200)
-    @param crisis_ID: ID that uniquely identifies a Crisis object
+    @cvar crisis_ID: ID that uniquely identifies a Crisis object
     @type person_ID: models.CharField(200)
-    @param person_ID: ID that uniquely identifies a Person object
+    @cvar person_ID: ID that uniquely identifies a Person object
     @type org_ID: models.CharField(200)
-    @param org_ID: ID that uniquely identifies an Org object
+    @cvar org_ID: ID that uniquely identifies an Org object
     """
 
     crisis_ID = models.CharField(max_length=200)
@@ -230,17 +230,17 @@ class Crisis(models.Model) :
     Crisis Model - represents a crisis
 
     @type crisis_ID: models.CharField(200, primary_key = True)
-    @param crisis_ID: ID which uniquely identifies a crisis
+    @cvar crisis_ID: ID which uniquely identifies a crisis
     @type name: models.CharField(200)
-    @param name: Name of the crisis
+    @cvar name: Name of the crisis
     @type kind: models.CharField(200)
-    @param kind: The kind of crisis
+    @cvar kind: The kind of crisis
     @type date: models.CharField(200)
-    @param date: The date when the crisis began
+    @cvar date: The date when the crisis began
     @type time: models.CharField(200)
-    @param time: The time at which the crisis began
+    @cvar time: The time at which the crisis began
     @type common_summary: models.CharField(10000)
-    @param common_summary: A summary of the crisis
+    @cvar common_summary: A summary of the crisis
     """
     crisis_ID         = models.CharField(max_length=200, primary_key=True)
     name              = models.CharField(max_length=200)
@@ -267,15 +267,15 @@ class Person(models.Model) :
     Person Model - represents a person
 
     @type person_ID: models.CharField(200, primary_key = True)
-    @param person_ID: ID which uniquely identifies a person
+    @cvar person_ID: ID which uniquely identifies a person
     @type name: models.CharField(200)
-    @param name: Name of the person
+    @cvar name: Name of the person
     @type kind: models.CharField(200)
-    @param kind: The kind of person
+    @cvar kind: The kind of person
     @type location: models.CharField(200)
-    @param location: Where the person is currently located
+    @cvar location: Where the person is currently located
     @type common_summary: models.CharField(10000)
-    @param common_summary: Information about the person
+    @cvar common_summary: Information about the person
     """
 
     person_ID         = models.CharField(max_length=200, primary_key=True)
@@ -303,17 +303,17 @@ class Org(models.Model) :
     Organization Model - represents an organization
 
     @type org_ID: models.CharField(200, primary_key = True)
-    @param org_ID: ID which uniquely identifies an organization
+    @cvar org_ID: ID which uniquely identifies an organization
     @type name: models.CharField(200)
-    @param name: Name of the organization
+    @cvar name: Name of the organization
     @type kind: models.CharField(200)
-    @param kind: The kind of organization
+    @cvar kind: The kind of organization
     @type location: models.CharField(200)
-    @param location: Where the organization is currently located
+    @cvar location: Where the organization is currently located
     @type common_summary: models.CharField(10000)
-    @param common_summary: Information about the organization
+    @cvar common_summary: Information about the organization
     """
-    
+
     org_ID         = models.CharField(max_length=200, primary_key=True)
     name           = models.CharField(max_length=200)
     kind           = models.CharField(max_length=200)

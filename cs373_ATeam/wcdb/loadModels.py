@@ -33,13 +33,13 @@ def populate_common(node, modl_id, model_instance):
 	on it. 
 
 	@type  node:           Element
-    @param node:           a node in the ElementTree passed in to populate_models()
-    @type  modl_id:        string
-    @param modl_id:        the idref of the model the common instance maps to
-    @type  model_instance: element
-    @param model_instance: a node in the ElementTree passed in to populate_models()
-    @rtype:                N/A
-    @return:               function does not return
+	@param node:           a node in the ElementTree passed in to populate_models()
+	@type  modl_id:        string
+	@param modl_id:        the idref of the model the common instance maps to
+	@type  model_instance: element
+	@param model_instance: a node in the ElementTree passed in to populate_models()
+	@rtype:                N/A
+	@return:               function does not return
 	"""
 	found_common = node.find('Common')
 	if found_common is not None:
