@@ -7,22 +7,44 @@ from unidecode import unidecode
 
 def clean_xml (dirty) :
 	"""
-	Check for presence of "&" invalid XML char in everything but Li() instances.
-	Returns a new string w/out any tag information
+	Helper method which checks a string for the presence of "&", which is an
+	invalid XML char and replaces it with "&amp;".
+
+	Parameter dirty is the string to be "cleaned".
+
+	Returns "cleaned" string.
 	"""
+	
 	if dirty is None:
 		return ''
 	return dirty.replace('&', '&amp;')
 
 def make_non_li_string(clean_string, tag):
 	"""
-	clean_string is the text to enclose with xml tags
-	tag is the name of the xml tag to enclose the clean_string with
-	return an xml string with text enclosed by tags
+	This helper method is used to produce XML strings for XML elements that
+	are not list items (li).
+
+	Parameter clean_string is a string that has been "cleaned" using
+	clean_xml().
+	Parameter tag is the XML tag to place around the string.
+
+	Returns an XML string in the following format: "<tag>clean_string<tag>\n"
 	"""
+
 	return "	<" + tag + ">" + clean_string + "</" + tag + ">\n"
 
 def make_attribute_string(item) :
+	"""
+	Helper method for make_li_string and is used to produce a string for the
+	list of attributes for an li. Attributes that have no value are not
+	present in returned string.
+
+	Parameter item is a specific Li object from the database.
+
+	Returns an XML string in the following format:
+	"href="value_of_href" embed="value_of_embed" text="value_of_text">"
+	"""
+
 	item_string = ''
 	if item.href != u'':
 		href = clean_xml(item.href)
@@ -44,11 +66,17 @@ def make_attribute_string(item) :
 
 def make_li_string(li_list, tag, coming_from_common = False):
 	"""
-	li_list is a list of li objects
-	tag is the xml tag to use
-	coming_from_common is a boolean defaulted to False.  If True, extra white space will be added.
-	return an xml string from li objects
+	Helper method which is used to construct XML strings for Li objects.
+
+	Parameter li_list is a list of li objects.
+	Parameter tag is the XML tag in which the Li objects are to be enclosed.
+	Parameter coming_from_common is a boolean used to determine whether the
+	function is being called from make_common_string, in which case extra
+	spaces need to be added to indent properly. Defaults to False.
+
+	Returns an xml string from li objects
 	"""
+
 	if len(li_list) == 0:
 		return ''
 	item_string = ''
@@ -73,9 +101,13 @@ def make_li_string(li_list, tag, coming_from_common = False):
 
 def make_common_string(common_dict):
 	"""
-	common_dict contains lists of li objects and a summary
-	returns a string with information from common_dict
+	Helper method used to construct XML strings for "<Common>" nodes.
+
+	Parameter common_dict contains lists of li objects and a summary.
+
+	Returns an XML string derived from the information within common_dict.
 	"""
+
 	strings = []
 	strings.append("	<Common>\n")
 	strings.append(make_li_string(common_dict["Citations"], "Citations", True))
