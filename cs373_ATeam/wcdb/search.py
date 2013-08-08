@@ -6,12 +6,14 @@ import re
 
 def search(query) :
 	"""
+	search(query)
+	
+	Searches the databse for the search query
 
-	@type  query: string
-    @param query: the search query, sent in by the user
-    @rtype:       list
-    @return:      list of Crises, People, and Orgs, sorted by how much
-                  of the query their page information matches.
+	@type	query:	string
+	@param	query:	the search query, sent in by the user
+	@rtype:      list
+	@return:		list of Crises, People, and Orgs, sorted by how much of the query their page information matches.
 	"""
 	query       =    query.upper()
 	searchTerms =    query.split()
@@ -174,18 +176,18 @@ def initMatchFound(numTerms, matchFound, orCrises, orPeople, orOrgs, orLis) :
 	at the index is True if that model instance matches that term and False otherwise.
 
 	@type  numTerms:   int
-    @param numTerms:   length of list created by splitting the search query, sent in by the user, 
-                       by whitespace
+	@param numTerms:   length of list created by splitting the search query, sent in by the user, 
+	                   by whitespace
 	@type  matchFound: dictionary
-    @param matchFound: dictionary defined in function description
+	@param matchFound: dictionary defined in function description
 	@type  orCrises:   set
-    @param orCrises:   Crisis objects whose pages contain matched terms
-    @type  orPeople:   set
-    @param orPeople:   Person objects whose pages contain matched terms
-    @type  orOrgs:     set
-    @param orOrgs:     Org objects whose pages contain matched terms
-    @type  orLis:      set
-    @param orLis:      Li objects whose pages contain matched terms
+	@param orCrises:   Crisis objects whose pages contain matched terms
+	@type  orPeople:   set
+	@param orPeople:   Person objects whose pages contain matched terms
+	@type  orOrgs:     set
+	@param orOrgs:     Org objects whose pages contain matched terms
+	@type  orLis:      set
+	@param orLis:      Li objects whose pages contain matched terms
 
 	"""
 	for crisis in orCrises:
@@ -204,22 +206,22 @@ def populateMatchFound(searchTerms, numTerms, matchFound, orCrises, orPeople, or
 	"""
 	Sets the boolean values in the dictionary mentioned in initMatchFound().
 
-    @type  searchTerms: list
-    @param searchTerms: the search query, sent in by the user, split by whitespace
-    @type  numTerms:    int
-    @param numTerms:    length of searchTerms
+	@type  searchTerms: list
+	@param searchTerms: the search query, sent in by the user, split by whitespace
+	@type  numTerms:    int
+	@param numTerms:    length of searchTerms
 	@type  matchFound:  dictionary
-    @param matchFound:  dictionary described in initMatchFound()
-    @type  orCrises:    set
-    @param orCrises:    Crisis objects whose pages contain matched terms
-    @type  orPeople:    set
-    @param orPeople:    Person objects whose pages contain matched terms
-    @type  orOrgs:      set
-    @param orOrgs:      Org objects whose pages contain matched terms
-    @type  orLis:       set
-    @param orLis:       Li objects whose pages contain matched terms
-    @rtype:             N/A
-    @return:            function does not return
+	@param matchFound:  dictionary described in initMatchFound()
+	@type  orCrises:    set
+	@param orCrises:    Crisis objects whose pages contain matched terms
+	@type  orPeople:    set
+	@param orPeople:    Person objects whose pages contain matched terms
+	@type  orOrgs:      set
+	@param orOrgs:      Org objects whose pages contain matched terms
+	@type  orLis:       set
+	@param orLis:       Li objects whose pages contain matched terms
+	@rtype:             N/A
+	@return:            function does not return
 	"""
 	for crisis in orCrises:
 		crisisDict = getCrisis(crisis.crisis_ID)
