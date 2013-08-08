@@ -18,8 +18,19 @@ Views.py renders the view specified by a url.
 # Renders html for a given crisis based on id given (crisis_id)
 def crisisView(request, crisis_id):
   """
-  Renders view for crises.
+  Renders cri_temp.html with the information for a given crisis. The crisis to
+  render is determined by crisis_id, whose value is passed to the function via
+  the URL.
+
+  @type request: HTML request
+  @param request: An HTML request
+  @type crisis_id: string
+  @param crisis_id: a crisis ID that uniquely identifies a specific crisis.
+
+  @rtype: HTML page
+  @return: The rendered version of cri_temp.html
   """
+
   crisis_dict = getCrisis(crisis_id)
 
   return render(request, 'wcdb/cri_temp.html', crisis_dict)
@@ -27,16 +38,38 @@ def crisisView(request, crisis_id):
 # Renders html for a given org based on id given (orgs_id)
 def orgsView(request, orgs_id):
   """
-  Renders view for organizations.
+  Renders org_temp.html with the information for a given organization. The org
+  to render is determined by orgs_id, whose value is passed to the function via
+  the URL.
+
+  @type request: HTML request
+  @param request: An HTML request
+  @type orgs_id: string
+  @param orgs_id: an org ID that uniquely identifies a specific org.
+
+  @rtype: HTML page
+  @return: The rendered version of org_temp.html
   """
+
   org_dict = getOrg(orgs_id)
   return render(request, 'wcdb/org_temp.html', org_dict)
 
 # Renders html for a given person based on id given (people_id)
 def peopleView(request, people_id):
   """
-  Renders view for people.
+  Renders per_temp.html with the information for a given person. The person to
+  render is determined by people_id, whose value is passed to the function via
+  the URL.
+
+  @type request: HTML request
+  @param request: An HTML request
+  @type people_id: string
+  @param people_id: a person ID that uniquely identifies a specific person.
+
+  @rtype: HTML page
+  @return: The rendered version of per_temp.html
   """
+
   per_dict = getPerson(people_id)
 
   return render(request, 'wcdb/per_temp.html', per_dict)
@@ -44,7 +77,18 @@ def peopleView(request, people_id):
 # Displays crises stored in the database. Which crises get displayed depends on kind of crisis selected.
 def crisesPage(request, kind):
   """
-  Displays all imported crises. 
+  Renders crisesPage.html, which displays crises stored in the database. Which
+  crises get displayed depends on the kind of crisis selected. The kind of
+  crisis selected is determined by the value of kind, which is passed through
+  the URL.
+
+  @type request: HTML request
+  @param request: An HTML request
+  @type kind: string
+  @param kind: Kind of crises to display.
+
+  @rtype: HTML page
+  @return: The rendered version of crisesPage.html
   """
 
   query_result_set = Crisis.objects.all()
@@ -79,10 +123,20 @@ def crisesPage(request, kind):
 
   return render(request, 'wcdb/crisesPage.html', {'crisisIDs' : crisisIDs, 'kinds' : kinds})
 
-# Displays organizations stored in the database. Which orgs get displayed depends on kind of org selected.
+
 def orgPage(request, kind):
   """
-  Displays all imported organizations. 
+  Renders orgPage.html, which displays organizations stored in the database.
+  Which orgs get displayed depends on kind of org selected. The kind of org
+  selected is determined by the value of kind, which is passed through the URL.
+
+  @type request: HTML request
+  @param request: An HTML request
+  @type kind: string
+  @param kind: Kind of organizations to display.
+
+  @rtype: HTML page
+  @return: The rendered version of orgPage.html
   """
 
   query_result_set = Org.objects.all()
@@ -117,10 +171,20 @@ def orgPage(request, kind):
 
   return render(request, 'wcdb/orgPage.html', {'orgIDs': orgIDs, 'kinds' : kinds})
 
-# Displays people stored in the database. Which people get displayed depends on kind of person selected.
+
 def pplPage(request, kind):
   """
-  Displays all imported people. 
+  Renders pplPage.html, which displays people stored in the database. Which
+  people get displayed depends on kind of person selected. The kind of person
+  selected is determined by the value of kind, which is passed through the URL.
+
+  @type request: HTML request
+  @param request: An HTML request
+  @type kind: string
+  @param kind: Kind of people to display.
+
+  @rtype: HTML page
+  @return: The rendered version of pplPage.html
   """
 
   query_result_set = Person.objects.all()
@@ -155,18 +219,31 @@ def pplPage(request, kind):
 
   return render(request, 'wcdb/pplPage.html', {'peopleIDs': peopleIDs, 'kinds': kinds})
 
-# Renders Home Page
 def index(request):
   """
-  Renders view for homepage.
+  Renders homepage.
+
+  @type request: HTML request
+  @param request: An HTML request
+
+  @rtype: HTML page
+  @return: Rendered version of index.html
   """
+
   return render(request, 'wcdb/index.html')
 
-# Runs unit tests
 def unittestsView(request):
   """
-  Renders view for unit tests as well as runs the unit tests.
+  Runs the unit tests in tests.py and then renders Unittests.html, which
+  displays the results of running those tests.
+
+  @type request: HTML request
+  @param request: An HTML request
+
+  @rtype: HTML page
+  @return: Rendered version of Unittests.html
   """
+
   output = subprocess.check_output(['python', 'manage.py', 'test', 'wcdb'],
     stderr=subprocess.STDOUT, shell=False)
   return render(request, 'wcdb/Unittests.html', {'output': output})
@@ -174,8 +251,19 @@ def unittestsView(request):
 # Displays XML version of database information in browser
 def exportView(request) :
   """
-  Renders view for export page, kicks off export facility.
+  Creates a string containing valid XML derived from the information stored in
+  the database backing the website. Then renders Export.html using that string.
+  Export.html displays the resulting string and offers user the option of
+  downloading the information in the form of an XML file. Also writes exported
+  string to a file named "WCDBExportXML.xml" which is stored locally on server.
+
+  @type request: HTML request
+  @param request: An HTML request
+
+  @rtype: HTML page
+  @return: Rendered version of Export.html
   """
+
   output = export_xml()
 
   return render(request, 'wcdb/Export.html', {'output': output})
@@ -183,20 +271,36 @@ def exportView(request) :
 # Downloads database information to user's computer as an XML file
 def downloadView(request) :
   """
-  Returns an XML document of what is in the models.
+  Downloads the information in the database to the user's computer at the
+  default download location in their browser settings. The file is an XML file.
+
+  @type request: HTML request
+  @param request: An HTML request
+
+  @rtype: HttpResponse
+  @return: HttpResponse containing XML file (named "wcdb.xml") as attachment.
   """
+
   response = HttpResponse('', mimetype="application/force-download")
   response.write(open('WCDBExportXML.xml', 'r').read())
   response['Content-Disposition'] = 'attachment; filename="wcdb.xml"'
 
   return response
 
-# Helper function for importView. Returns true if password given was valid, false otherwise.
-# kind parameter indicaets which kind of import was called.
 def passwordValidate(pw_input, kind):
   """
-  Validates that the password for the XMLUploadForm is correct.
+  Helper function for importView. Validates the password for the Import
+  facilities.
+
+  @type pw_input: string
+  @param pw_input: password string the user entered
+  @type kind: string
+  @param kind: Type of merge that was selected
+
+  @rtype: boolean
+  @return: True if the password was valid, False otherwise.
   """
+
   if pw_input == "ateam2" and kind == "clear" :
     return True
   elif pw_input == "ateam" and kind == "":
@@ -207,8 +311,19 @@ def passwordValidate(pw_input, kind):
 # Takes in an XML file and populates database accordingly
 def importView(request, kind):
   """
-  Renders view for import page, kicks off the import facility, reports
-  back to the user success or failure.
+  Renders import.html, which offers user the option to upload an XML file.
+  Uploading an XML file requires the correct password, and the file itself
+  will be validated to ensure not only that it is an XML file, but also that
+  it matches the pre-defined schema for the website. Type of import (clear or
+  merge) is determined based on value of kind.
+
+  @type request: HTML request
+  @param request: An HTML request
+  @type kind: string
+  @param kind: Type of merge that was selected
+
+  @rtype: HTML page
+  @return: Rendered version of import.html
   """
 
   form = XMLUploadForm()
@@ -242,21 +357,41 @@ def importView(request, kind):
         return render(request, 'wcdb/import.html', {'form': form, 'success': "Uploaded successfully!", 'password': False})
   return render(request, 'wcdb/import.html', {'form': form, 'success': False, 'password': "Password incorrect!"})
 
-# Helper method for searchView.
-# Returns a list in format: [type of object, name, [LiObject, LiObject, ...] ] where LiObjects are images
 def getTypeNameImage(idref) :
-    if idref[0:3] == "CRI" :
-      cri_instance = Crisis.objects.get(crisis_ID = idref)
-      return ["crisis" , cri_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
-    if idref[0:3] == "PER" :
-      per_instance = Person.objects.get(person_ID = idref)
-      return ["person" , per_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
-    if idref[0:3] == "ORG" :
-      org_instance = Org.objects.get(org_ID = idref)
-      return ["org" , org_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
+  '''
+  Helper method for searchView. Gets information about type, name, and Images
+  associated with a given idref.
 
-# Renders the search results of a query entered into the search bar    
+  @type idref: string
+  @param idref: ID of a crisis, person, or org object
+
+  @rtype: list
+  @return Returns a list in following format:
+  [type of object, name, [LiObject, LiObject, ...] ] where LiObjects are Images
+  '''
+
+  if idref[0:3] == "CRI" :
+    cri_instance = Crisis.objects.get(crisis_ID = idref)
+    return ["crisis" , cri_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
+  if idref[0:3] == "PER" :
+    per_instance = Person.objects.get(person_ID = idref)
+    return ["person" , per_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
+  if idref[0:3] == "ORG" :
+    org_instance = Org.objects.get(org_ID = idref)
+    return ["org" , org_instance.name, Li.objects.filter(kind = 'Images', model_id=idref)]
+
 def searchView(request):
+  """
+  Renders search.html using the search results of a query entered
+  into the search bar
+
+  @type request: HTML request
+  @param request: An HTML request
+
+  @rtype: HTML page
+  @return: Rendered version of search.html
+  """
+
   sform = SearchForm(request.POST)
 
   # Ensure form is valid
@@ -281,9 +416,22 @@ def searchView(request):
 
   return render(request, 'wcdb/search.html', search_dict)
 
-# Renders the 10 selected queries (our 5 and 5 from other groups)
-# query_num is a variable passed in the url that indicates which query to display
+
 def queriesView(request, query_num):
+  """
+  Renders queries.html for the 10 selected queries (our 5 and 5 from other
+  groups). query_num is a variable passed in the url that indicates which
+  query to display results for.
+
+  @type request: HTML request
+  @param request: An HTML request
+  @type query_num: string
+  @param query_num: string version of an integer
+
+  @rtype: HTML page
+  @return: Rendered version of queries.html
+  """
+
   query_string = ''
   query_string1 = ''
   query_string2 = ''
@@ -302,7 +450,7 @@ def queriesView(request, query_num):
 
   # List of the 10 different queries, with 0 or 1 of them displaying, depending on the value of query_num
   if query_num == 1 :
-    query_string =  "SELECT crisis_ID, name FROM (SELECT name, count(name) as Count, crisis_ID FROM wcdb_crisis c INNER JOIN wcdb_li l ON c.crisis_ID = l.model_id WHERE l.kind = 'Locations' GROUP BY crisis_id, name ORDER BY Count DESC) AS sub LIMIT 1;"
+    query_string =  "SELECT crisis_ID, name FROM (SELECT name, count(name) as Count, crisis_ID FROM wcdb_crisis c INNER JOIN wcdb_li l ON c.crisis_ID = l.model_id WHERE l.kind = 'Locations' GROUP BY crisis_ID, name ORDER BY Count DESC) AS sub LIMIT 1;"
     query_result_set = Crisis.objects.raw(query_string)
 
   elif query_num == 2 :
@@ -377,14 +525,28 @@ def queriesView(request, query_num):
                 }
   return render(request, 'wcdb/queries.html', queries_dict)
 
-# Form used in the importView to post password and file information
 class XMLUploadForm(forms.Form):
   """
   XMLUploadForm that has an upload file field along with a password field.
+  Only present in import.html.
+
+  @type xmlfile: string
+  @cvar xmlfile: File to upload
+  @type password: string
+  @cvar password: Password entered by user
   """
+
   xmlfile = forms.FileField()
   password = forms.CharField(max_length=8, widget=forms.PasswordInput) 
 
-# Form used in bar at top of every page (part of default.html) to post search query
 class SearchForm(forms.Form):
-    search_query = forms.CharField(max_length = 200)
+  """
+  Form used in bar at top of every page (part of default.html, which every
+  other html page extends) to post search queries. Contains a single field
+  to store the query.
+
+  @type search_query: string
+  @cvar search_query: The search_query entered by the user
+  """
+  
+  search_query = forms.CharField(max_length = 200)
