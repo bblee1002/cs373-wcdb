@@ -98,8 +98,6 @@ def search(query) :
 	getContext(result, matchFound, [query], 1)
 	if numTerms > 1:
 		getContext(result, matchFound, searchTerms, numTerms)
-	for match in result:
-		print match.idref, match.count
 	# 	for context in match.contexts:
 	# 		print "begin: ", context.begin 
 	# 		print "bold: ", context.bold 
@@ -328,7 +326,7 @@ def getContext(result, matchFound, searchTerms, numTerms):
 					found = liDict['floating_text'][liIndex].upper().find(searchTerms[index])
 					if found >= 0 :
 						tempContext = Context()
-						tempContext.begin = liDict['kind'][liIndex] + '...'
+						tempContext.begin = liDict['kind'][liIndex] + ': ...'
 						if found > 0 :
 							regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", liDict['floating_text'][liIndex][found-1::-1]).group(0)
 							tempContext.begin += regex[::-1]
@@ -380,7 +378,7 @@ def getContextFromModel(match, modelDict, searchTerms, index, attribute) :
 	"""
 	found = modelDict[attribute].upper().find(searchTerms[index])
 	tempContext = Context()
-	tempContext.begin =  attribute.upper() + '...'
+	tempContext.begin =  attribute.upper() + ': ...'
 	if found > 0 :
 		regex = re.search("[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]*", modelDict[attribute][found-1::-1]).group(0)
 		tempContext.begin += regex[::-1]

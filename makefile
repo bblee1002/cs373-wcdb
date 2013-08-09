@@ -26,6 +26,6 @@ WCDB3.log:
 
 # add other .html and .py files
 
-WCDB2.zip:
-	zip -r WCDB3.zip WCDB3.log WCDB3.pdf WCDB3.xml WCDB3.xsd.xml cs373_ATeam/*.py cs373_ATeam/wcdb/*.py ./cs373_ATeam/wcdb/templates/wcdb/*.html cs373_ATeam/wcdb/static/ cs373_ATeam/genxmlif cs373_ATeam/minixsv cs373_ATeam/unidecode html/ 
+WCDB3.zip:
+	zip -r WCDB3.zip WCDB3.log WCDB3.pdf WCDB3.xml WCDB3.xsd.xml cs373_ATeam/*.py cs373_ATeam/wcdb/*.py ./cs373_ATeam/wcdb/templates/wcdb/*.html cs373_ATeam/wcdb/static/ cs373_ATeam/genxmlif cs373_ATeam/minixsv cs373_ATeam/unidecode html/ cs373_ATeam/wcdb/WorldCrises.xsd.xml cs373_ATeam/wcdb/xml0.xml cs373_ATeam/wcdb/xml1.xml cs373_ATeam/wcdb/xml2.xml cs373_ATeam/wcdb/xml2.xm
 

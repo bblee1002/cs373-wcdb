@@ -1,0 +1,3616 @@
+commit 5a869200a012138e734a1bd08cfdc7a73eadbd3e
+Merge: 31f3982 65d5b9c
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Aug 8 19:09:55 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 31f3982f0760a84d2ca60ccdc97e1546681b98a5
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Aug 8 19:08:28 2013 -0500
+
+    modified makefile for phase3
+
+commit 65d5b9c0a33cb8d14568bf38e47d3ffaec052a35
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Aug 8 18:44:47 2013 -0500
+
+    renamed files for submitting
+
+commit 15030802330bde2a52db02a0f97c58e82a458a8a
+Merge: c5dc4d9 dba2ec4
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Aug 8 18:21:00 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit dba2ec4e3c657cefef562ec61ce2bf95777ddb5e
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Aug 8 18:11:13 2013 -0500
+
+    removed obsolete html files
+
+commit 0c288194640eb653a27f37ac2f9cd06aac3f2bcb
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Aug 8 18:08:40 2013 -0500
+
+    resolved issue #118
+
+commit c5dc4d986260aab43dc6996c8bf010a23ac1f647
+Merge: fe51d1b 1b53805
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Aug 8 17:53:42 2013 -0500
+
+    resolved merge conflict with search
+
+commit fe51d1b93f03f00195f49e105361b81e3d0468be
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Aug 8 17:51:07 2013 -0500
+
+    search minor changes
+
+commit d999e8958aecb673dff5ea2a31a5b21f345e288c
+Merge: 0031a3f 1b53805
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Aug 8 17:47:45 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 1b538050df0f0b60ac2c6eab0c6a29d954b95c6f
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 8 17:47:27 2013 -0500
+
+    Fixing documentation
+
+commit 0031a3f8bde9f565d3779a7dcf5f9cf7f8513799
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Aug 8 17:47:11 2013 -0500
+
+    debugging epytext errors
+
+commit a1002e7920ebf336c0e7ba85f7bbc9101d2fa201
+Merge: de40ea4 6740887
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 8 17:07:25 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit de40ea43a289428d16cb18ec4c58e8d783f37f52
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 8 17:07:19 2013 -0500
+
+    Removed unnecessary copy of urls.py
+
+commit 67408873fd920f967fb54ba679f015ba3536b2b8
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Aug 8 17:02:34 2013 -0500
+
+    documentation for getDbModel.py
+
+commit 06e9613a704252efd66df11340a38c5f4308ae81
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 8 17:01:27 2013 -0500
+
+    Documentation for Views.py and models.py is Complete
+
+commit e95dd021fd93577b50bf72e6eb25e62273059948
+Merge: 8017c5b f1b7dfc
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Aug 8 17:00:16 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 8017c5bb47611d4187fd48be84b5b290b3607404
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Aug 8 16:59:47 2013 -0500
+
+    Updated documentation in loadModels.py and search.py using the Epytext markup Language
+
+commit f1b7dfc19feaee191c2108b777086e3732bf3e60
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Aug 8 16:37:21 2013 -0500
+
+    unloadModels documentation
+
+commit c0f532c868914d83410adc9ab70ebf2744d813c5
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 8 16:07:57 2013 -0500
+
+    Views.py Documentation slightly updated
+
+commit 9c61e4a02f8e6ee599ef7f3427fd027bf3aacca1
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 8 16:05:49 2013 -0500
+
+    Documented Views.py:
+
+commit cbf63413b4571d8c6a3b9f3bc86de09b319ca3b3
+Merge: 8f792e7 543194c
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 8 15:49:19 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 8f792e701e3acead07011221887d5eae0dd0858d
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 8 15:49:02 2013 -0500
+
+    Adding documentation
+
+commit 543194cc17165c643e880fb24d652b0b979578e3
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Aug 7 19:05:18 2013 -0500
+
+    Added documentation for search
+
+commit 438b163b4d1b753234c7cd972cb2256d3fca3c67
+Merge: 4fc3c15 dc8348c
+Author: Olga <osaprych@gmail.com>
+Date:   Wed Aug 7 16:50:46 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 4fc3c15610f96a193f9dbc9c50dc750a8e742fe6
+Author: Olga <osaprych@gmail.com>
+Date:   Wed Aug 7 16:50:41 2013 -0500
+
+    rempoved print statements in search
+
+commit dc8348c34b14d47dcf084869a8c63b17094ade85
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Wed Aug 7 16:44:09 2013 -0500
+
+    Unit Tests Fixed
+
+commit ff46e4fb4d3bc4a70d12f090351922f4f00659ec
+Merge: ee14c60 e26d50e
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Wed Aug 7 16:41:18 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit ee14c60aec88095232f9a9bb142536381b9a8e6e
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Wed Aug 7 16:41:07 2013 -0500
+
+    Tests.py Updated
+
+commit e26d50eef677d1dfe68fa780e725e5eb341a2648
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Aug 7 16:17:00 2013 -0500
+
+    fixed search unit tests
+
+commit 20209f5b1029654a371b7bd675866076e59c18ff
+Merge: 675f562 01213f0
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Aug 7 16:13:18 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 675f562924b8a18afc146c2df851c234e0db7f2c
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Aug 7 16:13:15 2013 -0500
+
+    updated unloadmodels to pull
+
+commit 01213f0a418c27cc6e98037c3d642ccd388b8e90
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Wed Aug 7 16:04:01 2013 -0500
+
+    Videos and Maps From Aaron Stacy Add Properly Now
+
+commit 077251d30542634d99b0b46faf3092e1dfb17c8d
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Wed Aug 7 12:41:56 2013 -0500
+
+    Unidecode facility added, Export/Import Bug Fixed, Resulting UnitTest issues fixed
+
+commit d6eaab01187cd1afbaa66d753fbd63a8a1540abd
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Tue Aug 6 20:37:54 2013 -0500
+
+    Import Video issue Fixed
+
+commit ec8b68a92c57301ff10602795254f21822f323e7
+Merge: 98df8d2 93e027a
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Aug 6 20:24:06 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 98df8d217441b527be889661886ef525a72cdb3e
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Aug 6 20:23:54 2013 -0500
+
+    finished unit tests for search
+
+commit 93e027ac8fd627b9987aedd1689e51d07d489097
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Tue Aug 6 20:04:21 2013 -0500
+
+    front-end fixes for general pages
+
+commit e865447a992b918163e6a621c4887531dff692a2
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Tue Aug 6 20:03:23 2013 -0500
+
+    changed left margin on span in users-list table
+
+commit 2025e40a5c3a513f8d0f7864ab66d5802a993420
+Merge: 276b234 009928d
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Aug 6 19:51:49 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 276b2348f28736cdb0f05a62760b66061d588c46
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Aug 6 19:51:29 2013 -0500
+
+    javascript added to drop subtext summary in category pages
+
+commit 009928d39eaedf105a2515ee74820534e629fad6
+Merge: 70fdd76 28ca097
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Aug 6 19:34:51 2013 -0500
+
+    merged search tests
+
+commit 70fdd7671042b3f689000743f0035b167394a4fd
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Aug 6 19:29:22 2013 -0500
+
+    added more tests for search
+
+commit 28ca097934abd7302c167927e604bdae2677688c
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Aug 6 18:33:14 2013 -0500
+
+    added test for searchLi
+
+commit 40e6e9b04ac8d037957a29255dfc2765fee4d6f0
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Aug 6 18:21:53 2013 -0500
+
+    added tests for search Person, Crisis, and Org
+
+commit 0ebad3a73496f2871ef05bfed8f2bb74ca4cd144
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Aug 6 17:48:23 2013 -0500
+
+    resolved merge conflict 2
+
+commit 477a894a8668196bce91e11e4218bfb8e5004939
+Merge: 2672a4d 3ccbb53
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Aug 6 17:45:01 2013 -0500
+
+    resolved merge conflict for tests
+
+commit 2672a4d87e664b64758281320329aa67ebd88f51
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Aug 6 17:41:23 2013 -0500
+
+    working on unit tests for search
+
+commit 3ccbb53d5412b4d2746855ed9b725520c6b2cb29
+Merge: bcf0e24 67dfe09
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Aug 6 17:32:06 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit bcf0e24d38a48b2816a67cfcadb6842ac0e07db1
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Aug 6 17:31:56 2013 -0500
+
+    added some tests for search
+
+commit 67dfe095bd6f0d47fcc05aca1f216c0db2bd43dc
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Tue Aug 6 17:25:11 2013 -0500
+
+    Documentation Added
+
+commit 02837db959a003f70832b5b59c9e73618f4cf13a
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Aug 6 17:17:57 2013 -0500
+
+    updated common_summary to have longer length, but import for tmtorres still fails
+
+commit ce315e7ebd5a71d4823536450293d5892c6fe606
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Aug 6 17:12:43 2013 -0500
+
+    getTypeNameImage() tests
+
+commit b7537248d527985f7e1922dba06d2be1054819ae
+Merge: bf9a243 20a8aea
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Aug 6 17:02:14 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit bf9a243dafb1c437fe993d0d3147b42169a0778a
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Aug 6 17:02:11 2013 -0500
+
+    search
+
+commit 20a8aeaf7fc13abf3b5c66118b451c7117bcdcfa
+Merge: e391a4e d7e8f71
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Aug 6 16:50:57 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit e391a4e98d3c48db2bf0bc6a861e3028c3c4e3fc
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Aug 6 16:49:15 2013 -0500
+
+    updated max lengths of model imports
+
+commit d7e8f71c6a8fdeb48f2a722b10b4cbcb444aac90
+Merge: c4bc22a 7be86f2
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Tue Aug 6 16:41:36 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit c4bc22a1c90581f425cfda2bd966e53b52a207af
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Tue Aug 6 16:41:20 2013 -0500
+
+    updating Import
+
+commit 7be86f2937f65a9d4c34601e46961fc3c51ed4c2
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Aug 6 16:40:31 2013 -0500
+
+    moved populate_common tests from models class to load models class
+
+commit c54225bf10768546200679db0172756884dc2f17
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Aug 6 16:34:54 2013 -0500
+
+    make_attribute_string() tests
+
+commit 5d046a737a639080ab1a967dcda02134fa9a24c4
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Aug 6 16:00:25 2013 -0500
+
+    models.py getID() tests
+
+commit 036825bda0aa8db486c7d8844cb4b271e7570d82
+Merge: 6869800 129ed7d
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Aug 6 15:25:24 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 68698002af5b58a9541a09e1f5543aba9b2929f7
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Aug 6 15:25:01 2013 -0500
+
+    started search tests
+
+commit 129ed7d522a5732fc95cf5533055a445031c290b
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Aug 5 21:26:02 2013 -0500
+
+    searchView, queriesView tests
+
+commit af48e8eae299cef1e8669883d81bba483777db52
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Aug 5 20:53:45 2013 -0500
+
+    crisesPage, orgPage, pplPage tests
+
+commit 6fb17864916971484a2e74d5632e1e68faff5263
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Aug 5 18:49:10 2013 -0500
+
+    Added getID method to models and addressed issue #108
+
+commit e64cffccbcccd6ba0d10f5293d3032add6069a53
+Author: Olga <osaprych@gmail.com>
+Date:   Mon Aug 5 16:55:25 2013 -0500
+
+    fixing search bugs
+
+commit cea271a4b741df96a8e24c29b9df473f6a18299a
+Merge: 9296011 e6b378b
+Author: Olga <osaprych@gmail.com>
+Date:   Mon Aug 5 16:26:58 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 92960113ee0414593111793ba8f9d7a4085cfd29
+Author: Olga <osaprych@gmail.com>
+Date:   Mon Aug 5 16:26:44 2013 -0500
+
+    trying to fix double search bug for single words
+
+commit e6b378badbff07cf62c11bf130152a4650f538f3
+Merge: d042ae6 539547a
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Aug 5 15:57:42 2013 -0500
+
+    Merge branch 'phase3' of github.com:eddies5/cs373-wcdb into phase3
+
+commit d042ae6cae1801dea863aa9b21e0f21c8fa4c78f
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Aug 5 15:57:25 2013 -0500
+
+    working on views unittests
+
+commit 539547a97289a9dd63e1733bf2cfbc45d6e407f6
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Aug 5 15:56:54 2013 -0500
+
+    Search HTML page Implemented, Search.py needs fixing
+
+commit 62a330f395242e4aad8533fa03c9e4f3a2557dec
+Merge: 03a4e07 9d3338c
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Aug 5 15:39:44 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 9d3338c985044e06f97ac44e8551375044e33525
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Aug 5 14:49:58 2013 -0500
+
+    changed margins, fixed typo in tests(getDdModelTest to getDbModelTest)
+
+commit 03a4e07acc6b851015f2d8ab8aabf47d219ea9c0
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Aug 5 14:40:30 2013 -0500
+
+    Merged
+
+commit c942d31c80210a4eec1ae4884bab4e432e65b929
+Merge: b3f7152 58dc975
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Aug 5 14:39:06 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit b3f7152208b04ea69f9a6498c23617a0217bbad2
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Aug 5 14:38:59 2013 -0500
+
+    ABout to Merge
+
+commit 58dc975910cd1dc847eca5068c44ce21f609a00a
+Merge: 71f2baa 99506b4
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Aug 5 14:37:18 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 71f2baab9ce63f096e5683cd5199c389ec082df7
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Aug 5 14:37:02 2013 -0500
+
+    added name to search page
+
+commit 99506b4ab4bd56d634eb4f63ae0877d717553919
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Aug 5 14:01:25 2013 -0500
+
+    passwordValidate() tests
+
+commit 5d8587a9c5e1578ef901567c41c19716601cdb16
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Aug 5 13:58:58 2013 -0500
+
+    made font size consistent among page headers
+
+commit abb576cd68129c9d46dad953ec0f49833a399465
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Aug 5 13:50:43 2013 -0500
+
+    fixed failing tests
+
+commit d166704a1a626b6da77cc93d682cfb72a544d663
+Merge: ab05992 bdea266
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Aug 5 13:01:46 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit ab0599242d5938e63ffdb89943c6a872c8ee2c05
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Aug 5 13:01:30 2013 -0500
+
+    beginning implementation of the search page
+
+commit bdea266ce61580c416f4c7407ac6d78eff6acee7
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Aug 5 12:16:21 2013 -0500
+
+    commented out prints in search
+
+commit 5a4b9039abc1a9417240fd5be215deb684070130
+Merge: 7aedb84 659c426
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Aug 5 12:13:12 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 7aedb84c8923520d3378346e03facd367c57a62e
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Aug 5 12:13:06 2013 -0500
+
+    Fixed error where org contexts were incorrectly searched for
+
+commit 659c4269d9671501f93f71f61429c4e3d9dfb182
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Aug 5 12:03:49 2013 -0500
+
+    fixed unit tests errors
+
+commit e1a62ce1e2f3713a20a6ef5c14d964e965155b66
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Aug 4 23:18:34 2013 -0500
+
+    Carousel Size Change Issue and Export Issue Fixed
+
+commit bdf67c6ade3b54086c07dc2c7be1d3c704347edf
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Aug 4 19:28:36 2013 -0500
+
+    Kind's Are Now Horizontally Displayed, Facebook/Twitter Links Checked
+
+commit f1dadccc91cf824f1045747b07c8a14a4bb7a135
+Merge: 3fdce87 4e8dfd8
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Aug 4 19:21:07 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 4e8dfd878830cdeb1bf51c422973c964ea5c10e7
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sun Aug 4 19:14:37 2013 -0500
+
+    kinds displayed horizontally
+
+commit 3fdce8729f22aff6aef562c5c59adca33a0b9f82
+Merge: 8e067e0 7bb8716
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Aug 4 19:03:19 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 8e067e0e49776d3b59c928c19367a977d50e5556
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Aug 4 19:03:09 2013 -0500
+
+    Checking Facebook/Twitter Links
+
+commit 7bb87169ec62d02e9d5f40d75d7ac1f5186a5811
+Merge: 5664474 0687144
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Aug 4 18:45:04 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 566447450ed5f3497a10798115671cc4a61d3adb
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Aug 4 18:44:53 2013 -0500
+
+    Updated xml - removed some twitters
+
+commit 0687144a8437df784c7d36b6dc041074bd5fc87c
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Aug 4 17:57:23 2013 -0500
+
+    Fixed Citations and WaysToHelp to be able to handle not Having an HREF
+
+commit 9beee2db84aff0f50ae59f35b6b77d449e708148
+Merge: 18daba1 6d7bf98
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Aug 4 17:43:10 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 18daba1c92d4211ede389387600381360d368a69
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Aug 4 17:43:01 2013 -0500
+
+    Addressed issues #82, #90, #93
+
+commit 6d7bf988988dee528de4dc74039c149421992358
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Aug 4 16:54:04 2013 -0500
+
+    Twitter Embeds Done
+
+commit 1d10dd1db1d50576e914cb0259eb81f591513ea2
+Merge: 5335f64 9493e0d
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Aug 4 15:39:15 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 5335f6439e79833f5c0393544685937f42680e18
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Aug 4 15:39:04 2013 -0500
+
+    Resolved issue #95
+
+commit 9493e0dd248f6c0448f5e4d439ea13fa8ee9eed9
+Merge: c4bc12d d8fbe92
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Aug 4 14:28:37 2013 -0500
+
+    XML Update Merge Images Added to NucDis
+
+commit c4bc12d2e615bfea04d34a510821757adc839532
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Aug 4 14:25:25 2013 -0500
+
+    XML Update
+
+commit d8fbe92874debd922de31dbf86645ff49fe6cf98
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Aug 4 14:22:57 2013 -0500
+
+    fixed nuclear crisis pics
+
+commit 8470e92642a83de46ec7b1333fea000909c80610
+Merge: e67bc28 6f2b741
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Aug 4 14:08:08 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit e67bc28adf0b734e85b1978e8ec3c86f0a6829d3
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Aug 4 14:07:37 2013 -0500
+
+    reformatted external links and ways to help
+
+commit 6f2b741727f9ab0d2d18bdd60e5cdf1fc148cf27
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Aug 4 14:02:18 2013 -0500
+
+    Both Imports Functional Now - Separate Passwords
+
+commit 3ec987928f2d8270b72941e9fef1cba9f0ed5281
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Aug 4 13:59:56 2013 -0500
+
+    updated webpage format
+
+commit 027479a1279c237179e0a012321aa08d1b179eaa
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Aug 4 11:50:34 2013 -0500
+
+    updated homepage
+
+commit e1fd5fed1ac7ceb43c96e203c0f73428fcad210b
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Aug 4 11:31:44 2013 -0500
+
+    cleaned tab category pages and updated xml org info
+
+commit 51e3f9850805ddc9648e3fe4bac58d96deb56955
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Aug 4 10:53:15 2013 -0500
+
+    updated homepage and crisispage dev continued
+
+commit f1c464dc190bde31e55ff612193a6f1620d6269a
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Aug 4 10:28:02 2013 -0500
+
+    modified crisis tab page
+
+commit 908f196006661367500d0e62a7633b5bf401dd1d
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Aug 4 10:20:55 2013 -0500
+
+    images for the homepage
+
+commit 67f2458cfed3b308e187ebb79ecf45f9c7dc003e
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Aug 3 20:29:01 2013 -0500
+
+    Changed Facebook Feeds to EMBED's instead of HREF's
+
+commit 9d122e0b8678a78b6c952159f9f15c0c8f720832
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Aug 3 20:10:34 2013 -0500
+
+    XML Updated again, more info added
+
+commit 084d6abc87165c2f1964deab6b8e6561f9750581
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Aug 3 19:37:53 2013 -0500
+
+    XML Updated - Embed for Twitter Feeds, HREF for Facebook Feeds
+
+commit 711b2813d2825ec27ef21f8e90bb721d2e9217da
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Aug 3 18:57:05 2013 -0500
+
+    added working li to context search
+
+commit 20bf70331937df6f4ed1a4aae2659aa889d74c60
+Merge: 5fc0e22 ecd8108
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Aug 3 17:42:01 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 5fc0e22013f707fb71c29fcc34004b50bff755cd
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Aug 3 17:41:44 2013 -0500
+
+    correctly retrieving contexts from Crises
+
+commit ecd81089f512528d739994084d1b603b07df235a
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sat Aug 3 17:01:22 2013 -0500
+
+    changed href to embed for feeds
+
+commit 2bb43ace93ec9f8ee2c74926803e231a10d09351
+Merge: b04f28a 42133a5
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Aug 3 16:25:16 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit b04f28a5d9ef7eee0f588025fc9fe45a282460fc
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Aug 3 16:25:06 2013 -0500
+
+    Queries Page Complete
+
+commit 42133a525f884f8cdbd191972eb6d3235b7916da
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sat Aug 3 16:03:19 2013 -0500
+
+    page margins, box-shadows
+
+commit 2ba2d8590da1e7b2da6fc69cbe6643994c204569
+Merge: 1711ebc 34b2426
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Aug 3 15:32:31 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 1711ebc32704d19e33fed8d4c29ed852d6a2a6be
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Aug 3 15:32:28 2013 -0500
+
+    took out temp variable in search
+
+commit 34b242603cf7d5a7bb2cf669b4ee47a57a18c506
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Aug 3 15:31:15 2013 -0500
+
+    sketch for getContext in search
+
+commit de854767450d51c90ea35f31a1da4c0e8e56fd8f
+Merge: b2f7bdb b2707b3
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Aug 3 14:35:39 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit b2f7bdb9431a0a363e031fde804fe6368066e2f1
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Aug 3 14:35:29 2013 -0500
+
+    resolved issue 92
+
+commit b2707b3b4cb040298d3193c3a91a9497caa96ea3
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sat Aug 3 14:25:06 2013 -0500
+
+    unit tests for getLi()
+
+commit 719ca1100a749211ce3cd76ce7df96a9d29f6ba5
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Aug 3 14:02:31 2013 -0500
+
+    Fixed duplicate exact bug
+
+commit 2758abfc0db6bef62c24d1eaa55a6026fc806ff6
+Merge: 03e260b f660e54
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Fri Aug 2 15:55:23 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 03e260b68d150772384a2d79881d804f649d570c
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Fri Aug 2 15:55:03 2013 -0500
+
+    Refactored search a bit
+
+commit f660e54684800ea311da6f07872e0bd946c7e4b7
+Merge: 9ceaf99 8fa168d
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Aug 2 13:37:19 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 9ceaf995c27c520690d7804a210283c21811395c
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Aug 2 13:37:00 2013 -0500
+
+    updated xml and homepage
+
+commit 8fa168d2fcedf332953d9c9d9dd8389177fd1821
+Merge: c23ff0e fd45447
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Fri Aug 2 13:34:34 2013 -0500
+
+    merge conflict resolved
+
+commit fd454477125fa8b6e20a8e4dc847e3e10f6c435b
+Merge: 4372851 5c30051
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Aug 2 13:29:58 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 437285116c84e8520c796071d2743ee6be0b2eae
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Aug 2 13:29:36 2013 -0500
+
+    modified search by adding a dictionary; results are sorted by the number of terms they match
+
+commit 5c3005165cc5fd956ff47b2a7b448f9788f24ce3
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Aug 2 13:22:09 2013 -0500
+
+    updated homepage further
+
+commit 6cb3fc7ec2d13caeba284f4489a7c52ff901d2ee
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Aug 2 13:10:14 2013 -0500
+
+    changed layout of homepage
+
+commit 70a42aa4cc08dbd12406880df1495ecdf7663ad8
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Aug 2 12:25:23 2013 -0500
+
+    updated people to have common kind names
+
+commit c23ff0e65d874902f871491dbcb67ec7cbc41a0b
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Fri Aug 2 12:23:29 2013 -0500
+
+    updated search
+
+commit db92cd1e463f06e66b1e0cacaf99a2cffd77e305
+Merge: 47fe4ce 7c9513a
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 1 19:47:19 2013 -0500
+
+    Merge Completed
+
+commit 47fe4ce79f5e2e552e8e6004f62b0c069b322eef
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 1 19:42:17 2013 -0500
+
+    Got Filtering By Kind to Work, as well as WhiteSpace Image
+
+commit 7c9513abb297eea01341bb9a599b580859b78bb9
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Aug 1 19:06:34 2013 -0500
+
+    working on orgpage display where org has no image
+
+commit a24cff702629ebf065fe9195a143db274b099d2a
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Aug 1 17:55:22 2013 -0500
+
+    added images, summaries to orgpage, pplpage
+
+commit f81a2499e72e27cc4a34380b8701720a9af64c83
+Merge: 7edae35 9837760
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 1 17:42:02 2013 -0500
+
+    Merged My Work With Paul's Work - Kinds and Images/Summary
+
+commit 7edae35120606dac9d99d8439ee8ec05820c8467
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 1 17:37:59 2013 -0500
+
+    Filtering Crises by Kind almost done
+
+commit 983776096379e7d12e7876c91bd5e4cd47423b6a
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Aug 1 17:14:20 2013 -0500
+
+    images, summaries on crisespage
+
+commit 69329aee3123870a3d1255bad190e061c21e67cc
+Merge: 6671d59 98cb49f
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Aug 1 17:00:20 2013 -0500
+
+    added images, summaries to crisis page
+
+commit 6671d59eaa57acab5ba703bf294320368294d845
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Aug 1 16:56:00 2013 -0500
+
+    added images, summary to crisis dict for front end
+
+commit 98cb49f8fb6c039f4ff567906b9ac3aa556da62c
+Merge: c031bd2 1d56a59
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Aug 1 16:53:43 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit c031bd26e2c7c89980cffdae86e97ae878bbdfca
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Aug 1 16:53:31 2013 -0500
+
+    modified search; gives weird long result
+
+commit 1d56a592646e442676a66bc88696de48392f23c2
+Merge: 9876f1a 9670fec
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 1 15:57:48 2013 -0500
+
+    Merged Shaelyn's UI Work With My Query Work
+
+commit 9876f1a5d6fc56cac28d6cb0ac1574fb8d8f0321
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Thu Aug 1 15:55:14 2013 -0500
+
+    Queries Written
+
+commit 9670feccaa2d962b1bea4985cac60af187da458e
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Thu Aug 1 15:52:52 2013 -0500
+
+    redesigned crises, people, and orgs tab lists to include sized pictures, blank image included in this commit
+
+commit d2cad34a7626c5a914d78720cf53176d3c7937e8
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Thu Aug 1 15:12:35 2013 -0500
+
+    added crises, orgs, and ppl tabs with corresponding html pages to list import
+
+commit 7ec9d8193802203189ab1b5e634e73c4c511ec79
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Aug 1 14:26:05 2013 -0500
+
+    getLi()
+
+commit 5d391d530f15b8349aabdb017abfd836cc4673ae
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Jul 31 15:00:26 2013 -0500
+
+    added some li stuff to search
+
+commit 240cf08edcfcc8d68d4c04cb7336b25edeb982c1
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Jul 31 13:15:41 2013 -0500
+
+    fixed compile error in search
+
+commit 007893c64692cf394715f13d0c129677e36fb162
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Jul 31 13:11:25 2013 -0500
+
+    Modified search to handle exact case
+
+commit 3154c135ab24fb1a9304d6d70ea3e650a47e0991
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 30 21:57:46 2013 -0500
+
+    search() counting terms found
+
+commit 5e4893e48132912bbca6931c4ae9e9bcb0ea9b70
+Merge: 7c12af0 5a109c6
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 30 20:45:52 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit 7c12af01cace19962e31e5ab7c25610ea9129525
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 30 20:43:19 2013 -0500
+
+    deleted surplus search bar
+
+commit 5a109c68ed90da277ab4b03a385fcb3ec103e7e2
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 30 20:43:09 2013 -0500
+
+    fix
+
+commit 6da1b817c668b035d9513b1f865f6d6424ba6fb3
+Merge: b1bf7f9 ab9d650
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Tue Jul 30 20:37:24 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit b1bf7f9a1af3baea56dacc32f8e4430a5634713b
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Tue Jul 30 20:37:08 2013 -0500
+
+    Search Files added, Working on Queries
+
+commit ab9d65089006756988bacde14b1b16433f0370a6
+Merge: da44fad 394870b
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 30 20:29:48 2013 -0500
+
+    Merge branch 'phase3' of https://github.com/eddies5/cs373-wcdb into phase3
+
+commit da44fad165da71e84906bc51f0e692459ba040f9
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 30 20:29:33 2013 -0500
+
+    updated template htmls and homepage table added
+
+commit 394870bbdb50343e8750a814821674b7b2339f89
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Tue Jul 30 20:06:17 2013 -0500
+
+    Search Bar Now Links to searchView and passes query along
+
+commit 50cef0c21f79a6d87dfbbdafbed23bc4e6b878a0
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 30 19:45:13 2013 -0500
+
+    search() works for or case
+
+commit da9cbd47e0f8904e709cda5a1aa850a93637fff1
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 30 19:40:54 2013 -0500
+
+    updated webpage layouts to be less vertical
+
+commit fa23ba49e79fc0444f539c05a83e2803f8476d06
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Jul 29 21:15:33 2013 -0500
+
+    search() for terms in all attributes
+
+commit b655f1e00f16f915e1edcfd9cbc0e9a4e677b5d7
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 29 20:43:09 2013 -0500
+
+    new per_temp.html
+
+commit fecd6e0ac83efa6c53c04bb38a0782d4ad0d9101
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 29 20:24:45 2013 -0500
+
+    navbar white
+
+commit 77f9de67fdfb78ee411dff38a030927b325f6276
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 29 20:09:11 2013 -0500
+
+    seachbar lens added
+
+commit d0cdf2eaf4eb1d19e979517d93d6b600e2e180d0
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 29 20:07:12 2013 -0500
+
+    added lens.png
+
+commit b09289761a5e72fc0a1032253e3d7c49d96fb1cb
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Jul 29 16:37:39 2013 -0500
+
+    working on countIncrement()
+
+commit 8df70361dfeb5f5910313cd1cb767bb6f00fba85
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Jul 29 15:41:04 2013 -0500
+
+    search() - looks in name attribute for exact match, or case
+
+commit 5c94c6f81e77a8114e622cffe3b8c92f568ad840
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Jul 29 14:23:42 2013 -0500
+
+    search form added, skeleton of search function in views written
+
+commit cdf274f3fe8bf051d913d2f2891da2c9d05c3587
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Jul 29 13:53:38 2013 -0500
+
+    added search bar into the nav bar
+
+commit 829f192988167325e3f8e3d68f097711dacf8da9
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Jul 25 16:54:42 2013 -0500
+
+    revised technical report
+
+commit 64334ce2f6b0c9ad94141bf580a7d79db0313835
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 25 16:41:22 2013 -0500
+
+    added zip file
+
+commit 61e21c4fcd54c03cefea26f4848501be5312393a
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 25 16:31:43 2013 -0500
+
+    modified settings file
+
+commit dcfabe5d9532b96147aa5f327e45c01df8b389c5
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 25 16:26:37 2013 -0500
+
+    updated makefile
+
+commit bdaee3d002196034d7cb6df523b44a51ef9b6638
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 25 16:23:51 2013 -0500
+
+    added commit log
+
+commit 9c7749fded7a93901a9c5afd3b9e23ab32d0edeb
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Jul 25 16:13:29 2013 -0500
+
+    phase2 technical report
+
+commit 87598f5b6a832c901507f858b15625c526f641f1
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 25 14:50:24 2013 -0500
+
+    added documentation files
+
+commit 86e60fecaaf6f95a3e90573f253a778d6335bf4d
+Merge: e31ca82 a1b0012
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 25 14:17:08 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit a1b0012b3e65c090ac70d59d97145632a3514d58
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Jul 25 14:15:32 2013 -0500
+
+    added documentation for make_non_li_string(), make_li_string(), make_common_string()
+
+commit e31ca82ecbf58b63ae6235e82ef0b16856bcd521
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 25 14:10:32 2013 -0500
+
+    added more documentation and removed list_add function
+
+commit e46d5b1e0db7d29cb00a97d7fcdb2f0cef336d69
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Jul 24 19:52:43 2013 -0500
+
+    Update tests.py
+
+commit d03e6b1dada5866dcea264aedc64dfc5c2518189
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Wed Jul 24 18:44:09 2013 -0500
+
+    added download button
+
+commit c8a9b997b99457f120b64557fff00ab3b1bd4859
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Wed Jul 24 18:40:26 2013 -0500
+
+    a team in top now, removed img tags
+
+commit e472e2d5dc491c3765019e40bd7d0b203b1663ca
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Wed Jul 24 16:27:52 2013 -0500
+
+    finished unloadModels unit tests
+
+commit c9d66af5e160f9403b37e786912be84edd5ff1f6
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Jul 24 14:42:56 2013 -0500
+
+    added some documentation to unit tests
+
+commit 4aebb79bfdbabac5ae4fa2ed7df97a06a80ea56d
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Wed Jul 24 14:00:48 2013 -0500
+
+    working on export_xml unit tests
+
+commit 6206c7d1550e2bcff9e865875e87d7e59b21e917
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Wed Jul 24 13:36:52 2013 -0500
+
+    make_common_strings unit tests
+
+commit d67be0103a2cd32c919cc4d50832b3283fc513b9
+Author: Olga <osaprych@gmail.com>
+Date:   Wed Jul 24 12:15:10 2013 -0500
+
+    added unittest for populate() from Relations class
+
+commit b14716851ceb9fe53582d9d124823b0446e4ecf3
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 23 22:27:09 2013 -0500
+
+    export tests
+
+commit 666f86d8a6b74f0d21724127bba4f17a2be5b9b7
+Merge: 9255433 7270c94
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 23 19:50:26 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 9255433d42bde68775b1ac18bdac10d3b56ede33
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 23 19:50:12 2013 -0500
+
+    modifief XML and added coments to getDbModel
+
+commit 7270c94b69997c5ddef3bbe71dbcab2fa1b97eb9
+Merge: 7338d6d 00946b0
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 23 19:13:56 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 7338d6d28e6973e8b6411ab1679bb7b7d5d1a742
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 23 19:13:48 2013 -0500
+
+    finished unittests for models
+
+commit 00946b08fbb2c9a20fe5006460b384364472ac27
+Merge: 1b06663 31eac92
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 23 18:36:27 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 1b0666333856bde615e64062f2e64e5a0708f3bb
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 23 18:36:19 2013 -0500
+
+    people view tests added
+
+commit 31eac92fa05680ed12d0864b153e085b80f62ceb
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 23 18:35:45 2013 -0500
+
+    updated unit tests
+
+commit 99ee4924a72200117dc8eb7a3a2d1241cc700c7b
+Merge: 4643434 f680c63
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 23 18:31:09 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 464343451c704df91134bf03fac63d06a00de1b6
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 23 18:30:56 2013 -0500
+
+    added org and crisis view tests
+
+commit f680c630736e1b80409d1467114e0fdd00bdf9f5
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 23 18:29:14 2013 -0500
+
+    updated unit tests
+
+commit b20442a2513af8e819b33bcf05d2ff6c822947bd
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 23 14:57:30 2013 -0500
+
+    changed text descriptions
+
+commit 74c0a71ac554f96c98c9e43faa672866cbf9fce8
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Tue Jul 23 01:16:31 2013 -0500
+
+    Shan's XML instances altered for correctness, and Rafael Correa's Information Filled In Completely
+
+commit 683acea7f9e7c76698c86d9e88a6a38babeea50e
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Jul 22 22:08:07 2013 -0500
+
+    Print Removed
+
+commit 3a85099be20dac80abdf68cc8d0fccd9132624af
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Jul 22 22:03:56 2013 -0500
+
+    Export Completed - Duplication Bug Fixed
+
+commit 17e2c28767167b9118d983c8b37649b3431e24a9
+Merge: ea4ef8a c2109d2
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Jul 22 21:48:31 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit ea4ef8afc5d9f2cd3e62629ac9df0ba007c646dd
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Jul 22 21:48:22 2013 -0500
+
+    finished tests for import facility
+
+commit c2109d27c33c642a88405dfaeab522894a01926d
+Merge: 35fce53 5cf6512
+Author: Olga <osaprych@gmail.com>
+Date:   Mon Jul 22 21:44:05 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 35fce53d9240436ef95912d7cea1b40a68e38fb0
+Author: Olga <osaprych@gmail.com>
+Date:   Mon Jul 22 21:43:51 2013 -0500
+
+    added tests for getDbModels.py
+
+commit 5cf6512a432948448148e30633322fdaadcded87
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 22 21:23:20 2013 -0500
+
+    fixed a lot of xml, made it consistent
+
+commit e49b28ad572548b30fede5771ec2826f74be2be7
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 22 20:26:43 2013 -0500
+
+    added space for crisis citation, in template
+
+commit c6df8555c29e45dcab405143ec9e6c9222fa8b3c
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 22 20:26:06 2013 -0500
+
+    need to use href attr for citations
+
+commit c67629aa346ecd58e7a8570276c98a97726b3118
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Jul 22 20:16:01 2013 -0500
+
+    fixed carousal no image prob and a few xml fixes
+
+commit 1da04f13662668a087f7b6e88f78c39896fe3cb1
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Jul 22 20:03:25 2013 -0500
+
+    image carousal added to people and orgs
+
+commit e0f0e96e0e3c9f5317b89a74371ddc3f8e36ddb0
+Merge: f9066dd 166e7ca
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Jul 22 19:57:32 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit f9066dd367d1e5d61b9864ad8d6ea41fc956785e
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Jul 22 19:57:08 2013 -0500
+
+    more XML and html combing
+
+commit 166e7ca25e6ecf017273cb103a631b886b957370
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 22 19:56:58 2013 -0500
+
+    those 2 forward slashes have to be there
+
+commit 7b5c4c078716843dfa250702b23849c8b92a46be
+Merge: 1afb44f 43f85f5
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 22 19:50:47 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 1afb44ff202e2b5875e840747cbeed560919f9e4
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 22 19:50:38 2013 -0500
+
+    crisis template with pics
+
+commit 43f85f51eab9fc362ed504727c5faa4c108b55c7
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Jul 22 19:40:24 2013 -0500
+
+    updated XML and if statements for pretty html
+
+commit 4277550c669225c5a4e70607b0509e035cf80850
+Merge: d2329be db9b76c
+Author: Olga <osaprych@gmail.com>
+Date:   Mon Jul 22 19:30:16 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit db9b76ce06fc1217d865efb1aa250f186220d71f
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Jul 22 18:53:06 2013 -0500
+
+    Export Almost Complete
+
+commit 0346125b12c818990898d297a05d26419a25dc30
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Jul 22 16:57:08 2013 -0500
+
+    Export Almost Finished - Need to Figure Out Writing to File, Where File should be Placed, and make sure XML is valid
+
+commit 8db33c50ba344f20cd6c4f614f8011298304b44f
+Merge: 1119292 bd66006
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Jul 22 13:59:52 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 11192926fb7a5baef7f2f130677e9e11dcabe5bd
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Mon Jul 22 13:59:25 2013 -0500
+
+    Combed webpages and XML, esp Egypt and Nuc Dis
+
+commit d2329be34e53ac43d6b7a7613df32d94e2658331
+Merge: ccb690b bd66006
+Author: Olga <osaprych@gmail.com>
+Date:   Mon Jul 22 13:56:54 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit ccb690ba8da352f04655b6415dd3d4a1e0a21272
+Author: Olga <osaprych@gmail.com>
+Date:   Mon Jul 22 13:56:37 2013 -0500
+
+    working on unit test for getCrisis, trying to figure out how Li works
+
+commit bd66006fa87c4d801b593cbb3c3baed3364ffd11
+Merge: 7d8b9fd c2cf50a
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Jul 22 13:53:18 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 7d8b9fd9bc291dbf3efc4a6a0e1c5129a800b574
+Merge: 7a99088 69924bc
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Jul 22 13:53:01 2013 -0500
+
+    reserved merge
+
+commit c2cf50a7eb66f3fa4fa20ae8c68929535fb8978a
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Jul 22 13:49:46 2013 -0500
+
+    fixed string concatenation in make_li_string
+
+commit 7a99088dd99c68084d65b756ab60986736792343
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Jul 22 13:44:11 2013 -0500
+
+    Fixed null check case in getDbModel, removed vestigial attributes from models, added some unittests for import functions
+
+commit 69924bc17edd91d6d35e1cfdfecfc1aacb6a50c6
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Jul 22 12:58:20 2013 -0500
+
+    Fixed make_li_string to handle li objects as input rather than strings
+
+commit 45299e02ad8bc80ad9c36e5f034ee5e49104a2ec
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Jul 22 12:29:46 2013 -0500
+
+    Clean String method fixed
+
+commit 6b9e06a8dfdf0fd1a55a83a006ffabb6d2077fad
+Merge: e0b6296 f230235
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Jul 22 12:15:06 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit e0b6296bb4c72a3f0c0fa794f344c4e119dec371
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Mon Jul 22 12:14:47 2013 -0500
+
+    Export Crisis tentatively complete - debugging
+
+commit f2302353c4cf355ece9751b2abd5c7a237690c1c
+Merge: 7413f0e e307069
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 22 09:23:03 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 7413f0ec1f6482d8f6d79fee1e101c2cb62ef5cf
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 22 09:22:40 2013 -0500
+
+    brazil xml fixes added
+
+commit e30706963ea5f2c4663fa90c39de6d9027babf68
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Jul 21 19:42:10 2013 -0500
+
+    Export Crisis Almost Complete
+
+commit 4acce44a3168b62512fb3d017e4e57c3c81e4099
+Merge: 626444e f26bbbb
+Author: Olga <osaprych@gmail.com>
+Date:   Sun Jul 21 18:58:35 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 626444eae3c52da3df38cce021382d3a532d04f2
+Author: Olga <osaprych@gmail.com>
+Date:   Sun Jul 21 18:57:25 2013 -0500
+
+    modified test for getCrisis function; still need to figure out how to test Li in this function
+
+commit a26b8856dc783df983ebd08e1a9bebaf25bafc74
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 18:52:51 2013 -0500
+
+    crisis template updated
+
+commit 97ecb91eda7cf0934d2f005f135da5593e8c493d
+Merge: 49c4a47 f26bbbb
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 18:39:20 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 49c4a47911063d5eec35de5ad851a1ac8407f81e
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 18:39:16 2013 -0500
+
+    fixed some xml
+
+commit f26bbbbda2e7d05230ab0df6ce1acea103bbdd21
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Jul 21 18:31:45 2013 -0500
+
+    summaries now show
+
+commit d2334a8a4c808d7f28150a98f4cd3c3f9b469b92
+Merge: 2b78109 0aa78ef
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Jul 21 18:25:37 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 2b781094a107d681b9bab19e9e45cc60e612a8e3
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Jul 21 18:24:53 2013 -0500
+
+    html loads from xml well, need to adjust xml before can completely complete
+
+commit 0aa78efd33ae347c6687def66f230754524f560b
+Merge: 586e8a5 20857dc
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sun Jul 21 18:19:33 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 586e8a5a9dd30d1b8d49cfe95aeda1da01ba6fd4
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sun Jul 21 18:19:17 2013 -0500
+
+    added summary to common list in dict returned by getCrisis, getPerson, getOrg
+
+commit a11fee537cc872bd4d2b8960d67fc131a95dcf26
+Merge: 9683094 20857dc
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Jul 21 17:47:24 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 96830949186110a29d1ad426863f3562b646f8b6
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Jul 21 17:46:56 2013 -0500
+
+    updated XML
+
+commit 20857dcbb0a754908865a1032eba5e8a2d58459d
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 17:44:15 2013 -0500
+
+    cri_temp updated
+
+commit 5d7adf3277d9e9e575eb2c94e531119a420c1b04
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 17:42:55 2013 -0500
+
+    changed validate.py to use wcdb2 files
+
+commit 04d2164248f5df2873cb78a2eec24632cab6400b
+Merge: 9488ea2 dcb4dfd
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Jul 21 17:02:37 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 9488ea2c3e1d40a30f3d44739d7b8442de2166a4
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Jul 21 17:01:39 2013 -0500
+
+    html updated
+
+commit 203ad89309df6e4d17777fdbab65a53e292453b2
+Merge: c39e813 dcb4dfd
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 16:57:23 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit dcb4dfde67734795f024ae1fcc773b209b2bbc2d
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Jul 21 16:55:20 2013 -0500
+
+    Import Issue Adding Multiple Entries Fixed
+
+commit 6ef8cf343291f29ec24e480d0b00ffc9f5bd8a34
+Merge: 0b06f5b 912fe23
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Jul 21 16:54:24 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit c39e813e3dd4f0a8fd9cffa1c3e18449167ef256
+Merge: b3018d0 912fe23
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 16:42:40 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit b3018d0df93245a0efc2d7338632ffc287117340
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 16:42:36 2013 -0500
+
+    embed tag rid of html and just put url
+
+commit 912fe23c7e43feb6cbf2d6eec4e76fbb3708b2b1
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Jul 21 16:34:09 2013 -0500
+
+    fixed some invalid XML
+
+commit 20164596d1966e40fa4274babe05f06feb957218
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 16:30:40 2013 -0500
+
+    del WCDB1.xml, use WCDB2.xml
+
+commit 45d854d80a34278b078b77456fe132768339c4e6
+Merge: dcd1fd9 8aa56da
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 16:20:22 2013 -0500
+
+    merged for frontend
+
+commit dcd1fd91b516b2672faf998c411973d2864e88ee
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 16:17:58 2013 -0500
+
+    crisisview func changed
+
+commit 8aa56daeee4219b3c1d74557af313a550131a8b5
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Jul 21 16:03:24 2013 -0500
+
+    dev html and modifications to team xml, now everyone should use WCDB2.xml
+
+commit 923ae9291517d3a146e4ce3ae69a3c1cec16d25c
+Merge: 601845c 60623d6
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Jul 21 15:39:30 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 601845c44b9200ebdbd1a80d394d823156e49812
+Merge: 134d6ed b8cfb4c
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Jul 21 15:38:55 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 134d6ed695cf779e5c3e7737d2f4db684da8edf8
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Jul 21 15:38:44 2013 -0500
+
+    Started revising unit tests
+
+commit 60623d6cefd830469fe30a67bab0e3c67c02e4e6
+Merge: d4dec32 b8cfb4c
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sun Jul 21 15:38:38 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit d4dec3203300864640d5e4eb2f8dccf215204268
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sun Jul 21 15:38:23 2013 -0500
+
+    getCrisis(), etc return list of tuples from relations
+
+commit b8cfb4c2fef33ba71080148424519614f824bece
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 14:58:43 2013 -0500
+
+    updated drop tables sql
+
+commit 85af0a4cb920ba0bf5ab86b0d0ee2853b2059440
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 14:06:03 2013 -0500
+
+    fixed some bad url paths in index
+
+commit 0c1a526fc7ba74321b7f200763d3fdc7b396eb41
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 14:03:16 2013 -0500
+
+    fixed typos
+
+commit a55d7e26bc8936afe2c2f77c06bb9d54db73426b
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 14:02:59 2013 -0500
+
+    added code if dicts empty
+
+commit 45bd406867d5a03608ee6c07f0fedd57d50ccd3f
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 14:02:03 2013 -0500
+
+    removed unnecessary comments
+
+commit 4b8d417104a80262b48c8e8a79fe0f1fd564ec5a
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 14:01:19 2013 -0500
+
+    changed urls to cri_[a-z]
+
+commit 0b06f5bfa027aae11e634806725d0f6d56948756
+Merge: 58e3d0f 932629c
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Jul 21 13:48:40 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 58e3d0f5155bba1c6baa9176aba528b879f5b2cf
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Jul 21 13:48:33 2013 -0500
+
+    Primary keys working
+
+commit 1fadb573a141390b67df83fbc00e6aa3eae3eed3
+Merge: 35c0af5 932629c
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 13:47:26 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 35c0af5fe0e168a8d710bdf6b199bf298790c923
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 13:47:16 2013 -0500
+
+    updated, uhhhh I went to lunch and forgot what this commit did. Sorry...
+
+commit 932629c5d30d845d5cb08d7e2bf71e2d2a3c47d2
+Merge: 1169821 3a459cc
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Jul 21 12:59:53 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 1169821a0d38d24298c50eecd012ca3012d75078
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Jul 21 12:59:45 2013 -0500
+
+    Added primary keys to models
+
+commit 3a459cc005a739be18eb925a313d4cd28923acca
+Merge: bbaf1e7 fda5710
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sun Jul 21 12:24:57 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit bbaf1e784ac91bbe2fb2967fb323edc6d2f7458a
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sun Jul 21 12:24:40 2013 -0500
+
+    getPerson(), getCrisis(), getOrg() retrieve common data
+
+commit fda57107910cfded1c4776e44a4fdcd0d9f4a79e
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 12:15:01 2013 -0500
+
+    added WCDB2 schema
+
+commit 452851217a497922882ac47ce2db258557ebae60
+Merge: 7e249ab 31c4632
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 12:11:50 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 7e249ab1b2a9f01cd41f72be970dbaeb63284612
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 12:11:32 2013 -0500
+
+    updated to class schema
+
+commit 31c4632b7f1bc1f82c8892c16f7aa84b9b87be6b
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Sun Jul 21 12:02:52 2013 -0500
+
+    per and org html skeletons
+
+commit 74bf5bf3dbbe450e2476646791dc1c55946a036f
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 11:57:38 2013 -0500
+
+    orderedDict for front-end prettiness
+
+commit 259cb9ae9977bc9f8bb5b3969ae1584eef71286a
+Merge: a31549d 911b3a9
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sun Jul 21 11:47:52 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit a31549d503a4939d8ff10e85a6d5ac7b00ca43ff
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sun Jul 21 11:46:52 2013 -0500
+
+    sort dict of ids by name
+
+commit 911b3a9d5ceaf2142d0fbd846d208b7349059cb4
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 11:24:46 2013 -0500
+
+    links to pages dynamically rendered, they don't work yet
+
+commit e745a5f646dbf27ded6533418e00995e03db4eda
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 21 11:06:07 2013 -0500
+
+    switched dict keys for getIDs
+
+commit ec9110d644f6b459ea8368bc913072ae60d70a92
+Merge: 4af91b3 6e70da7
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Jul 20 18:21:47 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 4af91b3507299e0a2614f7977ac0227891822326
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Jul 20 18:21:15 2013 -0500
+
+    modified getDbModel; still need to fix getting data from Li table
+
+commit 6e70da7f2fd0300830bab2987ddff5468718b476
+Merge: 7376abb ac2e088
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 17:04:04 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 7376abb62c851589c7ccfb5a4fdec0d1b7989ca7
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 17:03:54 2013 -0500
+
+    import working
+
+commit 8b2e653b068c8f320699188a38f805f6e078f2ae
+Merge: 12486fa ac2e088
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Jul 20 16:38:24 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 12486fac887fcb017fa1e51fe19c48b241f129ea
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Jul 20 16:37:22 2013 -0500
+
+    modified getDbModels.py; added getPerson()
+
+commit ac2e08889167d8da05042de68a538882d979039c
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 16:21:11 2013 -0500
+
+    Update settings.py
+
+commit 4673989949aa0330dc107e4697bbb865800daba7
+Merge: c63fef4 77b7c38
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 16:10:40 2013 -0500
+
+    Debugging import
+
+commit c63fef418a361e0f93ae5fab87fa7c7b62feef2d
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 15:23:46 2013 -0500
+
+    updated loadmodels
+
+commit 77b7c38f8c9b95a335484cfb3819227ac60ece16
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 15:21:10 2013 -0500
+
+    Debugging models/loadModels.py
+
+commit 129d31cdb0a83612e2d2fc3951e294cb5d33ff53
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 15:04:04 2013 -0500
+
+    Import Code Finished - On to Debugging
+
+commit b06941380fac169400a8184ded5f8f51f86a81cd
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 14:57:46 2013 -0500
+
+    loadModels updated to populate info in common nodes
+
+commit 1f6deb01a59368a2c1afa4e44e46c5b178c8a02e
+Merge: 92eb33d 4ecc45d
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 14:20:13 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 4ecc45de686d832864540c7f04f417473f4ccda2
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 14:19:53 2013 -0500
+
+    Common populate() updated
+
+commit 92eb33defa9633489adeeab60fbc8e577178db7e
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 14:19:12 2013 -0500
+
+    updated loadModels
+
+commit cc10b3c97a85676621134dbc018d2b8cd1f6024d
+Merge: 900c8cb 3f03092
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 13:46:14 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 900c8cb927fcadf00c94a660d65f121b823c1c6e
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 13:46:07 2013 -0500
+
+    Modifications to models.py and loadModels.py
+
+commit 3f03092e0449f0121508238bdbdc4ffc5a384bdf
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 13:45:19 2013 -0500
+
+    added populate_li function
+
+commit dc581791d07dc7a8a1e57214e8241e19c12c9061
+Merge: 9d8360b 7ba2937
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 13:24:42 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 9d8360be6068f497268ef53da8a47e624a54b173
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 13:24:29 2013 -0500
+
+    Li model updated
+
+commit 7ba2937e539f303502c45709607b158f896dba7a
+Merge: ec47094 be5a475
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 20 13:11:07 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit ec470947a732415e3e4ebe0c4a2a8cba6c2dddee
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 20 13:10:59 2013 -0500
+
+    getID functions
+
+commit be5a47573a7f74077aff949d0e7d946247580844
+Merge: 6449e6b 9a74f5f
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 13:08:31 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 6449e6bd0a8ebb397a93c41f64d0726501881c3e
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 13:08:23 2013 -0500
+
+    incorporating relations model into import facility
+
+commit ac12c5c68b2de97664a6d9b0363de8803165a29f
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 13:05:43 2013 -0500
+
+    added relations model
+
+commit 9a74f5f2b10e895134c10872575e46d3badea5be
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 12:31:19 2013 -0500
+
+    populate_models in loadModels.py rewritten
+
+commit f43b6c5764c250ce37abd4bd2f6d53969746fa59
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 12:28:04 2013 -0500
+
+    Removed citation numbers from ORG_NSA in XML
+
+commit 979a8fb8bd61d33fe7f9f8588941cdff92f034e2
+Merge: 14b4ba0 decec63
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 20 12:20:35 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 14b4ba0a359a49eb390585241d1776b832377073
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 20 12:20:25 2013 -0500
+
+    drop tables like they are hot
+
+commit decec63f9e5ded5167693f1e78ccd3b06c955ffd
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 20 12:05:47 2013 -0500
+
+    Removed Citations from My(Shan) XML instances
+
+commit 301740ee109f631b6d6e659eeda9ff64df43c438
+Merge: 4f8fa37 5cc3c78
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 12:02:17 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 4f8fa37b325694e73395a4c02cfd0886fb494fe3
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 12:01:56 2013 -0500
+
+    Updated models
+
+commit 5cc3c78f70482b8cdd5415f983154a108c6deb51
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 20 11:55:19 2013 -0500
+
+    added more to cri template
+
+commit 61d74ef9aed692ad9cfafdff95f16ae12c590f6e
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 20 11:38:14 2013 -0500
+
+    more added to cri template
+
+commit 6fefaaa6310824283632af0a3d3eaa270c8184ea
+Merge: e0fc29c bb50d56
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 20 11:05:27 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit bb50d566afaf729bf6e10f951aa8392e5943dcee
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 20 11:04:37 2013 -0500
+
+    settings.py without pauls db info
+
+commit e0fc29cadf8a2a0527bc94a6ddafde7dc90d4def
+Merge: 4f9f6c4 6e9e704
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 20 11:01:24 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 6e9e7047b793eb0ea04f7a92cf7ba7d660028768
+Merge: d8ae83d e6e7f6d
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 20 08:57:57 2013 -0700
+
+    Merge pull request #55 from eddies5/phase2
+    
+    dev <-- phase2 fixes #52
+
+commit e6e7f6db35c0fdd7717061f63a4222b381876be3
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 20 10:45:37 2013 -0500
+
+    added changed urls in comment
+
+commit 872d0db083aa65470e68ab6cb58a0d888364b4b9
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 20 10:12:08 2013 -0500
+
+    added skeleton methods for urls for home page
+
+commit 42b3e0fa6b4e321dafa105ba1cc748a488ddb3e6
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 20 10:10:42 2013 -0500
+
+    it appears I added the member table here
+
+commit 2227055e58cabe6c9ad835854c4495b5b4767d0e
+Merge: 5ec85ac 61eb2d3
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Wed Jul 17 11:31:00 2013 -0500
+
+    Merge branch 'phase2' of github.com:eddies5/cs373-wcdb into phase2
+
+commit 5ec85ac410a2d395fe2cb879b969e602f0d89719
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Wed Jul 17 11:30:37 2013 -0500
+
+    setup paul mysql db
+
+commit 61eb2d3169d9225724723759601218598f0b4d08
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 16 20:51:09 2013 -0500
+
+    New file to dyn access future DB models, views setup for this future change
+
+commit 1c1c676fbef246f4a8d8f0c6d882413416659104
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 16 20:09:13 2013 -0500
+
+    Beginning of imp for dynamic crisis/person/org views, unpackDict and get methods added to views.py
+
+commit 3e4b33511c2110b21bde8c9fc734db5e396b58eb
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 16 19:37:51 2013 -0500
+
+    added style.css back in & changed layout a bit
+
+commit c6ce0043c1dc24041f0b5598dcc05a342381a0b8
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 16 19:31:03 2013 -0500
+
+    fix front-end typos & added css
+
+commit c02a30406b12f217653ceb04c50c517e0e0ac313
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 16 19:18:18 2013 -0500
+
+    added skeleton crisis template
+
+commit 8650f68471bb3fe353e970726d053d8d58238412
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 16 18:59:37 2013 -0500
+
+    started frontend redesign
+
+commit 4f9f6c42cd532e24285e3889b976ef7ae43ac0ae
+Merge: 32d79be d8ae83d
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 16 18:19:08 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 8e6be44f6aef1c3b1360d8d9689deb6322c32f05
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Tue Jul 16 16:21:46 2013 -0500
+
+    XML Updated: Wiretap, Snowden, NSA, Morsi, Zhang, Perry, Texas Wildfire XMLs complete
+
+commit bfddc2f062c08e7033104c1d12b0996485e4177a
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 16 15:33:50 2013 -0500
+
+    removed class variables and converted Li into a model
+
+commit b563bca0ea06efbb09653775ec92d75e44063633
+Merge: 7e6330f d8ae83d
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 16 13:41:02 2013 -0500
+
+    merged development branch into master
+
+commit d8ae83d231929350e8914b1b9047468a3af23be4
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Mon Jul 15 19:40:04 2013 -0500
+
+    updated brazil xml some
+
+commit 32d79beaf2fb69731fe4f9c836f9c97d5a64b33e
+Merge: b72db1b 6fb2610
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 19:14:53 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 6fb26106b6eba730d91842742c05d27cc8e03e8d
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Fri Jul 12 19:13:50 2013 -0500
+
+    Corrected makefile: added schema
+
+commit b72db1b71cc5ee3b9c2c0bacd23474deedfd493c
+Merge: a7d4552 91adbe3
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 19:00:22 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 91adbe3fea25dbbbe0345444acd6314396fc4263
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Fri Jul 12 18:59:34 2013 -0500
+
+    Corrected makefile
+
+commit da127d02a50e2d1d996e9dc26c9d14db4cde2831
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Fri Jul 12 18:45:31 2013 -0500
+
+    Augmented makefile
+
+commit a7d455254af273b5b876fee1295c01838c8781fb
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 18:41:44 2013 -0500
+
+    updated validate.py to use new filenames
+
+commit 33213d587208f1ac08c93d8b654f937484e5f600
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 18:40:19 2013 -0500
+
+    renamed xml & xsd files
+
+commit 4bfdef2af08c7fc6c4cd9ebea971151d4ce6969c
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Fri Jul 12 18:26:20 2013 -0500
+
+    report added
+
+commit 7861d26f94e8e8015c6c3f63f06b4437042e23e8
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 17:47:22 2013 -0500
+
+    pydoc done
+
+commit 1462857e6c65e916d49d633c9e389cf7b67db290
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 17:34:51 2013 -0500
+
+    removed TestWCDB1.py
+
+commit cf2fdb0a1ce175e0ef1343ec7790de5a969871ec
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 17:06:08 2013 -0500
+
+    rm'd pages/
+
+commit 4afd1e53a2862fa1aed5cd38b3183f04c214c461
+Merge: 9d5ee45 9b211a0
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 17:03:53 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 9d5ee45c538b4d1baef0ecf94756166187cb5f2b
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 17:03:35 2013 -0500
+
+    comments added to unload models
+
+commit 9b211a0418dff8e15b46e5ac6c23787fd2ad2fa1
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Fri Jul 12 16:51:14 2013 -0500
+
+    WorldCrises.xml Updated - Person Info Added
+
+commit b14c6d35711a3c413b3e95a62b28d2e327617c24
+Merge: bc49073 11d844a
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Fri Jul 12 16:49:19 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit bc490731c0b802ee6dc8d08e2091abf4a66cdf63
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Fri Jul 12 16:49:14 2013 -0500
+
+    WordCrises.xml Updated
+
+commit 11d844aafe0e9ec3e43e06529f6ac41bd5469a55
+Merge: a6c21e0 346f25f
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 16:07:04 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit a6c21e096d20154783557766bcd1eaab2c6a5203
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 16:06:54 2013 -0500
+
+    check for a few optional elements added
+
+commit 346f25fd5307fe163e7fb79871678a2518336d8f
+Merge: 80449fd 73ef78e
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 12 15:55:38 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 80449fd4294e75a8e18e614654397098d3e169bb
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 12 15:55:24 2013 -0500
+
+    added social network links to nsa crises
+
+commit 73ef78e4a57f19c61fe25b0f802241b2d92b8b7f
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Jul 12 15:07:07 2013 -0500
+
+    Completed unittests.
+
+commit 87bf96dda667c2528dd4ead9e486f698bb2bdbcb
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Fri Jul 12 14:37:00 2013 -0500
+
+    TX Wildfires, and Rick Perry XML's added
+
+commit cd6ecd1df8e9f8c829a012d0d052dc6c4f0f069c
+Merge: fafd1b8 d53f083
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Fri Jul 12 14:29:47 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit d53f08355f4d05de9c94c051a9100dca62c2a6d8
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Jul 12 13:46:22 2013 -0500
+
+    Tests ready for triplication for submission
+
+commit ccd09fd5b62c2c3c544a36b719501393c76ff042
+Merge: 1524445 981f41f
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Jul 12 13:35:57 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 1524445b707d7a34d7aded528b9085feed5eb6b8
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Jul 12 13:35:15 2013 -0500
+
+    working populate unittests
+
+commit fafd1b8bd33e21cec57fccb4e3cf4a369d94b7ab
+Merge: 41fe1cd 981f41f
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Fri Jul 12 13:34:19 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 41fe1cd3e39674b3fd7badcc4ddc84241cb38daa
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Fri Jul 12 13:33:12 2013 -0500
+
+    WorldCrises.xml updated - Texas Wildfire Added
+
+commit 981f41f54df608fe4a3d9af44d7672c5cda7dd86
+Merge: c9c07e0 749194c
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 12 13:31:40 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit c9c07e09e3b21a55f303a2f208dc880db3d6f524
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 12 13:31:13 2013 -0500
+
+    added Snowden to WorldCrises.xml; modified social network feeds on Snowden static pages
+
+commit 749194c87c0d8776a24fd7e0d6cd33537803e2bf
+Merge: 1bc1399 3738b7d
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Jul 12 13:06:51 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 1bc1399f12e861dd73070ffbcc92f748ecbd35ad
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Fri Jul 12 13:03:58 2013 -0500
+
+    added constructors to models
+
+commit 3738b7dfb086e0a152684aacc0f108cb16f86408
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 12 12:01:11 2013 -0500
+
+    modified WorldCrises.xml, so it passes Validate, but we need to add missing info
+
+commit 619bab0d52407694f2649aacfe308962a49440ce
+Merge: 89f872a 32e0d66
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 12 11:12:53 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 89f872a9f7e05e96168897d3021439e5ecb5eb25
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 12 11:12:39 2013 -0500
+
+    added comments to tests.py
+
+commit 32e0d66f06219e93137af2a56b4797d7e24eddbd
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Fri Jul 12 00:17:23 2013 -0500
+
+    updated our xml instance
+
+commit 1242aed1734e2e69a0f315cdb5d24577ea66a827
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Thu Jul 11 23:24:05 2013 -0500
+
+    Almost complete unit tests, need to add mult versions of a few
+
+commit e5d2282e4ba2ed9f3559af73331d3bb13dd62314
+Merge: d8634a8 ad6d594
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jul 11 22:14:07 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit d8634a86eef233c0a294716832508625aa0ae808
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jul 11 22:12:45 2013 -0500
+
+    made some changes to the static pages and added makefike.py
+
+commit ad6d594f8387528d36e3720f714307c000055a07
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Thu Jul 11 21:40:40 2013 -0500
+
+    tests ok forinitial submission
+
+commit 7956b1f7634436afd21848c5ccc3ce3577536a5c
+Merge: b352cfe bc115ab
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Thu Jul 11 21:26:25 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit b352cfeda905d49deedf7b4077f466bce43701b5
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Thu Jul 11 21:26:07 2013 -0500
+
+    more unique unit tests
+
+commit bc115abeaf67bf2342326fb6d362b0fdbd0adac6
+Merge: 8b3eb82 599eea3
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 11 21:24:00 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 8b3eb822a9160cfa189cb4fb9ca2abf815b14484
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 11 21:23:30 2013 -0500
+
+    added documentation to loadmodels.py and models.py
+
+commit 599eea3b24b707c05cfdad2a24eee904fceb622a
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Thu Jul 11 20:40:05 2013 -0500
+
+    added comments to views
+
+commit 00b6d5a16fbab440ba397b3be363bf85ec84ff13
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Thu Jul 11 19:32:58 2013 -0500
+
+    More tests and bugs fixed, pizza party time
+
+commit 3d6b5ffbbfe67657723a7f7fda31c478157f91b1
+Merge: 34c32f3 033fd31
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 11 19:18:09 2013 -0500
+
+    solved merge conflict
+
+commit 34c32f31b45c3e4d5d5d2300dd2a0f87cad04a28
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 11 19:14:30 2013 -0500
+
+    Added documentation comments
+
+commit 033fd3166db005873e7136d8651284ae66a6c511
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Thu Jul 11 19:13:27 2013 -0500
+
+    Fixed some backend bugs found with unittests
+
+commit 3422486ef2edac76a92195a3679ed44ce0dc9cfd
+Merge: bfb19ae 96abb82
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Thu Jul 11 19:08:32 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit bfb19ae5917b5ffe51e24f936642d89aa095ec7b
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Thu Jul 11 19:08:22 2013 -0500
+
+    tests for backend added
+
+commit 96abb8256dfd7e50d9f37d342896f70cb5fbc39b
+Merge: 089ebd6 328a6d7
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jul 11 17:29:19 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 089ebd628f10d6fa6eb818e79038ee1558fc01d2
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jul 11 17:27:57 2013 -0500
+
+    added tests for views.py
+
+commit 328a6d790bb382d3eb489f1602397e187713a722
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Jul 11 14:46:06 2013 -0500
+
+    added validate unit test to check for exception
+
+commit a02c9031832285591bc65cdca00ffeccc5d2768e
+Merge: af8cc1c ea7180f
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 11 14:31:44 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit af8cc1c8d68d70db3cb9cededfdb1bb0bd6530d8
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 11 14:31:23 2013 -0500
+
+    Modified load models to populate person.common
+
+commit ea7180f2b07a4c44d8309e86ad2e571f4e87006a
+Merge: 38bb569 48d9d42
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jul 11 13:44:52 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 38bb5697a8970a88c97ebdb3ae2ec79f82f86f05
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jul 11 13:44:36 2013 -0500
+
+    modified bee crisis static page
+
+commit 48d9d427f3046e435e41ba8e3a4fddec4d3aa4cd
+Merge: 29687c5 f3acd88
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Jul 11 00:10:28 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 29687c5b1b73424bcdc4b8b911b684aa05bc8790
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Jul 11 00:10:00 2013 -0500
+
+    13 unit tests, all pass
+
+commit f3acd881fcd635342aef98d3a378cfef527ea47f
+Merge: 7c2e818 55cc72d
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Wed Jul 10 23:09:43 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 7c2e818566a59f9f976736470aa7b5365bfaec88
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Wed Jul 10 23:09:31 2013 -0500
+
+    bad xml handled
+
+commit 55cc72de8c7da45dd80b546f71d1c81054e68f85
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Wed Jul 10 22:31:26 2013 -0500
+
+    13 unit tests, 0 errors, 7 failures
+
+commit f88bc8c8f4b7e366dc03df06df86bc3054308f55
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Wed Jul 10 22:20:32 2013 -0500
+
+    reduced version of previous commit
+
+commit 1b2f3cb64a894d817f0a641d1067c02937a49be0
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Wed Jul 10 21:46:00 2013 -0500
+
+    & and &amp valid xml generation case fixed
+
+commit 15ed151ce1094cc35ad9377811ed1336e0671e0f
+Merge: 6b45861 1799d6b
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Wed Jul 10 21:25:32 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 6b45861c3946ddb41ab3b607ad3cca057a1eae2d
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Wed Jul 10 21:25:18 2013 -0500
+
+    unittests run dynamically through site, & better looking front-end views for unittest & export
+
+commit 1799d6b01d31e986adf00e7c534612b5ab15d3c8
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Wed Jul 10 21:10:01 2013 -0500
+
+    unloadModels print correction for org's people
+
+commit fca5734d04afdffa3cc33769349b9a89a7cc05a0
+Merge: 55af8cb 1e27303
+Author: Olga <osaprych@gmail.com>
+Date:   Wed Jul 10 20:39:54 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 55af8cbd86a86f3af767283ceb4ec572cdc01532
+Author: Olga <osaprych@gmail.com>
+Date:   Wed Jul 10 20:39:12 2013 -0500
+
+    added images and citations to them in bees crisis, org, and person
+
+commit 460ff68d404a8ed256949ce21c3bee954ade4773
+Merge: fd132b3 1e27303
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Wed Jul 10 20:37:12 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit fd132b3fe6efb831a87c740d527817e2a1c083e3
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Wed Jul 10 20:36:59 2013 -0500
+
+    correct front-end view for hitting export before import
+
+commit 1e273035f47b1ac91bce03a44f5b8f7e4bd64b2e
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Wed Jul 10 20:19:37 2013 -0500
+
+    running unittests with sqlite
+
+commit 27b2f34727d62500045e94887b912f2e38bd6f02
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Wed Jul 10 20:11:55 2013 -0500
+
+    using sqlite3
+
+commit 2bb7479750395bbe3525f0b9650ea7d6f81d20cf
+Merge: 28f35d9 752e0f9
+Author: Olga <osaprych@gmail.com>
+Date:   Wed Jul 10 19:18:05 2013 -0500
+
+    resolved merge problem with views.py
+
+commit 28f35d91a6f83d53916c8a4b6a33619e8e07b06e
+Merge: e9a5415 23ad5b3
+Author: Olga <osaprych@gmail.com>
+Date:   Wed Jul 10 19:00:32 2013 -0500
+
+    resolving merge conflicts
+
+commit 752e0f9f8feb6626cc13ab0a602d1c3353bf1a59
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Wed Jul 10 15:04:05 2013 -0500
+
+    Fixed duplicate etree mistake
+
+commit fa3a765df30b5eb4bc490325865ddee1c45dd7c4
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Wed Jul 10 14:14:17 2013 -0500
+
+    print_xml() added to Common and Li  classes
+
+commit 23ad5b3f7c7523f0ad3977373dc29b4afee3ac85
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 9 23:04:29 2013 -0500
+
+    Successful export of crisis, person, and org Django models
+
+commit 71840a09b12e2c0e60e10f4c2ffa11efeefc4bb3
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 9 22:47:23 2013 -0500
+
+    working on validate tests
+
+commit 0755b71a8adbb97890c9325e31cc228937c5f0bb
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 9 21:52:53 2013 -0500
+
+    SUCCESSFUL EXPORT OF SINGLE CRISIS
+
+commit 84d6e26ccfff0f49158a74514be80776ce808f73
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 9 21:44:42 2013 -0500
+
+    views now calls kickoff function for export, export has a bug
+
+commit f2e020b491674b463e7d3f9bde2fbe99a9df689c
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 9 21:14:52 2013 -0500
+
+    added a + to fix syntax error
+
+commit 2eb1f2e58a351ccd8db351f361ce3d7ab15af2a7
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 9 21:11:03 2013 -0500
+
+    tab/space issue probably fixed
+
+commit 53cf1e71af1e242a13b73841c3281304dde78d88
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 9 20:50:12 2013 -0500
+
+    export minus rough draftedness
+
+commit bfe36984eb50c73ed99f52ddc01577922feca865
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 9 20:10:01 2013 -0500
+
+    updated export logic
+
+commit 2447d869a25d5f70e3286c698746d3f31e5e103f
+Merge: 51b9f79 6dcc6bf
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 9 19:38:14 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 51b9f79b7726237572a26ab6fb21b116efd9fa56
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 9 19:38:09 2013 -0500
+
+    import appears to be properly poplating models
+
+commit 6dcc6bff2dd6266b93cc41762ad60df2e77b08fd
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 9 18:56:47 2013 -0500
+
+    Export smart
+
+commit e9c4deb0bb1d16b8b9d60a4f542d20a501d098b8
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 9 18:49:18 2013 -0500
+
+    fixed: commented out line 69 receive_import()
+
+commit e9a5415003f5df11aa9be404f435e9e8b576c565
+Merge: 4bb9cdd 4b55cdb
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 9 18:36:50 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 4bb9cdd5cefc6a9638e91edcb4f7ead57f2df8bd
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 9 18:36:35 2013 -0500
+
+    added html page for unittests
+
+commit 4b55cdb81397b1d0563f9ea2336744dad985960c
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Tue Jul 9 18:11:45 2013 -0500
+
+    NSA,Snowden,WIretapping Static Pages Complete
+
+commit 331a20c3c6c495c3c88c525fcb2cd315ae087a03
+Merge: dac5898 3417114
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 9 18:09:14 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit dac58989f05d15cc88c94d110315e1f757b3d1ac
+Merge: 3a974f4 342036d
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 9 18:08:56 2013 -0500
+
+    added password to Import
+
+commit 3417114a72723780005af1da3481ad948ce80818
+Author: Shaelyn Watson <shaelyn@cs.utexas.edu>
+Date:   Tue Jul 9 18:06:18 2013 -0500
+
+    Startup of export functionality
+
+commit 3a974f45634b3ba44c1ad7a544d31a24d15ded61
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 9 18:01:48 2013 -0500
+
+    added password to Import
+
+commit 342036d0c28d4cb5ac9e54aa7dce3964549c1bee
+Merge: 36e7e0f 81b5ca7
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 9 17:40:09 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 81b5ca70047d787352748ceaff44fc1ed7d02caa
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 9 17:39:32 2013 -0500
+
+    fixed &
+
+commit 36e7e0ffb7f48830f2ad45db33668ce1e0fcdf0a
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 9 17:39:29 2013 -0500
+
+    ignoring temp xml file
+
+commit ace52b69623b496c533c8fca26cef4ee4f0bb771
+Merge: 6374fa6 ef30832
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 9 17:25:55 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 6374fa6113b82b69b0de0063d443dd756e69f170
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 9 17:25:45 2013 -0500
+
+    passing models back to views
+
+commit ef30832942fb4dc0f1a340f87eae991af755ed8b
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 9 17:11:13 2013 -0500
+
+    fixed Guzman missing image
+
+commit 06c61704d1104902a085fb86a63ebe49654e2b9b
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 9 17:03:35 2013 -0500
+
+    fixed views.py
+
+commit da8eb4673ff793ab052be559a2428a13576b0c45
+Merge: 216d62f 142f3f9
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 9 16:20:26 2013 -0500
+
+    merged views.py
+
+commit 216d62fb4ee3ae95f7f4771130260c560510d408
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 9 16:15:12 2013 -0500
+
+    attempt to create password on import page
+
+commit 142f3f9aa2b19a20d0d453226ed30911300704da
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 9 16:03:28 2013 -0500
+
+    improvements on uploading
+
+commit 6b22041fcf06a278ae252d9d949def157a9e0fc7
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 9 15:15:13 2013 -0500
+
+    passed tree to begin loading models
+
+commit 5721e2c538860948db575668320e51f4dfc197c5
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 9 14:44:26 2013 -0500
+
+    some case handling in loadModels.py
+
+commit fa55f4ec31e9afa6e367ed89442ef370a3a07cf9
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Tue Jul 9 14:15:40 2013 -0500
+
+    we get an elemtree now from minixsv
+
+commit acdbdcc4d02574cbf57805213f9fdda854fd0083
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Tue Jul 9 00:11:30 2013 -0500
+
+    added links on homepage to guzman
+
+commit 951d2697fb3e901a982bb69ffcf44d2d4ca8e71b
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 9 00:01:15 2013 -0500
+
+    Guzman static page
+
+commit 8de60cc4a3b3ae2e7c7742707714eb5f607ecc5b
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Jul 8 23:28:04 2013 -0500
+
+    Sinaloa Cartel static page
+
+commit 34c07512484d44f94d8865a66f6b1c278ddec0e2
+Merge: 3c8a717 60a4b47
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Jul 8 22:11:15 2013 -0500
+
+    import updated
+
+commit 3c8a7170b3ba489cceaeb756bf43a00e8088cc9f
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Jul 8 22:03:34 2013 -0500
+
+    Attempting to use minixsv
+
+commit 60a4b47cfa4eb58c8acfe0db60a5353cc4ece34e
+Author: Shaelyn-Watson <shaelynjoy@gmail.com>
+Date:   Mon Jul 8 22:01:17 2013 -0500
+
+    Unit tests for models.py (untested bc mysql error)
+
+commit eeec1203913f8dba71ef46bf3ad558b6aa132784
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Mon Jul 8 21:31:18 2013 -0500
+
+    Mexican Drug War static page
+
+commit 3a27c5292f2b37bf81308c64598b227c0f460957
+Author: Shaelyn-Watson <shaelynjoy@gmail.com>
+Date:   Mon Jul 8 21:21:00 2013 -0500
+
+    Began imp of unittests, but unable to run with mysql
+
+commit 4047d565a09b5ed233e961f79ca5a90802f41d9f
+Merge: 045cdce d061f1b
+Author: Olga <osaprych@gmail.com>
+Date:   Mon Jul 8 21:17:05 2013 -0500
+
+    resolved conflicting merge in views.py
+
+commit 045cdce41b3dac61a72b1a49b64b794c54fabd6f
+Author: Olga <osaprych@gmail.com>
+Date:   Mon Jul 8 21:12:42 2013 -0500
+
+    Updated import and export static pages
+
+commit d061f1be1b29c5bddec969ab719ab5cf958a0122
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 8 09:40:27 2013 -0500
+
+    added file handle
+
+commit dd88c774bc38c2df2daffb0ecac71eaec52d5fd3
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Mon Jul 8 09:15:02 2013 -0500
+
+    added minixsv
+
+commit 60e9739ee7591f0b3df0773ed8ffc4ee12d20fd9
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sun Jul 7 23:17:03 2013 -0500
+
+    Updated import.py to conform to the current unified schema
+
+commit 73408ced9b593afd321927f89c265b60403f3aaa
+Merge: 2cd4b99 c298be3
+Author: Olga <osaprych@gmail.com>
+Date:   Sun Jul 7 19:22:23 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 2cd4b9920488f6e5a94e06d57d64acd017473be8
+Author: Olga <osaprych@gmail.com>
+Date:   Sun Jul 7 19:21:56 2013 -0500
+
+    added embedded maps and videos to bee crisis and org
+
+commit c298be3578ed1e99e6f5d3ca600e895fa5b33cf4
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 7 19:00:57 2013 -0500
+
+    added Dilma as a Person
+
+commit e8c6ac05a74c1a80d379c463a5c25d9b5a300dc8
+Merge: ec92a02 1f36824
+Author: Olga <osaprych@gmail.com>
+Date:   Sun Jul 7 17:20:22 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit ec92a02fb5f3a58962eb4a60e622630e1d735878
+Author: Olga <osaprych@gmail.com>
+Date:   Sun Jul 7 17:20:06 2013 -0500
+
+    added videos on bee crisis page
+
+commit 1f368249085a34f78d884e374022dab3b98bc689
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 7 16:30:41 2013 -0500
+
+    added empty TestWCDB1.py for unittests
+
+commit 568ad1c3d47a80fc3a1ff46f7100ff4539f20a61
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 7 16:14:17 2013 -0500
+
+    added xml data for cri_nsawrt
+
+commit ba19679080b33da9e37528d6eae90aaa029265e2
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 7 15:36:10 2013 -0500
+
+    added empty crisis tags
+
+commit f96f7be7acdbee733ea2aaee2c18242d9ba9efaa
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 7 15:35:53 2013 -0500
+
+    added python path in file for executable
+
+commit 9ff5daa25dbb206c4d67e15c5ddcdcb20ae54475
+Merge: 08904f3 840f7e1
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Jul 7 15:22:16 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 08904f32fa6d35f3a4f11fb999ce3fba709cf206
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Jul 7 15:21:49 2013 -0500
+
+    Links on Static Pages Updated to Link to Our Other Pages
+
+commit 840f7e1e113b0dfcae685ddcfb51b7869b6a0988
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sun Jul 7 15:14:02 2013 -0500
+
+    removed links from import page
+
+commit 05a85f82dcff783c2160a4eb054e441f9bf4ae4d
+Merge: 28c8cef c55d612
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Sun Jul 7 13:10:11 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 28c8cef2bd77afe27c39e07d11f8316060544333
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Sun Jul 7 13:09:54 2013 -0500
+
+    beginning to reconstruct our xml data to conform to shared schema
+
+commit c55d61263c43b83c0a0cc5c923eef6049b72744e
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sun Jul 7 11:47:01 2013 -0500
+
+    Snowden and NSA Static Pages Finished
+
+commit 706567dede131c6005c8601137c408cddc763c1f
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Sun Jul 7 09:30:18 2013 -0500
+
+    fixed broken tag
+
+commit d7b1028c2b20ed1e0b0f2cee98fb198a179d2571
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 6 18:48:25 2013 -0500
+
+    Fixed a Couple of Broken Links on NSA Wiretap Crisis page
+
+commit 06bcee0e65ec028636552949e70cba35ff0e8e05
+Author: Shan Gupta <srg538@cs.utexas.edu>
+Date:   Sat Jul 6 18:41:39 2013 -0500
+
+    NSA Wiretapping Crisis Page Completed
+
+commit 00f5ac5f6507fe1b107332f73341e5f74097bfcb
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 6 18:03:06 2013 -0500
+
+    working on sinaloa cartel org
+
+commit 8de9bca9cacd2d383a1490cf5dca131ad323c5e1
+Merge: 425f900 8b87561
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 6 17:41:12 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 8b87561200ce1112f59abcb53fed357a2ea1276b
+Merge: 858c3a6 61a3884
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Jul 6 17:39:51 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 425f900107c57753d896a847462db41e154a5ad8
+Merge: 9a0e83c 61a3884
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 6 17:37:43 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 9a0e83cc2c18c1eef42222384214ffa9c4b47603
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 6 17:37:19 2013 -0500
+
+    carousels added to people & crises
+
+commit 61a38848149913256973cdc6f2732539adc86ea8
+Author: pvcarroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 6 17:32:53 2013 -0500
+
+    Delete urls.pyc
+
+commit 3f01b509d2788bf3b1262dc130cbcdda51e3e559
+Author: pvcarroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 6 17:32:46 2013 -0500
+
+    Delete urls.pyc
+
+commit 59c7c387de7719e1d8214c3b50694c30d7788080
+Author: pvcarroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 6 17:32:39 2013 -0500
+
+    Delete __init__.pyc
+
+commit 273268aa5af75016e6471c000587eac021aabfcb
+Author: pvcarroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 6 17:32:33 2013 -0500
+
+    Delete settings.pyc
+
+commit 9efeb6dd397080717f7759ccd714411958876c42
+Author: pvcarroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 6 17:31:55 2013 -0500
+
+    Delete views.pyc
+
+commit 172dbc18552643b2acfa2a91023fb31d627d2ab6
+Author: pvcarroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 6 17:31:42 2013 -0500
+
+    Delete __init__.pyc
+
+commit 858c3a640cf958a8037e836b13b00c5d7a61a17d
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Jul 6 17:30:57 2013 -0500
+
+    added carousel feature for pictures to orgs
+
+commit 950cb7afbd58ad75752d710f92741a2e3c0dc34e
+Merge: c3c64d3 9ba2e7a
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 6 17:30:47 2013 -0500
+
+    fixed models.py
+
+commit c3c64d3a73599d21263bdf6478737bcd87af2211
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Sat Jul 6 17:28:00 2013 -0500
+
+    fixed models.py, Mexican Drug War
+
+commit 9ba2e7aae250c1593d1e32d31920843d484a2867
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 6 17:15:39 2013 -0500
+
+    updated models to current unified schema again (removed places model)
+
+commit b8f59670256a0a2c9971d99b50376cdaeced7872
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 6 17:09:22 2013 -0500
+
+    updated models to current unified schema again
+
+commit cad38f20f1cd12c765dab081ea8411f97de4e330
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Sat Jul 6 17:06:17 2013 -0500
+
+    updated models to current unified schema
+
+commit 58bf6a0d16635a442489b518d85637bd119d8536
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 6 16:37:51 2013 -0500
+
+    added carousel to bee crisis
+
+commit d4aee6475efe3b775c1f08bb4477e6bf61592a5b
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 6 16:37:12 2013 -0500
+
+    added jquery & bootstrap.js to default
+
+commit 7464543344ceacff5476a8fb25f46a658144f83d
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 6 16:36:40 2013 -0500
+
+    added jquery
+
+commit 3372850bf5ec90321b94f02ba5fe9bac41e5c8c4
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Jul 6 14:19:27 2013 -0500
+
+    linked bee crisis, org, and people to each other
+
+commit 9cf33ffdddc04c216f5a40cbf760bf3b13ff032c
+Merge: 99acfde 78d805c
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Jul 6 13:59:31 2013 -0500
+
+    fixed merge conflict in CRI_BEEDIE.html
+
+commit 99acfde3c59df527cd9e5d6ed3790c6045a7178d
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Jul 6 13:55:15 2013 -0500
+
+    Created pages for Bees crises, org and person
+
+commit 78d805cbf3e94fed9822d7dd5a90a6ad54107419
+Merge: 6809157 61b8a74
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 6 13:30:41 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 680915734284f3ec59230c174369dcc16b1900fe
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Sat Jul 6 13:30:14 2013 -0500
+
+    added area for crises, orgs, & people links on pages
+
+commit 61b8a7431c101fb5c066690ce0751a4917ee1265
+Author: Olga <osaprych@gmail.com>
+Date:   Sat Jul 6 13:10:28 2013 -0500
+
+    Created templates for organizations pages
+
+commit d5539203d574a50a005918fb2cd9fe50b19dcd47
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Sat Jul 6 12:44:11 2013 -0500
+
+    added shared example xml
+
+commit 4c120d3069103c7d3f3d06566a43e6be35e9dd0d
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Sat Jul 6 12:41:55 2013 -0500
+
+    updated our xsd to shared xsd
+
+commit b1f8ddaef691c4f66594eda1c96b2d4a8d65da0d
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Sat Jul 6 12:32:55 2013 -0500
+
+    person html for snowden added
+
+commit 99d9cd4b64c49978e99b89968be928013d7a1e23
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Sat Jul 6 11:18:42 2013 -0500
+
+    crises templates updated
+
+commit 8f02882468a11672551d3c2a6a8159fed7999233
+Merge: adf0e04 7123020
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Fri Jul 5 21:32:32 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit adf0e04881377e56a31ad0d9599e6a92157b32bc
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Fri Jul 5 21:32:19 2013 -0500
+
+    bee crisis template added
+
+commit 7123020ad976d27804aae5e4c8f37c40e1314bed
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 5 20:47:40 2013 -0500
+
+    added default Export page
+
+commit b797f8762f68d8c784f5d03c9c71165f82457e0a
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 5 20:26:51 2013 -0500
+
+    added links to default pages of people and orgs
+
+commit 6f61332df48007a17ef00ce8ff36bad4b0d77681
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Fri Jul 5 20:07:37 2013 -0500
+
+    created skeleton for static pages for crises
+
+commit 0d40463a77dc76f97b954d568c2f5d6a317cddad
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Fri Jul 5 19:54:07 2013 -0500
+
+    fix server, removed mysql from settings
+
+commit 6c1712c8d073f3480fbb63c2ec459e48227cbe55
+Merge: c692125 7a6b4af
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 5 19:49:23 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit c69212547d2e9accc59af60e8cc2db215ee7908a
+Author: Olga <osaprych@gmail.com>
+Date:   Fri Jul 5 19:46:47 2013 -0500
+
+    added links to orgs and people
+
+commit 7a6b4af4132983d8b651ea521056380e194c7cc6
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Fri Jul 5 19:43:59 2013 -0500
+
+    moved import into the app
+
+commit 842d9822dacbaa0737e1e9d60bafb223eb90b95a
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Fri Jul 5 19:12:57 2013 -0500
+
+    urls, form input, & views
+
+commit 23d64b7c650da8f7fdceace3072c543fc9658a5e
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Thu Jul 4 20:27:39 2013 -0500
+
+    send all urls to app
+
+commit 5260c16b2726eb4f0f3ea85d2b8cd243904ea6a4
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Thu Jul 4 17:54:13 2013 -0500
+
+    homepage starting to take shape
+
+commit 571ef2f9e1ffea59682b444aa8af71f5026a9a3a
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 4 17:39:30 2013 -0500
+
+    Updated import.py and models.py
+
+commit b9e36e04679880aebef66e6030626a20d1cd7b27
+Merge: 476c8f4 3c3404e
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 4 17:37:52 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 3c3404e6506b1dfb4f4a261ab428e1ce1bdc1bff
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Thu Jul 4 17:26:32 2013 -0500
+
+    Update WorldCrises.xml
+
+commit 89744eeb451c1eaa6a5cb680098e1b5daa777fa0
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Jul 4 17:10:15 2013 -0500
+
+    added Mexican Drug War to WorldCrises.xml
+
+commit 3922bbaadfceae422286c8eedfedb436f287e02c
+Merge: b98a75d 6d10adb
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Thu Jul 4 15:41:12 2013 -0500
+
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit 6d10adb5a3f81202e6599fb256ea96de99c5fe9f
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jul 4 14:16:23 2013 -0500
+
+    Modified schema by adding DescriptionType to a PersonType and added unique people to our xml
+
+commit 476c8f4462cf6a07fe4a809ba19ae33f02157fa4
+Merge: 9197379 cf71679
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 4 13:43:33 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 91973791cce5613d5b2d3cb5dc9ab57250dd2202
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 4 13:43:18 2013 -0500
+
+    Moved setting of DJANGO_SETTINGS_MODULE and started on unit tests for models.py
+
+commit cf7167976a40659ca7f3ad1fd226c7c658c328ca
+Author: Eduardo Saenz <eddies@cs.utexas.edu>
+Date:   Thu Jul 4 13:31:12 2013 -0500
+
+    added orgs & reverted schema
+
+commit 3cd52632d0f59ac4c0593225dd3c8a011401b8e8
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Thu Jul 4 13:02:53 2013 -0500
+
+    updated models
+
+commit 7e6330fbbd9beaeda3185c64b3dbb788d21949be
+Author: pvcarroll <p.v.carroll@gmail.com>
+Date:   Thu Jul 4 13:02:51 2013 -0500
+
+    Update .gitignore
+
+commit ba336b89fbe6205adfaaff0527a4a89e308f9937
+Author: pvcarroll <p.v.carroll@gmail.com>
+Date:   Thu Jul 4 13:01:33 2013 -0500
+
+    Update .gitignore
+
+commit 703c76f9a5037324a8818012c4e7fc49ad4ff2eb
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Jul 3 20:50:39 2013 -0500
+
+    finished model design according to current schema
+
+commit dde75351a5048350c201858a414eb714b9634910
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Wed Jul 3 20:42:58 2013 -0500
+
+    added bootstrap
+
+commit 3072616634c568c1a715db4039e0379b3effff1b
+Merge: 4659ef8 9af3dca
+Author: Olga <osaprych@gmail.com>
+Date:   Wed Jul 3 20:06:21 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 4659ef888e4f2bce0b13a65b057789ff6926b410
+Author: Olga <osaprych@gmail.com>
+Date:   Wed Jul 3 20:05:03 2013 -0500
+
+    Created a default template
+
+commit 9af3dcaf06ddb6b907c832c15945ede8d914eb13
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Wed Jul 3 19:23:18 2013 -0500
+
+    resolved issue #15
+
+commit fa7e9ace94a54614bf5b10256c55370f4249d1c1
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Tue Jul 2 23:29:18 2013 -0500
+
+    index template works for wcdb
+
+commit f70df357ea8bc5afbf320a59245599e82e000430
+Merge: d1cba0d fea1bf6
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Tue Jul 2 22:59:48 2013 -0500
+
+    why am I merging?
+    Merge branch 'development' of github.com:eddies5/cs373-wcdb into development
+
+commit b98a75dc14290ef77cd71dcf8863f33cbda9e4cf
+Merge: fea1bf6 d1cba0d
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 2 22:02:13 2013 -0500
+
+    dev is 1 commit behind
+    Merge branch 'master' into development
+
+commit fea1bf6e1a3eaddfff76ba24152d4f7f42e57632
+Merge: 7704511 b3c9456
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 2 21:54:31 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 7704511a817a66f4dc0698f62e42e63e1d7218e2
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 2 21:54:03 2013 -0500
+
+    partially working first Django app
+
+commit d1cba0dfa077ba307466888588bc04e8cff099a6
+Author: Paul Carroll <p.v.carroll@gmail.com>
+Date:   Tue Jul 2 21:52:18 2013 -0500
+
+    modified xml
+
+commit b3c9456beeb788aca1ff854b49ca1622752053a1
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 2 21:43:51 2013 -0500
+
+    re:Untested spike solution for import
+
+commit 2d6f88cf475c5246f6d584e71a1b7bebd563de85
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Tue Jul 2 21:42:21 2013 -0500
+
+    Untested spike solution for import
+
+commit 816e82c9b1efc25815dccdd90581a05474773365
+Author: Shaelyn-Watson <shaelynjoy@gmail.com>
+Date:   Tue Jul 2 20:54:27 2013 -0500
+
+    Added basic crisis model
+
+commit 81165d9d1801fc0f36946c0a451d9543e996b145
+Merge: 9f9ddfa 84f1476
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 2 20:46:57 2013 -0500
+
+    Merge branch 'development' of https://github.com/eddies5/cs373-wcdb into development
+
+commit 9f9ddfa7971e250ab54c1f222498ec9b6a6cc8b1
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 2 20:45:39 2013 -0500
+
+    created first django app
+
+commit 84f147670cd81c39559c87dc7a1e1e12f3dff07d
+Author: Shaelyn-Watson <shaelynjoy@gmail.com>
+Date:   Tue Jul 2 20:44:09 2013 -0500
+
+    Baby xml to test import.py
+
+commit ad3f85833d55f8655a53cd4bf0f4aed0872ee57a
+Author: Olga <osaprych@gmail.com>
+Date:   Tue Jul 2 20:36:30 2013 -0500
+
+    deleted initial Django project because it did not work, and we had to start it over again
+
+commit dabe1e61a0b37a7eae294c113a2e3a180e828183
+Author: Shaelyn-Watson <shaelynjoy@gmail.com>
+Date:   Tue Jul 2 19:43:09 2013 -0500
+
+    Django project and app skeleton
+
+commit 58063ddaca23d10e8eac98419ade960d4e698061
+Author: Shaelyn-Watson <shaelynjoy@gmail.com>
+Date:   Mon Jul 1 14:33:24 2013 -0500
+
+    Update WorldCrises.xml
+
+commit af0220dbba13a367ebd7c0567eb850c8b3cc1190
+Author: Shaelyn-Watson <shaelynjoy@gmail.com>
+Date:   Mon Jul 1 14:31:58 2013 -0500
+
+    Added Brazilian Protest Crisis (may need to edit ppl places orgs)
+
+commit 56086bfb1b758e51b520629b07975a45ce246e31
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Jul 1 14:27:17 2013 -0500
+
+    Formatting
+
+commit 8f64832b970bb29bdc091851884a73c731124259
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Jul 1 14:25:59 2013 -0500
+
+    Created XML instance for Texas Wildfires
+
+commit 468615a8e42d259f9539fd489a56d806c13f5727
+Author: bblee1002 <bblee1002@utexas.edu>
+Date:   Mon Jul 1 13:50:46 2013 -0500
+
+    Created XML instance for NSA wiretapping
+
+commit 56240c55a46d0ee6eee794e1b0c4fc0a70426369
+Author: Shaelyn-Watson <shaelynjoy@gmail.com>
+Date:   Mon Jul 1 11:55:30 2013 -0500
+
+    Schema posted to piazza, change? keep?
+
+commit 1095cb5215767ebe3dee85d43fcc67689ca7aabd
+Author: Eddie <saenzeddie5@gmail.com>
+Date:   Sun Jun 30 16:44:14 2013 -0700
+
+    Initial commit
